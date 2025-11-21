@@ -42,7 +42,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
         cta={
           <Link
             href="#cocktail"
-            className="inline-block bg-orange hover:bg-rouge text-blanc px-8 py-4 rounded-full font-bold text-lg transition-colors"
+            className="inline-block bg-safran/90 backdrop-blur-sm hover:bg-orange text-noir px-10 py-5 rounded-full font-black text-lg transition-all shadow-2xl shadow-safran/20 border border-safran/30"
           >
             {t('cta')}
           </Link>

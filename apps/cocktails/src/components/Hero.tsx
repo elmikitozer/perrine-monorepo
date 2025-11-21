@@ -15,29 +15,39 @@ interface HeroProps {
 export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }: HeroProps) {
   return (
     <section className="relative h-screen w-full overflow-hidden bg-noir">
-      {/* Background Media */}
+      {/* Background Media with Parallax Effect */}
       {backgroundVideo ? (
-        <video
+        <motion.video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 h-full w-full object-cover opacity-60"
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 20, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
+          className="absolute inset-0 h-full w-full object-cover opacity-50"
         >
           <source src={backgroundVideo} type="video/mp4" />
-        </video>
+        </motion.video>
       ) : backgroundImage ? (
-        <Image
-          src={urlForImage(backgroundImage).url()}
-          alt="Hero background"
-          fill
-          className="object-cover opacity-60"
-          priority
-        />
+        <motion.div
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 20, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={urlForImage(backgroundImage).url()}
+            alt="Hero background"
+            fill
+            className="object-cover opacity-50"
+            priority
+          />
+        </motion.div>
       ) : null}
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-noir/70 via-noir/50 to-noir" />
+      {/* Gradient Overlay - Plus subtil */}
+      <div className="absolute inset-0 bg-gradient-to-b from-noir/60 via-noir/40 to-noir/90" />
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
@@ -66,6 +76,8 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             {cta}
           </motion.div>
