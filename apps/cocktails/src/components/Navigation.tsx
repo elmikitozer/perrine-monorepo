@@ -133,7 +133,7 @@ export function Navigation() {
             transition={{ duration: 0.3, ease: 'easeOut' }}
             className="md:hidden bg-blanc/95 backdrop-blur-lg border-t border-noir/10"
           >
-            <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
+            <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
               <Link
                 href={`/${locale}`}
                 onClick={() => setIsMobileMenuOpen(false)}
