@@ -19,13 +19,13 @@ export function FooterCocktail({ socials }: FooterCocktailProps) {
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           {/* Left: Brand */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="font-display text-2xl font-black mb-2 text-safran">Dix Huit Zéro Cinq</h3>
             <p className="text-noir/60 text-sm">L&apos;art du cocktail d&apos;exception</p>
           </div>
 
           {/* Right: Warnings & Legal */}
-          <div className="text-right space-y-3">
+          <div className="text-center md:text-right space-y-3">
             <p className="text-noir/50 text-xs leading-relaxed">
               {t('alcoholWarning')}. {t('alcoholMessage')}
             </p>

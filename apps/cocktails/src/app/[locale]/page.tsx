@@ -63,7 +63,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
           </div>
 
           {/* Content */}
-          <div className="space-y-6">
+          <div className="space-y-6 text-center lg:text-left">
             <h2 className="font-display text-5xl md:text-6xl font-black text-safran">
               {cocktailSection?.title?.[locale] || tCocktail('title')}
             </h2>
