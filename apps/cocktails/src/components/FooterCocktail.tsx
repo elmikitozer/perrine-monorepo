@@ -21,7 +21,7 @@ export function FooterCocktail({ socials }: FooterCocktailProps) {
           {/* Left: Brand */}
           <div className="text-center md:text-left">
             <h3 className="font-display text-2xl font-black mb-2 text-safran">Dix Huit Zéro Cinq</h3>
-            <p className="text-noir/60 text-sm">L&apos;art du cocktail d&apos;exception</p>
+            <p className="text-noir/60 text-sm">Le cocktail familial aux saveurs tropicales</p>
           </div>
 
           {/* Right: Warnings & Legal */}

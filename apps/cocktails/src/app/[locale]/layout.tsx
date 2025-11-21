@@ -19,7 +19,7 @@ const lilitaOne = Lilita_One({
 });
 
 export const metadata: Metadata = {
-  title: "Dix Huit Zéro Cinq - L'art du cocktail d'exception",
+  title: "Dix Huit Zéro Cinq - Le cocktail familial aux saveurs tropicales",
   description:
     "Découvrez l'univers unique de Dix Huit Zéro Cinq, où l'art du cocktail rencontre l'excellence.",
   icons: {
@@ -27,15 +27,15 @@ export const metadata: Metadata = {
     apple: '/logo1.png',
   },
   openGraph: {
-    title: "Dix Huit Zéro Cinq - L'art du cocktail d'exception",
+    title: "Dix Huit Zéro Cinq - Le cocktail familial aux saveurs tropicales",
     description:
       "Découvrez l'univers unique de Dix Huit Zéro Cinq, où l'art du cocktail rencontre l'excellence.",
     images: [
       {
-        url: '/opengraph-image.webp',
+        url: '/images/opengraphThumbnail.webp',
         width: 1200,
         height: 630,
-        alt: "Dix Huit Zéro Cinq - L'art du cocktail d'exception",
+        alt: "Dix Huit Zéro Cinq - Le cocktail familial aux saveurs tropicales",
       },
     ],
     locale: 'fr_FR',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Dix Huit Zéro Cinq - L'art du cocktail d'exception",
+    title: "Dix Huit Zéro Cinq - Le cocktail familial aux saveurs tropicales",
     description:
       "Découvrez l'univers unique de Dix Huit Zéro Cinq, où l'art du cocktail rencontre l'excellence.",
     images: ['/opengraph-image.webp'],

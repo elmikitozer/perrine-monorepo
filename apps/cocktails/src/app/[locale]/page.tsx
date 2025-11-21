@@ -36,7 +36,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       {/* Hero Section */}
       <Hero
         title={heroData?.title?.[locale] || 'Dix Huit Zéro Cinq'}
-        subtitle={heroData?.subtitle?.[locale] || "L'art du cocktail d'exception"}
+        subtitle={heroData?.subtitle?.[locale] || "Le cocktail familial aux saveurs tropicales"}
         backgroundImage={heroData?.backgroundImage}
         backgroundVideo={heroData?.backgroundVideo}
         cta={
