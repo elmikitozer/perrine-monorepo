@@ -14,7 +14,7 @@ interface HeroProps {
 
 export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }: HeroProps) {
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-noir">
+    <section className="relative h-screen w-full overflow-hidden bg-blanc">
       {/* Background Media with Parallax Effect */}
       {backgroundVideo ? (
         <motion.video
@@ -47,7 +47,7 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
       ) : null}
 
       {/* Gradient Overlay - Plus subtil */}
-      <div className="absolute inset-0 bg-gradient-to-b from-noir/60 via-noir/40 to-noir/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-blanc/60 via-blanc/40 to-blanc/90" />
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
@@ -65,7 +65,7 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="text-xl md:text-2xl lg:text-3xl text-blanc/90 max-w-3xl mb-12"
+            className="text-xl md:text-2xl lg:text-3xl text-noir/90 max-w-3xl mb-12"
           >
             {subtitle}
           </motion.p>
@@ -93,7 +93,7 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="text-blanc/50"
+            className="text-noir/50"
           >
             <svg
               className="w-6 h-6"

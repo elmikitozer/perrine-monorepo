@@ -38,7 +38,7 @@ export function Navigation() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-noir/90 backdrop-blur-md border-b border-blanc/10'
+          ? 'bg-blanc/90 backdrop-blur-md border-b border-noir/10'
           : 'bg-transparent'
       }`}
     >
@@ -47,7 +47,7 @@ export function Navigation() {
           {/* Logo */}
           <Link
             href={`/${locale}`}
-            className="relative w-12 h-12 md:w-16 md:h-16 transition-transform hover:scale-105 bg-noir rounded-lg p-1"
+            className="relative w-12 h-12 md:w-16 md:h-16 transition-transform hover:scale-105 bg-blanc rounded-lg p-1 border border-noir/10"
           >
             <Image
               src="/logo1.png"
@@ -63,13 +63,13 @@ export function Navigation() {
           <div className="hidden md:flex items-center gap-8">
             <Link
               href={`/${locale}`}
-              className="text-blanc/80 hover:text-safran transition-colors font-medium"
+              className="text-noir/80 hover:text-orange transition-colors font-medium"
             >
               {t('home')}
             </Link>
             <Link
               href={`/${locale}/contact`}
-              className="text-blanc/80 hover:text-safran transition-colors font-medium"
+              className="text-noir/80 hover:text-orange transition-colors font-medium"
             >
               {t('contact')}
             </Link>
@@ -90,7 +90,7 @@ export function Navigation() {
             {/* Language Toggle */}
             <button
               onClick={toggleLanguage}
-              className="bg-blanc/10 backdrop-blur-sm border border-blanc/20 rounded-full px-4 py-2 text-blanc hover:bg-blanc/20 transition-colors flex items-center gap-2"
+              className="bg-noir/10 backdrop-blur-sm border border-noir/20 rounded-full px-4 py-2 text-noir hover:bg-noir/20 transition-colors flex items-center gap-2"
             >
               <span className="font-bold">{locale.toUpperCase()}</span>
               <span className="text-blanc/50">→</span>
@@ -101,7 +101,7 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-blanc p-2"
+            className="md:hidden text-noir p-2"
             aria-label="Menu"
           >
             <svg
@@ -137,7 +137,7 @@ export function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-noir/95 backdrop-blur-lg border-t border-blanc/10"
+            className="md:hidden bg-blanc/95 backdrop-blur-lg border-t border-noir/10"
           >
             <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
               <Link
@@ -168,11 +168,11 @@ export function Navigation() {
 
               <button
                 onClick={toggleLanguage}
-                className="bg-blanc/10 border border-blanc/20 rounded-full px-4 py-3 text-blanc hover:bg-blanc/20 transition-colors flex items-center justify-center gap-2 mt-2"
+                className="bg-noir/10 border border-noir/20 rounded-full px-4 py-3 text-noir hover:bg-noir/20 transition-colors flex items-center justify-center gap-2 mt-2"
               >
                 <span className="font-bold">{locale.toUpperCase()}</span>
-                <span className="text-blanc/50">→</span>
-                <span className="text-blanc/70">{locale === 'fr' ? 'EN' : 'FR'}</span>
+                <span className="text-noir/50">→</span>
+                <span className="text-noir/70">{locale === 'fr' ? 'EN' : 'FR'}</span>
               </button>
             </div>
           </motion.div>

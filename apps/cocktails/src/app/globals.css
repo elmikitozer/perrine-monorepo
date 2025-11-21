@@ -9,7 +9,7 @@
   }
 
   body {
-    @apply bg-noir text-blanc;
+    @apply bg-blanc text-noir;
   }
 }
 

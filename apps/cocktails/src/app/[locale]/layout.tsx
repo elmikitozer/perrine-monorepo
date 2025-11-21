@@ -25,6 +25,26 @@ export const metadata: Metadata = {
     icon: '/logo1.png',
     apple: '/logo1.png',
   },
+  openGraph: {
+    title: 'Dix Huit Zéro Cinq - L\'art du cocktail d\'exception',
+    description: 'Découvrez l\'univers unique de Dix Huit Zéro Cinq, où l\'art du cocktail rencontre l\'excellence.',
+    images: [
+      {
+        url: '/images/bottle.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Dix Huit Zéro Cinq - Cocktail d\'exception',
+      },
+    ],
+    locale: 'fr_FR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dix Huit Zéro Cinq - L\'art du cocktail d\'exception',
+    description: 'Découvrez l\'univers unique de Dix Huit Zéro Cinq, où l\'art du cocktail rencontre l\'excellence.',
+    images: ['/images/bottle.webp'],
+  },
 };
 
 export default async function LocaleLayout({
@@ -38,7 +58,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${inter.variable} ${lilitaOne.variable} font-sans min-h-screen bg-noir text-blanc antialiased`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${lilitaOne.variable} font-sans min-h-screen bg-blanc text-noir antialiased`} suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
           <Navigation />
           {children}

@@ -50,7 +50,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       />
 
       {/* Cocktail Section */}
-      <Section id="cocktail" className="bg-gradient-to-b from-noir to-noir/95">
+      <Section id="cocktail" className="bg-gradient-to-b from-blanc to-blanc/95">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image */}
           <div className="relative h-[600px] lg:h-[700px]">
@@ -67,7 +67,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
             <h2 className="font-display text-5xl md:text-6xl font-black text-safran">
               {cocktailSection?.title?.[locale] || tCocktail('title')}
             </h2>
-            <div className="text-lg md:text-xl text-blanc/80 space-y-4">
+            <div className="text-lg md:text-xl text-noir/80 space-y-4">
               {cocktailSection?.story?.[locale] ? (
                 <div className="prose prose-invert max-w-none">
                   {/* Render Sanity Portable Text here */}
@@ -100,13 +100,13 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       </Section>
 
       {/* Spirit Section */}
-      <Section className="bg-gradient-to-b from-noir/95 to-noir">
+      <Section className="bg-gradient-to-b from-blanc/95 to-blanc">
         <div className="max-w-5xl mx-auto text-center space-y-8">
           <h2 className="font-display text-5xl md:text-7xl font-black text-safran">
             {spiritSection?.title?.[locale] || tSpirit('title')}
           </h2>
 
-          <div className="text-lg md:text-xl text-blanc/80 space-y-6 max-w-3xl mx-auto">
+          <div className="text-lg md:text-xl text-noir/80 space-y-6 max-w-3xl mx-auto">
             {spiritSection?.content?.[locale] ? (
               <div className="prose prose-invert prose-lg max-w-none">
                 {/* Render Sanity Portable Text here */}
@@ -153,7 +153,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
 
       {/* Featured Cocktails */}
       {data.featuredCocktails && data.featuredCocktails.length > 0 && (
-        <Section className="bg-noir/90">
+        <Section className="bg-blanc/90">
           <h2 className="font-display text-4xl md:text-5xl font-black text-center mb-12 text-safran">
             Nos Créations
           </h2>
@@ -161,7 +161,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
             {data.featuredCocktails.map((cocktail: any) => (
               <div
                 key={cocktail._id}
-                className="group relative overflow-hidden rounded-lg bg-blanc/5 backdrop-blur-sm border border-blanc/10 hover:border-safran/50 transition-all"
+                className="group relative overflow-hidden rounded-lg bg-noir/5 backdrop-blur-sm border border-noir/10 hover:border-orange/50 transition-all"
               >
                 {cocktail.mainImage && (
                   <div className="relative h-80">
@@ -174,7 +174,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
                   </div>
                 )}
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-blanc mb-2">
+                  <h3 className="text-2xl font-bold text-noir mb-2">
                     {cocktail.name?.[locale] || cocktail.name?.fr}
                   </h3>
                 </div>
