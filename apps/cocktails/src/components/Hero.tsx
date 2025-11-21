@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { urlForImage } from '@/sanity/lib/image';
+import { useState, useEffect } from 'react';
 
 interface HeroProps {
   title: string;
@@ -13,6 +14,34 @@ interface HeroProps {
 }
 
 export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }: HeroProps) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const handleScrollClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const cocktailSection = document.getElementById('cocktail');
+    if (cocktailSection) {
+      if (isMobile) {
+        // Mobile: scroll vers le texte (en bas de l'image)
+        const textElement = cocktailSection.querySelector('.space-y-6');
+        if (textElement) {
+          textElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          cocktailSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // Desktop: scroll normal vers le début de la section
+        cocktailSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <section className="relative h-screen w-full overflow-hidden bg-blanc">
       {/* Background Media with Parallax Effect */}
@@ -102,6 +131,7 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
         {/* Scroll Indicator */}
         <motion.a
           href="#cocktail"
+          onClick={handleScrollClick}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
