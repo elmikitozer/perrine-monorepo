@@ -64,7 +64,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
 
           {/* Content */}
           <div className="space-y-6">
-            <h2 className="text-5xl md:text-6xl font-bold text-safran">
+            <h2 className="font-display text-5xl md:text-6xl font-black text-safran">
               {cocktailSection?.title?.[locale] || tCocktail('title')}
             </h2>
             <div className="text-lg md:text-xl text-blanc/80 space-y-4">
@@ -102,7 +102,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       {/* Spirit Section */}
       <Section className="bg-gradient-to-b from-noir/95 to-noir">
         <div className="max-w-5xl mx-auto text-center space-y-8">
-          <h2 className="text-5xl md:text-7xl font-bold text-blanc">
+          <h2 className="font-display text-5xl md:text-7xl font-black text-blanc">
             {spiritSection?.title?.[locale] || tSpirit('title')}
           </h2>
 
@@ -154,7 +154,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       {/* Featured Cocktails */}
       {data.featuredCocktails && data.featuredCocktails.length > 0 && (
         <Section className="bg-noir/90">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-safran">
+          <h2 className="font-display text-4xl md:text-5xl font-black text-center mb-12 text-safran">
             Nos Créations
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

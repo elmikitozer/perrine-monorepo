@@ -46,7 +46,7 @@ export function Navigation() {
           {/* Logo */}
           <Link
             href={`/${locale}`}
-            className="text-2xl md:text-3xl font-bold text-safran hover:text-orange transition-colors"
+            className="font-display text-2xl md:text-3xl font-black text-safran hover:text-orange transition-colors"
           >
             1805
           </Link>
