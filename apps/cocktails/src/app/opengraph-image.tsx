@@ -42,7 +42,7 @@ export default async function Image() {
           <span>DIX HUIT</span>
           <span>ZÉRO CINQ</span>
         </div>
-        
+
         {/* Subtitle */}
         <div
           style={{
