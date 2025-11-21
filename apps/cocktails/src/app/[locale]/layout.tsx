@@ -30,6 +30,14 @@ export const metadata: Metadata = {
     title: "Dix Huit Zéro Cinq - L'art du cocktail d'exception",
     description:
       "Découvrez l'univers unique de Dix Huit Zéro Cinq, où l'art du cocktail rencontre l'excellence.",
+    images: [
+      {
+        url: '/opengraph-image.webp',
+        width: 1200,
+        height: 630,
+        alt: "Dix Huit Zéro Cinq - L'art du cocktail d'exception",
+      },
+    ],
     locale: 'fr_FR',
     type: 'website',
   },
@@ -38,6 +46,7 @@ export const metadata: Metadata = {
     title: "Dix Huit Zéro Cinq - L'art du cocktail d'exception",
     description:
       "Découvrez l'univers unique de Dix Huit Zéro Cinq, où l'art du cocktail rencontre l'excellence.",
+    images: ['/opengraph-image.webp'],
   },
 };
 
