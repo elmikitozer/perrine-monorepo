@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { Hero, Section, FooterCocktail } from '@/components';
 import { client } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
-import { motion } from 'framer-motion';
 
 async function getHomeData(locale: string) {
   const query = `{
