@@ -7,8 +7,8 @@ const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '';
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
 
 export default defineConfig({
-  name: 'cocktails',
-  title: 'Cocktails - Recettes Familiales',
+  name: 'dixhuitzerocinq',
+  title: 'Dix Huit Zéro Cinq - CMS',
   basePath: '/studio',
   projectId,
   dataset,

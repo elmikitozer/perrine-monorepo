@@ -4,7 +4,17 @@
 
 @layer base {
   html {
+    scroll-behavior: smooth;
     @apply antialiased;
+  }
+
+  body {
+    @apply bg-noir text-blanc;
   }
 }
 
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-orange via-safran to-rouge bg-clip-text text-transparent;
+  }
+}

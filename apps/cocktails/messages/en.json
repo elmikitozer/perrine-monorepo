@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "home": "Home",
+    "contact": "Contact",
+    "shop": "Shop"
+  },
+  "hero": {
+    "cta": "Discover",
+    "scrollDown": "Scroll down"
+  },
+  "cocktail": {
+    "title": "The Cocktail",
+    "discover": "Discover our cocktail"
+  },
+  "spirit": {
+    "title": "The Dix Huit Zéro Cinq Spirit"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send",
+    "info": "Contact Information"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "follow": "Follow us"
+  },
+  "shop": {
+    "comingSoon": "Shop Coming Soon",
+    "description": "Our online shop will be available soon."
+  }
+}
+
+

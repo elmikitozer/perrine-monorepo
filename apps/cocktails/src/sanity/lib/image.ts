@@ -7,3 +7,7 @@ export function urlFor(source: any) {
   return builder.image(source);
 }
 
+export function urlForImage(source: any) {
+  return builder.image(source);
+}
+

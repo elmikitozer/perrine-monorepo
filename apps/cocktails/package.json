@@ -6,17 +6,22 @@
     "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sanity": "sanity dev",
+    "sanity:deploy": "sanity deploy"
   },
   "dependencies": {
     "@perrine/ui": "workspace:*",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.58.0",
+    "framer-motion": "^12.23.24",
     "next": "14.2.5",
+    "next-intl": "^4.4.0",
     "next-sanity": "^9.5.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sanity": "^3.58.0"
+    "sanity": "^3.58.0",
+    "styled-components": "^6.1.15"
   },
   "devDependencies": {
     "@perrine/tsconfig": "workspace:*",
@@ -31,4 +36,3 @@
     "typescript": "^5.5.4"
   }
 }
-
