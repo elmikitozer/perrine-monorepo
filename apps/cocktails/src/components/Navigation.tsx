@@ -47,7 +47,7 @@ export function Navigation() {
           {/* Logo */}
           <Link
             href={`/${locale}`}
-            className="relative w-12 h-12 md:w-16 md:h-16 transition-transform hover:scale-105"
+            className="relative w-12 h-12 md:w-16 md:h-16 transition-transform hover:scale-105 bg-noir rounded-lg p-1"
           >
             <Image
               src="/logo1.png"
@@ -55,6 +55,7 @@ export function Navigation() {
               fill
               className="object-contain"
               priority
+              quality={100}
             />
           </Link>
 
