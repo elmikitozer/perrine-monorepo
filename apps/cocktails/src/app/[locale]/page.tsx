@@ -102,7 +102,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       {/* Spirit Section */}
       <Section className="bg-gradient-to-b from-noir/95 to-noir">
         <div className="max-w-5xl mx-auto text-center space-y-8">
-          <h2 className="font-display text-5xl md:text-7xl font-black text-blanc">
+          <h2 className="font-display text-5xl md:text-7xl font-black text-safran">
             {spiritSection?.title?.[locale] || tSpirit('title')}
           </h2>
 
