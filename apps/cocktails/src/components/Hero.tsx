@@ -33,7 +33,7 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
         if (ctaButton) {
           // Position du bouton + hauteur de viewport + petit espace (60px)
           const buttonRect = ctaButton.getBoundingClientRect();
-          const scrollPosition = window.pageYOffset + buttonRect.bottom - window.innerHeight + 60;
+          const scrollPosition = window.pageYOffset + buttonRect.bottom - window.innerHeight + 20;
           window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
         } else {
           cocktailSection.scrollIntoView({ behavior: 'smooth' });
@@ -56,7 +56,7 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
           playsInline
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
-          transition={{ duration: 20, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
+          transition={{ duration: 20, ease: 'linear', repeat: Infinity, repeatType: 'reverse' }}
           className="absolute inset-0 h-full w-full object-cover opacity-50"
         >
           <source src={backgroundVideo} type="video/mp4" />
@@ -65,7 +65,7 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
         <motion.div
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
-          transition={{ duration: 20, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
+          transition={{ duration: 20, ease: 'linear', repeat: Infinity, repeatType: 'reverse' }}
           className="absolute inset-0"
         >
           <Image
@@ -88,7 +88,8 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
           className="font-display text-6xl md:text-8xl lg:text-9xl font-black mb-6 tracking-tight uppercase"
-          style={{ color: '#de4842' }}
+          // style={{ color: '#de4842' }}
+          style={{ color: '#cf0803' }}
         >
           {/* Mobile: 2 lignes */}
           <span className="md:hidden">
@@ -103,9 +104,7 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
             )}
           </span>
           {/* Desktop: 1 ligne */}
-          <span className="hidden md:inline">
-            {title}
-          </span>
+          <span className="hidden md:inline">{title}</span>
         </motion.h1>
 
         {subtitle && (
@@ -145,12 +144,7 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
             transition={{ duration: 2, repeat: Infinity }}
             className="text-noir/50 hover:text-noir/80 transition-colors"
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -164,5 +158,3 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
     </section>
   );
 }
-
-
