@@ -88,11 +88,11 @@ export function Navigation() {
             {/* Language Toggle */}
             <button
               onClick={toggleLanguage}
-              className="bg-noir/10 backdrop-blur-sm border border-noir/20 rounded-full px-4 py-2 text-noir hover:bg-noir/20 transition-colors flex items-center gap-2"
+              className="bg-safran/20 backdrop-blur-sm border-2 border-noir rounded-full px-4 py-2 text-noir hover:bg-safran/30 transition-colors flex items-center gap-2"
             >
               <span className="font-bold">{locale.toUpperCase()}</span>
-              <span className="text-blanc/50">→</span>
-              <span className="text-blanc/70">{locale === 'fr' ? 'EN' : 'FR'}</span>
+              <span className="text-noir/60">→</span>
+              <span className="text-noir/80">{locale === 'fr' ? 'EN' : 'FR'}</span>
             </button>
           </div>
 
