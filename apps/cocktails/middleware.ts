@@ -6,10 +6,10 @@ export default createMiddleware({
 
   // Used when no locale matches
   defaultLocale: 'fr',
-  
+
   // Always show locale in URL
   localePrefix: 'always',
-  
+
   // Detect locale from Accept-Language header
   localeDetection: true,
 });
