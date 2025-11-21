@@ -1,7 +1,6 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
 
 interface FooterCocktailProps {
   socials?: {
@@ -18,27 +17,21 @@ export function FooterCocktail({ socials }: FooterCocktailProps) {
   return (
     <footer className="bg-noir text-blanc py-12 border-t border-blanc/10">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold mb-4 text-safran">Dix Huit Zéro Cinq</h3>
-            <p className="text-blanc/70">L&apos;art du cocktail d&apos;exception</p>
-          </div>
-
-          {/* Links */}
-          <div>
-            <h4 className="font-bold mb-4">Navigation</h4>
-            <nav className="flex flex-col gap-2">
-              <Link href="/" className="text-blanc/70 hover:text-safran transition-colors">
-                Accueil
-              </Link>
-              <Link href="/contact" className="text-blanc/70 hover:text-safran transition-colors">
-                Contact
-              </Link>
-              <Link href="/shop" className="text-blanc/70 hover:text-safran transition-colors">
-                Boutique
-              </Link>
-            </nav>
+            <p className="text-blanc/70 mb-4">L&apos;art du cocktail d&apos;exception</p>
+            
+            {/* Alcohol Warning */}
+            <div className="bg-orange/10 border border-orange/30 rounded-lg p-4 mt-6">
+              <p className="text-orange text-sm font-semibold mb-2">
+                ⚠️ {t('alcoholWarning')}
+              </p>
+              <p className="text-blanc/60 text-xs leading-relaxed">
+                {t('alcoholMessage')}
+              </p>
+            </div>
           </div>
 
           {/* Socials */}
@@ -81,8 +74,13 @@ export function FooterCocktail({ socials }: FooterCocktailProps) {
           )}
         </div>
 
-        <div className="border-t border-blanc/10 pt-8 text-center text-blanc/50 text-sm">
-          <p>© {new Date().getFullYear()} Dix Huit Zéro Cinq. {t('rights')}.</p>
+        <div className="border-t border-blanc/10 pt-8 text-center">
+          <p className="text-blanc/50 text-sm mb-2">
+            © {new Date().getFullYear()} Dix Huit Zéro Cinq. {t('rights')}.
+          </p>
+          <p className="text-blanc/40 text-xs">
+            {t('responsibleDrinking')}
+          </p>
         </div>
       </div>
     </footer>

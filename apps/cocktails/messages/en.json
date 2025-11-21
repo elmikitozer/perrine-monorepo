@@ -2,7 +2,8 @@
   "nav": {
     "home": "Home",
     "contact": "Contact",
-    "shop": "Shop"
+    "shop": "Shop",
+    "instagram": "Instagram"
   },
   "hero": {
     "cta": "Discover",
@@ -25,7 +26,10 @@
   },
   "footer": {
     "rights": "All rights reserved",
-    "follow": "Follow us"
+    "follow": "Follow us",
+    "alcoholWarning": "Alcohol abuse is dangerous for your health",
+    "alcoholMessage": "Please drink responsibly. Sale of alcohol to minors under 18 is prohibited.",
+    "responsibleDrinking": "Drink responsibly"
   },
   "shop": {
     "comingSoon": "Shop Coming Soon",

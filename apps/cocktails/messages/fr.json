@@ -2,7 +2,8 @@
   "nav": {
     "home": "Accueil",
     "contact": "Contact",
-    "shop": "Boutique"
+    "shop": "Boutique",
+    "instagram": "Instagram"
   },
   "hero": {
     "cta": "Découvrir",
@@ -25,7 +26,10 @@
   },
   "footer": {
     "rights": "Tous droits réservés",
-    "follow": "Suivez-nous"
+    "follow": "Suivez-nous",
+    "alcoholWarning": "L'abus d'alcool est dangereux pour la santé",
+    "alcoholMessage": "À consommer avec modération. La vente d'alcool à des mineurs de moins de 18 ans est interdite.",
+    "responsibleDrinking": "Buvez responsablement"
   },
   "shop": {
     "comingSoon": "Boutique à venir",
