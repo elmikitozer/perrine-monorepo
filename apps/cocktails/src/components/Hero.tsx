@@ -88,8 +88,8 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
           className="font-display text-6xl md:text-8xl lg:text-9xl font-black mb-6 tracking-tight uppercase"
-          // style={{ color: '#de4842' }}
-          style={{ color: '#cf0803' }}
+          style={{ color: '#de4842' }}
+          // style={{ color: '#cf0803' }}
         >
           {/* Mobile: 2 lignes */}
           <span className="md:hidden">
