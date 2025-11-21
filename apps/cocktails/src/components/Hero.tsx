@@ -28,12 +28,12 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
     const cocktailSection = document.getElementById('cocktail');
     if (cocktailSection) {
       if (isMobile) {
-        // Mobile: scroll vers le bouton "Découvrir" (tout en bas)
+        // Mobile: scroll vers le bouton "Découvrir" avec un petit espace en bas
         const ctaButton = cocktailSection.querySelector('a[href="/contact"]');
         if (ctaButton) {
-          // Position du bouton + hauteur de viewport pour le mettre en bas
+          // Position du bouton + hauteur de viewport + petit espace (60px)
           const buttonRect = ctaButton.getBoundingClientRect();
-          const scrollPosition = window.pageYOffset + buttonRect.bottom - window.innerHeight;
+          const scrollPosition = window.pageYOffset + buttonRect.bottom - window.innerHeight + 60;
           window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
         } else {
           cocktailSection.scrollIntoView({ behavior: 'smooth' });
