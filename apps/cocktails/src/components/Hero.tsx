@@ -55,9 +55,12 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="font-display text-6xl md:text-8xl lg:text-9xl font-black text-safran mb-6 tracking-tight uppercase"
+          className="font-display text-6xl md:text-8xl lg:text-9xl font-black mb-6 tracking-tight uppercase"
+          style={{ color: '#de4842' }}
         >
-          {title}
+          {title.split(' ').slice(0, 2).join(' ')}
+          <br />
+          {title.split(' ').slice(2).join(' ')}
         </motion.h1>
 
         {subtitle && (

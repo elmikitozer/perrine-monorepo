@@ -36,7 +36,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       {/* Hero Section */}
       <Hero
         title={heroData?.title?.[locale] || 'Dix Huit Zéro Cinq'}
-        subtitle={heroData?.subtitle?.[locale] || "Le cocktail familial aux saveurs tropicales"}
+        subtitle={heroData?.subtitle?.[locale] || 'Le cocktail familial aux saveurs tropicales'}
         backgroundImage={heroData?.backgroundImage}
         backgroundVideo={heroData?.backgroundVideo}
         cta={
@@ -102,7 +102,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       {/* Spirit Section */}
       <Section className="bg-gradient-to-b from-blanc/95 to-blanc">
         <div className="max-w-5xl mx-auto text-center space-y-8">
-          <h2 className="font-display text-5xl md:text-7xl font-black text-safran">
+          <h2 className="font-display text-5xl md:text-7xl font-black" style={{ color: '#ed4c00' }}>
             {spiritSection?.title?.[locale] || tSpirit('title')}
           </h2>
 
