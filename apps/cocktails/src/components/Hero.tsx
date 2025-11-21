@@ -84,16 +84,17 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
         )}
 
         {/* Scroll Indicator */}
-        <motion.div
+        <motion.a
+          href="#cocktail"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 cursor-pointer"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="text-noir/50"
+            className="text-noir/50 hover:text-noir/80 transition-colors"
           >
             <svg
               className="w-6 h-6"
@@ -109,7 +110,7 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
               />
             </svg>
           </motion.div>
-        </motion.div>
+        </motion.a>
       </div>
     </section>
   );

@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
-export const alt = 'Dix Huit Zéro Cinq - L\'art du cocktail d\'exception';
+export const alt = "Dix Huit Zéro Cinq - L'art du cocktail d'exception";
 export const size = {
   width: 1200,
   height: 630,
@@ -54,7 +54,7 @@ export default async function Image() {
             letterSpacing: '0.05em',
           }}
         >
-          L'art du cocktail d'exception
+          L&apos;art du cocktail d&apos;exception
         </div>
       </div>
     ),
