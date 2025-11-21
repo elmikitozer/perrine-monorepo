@@ -58,15 +58,22 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
           className="font-display text-6xl md:text-8xl lg:text-9xl font-black mb-6 tracking-tight uppercase"
           style={{ color: '#de4842' }}
         >
-          {title && typeof title === 'string' ? (
-            <>
-              {title.split(' ').slice(0, 2).join(' ')}
-              <br />
-              {title.split(' ').slice(2).join(' ')}
-            </>
-          ) : (
-            title
-          )}
+          {/* Mobile: 2 lignes */}
+          <span className="md:hidden">
+            {title && typeof title === 'string' ? (
+              <>
+                {title.split(' ').slice(0, 2).join(' ')}
+                <br />
+                {title.split(' ').slice(2).join(' ')}
+              </>
+            ) : (
+              title
+            )}
+          </span>
+          {/* Desktop: 1 ligne */}
+          <span className="hidden md:inline">
+            {title}
+          </span>
         </motion.h1>
 
         {subtitle && (
