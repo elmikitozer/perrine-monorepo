@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -46,9 +47,15 @@ export function Navigation() {
           {/* Logo */}
           <Link
             href={`/${locale}`}
-            className="font-display text-2xl md:text-3xl font-black text-safran hover:text-orange transition-colors"
+            className="relative w-12 h-12 md:w-16 md:h-16 transition-transform hover:scale-105"
           >
-            1805
+            <Image
+              src="/logo1.png"
+              alt="Dix Huit Zéro Cinq"
+              fill
+              className="object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

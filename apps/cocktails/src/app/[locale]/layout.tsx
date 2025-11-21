@@ -2,6 +2,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { Inter, Lilita_One } from 'next/font/google';
 import { Navigation } from '@/components';
+import type { Metadata } from 'next';
 import '../globals.css';
 
 const inter = Inter({
@@ -16,6 +17,15 @@ const lilitaOne = Lilita_One({
   display: 'swap',
   weight: ['400'],
 });
+
+export const metadata: Metadata = {
+  title: 'Dix Huit Zéro Cinq - L\'art du cocktail d\'exception',
+  description: 'Découvrez l\'univers unique de Dix Huit Zéro Cinq, où l\'art du cocktail rencontre l\'excellence.',
+  icons: {
+    icon: '/logo1.png',
+    apple: '/logo1.png',
+  },
+};
 
 export default async function LocaleLayout({
   children,
