@@ -7,14 +7,35 @@
   },
   "hero": {
     "cta": "Discover",
-    "scrollDown": "Scroll down"
+    "scrollDown": "Scroll down",
+    "tagline": "A cocktail to share. Memories to create."
   },
   "cocktail": {
     "title": "The Cocktail",
-    "discover": "Discover our cocktail"
+    "discover": "Discover our cocktail",
+    "description": "Dix Huit Zéro Cinq is a sunny, accessible cocktail, designed for pleasure and sharing.",
+    "serving": "Best served chilled. 26% vol – 70 cl",
+    "recipe": "1/3 Dix Huit Zéro Cinq cocktail, 2/3 tropical juice. To boost your cocktail, add 1/3 sparkling drink!"
   },
   "spirit": {
-    "title": "The Dix Huit Zéro Cinq Spirit"
+    "title": "Our Story",
+    "subtitle": "The taste of beautiful moments"
+  },
+  "story": {
+    "intro": "Dix Huit Zéro Cinq is much more than a cocktail. It's a story we share, passed down through the years, designed to accompany and celebrate life's most beautiful moments.",
+    "babou": "After the war, my grandmother, a strong and independent woman called Babou, used the back of her shop to create her own cocktail recipes, sharing them with everyone around her.",
+    "birth": "Among them, a very special recipe was born on May 18, 1994. The same day as me. At the time, in my mother's belly, no one knew my gender yet. Everyone called me the Pacha.",
+    "creation": "That day, my grandmother created this cocktail, not knowing we were being born together.",
+    "tradition": "Every year, on my birthday, Dix Huit Zéro Cinq was part of the celebration. It accompanied the most beautiful moments of my life: our summers, our laughter, and even my wedding.",
+    "mission": "Seeing the enthusiasm, it became clear to my father and me that it was time to share it beyond our family circle, to keep this story alive.",
+    "closing": "Because every moment counts."
+  },
+  "positioning": {
+    "familial": "Family cocktail",
+    "emotional": "Emotional and sunny universe",
+    "incarnated": "Embodied brand",
+    "belgian": "Belgian creation",
+    "description": "Dix Huit Zéro Cinq is for those who seek products with meaning, memories and emotion. A cocktail that is lived more than explained. An excuse to reconnect, slow down and enjoy the moment."
   },
   "contact": {
     "title": "Contact Us",
@@ -22,19 +43,24 @@
     "email": "Email",
     "message": "Message",
     "send": "Send",
-    "info": "Contact Information"
+    "info": "DIX HUIT ZÉRO CINQ SASU",
+    "description": "We would love to discuss our creations and your project with you."
   },
   "footer": {
     "rights": "All rights reserved",
     "follow": "Follow us",
     "alcoholWarning": "Alcohol abuse is dangerous for your health",
     "alcoholMessage": "Please drink responsibly. Sale of alcohol to minors under 18 is prohibited.",
-    "responsibleDrinking": "Drink responsibly"
+    "responsibleDrinking": "Drink responsibly",
+    "tagline": "A cocktail to share. Memories to create.",
+    "address": "101 rue Damrémont, 75018 Paris",
+    "company": "DIX HUIT ZÉRO CINQ SASU"
   },
   "shop": {
     "comingSoon": "Shop Coming Soon",
     "description": "Our online shop will be available soon."
   }
 }
+
 
 

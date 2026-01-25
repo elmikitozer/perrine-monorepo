@@ -48,7 +48,7 @@ export function Navigation() {
             className="relative w-12 h-12 md:w-16 md:h-16 transition-transform hover:scale-105"
           >
             <Image
-              src="/logo1.png"
+              src="/1805_Logo_vertical.png"
               alt="Dix Huit Zéro Cinq"
               fill
               className="object-contain"

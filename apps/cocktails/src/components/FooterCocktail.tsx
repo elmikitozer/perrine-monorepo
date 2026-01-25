@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 interface FooterCocktailProps {
   socials?: {
@@ -17,11 +18,35 @@ export function FooterCocktail({ socials }: FooterCocktailProps) {
   return (
     <footer className="bg-blanc text-noir py-12 border-t border-noir/10">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           {/* Left: Brand */}
           <div className="text-center md:text-left">
             <h3 className="font-display text-2xl font-black mb-2 text-safran">Dix Huit Zéro Cinq</h3>
-            <p className="text-noir/60 text-sm">Le cocktail familial aux saveurs tropicales</p>
+            <p className="text-noir/60 text-sm italic">{t('tagline')}</p>
+          </div>
+
+          {/* Center: Contact Info */}
+          <div className="text-center space-y-2">
+            <p className="text-noir/70 text-sm font-semibold">{t('company')}</p>
+            <p className="text-noir/60 text-sm">{t('address')}</p>
+            <div className="flex justify-center gap-4 pt-2">
+              <a
+                href="mailto:hello@dixhuitzerocinq.com"
+                className="text-noir/60 hover:text-safran transition-colors text-sm"
+              >
+                hello@dixhuitzerocinq.com
+              </a>
+            </div>
+            {socials?.instagram && (
+              <a
+                href={socials.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-noir/60 hover:text-safran transition-colors text-sm"
+              >
+                @dixhuitzerocinq
+              </a>
+            )}
           </div>
 
           {/* Right: Warnings & Legal */}
@@ -33,7 +58,7 @@ export function FooterCocktail({ socials }: FooterCocktailProps) {
               {t('responsibleDrinking')}
             </p>
             <p className="text-noir/30 text-xs pt-2">
-              © {new Date().getFullYear()} Dix Huit Zéro Cinq. {t('rights')}.
+              © {new Date().getFullYear()} {t('company')}. {t('rights')}.
             </p>
           </div>
         </div>

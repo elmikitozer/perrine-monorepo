@@ -10,7 +10,9 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-display)', 'system-ui', 'sans-serif'],
+        display: ['"Fashion Fetish"', 'var(--font-display)', 'system-ui', 'sans-serif'],
+        logo: ['"Chantal"', 'system-ui', 'sans-serif'],
+        handwritten: ['"DearJoe"', 'cursive'],
       },
       colors: {
         rouge: '#A4161A',

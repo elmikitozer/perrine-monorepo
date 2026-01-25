@@ -19,23 +19,23 @@ const lilitaOne = Lilita_One({
 });
 
 export const metadata: Metadata = {
-  title: 'Dix Huit Zéro Cinq - Le cocktail familial aux saveurs tropicales',
+  title: 'Dix Huit Zéro Cinq - Un cocktail à partager. Des souvenirs à créer.',
   description:
-    "Découvrez l'univers unique de Dix Huit Zéro Cinq, où l'art du cocktail rencontre l'excellence.",
+    "Dix Huit Zéro Cinq est bien plus qu'un cocktail. C'est une histoire que l'on partage, transmise au fil des années, pensée pour accompagner et célébrer les plus beaux moments.",
   icons: {
-    icon: '/logo1.png',
-    apple: '/logo1.png',
+    icon: '/1805_Logo_vertical.png',
+    apple: '/1805_Logo_vertical.png',
   },
   openGraph: {
-    title: 'Dix Huit Zéro Cinq - Le cocktail familial aux saveurs tropicales',
+    title: 'Dix Huit Zéro Cinq - Un cocktail à partager. Des souvenirs à créer.',
     description:
-      "Découvrez l'univers unique de Dix Huit Zéro Cinq, où l'art du cocktail rencontre l'excellence.",
+      "Dix Huit Zéro Cinq est bien plus qu'un cocktail. C'est une histoire que l'on partage, transmise au fil des années, pensée pour accompagner et célébrer les plus beaux moments.",
     images: [
       {
         url: '/images/opengraphThumbnail.webp',
         width: 1200,
         height: 630,
-        alt: 'Dix Huit Zéro Cinq - Le cocktail familial aux saveurs tropicales',
+        alt: 'Dix Huit Zéro Cinq - Un cocktail à partager. Des souvenirs à créer.',
       },
     ],
     locale: 'fr_FR',
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dix Huit Zéro Cinq - Le cocktail familial aux saveurs tropicales',
+    title: 'Dix Huit Zéro Cinq - Un cocktail à partager. Des souvenirs à créer.',
     description:
-      "Découvrez l'univers unique de Dix Huit Zéro Cinq, où l'art du cocktail rencontre l'excellence.",
+      "Dix Huit Zéro Cinq est bien plus qu'un cocktail. C'est une histoire que l'on partage, transmise au fil des années, pensée pour accompagner et célébrer les plus beaux moments.",
     images: ['/opengraph-image.webp'],
   },
 };
@@ -73,3 +73,4 @@ export default async function LocaleLayout({
     </html>
   );
 }
+

@@ -26,6 +26,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
   const t = await getTranslations({ locale, namespace: 'hero' });
   const tCocktail = await getTranslations({ locale, namespace: 'cocktail' });
   const tSpirit = await getTranslations({ locale, namespace: 'spirit' });
+  const tStory = await getTranslations({ locale, namespace: 'story' });
 
   const heroData = data.homepage?.hero;
   const cocktailSection = data.homepage?.cocktailSection;
@@ -36,7 +37,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       {/* Hero Section */}
       <Hero
         title={heroData?.title?.[locale] || 'Dix Huit Zéro Cinq'}
-        subtitle={heroData?.subtitle?.[locale] || 'Le cocktail familial aux saveurs tropicales'}
+        subtitle={heroData?.subtitle?.[locale] || t('tagline')}
         backgroundImage={heroData?.backgroundImage}
         backgroundVideo={heroData?.backgroundVideo}
         cta={
@@ -71,21 +72,13 @@ export default async function Home({ params: { locale } }: { params: { locale: s
               {cocktailSection?.story?.[locale] ? (
                 <div className="prose prose-invert max-w-none">
                   {/* Render Sanity Portable Text here */}
-                  <p>
-                    Une création unique, née de la passion et du savoir-faire. Dix Huit Zéro Cinq
-                    incarne l&apos;excellence du cocktail français.
-                  </p>
+                  <p>{tCocktail('description')}</p>
                 </div>
               ) : (
                 <>
-                  <p>
-                    Une création unique, née de la passion et du savoir-faire. Dix Huit Zéro Cinq
-                    incarne l&apos;excellence du cocktail français.
-                  </p>
-                  <p>
-                    Chaque bouteille raconte une histoire, celle d&apos;une quête d&apos;excellence
-                    et d&apos;un engagement envers l&apos;authenticité.
-                  </p>
+                  <p>{tCocktail('description')}</p>
+                  <p className="text-base text-noir/60 italic whitespace-pre-line">{tCocktail('recipe')}</p>
+                  <p className="font-semibold text-noir">{tCocktail('serving')}</p>
                 </>
               )}
             </div>
@@ -99,35 +92,32 @@ export default async function Home({ params: { locale } }: { params: { locale: s
         </div>
       </Section>
 
-      {/* Spirit Section */}
+      {/* Spirit Section - Brand Story */}
       <Section className="bg-gradient-to-b from-blanc/95 to-blanc">
         <div className="max-w-5xl mx-auto text-center space-y-8">
           <h2 className="font-display text-5xl md:text-7xl font-black" style={{ color: '#ed4c00' }}>
             {spiritSection?.title?.[locale] || tSpirit('title')}
           </h2>
+          <p className="text-2xl md:text-3xl text-safran font-semibold italic">
+            {tSpirit('subtitle')}
+          </p>
 
-          <div className="text-lg md:text-xl text-noir/80 space-y-6 max-w-3xl mx-auto">
+          <div className="text-lg md:text-xl text-noir/80 space-y-6 max-w-3xl mx-auto text-left">
             {spiritSection?.content?.[locale] ? (
               <div className="prose prose-invert prose-lg max-w-none">
                 {/* Render Sanity Portable Text here */}
-                <p>
-                  Dix Huit Zéro Cinq, c&apos;est avant tout un état d&apos;esprit. Une philosophie
-                  qui célèbre l&apos;élégance, la qualité et le partage.
-                </p>
+                <p>{tStory('intro')}</p>
               </div>
             ) : (
               <>
-                <p>
-                  Dix Huit Zéro Cinq, c&apos;est avant tout un état d&apos;esprit. Une philosophie
-                  qui célèbre l&apos;élégance, la qualité et le partage.
-                </p>
-                <p>
-                  Nous croyons que chaque moment mérite d&apos;être savouré, que chaque rencontre
-                  mérite d&apos;être célébrée avec un cocktail d&apos;exception.
-                </p>
-                <p>
-                  Notre engagement : créer des expériences gustatives inoubliables qui rassemblent
-                  et inspirent.
+                <p>{tStory('intro')}</p>
+                <p>{tStory('babou')}</p>
+                <p>{tStory('birth')}</p>
+                <p className="text-noir font-medium">{tStory('creation')}</p>
+                <p>{tStory('tradition')}</p>
+                <p>{tStory('mission')}</p>
+                <p className="text-2xl font-bold text-safran text-center pt-4">
+                  {tStory('closing')}
                 </p>
               </>
             )}

@@ -7,14 +7,35 @@
   },
   "hero": {
     "cta": "Découvrir",
-    "scrollDown": "Défiler"
+    "scrollDown": "Défiler",
+    "tagline": "Un cocktail à partager. Des souvenirs à créer."
   },
   "cocktail": {
     "title": "Le Cocktail",
-    "discover": "Découvrir notre cocktail"
+    "discover": "Découvrir notre cocktail",
+    "description": "Dix Huit Zéro Cinq est un cocktail solaire et accessible, pensé pour le plaisir et le partage.",
+    "serving": "À déguster bien frais. 26% vol – 70 cl",
+    "recipe": "1/3 de cocktail Dix Huit Zéro Cinq, 2/3 de jus tropical.\nA vous d'ajouter 1/3 de pétillant pour une version encore plus conviviale et festive !"
   },
   "spirit": {
-    "title": "L'Esprit Dix Huit Zéro Cinq"
+    "title": "Notre Histoire",
+    "subtitle": "Le goût des beaux moments"
+  },
+  "story": {
+    "intro": "Dix Huit Zéro Cinq est bien plus qu'un cocktail. C'est une histoire que l'on partage, transmise au fil des années, pensée pour accompagner et célébrer les plus beaux moments.",
+    "babou": "Après la guerre, ma grand-mère, femme forte et indépendante appelée Babou, avec les fonds de sa boutique, créait ses propres recettes de cocktails, qu'elle faisait découvrir autour d'elle.",
+    "birth": "Parmi elles, une recette toute particulière est née le 18 mai 1994. Le même jour que moi. À l'époque, dans le ventre de ma maman, on ne connaissait pas encore mon sexe. Tout le monde m'appelait le Pacha.",
+    "creation": "Ce jour-là, ma grand-mère a créé ce cocktail, sans savoir que nous naissions ensemble.",
+    "tradition": "Chaque année, à mon anniversaire, Dix Huit Zéro Cinq était de la fête. Il a accompagné les plus beaux moments de ma vie : nos étés, nos rires, et même mon mariage.",
+    "mission": "Face à l'engouement, il nous est apparu évident, avec mon papa, qu'il était temps de le partager au-delà de notre cercle familial pour faire vivre cette histoire.",
+    "closing": "Pour que chaque instant compte."
+  },
+  "positioning": {
+    "familial": "Cocktail familial",
+    "emotional": "Univers émotionnel et solaire",
+    "incarnated": "Marque incarnée",
+    "belgian": "Création Belge",
+    "description": "Dix Huit Zéro Cinq s'adresse à celles et ceux qui cherchent des produits porteurs de sens, de souvenirs et d'émotion. Un cocktail qui se vit plus qu'il ne s'explique. Un prétexte pour se retrouver, ralentir et profiter de l'instant."
   },
   "contact": {
     "title": "Contactez-nous",
@@ -22,19 +43,24 @@
     "email": "Email",
     "message": "Message",
     "send": "Envoyer",
-    "info": "Informations de contact"
+    "info": "DIX HUIT ZÉRO CINQ SASU",
+    "description": "Nous serions ravis d'échanger avec vous sur nos créations et votre projet."
   },
   "footer": {
     "rights": "Tous droits réservés",
     "follow": "Suivez-nous",
     "alcoholWarning": "L'abus d'alcool est dangereux pour la santé",
     "alcoholMessage": "À consommer avec modération. La vente d'alcool à des mineurs de moins de 18 ans est interdite.",
-    "responsibleDrinking": "Buvez responsablement"
+    "responsibleDrinking": "Buvez responsablement",
+    "tagline": "Un cocktail à partager. Des souvenirs à créer.",
+    "address": "101 rue Damrémont, 75018 Paris",
+    "company": "DIX HUIT ZÉRO CINQ SASU"
   },
   "shop": {
     "comingSoon": "Boutique à venir",
     "description": "Notre boutique en ligne sera bientôt disponible."
   }
 }
+
 
 
