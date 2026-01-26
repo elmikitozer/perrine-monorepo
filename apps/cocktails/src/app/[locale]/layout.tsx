@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   description:
     "Dix Huit Zéro Cinq est bien plus qu'un cocktail. C'est une histoire que l'on partage, transmise au fil des années, pensée pour accompagner et célébrer les plus beaux moments.",
   icons: {
-    icon: '/1805_Logo_horizontal.png',
-    apple: '/1805_Logo_horizontal.png',
+    icon: '/og.png',
+    apple: '/og.png',
   },
   openGraph: {
     title: 'Dix Huit Zéro Cinq - Un cocktail à partager. Des souvenirs à créer.',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
       "Dix Huit Zéro Cinq est bien plus qu'un cocktail. C'est une histoire que l'on partage, transmise au fil des années, pensée pour accompagner et célébrer les plus beaux moments.",
     images: [
       {
-        url: '/1805_Logo_horizontal.png',
+        url: '/og.png',
         width: 1200,
         height: 630,
         alt: 'Dix Huit Zéro Cinq - Un cocktail à partager. Des souvenirs à créer.',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     title: 'Dix Huit Zéro Cinq - Un cocktail à partager. Des souvenirs à créer.',
     description:
       "Dix Huit Zéro Cinq est bien plus qu'un cocktail. C'est une histoire que l'on partage, transmise au fil des années, pensée pour accompagner et célébrer les plus beaux moments.",
-    images: ['/1805_Logo_horizontal.png'],
+    images: ['/og.png'],
   },
 };
 
