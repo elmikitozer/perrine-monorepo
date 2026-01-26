@@ -56,7 +56,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
           {/* Image */}
           <div className="relative h-[600px] lg:h-[700px]">
             <Image
-              src="/images/bottle.webp"
+              src="/bottle.webp"
               alt="Dix Huit Zéro Cinq Bottle"
               fill
               className="object-contain"

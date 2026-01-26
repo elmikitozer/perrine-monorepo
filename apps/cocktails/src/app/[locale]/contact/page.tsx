@@ -4,7 +4,7 @@ import { Section, FooterCocktail } from "@/components";
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import ContactFormClient from "./ContactFormClient";
-import MapLink from "./MapLink";
+import MapLink from "../../../components/MapLink";
 
 async function getContactData() {
   const query = `{
@@ -58,7 +58,7 @@ export default async function ContactPage({
                 )}
               </div>
 
-              <p className="text-xl md:text-2xl text-noir/70 italic text-center max-w-sm">
+              <p className="text-xl whitespace-pre-line md:text-2xl text-noir/70 italic text-center max-w-sm">
                 {tHero("tagline")}
               </p>
             </div>
@@ -120,7 +120,10 @@ export default async function ContactPage({
                     />
                   </svg>
 
-                  <MapLink className="hover:text-safran transition-colors" />
+                  <MapLink
+                    address="101 rue Damrémont, 75018 Paris"
+                    className="hover:text-safran transition-colors"
+                  />
                 </div>
 
                 {contactPage?.phone && (

@@ -8,7 +8,7 @@
   "hero": {
     "cta": "Découvrir",
     "scrollDown": "Défiler",
-    "tagline": "Un cocktail à partager. Des souvenirs à créer."
+    "tagline": "Un cocktail à partager.\n Des souvenirs à créer."
   },
   "cocktail": {
     "title": "Le Cocktail",
@@ -35,7 +35,7 @@
     "emotional": "Univers émotionnel et solaire",
     "incarnated": "Marque incarnée",
     "belgian": "Création Belge",
-    "description": "Dix Huit Zéro Cinq s'adresse à celles et ceux qui cherchent des produits porteurs de sens, de souvenirs et d'émotion. Un cocktail qui se vit plus qu'il ne s'explique. Un prétexte pour se retrouver, ralentir et profiter de l'instant."
+    "description": "Dix Huit Zéro Cinq s'me à celles et ceux qui cherchent des produits porteurs de sens, de souvenirs et d'émotion. Un cocktail qui se vit plus qu'il ne s'explique. Un prétexte pour se retrouver, ralentir et profiter de l'instant."
   },
   "contact": {
     "title": "Contactez-nous",
@@ -52,7 +52,7 @@
     "alcoholWarning": "L'abus d'alcool est dangereux pour la santé",
     "alcoholMessage": "À consommer avec modération. La vente d'alcool à des mineurs de moins de 18 ans est interdite.",
     "responsibleDrinking": "Buvez responsablement",
-    "tagline": "Un cocktail à partager. Des souvenirs à créer.",
+    "tagline": "Un cocktail à partager.\n Des souvenirs à créer.",
     "address": "101 rue Damrémont, 75018 Paris",
     "company": "DIX HUIT ZÉRO CINQ SASU"
   },

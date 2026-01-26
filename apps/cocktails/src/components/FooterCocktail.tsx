@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import MapLink from './MapLink';
 import Link from 'next/link';
 
 interface FooterCocktailProps {
@@ -27,9 +28,12 @@ export function FooterCocktail({ socials }: FooterCocktailProps) {
 
           {/* Center: Contact Info */}
           <div className="text-center space-y-2">
-            <p className="text-noir/70 text-sm font-semibold">{t('company')}</p>
-            <p className="text-noir/60 text-sm">{t('address')}</p>
-            <div className="flex justify-center gap-4 pt-2">
+            <p className="text-noir/70 text-sm font-semibold gap-4 pb-2">{t('company')}</p>
+            <MapLink
+              address='101 Rue Damrémont, 75018 Paris'
+              className="text-noir/60 text-sm underline hover:text-safran transition-colors text-sm"
+            />
+            <div className="flex underline justify-center ">
               <a
                 href="mailto:hello@dixhuitzerocinq.com"
                 className="text-noir/60 hover:text-safran transition-colors text-sm"
