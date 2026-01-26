@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   description:
     "Dix Huit Zéro Cinq est bien plus qu'un cocktail. C'est une histoire que l'on partage, transmise au fil des années, pensée pour accompagner et célébrer les plus beaux moments.",
   icons: {
-    icon: '/1805_Logo_vertical.png',
-    apple: '/1805_Logo_vertical.png',
+    icon: '/1805_Logo_horizontal.png',
+    apple: '/1805_Logo_horizontal.png',
   },
   openGraph: {
     title: 'Dix Huit Zéro Cinq - Un cocktail à partager. Des souvenirs à créer.',
