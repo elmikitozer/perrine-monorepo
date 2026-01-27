@@ -27,39 +27,29 @@ export function FooterCocktail({ socials }: FooterCocktailProps) {
 
           {/* Center: Contact Info */}
           <div className="text-center space-y-2">
-            <p className="text-jaune/80 text-sm font-semibold gap-4 pb-2">{t('company')}</p>
-            <p className="text-jaune/70 text-sm">
+            <p className="font-sans text-jaune/80 text-sm font-semibold pb-2">{t('company')}</p>
+            <p className="font-sans text-jaune/70 text-sm">
               101 Rue Damrémont, 75018 Paris
             </p>
-            <div className="flex justify-center">
-              <a
-                href="mailto:hello@dixhuitzerocinq.com"
-                className="text-jaune/70 hover:text-jaune transition-colors text-sm hover:underline hover:decoration-jaune"
-              >
-                hello@dixhuitzerocinq.com
-              </a>
-            </div>
+            <p className="font-sans text-jaune/70 text-sm">
+              hello@dixhuitzerocinq.com
+            </p>
             {socials?.instagram && (
-              <a
-                href={socials.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-blanc/70 hover:text-jaune transition-colors text-sm"
-              >
+              <p className="font-sans text-jaune/70 text-sm">
                 @dixhuitzerocinq
-              </a>
+              </p>
             )}
           </div>
 
           {/* Right: Warnings & Legal */}
           <div className="text-center md:text-right space-y-3">
-            <p className="text-jaune/90 text-xs leading-relaxed">
+            <p className="font-sans text-jaune/90 text-xs leading-relaxed">
               {t('alcoholWarning')}. {t('alcoholMessage')}
             </p>
-            <p className="text-jaune/90 text-xs">
+            <p className="font-sans text-jaune/90 text-xs">
               {t('responsibleDrinking')}
             </p>
-            <p className="text-jaune/90 text-xs pt-2">
+            <p className="font-sans text-jaune/90 text-xs pt-2">
               © {new Date().getFullYear()} {t('company')}. {t('rights')}.
             </p>
           </div>

@@ -2,7 +2,7 @@ import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Hero, Section, FooterCocktail } from '@/components';
+import { Hero, Section, FooterCocktail, CocktailSection } from '@/components';
 import { client } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
 
@@ -29,7 +29,6 @@ export default async function Home({ params: { locale } }: { params: { locale: s
   const tStory = await getTranslations({ locale, namespace: 'story' });
 
   const heroData = data.homepage?.hero;
-  const cocktailSection = data.homepage?.cocktailSection;
   const spiritSection = data.homepage?.spiritSection;
 
   return (
@@ -51,63 +50,20 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       />
 
       {/* Cocktail Section */}
-      <Section id="cocktail" className="bg-transparent" fullWidth>
-        <div className="mx-auto px-4 md:px-6 lg:px-8 max-w-screen-md lg:max-w-[1200px] xl:max-w-[1400px] 2xl:max-w-[1600px]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Image */}
-          <div className="relative h-[600px] lg:h-[700px]">
-            <Image
-              src="/bottle.webp"
-              alt="Dix Huit Zéro Cinq Bottle"
-              fill
-              className="object-contain"
-            />
-          </div>
-
-          {/* Content */}
-          <div className="space-y-6 text-center lg:text-left">
-            <h2 className="font-logo text-5xl md:text-6xl font-black text-rouge">
-              {cocktailSection?.title?.[locale] || tCocktail('title')}
-            </h2>
-            <div className="text-lg md:text-xl text-rouge/80 space-y-4">
-              {cocktailSection?.story?.[locale] ? (
-                <div className="prose prose-invert max-w-none">
-                  {/* Render Sanity Portable Text here */}
-                  <p>{tCocktail('description')}</p>
-                </div>
-              ) : (
-                <>
-                  <p>{tCocktail('description')}</p>
-                  <p className="font-sans text-base text-rouge/70 whitespace-pre-line">
-                    {tCocktail('recipe')}
-                  </p>
-                  <p className="font-semibold text-rouge">{tCocktail('serving')}</p>
-                </>
-              )}
-            </div>
-            <Link
-              href="/contact"
-              className="inline-block bg-rouge hover:bg-rouge-alcool text-blanc px-8 py-4 rounded-full font-bold transition-colors"
-            >
-              {cocktailSection?.ctaText?.[locale] || tCocktail('discover')}
-            </Link>
-          </div>
-          </div>
-        </div>
-      </Section>
+      <CocktailSection description={tCocktail('description')} />
 
       {/* Spirit Section - Brand Story */}
       <Section className="bg-transparent" fullWidth>
-        <div className="mx-auto px-4 md:px-6 max-w-screen-md lg:max-w-[1200px] xl:max-w-[1400px] 2xl:max-w-[1600px]">
-          <div className="max-w-5xl mx-auto text-center space-y-8">
+        <div className="mx-auto px-4 md:px-6 lg:px-8 max-w-screen-lg lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px]">
+          <div className="max-w-6xl xl:max-w-7xl mx-auto text-center space-y-8">
           <h2 className="font-logo text-5xl md:text-7xl font-black text-rouge">
             {spiritSection?.title?.[locale] || tSpirit('title')}
           </h2>
-          <p className="font-handwritten no-text-stroke text-2xl md:text-3xl text-rouge-alcool font-semibold">
-            {tSpirit('subtitle')}
+          <p className="font-handwritten no-text-stroke text-3xl md:text-4xl text-rouge-alcool">
+            Le goût des beaux moments
           </p>
 
-          <div className="text-lg md:text-xl text-rouge/90 space-y-6 max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto text-left text-justify">
+          <div className="font-sans text-lg md:text-xl text-rouge/90 space-y-6 max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto text-justify">
             {spiritSection?.content?.[locale] ? (
               <div className="prose prose-lg max-w-none">
                 {/* Render Sanity Portable Text here */}
@@ -121,12 +77,13 @@ export default async function Home({ params: { locale } }: { params: { locale: s
                 <p className="text-rouge font-medium">{tStory('creation')}</p>
                 <p>{tStory('tradition')}</p>
                 <p>{tStory('mission')}</p>
-                <p className="font-handwritten no-text-stroke text-2xl font-bold text-rouge text-center pt-4">
-                  {tStory('closing')}
-                </p>
               </>
             )}
           </div>
+
+          <p className="font-handwritten no-text-stroke text-3xl md:text-4xl text-rouge-alcool pt-6">
+            Pour que chaque instant compte
+          </p>
 
           {/* Images Grid */}
           {spiritSection?.images && spiritSection.images.length > 0 && (

@@ -11,7 +11,7 @@ import {
   GlobeIcon,
   FacebookIcon,
   LocationIcon
-} from "@/components/ContactIcons";
+} from "@/components/icons/ContactIcons";
 
 async function getContactData() {
   const query = `{
@@ -109,6 +109,12 @@ export default async function ContactPage({
                   >
                     +33 6 58 76 86 07
                   </a>
+                  <a
+                    href="tel:+32475371887"
+                    className="text-rouge text-base md:text-lg hover:text-rouge-alcool transition-colors"
+                  >
+                    +32 475 37 18 87
+                  </a>
                 </div>
 
                 {/* Website */}
@@ -149,7 +155,7 @@ export default async function ContactPage({
                 <h1 className="font-logo text-5xl md:text-6xl font-bold mb-4 text-rouge">
                   {contactPage?.title?.[locale] || t("title")}
                 </h1>
-                <p className="text-lg text-rouge/80">{t("description")}</p>
+                {/* <p className="text-lg text-rouge/80">{t("description")}</p> */}
               </div>
 
               {/* Contact Info */}
