@@ -34,7 +34,7 @@ export default async function ShopPage({
             <div className="text-8xl mb-8">🛍️</div>
 
             {/* Title */}
-            <h1 className="text-5xl md:text-7xl font-bold text-safran mb-6">
+            <h1 className="font-logo text-5xl md:text-7xl font-bold text-safran mb-6">
               {t('comingSoon')}
             </h1>
 
@@ -84,7 +84,7 @@ export default async function ShopPage({
 
             {/* Newsletter Signup Placeholder */}
             <div className="mt-16 bg-gradient-to-r from-orange/20 to-rouge/20 border border-orange/30 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-blanc mb-4">
+              <h3 className="font-logo text-2xl font-bold text-blanc mb-4">
                 {locale === 'fr'
                   ? 'Restez informé du lancement'
                   : 'Stay informed about the launch'}
@@ -123,6 +123,5 @@ export default async function ShopPage({
     </>
   );
 }
-
 
 

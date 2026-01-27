@@ -161,7 +161,7 @@ export function AgeVerification() {
                 onClick={() => setSelectedLanguage('fr')}
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                   selectedLanguage === 'fr'
-                    ? 'bg-safran text-noir'
+                    ? 'bg-safran text-rouge'
                     : 'bg-blanc/10 text-blanc/70 hover:bg-blanc/20'
                 }`}
               >
@@ -171,7 +171,7 @@ export function AgeVerification() {
                 onClick={() => setSelectedLanguage('en')}
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                   selectedLanguage === 'en'
-                    ? 'bg-safran text-noir'
+                    ? 'bg-safran text-rouge'
                     : 'bg-blanc/10 text-blanc/70 hover:bg-blanc/20'
                 }`}
               >
@@ -250,7 +250,7 @@ export function AgeVerification() {
             {/* Submit Button */}
             <button
               onClick={handleSubmit}
-              className="w-full bg-safran hover:bg-orange text-noir font-bold py-4 rounded-full transition-all transform hover:scale-[1.02] mb-6 uppercase tracking-wider text-sm"
+              className="w-full bg-safran hover:bg-orange text-rouge font-bold py-4 rounded-full transition-all transform hover:scale-[1.02] mb-6 uppercase tracking-wider text-sm"
             >
               {t.enter}
             </button>
@@ -278,4 +278,3 @@ export function AgeVerification() {
     </AnimatePresence>
   );
 }
-

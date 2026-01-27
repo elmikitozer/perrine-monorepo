@@ -9,20 +9,34 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
-        display: ['"Fashion Fetish"', 'var(--font-display)', 'system-ui', 'sans-serif'],
+        sans: [
+          '"Avenir LT Pro"',
+          '"Avenir LT Std"',
+          'Avenir',
+          '"Fashion Fetish"',
+          'system-ui',
+          'sans-serif',
+        ],
+        display: ['"Fashion Fetish"', 'system-ui', 'sans-serif'],
         logo: ['"Chantal"', 'system-ui', 'sans-serif'],
         handwritten: ['"DearJoe"', 'cursive'],
       },
       colors: {
-        rouge: '#A4161A',
-        orange: '#E85D04',
-        safran: '#FFBA08',
-        noir: '#0E0E0E',
+        // Couleurs de base
+        jaune: '#ffe500',
+        rouge: '#c5192c',
+        noir: '#000000',
+        gris: '#b2b2b2',
         blanc: '#F5F5F5',
+        // Couleurs secondaires
+        'rouge-alcool': '#e4032d',
+        'orange-fonce': '#e9550c',
+        orange: '#f39200',
+        'jaune-fonce': '#f8ac00',
+        peche: '#f6ab64',
+        safran: '#FFBA08',
       },
     },
   },
   plugins: [],
 };
-

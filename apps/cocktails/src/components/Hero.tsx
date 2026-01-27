@@ -46,7 +46,7 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-blanc">
+    <section className="relative h-screen w-full overflow-hidden bg-transparent">
       {/* Background Media with Parallax Effect */}
       {backgroundVideo ? (
         <motion.video
@@ -78,40 +78,38 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
         </motion.div>
       ) : null}
 
-      {/* Gradient Overlay - Plus subtil */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blanc/60 via-blanc/40 to-blanc/90" />
+      {/* Gradient Overlay - Subtil sur jaune */}
+      <div className="absolute inset-0 bg-gradient-to-b from-jaune/0 via-transparent to-jaune/0" />
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="font-logo text-6xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-tight uppercase"
-          style={{ color: '#de4842' }}
+          className="mb-6"
         >
-          {/* Mobile: 2 lignes */}
-          <span className="md:hidden">
-            {title && typeof title === 'string' ? (
-              <>
-                {title.split(' ').slice(0, 2).join(' ')}
-                <br />
-                {title.split(' ').slice(2).join(' ')}
-              </>
-            ) : (
-              title
-            )}
-          </span>
-          {/* Desktop: 1 ligne */}
-          <span className="hidden md:inline">{title}</span>
-        </motion.h1>
+          <span className="sr-only">{title}</span>
+          <div className="relative mx-auto w-[320px] md:w-[560px] lg:w-[720px] h-[320px] md:h-[560px] lg:h-[720px]">
+            <Image
+              // src="/1805_bouteille_fruits_clear.png"
+              src="/1805_Logo rouge-jaune_horizontal_clean.png"
+              alt={typeof title === 'string' ? title : 'Dix Huit Zéro Cinq'}
+              fill
+              className="object-contain"
+              priority
+              quality={100}
+              sizes="(min-width: 1024px) 720px, (min-width: 768px) 560px, 320px"
+            />
+          </div>
+        </motion.div>
 
         {subtitle && (
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="text-xl md:text-2xl lg:text-3xl text-noir/90 max-w-3xl mb-12"
+            className="font-handwritten no-text-stroke text-xl md:text-2xl lg:text-3xl text-rouge/90 max-w-3xl mb-12"
           >
             {subtitle}
           </motion.p>
@@ -141,7 +139,7 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="text-noir/50 hover:text-noir/80 transition-colors"
+            className="text-rouge/50 hover:text-rouge/80 transition-colors"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -157,4 +155,3 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
     </section>
   );
 }
-

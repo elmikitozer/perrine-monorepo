@@ -43,7 +43,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
         cta={
           <Link
             href="#cocktail"
-            className="inline-block bg-safran/90 backdrop-blur-sm hover:bg-orange text-noir px-10 py-5 rounded-full font-black text-lg transition-all shadow-2xl shadow-safran/20 border border-safran/30"
+            className="inline-block bg-rouge backdrop-blur-sm hover:bg-rouge-alcool text-blanc px-10 py-5 rounded-full font-black text-lg transition-all shadow-2xl shadow-rouge/30 border border-rouge/50"
           >
             {t('cta')}
           </Link>
@@ -51,8 +51,9 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       />
 
       {/* Cocktail Section */}
-      <Section id="cocktail" className="bg-gradient-to-b from-blanc to-blanc/95">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <Section id="cocktail" className="bg-transparent" fullWidth>
+        <div className="mx-auto px-4 md:px-6 lg:px-8 max-w-screen-md lg:max-w-[1200px] xl:max-w-[1400px] 2xl:max-w-[1600px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image */}
           <div className="relative h-[600px] lg:h-[700px]">
             <Image
@@ -65,10 +66,10 @@ export default async function Home({ params: { locale } }: { params: { locale: s
 
           {/* Content */}
           <div className="space-y-6 text-center lg:text-left">
-            <h2 className="font-display text-5xl md:text-6xl font-black text-safran">
+            <h2 className="font-logo text-5xl md:text-6xl font-black text-rouge">
               {cocktailSection?.title?.[locale] || tCocktail('title')}
             </h2>
-            <div className="text-lg md:text-xl text-noir/80 space-y-4">
+            <div className="text-lg md:text-xl text-rouge/80 space-y-4">
               {cocktailSection?.story?.[locale] ? (
                 <div className="prose prose-invert max-w-none">
                   {/* Render Sanity Portable Text here */}
@@ -77,34 +78,38 @@ export default async function Home({ params: { locale } }: { params: { locale: s
               ) : (
                 <>
                   <p>{tCocktail('description')}</p>
-                  <p className="text-base text-noir/60 italic whitespace-pre-line">{tCocktail('recipe')}</p>
-                  <p className="font-semibold text-noir">{tCocktail('serving')}</p>
+                  <p className="font-sans text-base text-rouge/70 whitespace-pre-line">
+                    {tCocktail('recipe')}
+                  </p>
+                  <p className="font-semibold text-rouge">{tCocktail('serving')}</p>
                 </>
               )}
             </div>
             <Link
               href="/contact"
-              className="inline-block bg-safran hover:bg-orange text-noir px-8 py-4 rounded-full font-bold transition-colors"
+              className="inline-block bg-rouge hover:bg-rouge-alcool text-blanc px-8 py-4 rounded-full font-bold transition-colors"
             >
               {cocktailSection?.ctaText?.[locale] || tCocktail('discover')}
             </Link>
+          </div>
           </div>
         </div>
       </Section>
 
       {/* Spirit Section - Brand Story */}
-      <Section className="bg-gradient-to-b from-blanc/95 to-blanc">
-        <div className="max-w-5xl mx-auto text-center space-y-8">
-          <h2 className="font-display text-5xl md:text-7xl font-black" style={{ color: '#ed4c00' }}>
+      <Section className="bg-transparent" fullWidth>
+        <div className="mx-auto px-4 md:px-6 max-w-screen-md lg:max-w-[1200px] xl:max-w-[1400px] 2xl:max-w-[1600px]">
+          <div className="max-w-5xl mx-auto text-center space-y-8">
+          <h2 className="font-logo text-5xl md:text-7xl font-black text-rouge">
             {spiritSection?.title?.[locale] || tSpirit('title')}
           </h2>
-          <p className="text-2xl md:text-3xl text-safran font-semibold italic">
+          <p className="font-handwritten no-text-stroke text-2xl md:text-3xl text-rouge-alcool font-semibold">
             {tSpirit('subtitle')}
           </p>
 
-          <div className="text-lg md:text-xl text-noir/80 space-y-6 max-w-3xl mx-auto text-left">
+          <div className="text-lg md:text-xl text-rouge/90 space-y-6 max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto text-left text-justify">
             {spiritSection?.content?.[locale] ? (
-              <div className="prose prose-invert prose-lg max-w-none">
+              <div className="prose prose-lg max-w-none">
                 {/* Render Sanity Portable Text here */}
                 <p>{tStory('intro')}</p>
               </div>
@@ -113,10 +118,10 @@ export default async function Home({ params: { locale } }: { params: { locale: s
                 <p>{tStory('intro')}</p>
                 <p>{tStory('babou')}</p>
                 <p>{tStory('birth')}</p>
-                <p className="text-noir font-medium">{tStory('creation')}</p>
+                <p className="text-rouge font-medium">{tStory('creation')}</p>
                 <p>{tStory('tradition')}</p>
                 <p>{tStory('mission')}</p>
-                <p className="text-2xl font-bold text-safran text-center pt-4">
+                <p className="font-handwritten no-text-stroke text-2xl font-bold text-rouge text-center pt-4">
                   {tStory('closing')}
                 </p>
               </>
@@ -138,38 +143,41 @@ export default async function Home({ params: { locale } }: { params: { locale: s
               ))}
             </div>
           )}
+          </div>
         </div>
       </Section>
 
       {/* Featured Cocktails */}
       {data.featuredCocktails && data.featuredCocktails.length > 0 && (
-        <Section className="bg-blanc/90">
-          <h2 className="font-display text-4xl md:text-5xl font-black text-center mb-12 text-safran">
-            Nos Créations
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {data.featuredCocktails.map((cocktail: any) => (
-              <div
-                key={cocktail._id}
-                className="group relative overflow-hidden rounded-lg bg-noir/5 backdrop-blur-sm border border-noir/10 hover:border-orange/50 transition-all"
-              >
-                {cocktail.mainImage && (
-                  <div className="relative h-80">
-                    <Image
-                      src={urlForImage(cocktail.mainImage).url()}
-                      alt={cocktail.name?.[locale] || cocktail.name?.fr}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
+        <Section className="bg-transparent" fullWidth>
+          <div className="mx-auto px-4 md:px-6 lg:px-8 max-w-screen-md lg:max-w-[1200px] xl:max-w-[1400px] 2xl:max-w-[1600px]">
+            <h2 className="font-logo text-4xl md:text-5xl font-black text-center mb-12 text-rouge">
+              Nos Créations
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {data.featuredCocktails.map((cocktail: any) => (
+                <div
+                  key={cocktail._id}
+                  className="group relative overflow-hidden rounded-lg bg-noir/5 backdrop-blur-sm border border-noir/10 hover:border-orange/50 transition-all"
+                >
+                  {cocktail.mainImage && (
+                    <div className="relative h-80">
+                      <Image
+                        src={urlForImage(cocktail.mainImage).url()}
+                        alt={cocktail.name?.[locale] || cocktail.name?.fr}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold text-rouge mb-2">
+                      {cocktail.name?.[locale] || cocktail.name?.fr}
+                    </h3>
                   </div>
-                )}
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-noir mb-2">
-                    {cocktail.name?.[locale] || cocktail.name?.fr}
-                  </h3>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </Section>
       )}

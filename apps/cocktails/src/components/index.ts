@@ -3,6 +3,7 @@ export { Section } from './Section';
 export { FooterCocktail } from './FooterCocktail';
 export { LanguageToggle } from './LanguageToggle';
 export { Navigation } from './Navigation';
+export { WaveBackground } from './WaveBackground';
 
 
 
