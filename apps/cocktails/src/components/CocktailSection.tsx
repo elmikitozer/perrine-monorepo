@@ -102,24 +102,27 @@ export function CocktailSection() {
               transition={{ delay: 0.6 }}
               className="relative mt-8 md:mt-12 text-center lg:text-left"
             >
-              <div className="relative inline-flex justify-center lg:justify-start">
-                {/* Flèche à gauche sur mobile/tablette, à droite sur desktop */}
-                <div className="absolute right-full lg:right-auto lg:left-full top-1/2 lg:top-0 -translate-y-1/2 lg:translate-y-0 mr-1 md:mr-4 lg:mr-0 lg:ml-8 w-8 h-6 md:w-20 md:h-14 lg:w-24 lg:h-16 text-rouge rotate-[190deg] lg:rotate-[350deg] lg:-scale-y-100">
-                  <ArrowIcon />
+              <div className="relative inline-flex flex-col items-center lg:flex-row lg:items-start lg:justify-start">
+                <div className="flex items-center">
+                  <p className="font-handwritten no-text-stroke text-xl md:text-2xl lg:text-3xl text-rouge text-center lg:text-left whitespace-nowrap">
+                    {t('festiveOption')}
+                  </p>
+                  {/* Flèche à droite du texte sur desktop */}
+                  <div className="hidden lg:block lg:ml-4 xl:ml-6 w-24 h-16 text-rouge rotate-[350deg] -scale-y-100">
+                    <ArrowIcon />
+                  </div>
                 </div>
-                <p className="font-handwritten no-text-stroke text-xl md:text-2xl lg:text-3xl text-rouge text-center lg:text-left whitespace-nowrap">
-                  {t('festiveOption')}
-                </p>
-              </div>
 
-              {/* Verre à vin à gauche sur mobile/tablette, à droite sur desktop */}
+                              </div>
+
+              {/* Verre à droite sur desktop uniquement */}
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4 }}
-                className="absolute left-2 md:-left-10 lg:left-auto lg:-right-20 -top-12 md:-top-5 lg:top-8"
+                className="hidden lg:block absolute lg:-right-24 xl:-right-28 top-8"
               >
-                <div className="w-14 h-20 md:w-28 md:h-40 lg:w-36 lg:h-52 text-rouge -rotate-12 lg:rotate-12">
+                <div className="w-36 h-52 text-rouge rotate-12">
                   <WineGlassLogo />
                 </div>
               </motion.div>

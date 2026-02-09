@@ -44,7 +44,7 @@ export function Navigation() {
         <div className="flex items-center justify-between h-20">
           {/* Logo + Bouteille */}
           <div className="flex items-center">
-            <div className="relative w-10 h-16 md:w-12 md:h-20 -mr-4 -translate-y-0.5 md:-translate-y-0.5 -translate-x-0.5 md:-translate-x-1">
+            <div className="relative w-10 h-16 md:w-12 md:h-20 -mr-4 -translate-y-0.5 md:-translate-y-0.5 -translate-x-1.5 md:-translate-x-1">
               <Image
                 src="/bottle3.webp"
                 alt=""
