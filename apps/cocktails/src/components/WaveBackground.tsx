@@ -18,6 +18,19 @@ export function WaveBackground({ variant = 'yellow', children, className = '' }:
     <div className={`relative ${className}`} style={{ backgroundColor: bgColor }}>
       {/* Fixed background shapes container */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        {/* Forme rouge - Bottom right */}
+        <div className="absolute -bottom-20 -right-20 w-[300px] h-[300px] md:w-[450px] md:h-[450px] opacity-20">
+          <Image
+            src="/1805_2502_Forme2.png"
+            alt=""
+            fill
+            className="object-contain hue-rotate-[320deg] saturate-150"
+            quality={100}
+            sizes="(min-width: 768px) 450px, 300px"
+            aria-hidden="true"
+          />
+        </div>
+
         {/* Forme 1 - Top left */}
         <div className="absolute -top-24 -left-24 w-[280px] h-[280px] md:w-[420px] md:h-[420px] opacity-60">
           <Image

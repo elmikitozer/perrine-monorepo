@@ -31,9 +31,12 @@ export function FooterCocktail({ socials }: FooterCocktailProps) {
             <p className="font-sans text-jaune/70 text-sm">
               101 Rue Damrémont, 75018 Paris
             </p>
-            <p className="font-sans text-jaune/70 text-sm">
+            <a
+              href="mailto:hello@dixhuitzerocinq.com"
+              className="font-sans text-jaune/70 text-sm hover:text-jaune transition-colors hover:underline hover:decoration-jaune"
+            >
               hello@dixhuitzerocinq.com
-            </p>
+            </a>
             {socials?.instagram && (
               <p className="font-sans text-jaune/70 text-sm">
                 @dixhuitzerocinq
@@ -43,11 +46,8 @@ export function FooterCocktail({ socials }: FooterCocktailProps) {
 
           {/* Right: Warnings & Legal */}
           <div className="text-center md:text-right space-y-3">
-            <p className="font-sans text-jaune/90 text-xs leading-relaxed">
+            <p className="font-sans text-jaune/90 text-xs leading-relaxed whitespace-pre-line">
               {t('alcoholWarning')}. {t('alcoholMessage')}
-            </p>
-            <p className="font-sans text-jaune/90 text-xs">
-              {t('responsibleDrinking')}
             </p>
             <p className="font-sans text-jaune/90 text-xs pt-2">
               © {new Date().getFullYear()} {t('company')}. {t('rights')}.

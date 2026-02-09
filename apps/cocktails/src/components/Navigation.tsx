@@ -42,20 +42,30 @@ export function Navigation() {
     >
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link
-            href={`/${locale}`}
-            className="relative w-12 h-12 md:w-16 md:h-16 transition-transform hover:scale-105"
-          >
-            <Image
-              src="/1805_Logo_vertical.png"
-              alt="Dix Huit Zéro Cinq"
-              fill
-              className="object-contain"
-              priority
-              quality={100}
-            />
-          </Link>
+          {/* Logo + Bouteille */}
+          <div className="flex items-center">
+            <div className="relative w-10 h-16 md:w-12 md:h-20 -mr-4 -translate-y-0.5 md:-translate-y-0.5 -translate-x-0.5 md:-translate-x-1">
+              <Image
+                src="/bottle3.webp"
+                alt=""
+                fill
+                className="object-contain rotate-[15deg] origin-bottom"
+              />
+            </div>
+            <Link
+              href={`/${locale}`}
+              className="relative w-12 h-12 md:w-16 md:h-16 transition-transform hover:scale-105"
+            >
+              <Image
+                src="/1805_Logo_vertical.png"
+                alt="Dix Huit Zéro Cinq"
+                fill
+                className="object-contain"
+                priority
+                quality={100}
+              />
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">

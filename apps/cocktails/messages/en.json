@@ -12,10 +12,17 @@
   },
   "cocktail": {
     "title": "The Cocktail",
+    "subtitle": "Every glass tells a story",
     "discover": "Discover our cocktail",
     "description": "Dix Huit Zéro Cinq is a sunny, accessible cocktail, designed for pleasure and sharing.",
     "serving": "Best served chilled. 26% vol – 70 cl",
-    "recipe": "1/3 Dix Huit Zéro Cinq cocktail, 2/3 tropical juice.\n To boost your cocktail, add 1/3 sparkling drink!"
+    "recipe": "1/3 Dix Huit Zéro Cinq cocktail, 2/3 tropical juice.\n To boost your cocktail, add 1/3 sparkling drink!",
+    "tastingTitle": "Tasting",
+    "iceText": "Lots of ice",
+    "mixLine1": "1/3 Dix Huit Zéro Cinq cocktail",
+    "mixLine2": "2/3 tropical juice",
+    "festiveOption": "Festive option: add 1/3 sparkling drink",
+    "servedChilled": "Best enjoyed chilled!"
   },
   "spirit": {
     "title": "Our Story",
@@ -39,12 +46,16 @@
   },
   "contact": {
     "title": "Contact Us",
+    "infoHeading": "Practical info",
     "name": "Name",
     "email": "Email",
     "message": "Message",
     "send": "Send",
     "info": "DIX HUIT ZÉRO CINQ SASU",
-    "description": "We would love to discuss our creations and your project with you."
+    "description": "We would love to discuss our creations and your project with you.",
+    "successMessage": "Message sent successfully!",
+    "errorMessage": "An error occurred. Please try again.",
+    "intro": "Dix Huit Zéro Cinq is for those who seek products that carry meaning, memories and emotion. A cocktail to be lived more than explained. An excuse to reconnect, slow down and enjoy the moment."
   },
   "footer": {
     "rights": "All rights reserved",
@@ -61,6 +72,3 @@
     "description": "Our online shop will be available soon."
   }
 }
-
-
-

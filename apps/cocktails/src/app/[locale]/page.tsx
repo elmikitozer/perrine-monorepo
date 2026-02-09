@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -24,7 +23,6 @@ async function getHomeData(locale: string) {
 export default async function Home({ params: { locale } }: { params: { locale: string } }) {
   const data = await getHomeData(locale);
   const t = await getTranslations({ locale, namespace: 'hero' });
-  const tCocktail = await getTranslations({ locale, namespace: 'cocktail' });
   const tSpirit = await getTranslations({ locale, namespace: 'spirit' });
   const tStory = await getTranslations({ locale, namespace: 'story' });
 
@@ -42,7 +40,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
         cta={
           <Link
             href="#cocktail"
-            className="inline-block bg-rouge backdrop-blur-sm hover:bg-rouge-alcool text-blanc px-10 py-5 rounded-full font-black text-lg transition-all shadow-2xl shadow-rouge/30 border border-rouge/50"
+            className="inline-block bg-rouge backdrop-blur-sm hover:bg-rouge-alcool text-jaune px-10 py-5 rounded-full font-black text-lg transition-all shadow-2xl shadow-rouge/30 border border-rouge/50"
           >
             {t('cta')}
           </Link>
@@ -50,7 +48,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       />
 
       {/* Cocktail Section */}
-      <CocktailSection description={tCocktail('description')} />
+      <CocktailSection />
 
       {/* Spirit Section - Brand Story */}
       <Section className="bg-transparent" fullWidth>
@@ -60,7 +58,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
             {spiritSection?.title?.[locale] || tSpirit('title')}
           </h2>
           <p className="font-handwritten no-text-stroke text-3xl md:text-4xl text-rouge-alcool">
-            Le goût des beaux moments
+            {tSpirit('subtitle')}
           </p>
 
           <div className="font-sans text-lg md:text-xl text-rouge/90 space-y-6 max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto text-justify">
