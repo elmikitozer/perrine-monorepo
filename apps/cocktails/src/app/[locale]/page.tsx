@@ -79,7 +79,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
             )}
           </div>
 
-          <p className="font-handwritten no-text-stroke text-3xl md:text-4xl text-rouge-alcool pt-6">
+          <p className="font-handwritten no-text-stroke text-2xl md:text-4xl text-rouge-alcool pt-6 whitespace-nowrap">
             Pour que chaque instant compte
           </p>
 

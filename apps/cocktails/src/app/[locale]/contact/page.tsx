@@ -39,7 +39,7 @@ export default async function ContactPage({ params: { locale } }: { params: { lo
           <h1 className="font-logo text-5xl md:text-6xl font-bold mb-6 mt-12 text-rouge">
             {contactPage?.title?.[locale] || t('title')}
           </h1>
-          <p className="font-handwritten max-w-2xl mx-auto text-rouge/85 text-base md:text-lg leading-relaxed">
+          <p className="font-handwritten max-w-2xl mx-auto px-6 md:px-0 text-rouge/85 text-base md:text-lg leading-relaxed">
             {t('intro')}
           </p>
         </div>
@@ -48,20 +48,20 @@ export default async function ContactPage({ params: { locale } }: { params: { lo
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: Practical Info Grid */}
             <div className="flex flex-col items-center justify-center space-y-10 w-full">
-            {/* <h2 className="font-logo text-rouge-alcool text-2xl md:text-3xl tracking-wide text-center">
+              {/* <h2 className="font-logo text-rouge-alcool text-2xl md:text-3xl tracking-wide text-center">
               {t('infoHeading')}
             </h2> */}
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-3xl">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 w-full max-w-3xl px-4 md:px-0">
                 {/* Email */}
                 <a
                   href="mailto:hello@dixhuitzerocinq.com"
-                  className="flex flex-col items-center text-center gap-3 text-rouge text-base md:text-lg hover:text-rouge-alcool transition-colors"
+                  className="flex flex-col items-center text-center gap-2 text-rouge text-xs sm:text-sm lg:text-base hover:text-rouge-alcool transition-colors"
                 >
-                  <span className="w-20 h-20 md:w-24 md:h-24">
+                  <span className="w-12 h-12 sm:w-14 sm:h-14 lg:w-20 lg:h-20">
                     <MailIcon />
                   </span>
-                  <span>hello@dixhuitzerocinq.com</span>
+                  <span className="break-all leading-tight">hello@dixhuitzerocinq.com</span>
                 </a>
 
                 {/* Instagram */}
@@ -69,9 +69,9 @@ export default async function ContactPage({ params: { locale } }: { params: { lo
                   href="https://instagram.com/dixhuitzerocinq"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center text-center gap-3 text-rouge text-base md:text-lg hover:text-rouge-alcool transition-colors"
+                  className="flex flex-col items-center text-center gap-2 text-rouge text-xs sm:text-sm lg:text-base hover:text-rouge-alcool transition-colors"
                 >
-                  <span className="w-20 h-20 md:w-24 md:h-24">
+                  <span className="w-12 h-12 sm:w-14 sm:h-14 lg:w-20 lg:h-20">
                     <InstagramIcon />
                   </span>
                   <span>@dixhuitzerocinq</span>
@@ -82,29 +82,29 @@ export default async function ContactPage({ params: { locale } }: { params: { lo
                   href="https://www.tiktok.com/@dixhuitzerocinq"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center text-center gap-3 text-rouge text-base md:text-lg hover:text-rouge-alcool transition-colors"
+                  className="flex flex-col items-center text-center gap-2 text-rouge text-xs sm:text-sm lg:text-base hover:text-rouge-alcool transition-colors"
                 >
-                  <span className="w-20 h-20 md:w-24 md:h-24">
+                  <span className="w-12 h-12 sm:w-14 sm:h-14 lg:w-20 lg:h-20">
                     <TikTokIcon />
                   </span>
-                  <span>@dixhuitzerocinq</span>
+                  <span>@dixhuitzerocinq<br></br></span>
                 </a>
 
                 {/* Phone */}
-                <div className="flex flex-col items-center text-center gap-3">
-                  <div className="w-20 h-20 md:w-24 md:h-24 text-rouge">
+                <div className="flex flex-col items-center text-center gap-2">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-20 lg:h-20 text-rouge">
                     <PhoneIcon />
                   </div>
-                  <div className="flex flex-col items-start text-left">
+                  <div className="flex flex-col items-center text-center text-xs sm:text-sm lg:text-base">
                     <a
                       href="tel:+33658768607"
-                      className="text-rouge text-base md:text-lg hover:text-rouge-alcool transition-colors"
+                      className="text-rouge hover:text-rouge-alcool transition-colors whitespace-nowrap"
                     >
                       +33 6 58 76 86 07
                     </a>
                     <a
                       href="tel:+32475371887"
-                      className="text-rouge text-base md:text-lg hover:text-rouge-alcool transition-colors"
+                      className="text-rouge hover:text-rouge-alcool transition-colors whitespace-nowrap"
                     >
                       +32 475 37 18 87
                     </a>
@@ -116,12 +116,12 @@ export default async function ContactPage({ params: { locale } }: { params: { lo
                   href="https://www.linkedin.com/company/dixhuitzerocinq"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center text-center gap-3 text-rouge text-base md:text-lg hover:text-rouge-alcool transition-colors"
+                  className="flex flex-col items-center text-center gap-2 text-rouge text-xs sm:text-sm lg:text-base hover:text-rouge-alcool transition-colors"
                 >
-                  <span className="w-20 h-20 md:w-24 md:h-24">
+                  <span className="w-12 h-12 sm:w-14 sm:h-14 lg:w-20 lg:h-20">
                     <LinkedInIcon />
                   </span>
-                  <span>www.dixhuitzerocinq.com</span>
+                  <span>dixhuitzerocinq.com</span>
                 </a>
 
                 {/* Facebook */}
@@ -129,9 +129,9 @@ export default async function ContactPage({ params: { locale } }: { params: { lo
                   href="https://www.facebook.com/dixhuitzerocinq"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center text-center gap-3 text-rouge text-base md:text-lg hover:text-rouge-alcool transition-colors"
+                  className="flex flex-col items-center text-center gap-2 text-rouge text-xs sm:text-sm lg:text-base hover:text-rouge-alcool transition-colors"
                 >
-                  <span className="w-20 h-20 md:w-24 md:h-24">
+                  <span className="w-12 h-12 sm:w-14 sm:h-14 lg:w-20 lg:h-20">
                     <FacebookIcon />
                   </span>
                   <span>@dixhuitzerocinq</span>
@@ -140,7 +140,7 @@ export default async function ContactPage({ params: { locale } }: { params: { lo
             </div>
 
             {/* Right: Content & Form */}
-            <div className="space-y-8">
+            <div className="space-y-8 px-6">
               <ContactFormClient locale={locale} />
             </div>
           </div>

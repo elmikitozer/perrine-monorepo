@@ -184,7 +184,13 @@
     /* text-shadow: 0 0 0.3px #000; */
   }
   .no-text-stroke {
-    -webkit-text-stroke: 0;
-    text-shadow: none;
+    -webkit-text-stroke: 0 !important;
+    text-shadow: none !important;
+  }
+
+  /* Police manuscrite */
+  .font-handwritten {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke: 0 !important;
   }
 }
