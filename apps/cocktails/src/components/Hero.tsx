@@ -87,7 +87,7 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="mb-6"
+          className="-mb-4"
         >
           <span className="sr-only">{title}</span>
           <div className="relative mx-auto w-[320px] md:w-[560px] lg:w-[720px] h-[320px] md:h-[560px] lg:h-[720px]">

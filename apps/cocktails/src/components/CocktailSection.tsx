@@ -27,7 +27,7 @@ export function CocktailSection() {
         </motion.div>
 
         {/* Container flex: colonne sur mobile, row sur desktop */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:gap-12">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12">
           {/* Bouteille */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -54,7 +54,7 @@ export function CocktailSection() {
               transition={{ delay: 0.3 }}
               className="relative"
             >
-              <h3 className="font-handwritten no-text-stroke text-3xl md:text-5xl text-rouge text-center lg:text-left mb-8 md:mb-12">
+              <h3 className="font-handwritten no-text-stroke text-3xl md:text-5xl lg:text-4xl text-rouge text-center lg:text-left mb-6 md:mb-8 lg:mb-6">
                 {t('tastingTitle')}
               </h3>
 
@@ -67,17 +67,17 @@ export function CocktailSection() {
                   className="relative text-center lg:text-left space-y-1 md:space-y-2 flex-1 max-w-xs md:max-w-sm"
                 >
                   <div className="relative inline-flex justify-center lg:justify-start">
-                    <p className="font-handwritten no-text-stroke text-xl md:text-2xl lg:text-3xl text-rouge text-center lg:text-left whitespace-nowrap">
+                    <p className="font-handwritten no-text-stroke text-xl md:text-2xl lg:text-2xl text-rouge text-center lg:text-left whitespace-nowrap">
                       {t('iceText')}
                     </p>
-                    <div className="absolute left-full top-1/2 -translate-y-1/2 ml-1 md:ml-4 w-8 h-6 md:w-20 md:h-14 lg:w-24 lg:h-16 text-rouge rotate-[10deg]">
+                    <div className="absolute left-full top-1/2 -translate-y-1/2 ml-1 md:ml-4 w-8 h-6 md:w-16 md:h-12 lg:w-20 lg:h-14 text-rouge rotate-[10deg]">
                       <ArrowIcon />
                     </div>
                   </div>
-                  <p className="font-handwritten no-text-stroke text-xl md:text-2xl lg:text-3xl text-rouge whitespace-nowrap">
+                  <p className="font-handwritten no-text-stroke text-xl md:text-2xl lg:text-2xl text-rouge whitespace-nowrap">
                     {t('mixLine1')}
                   </p>
-                  <p className="font-handwritten no-text-stroke text-xl md:text-2xl lg:text-3xl text-rouge">
+                  <p className="font-handwritten no-text-stroke text-xl md:text-2xl lg:text-2xl text-rouge">
                     {t('mixLine2')}
                   </p>
 
@@ -85,9 +85,9 @@ export function CocktailSection() {
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="absolute -right-9 md:-right-28 lg:-right-32 -top-12 md:-top-28 lg:-top-32"
+                    className="absolute -right-9 md:-right-20 lg:-right-2 -top-10 md:-top-14 lg:-top-24"
                   >
-                    <div className="w-14 h-20 md:w-28 md:h-40 lg:w-36 lg:h-52 text-rouge rotate-6">
+                    <div className="w-14 h-20 md:w-20 md:h-28 lg:w-24 lg:h-36 text-rouge rotate-6">
                       <WaterGlassIcon />
                     </div>
                   </motion.div>
@@ -100,32 +100,28 @@ export function CocktailSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6 }}
-              className="relative mt-8 md:mt-12 text-center lg:text-left"
+              className="relative mt-6 md:mt-10 lg:mt-6 text-center lg:text-left"
             >
-              <div className="relative inline-flex flex-col items-center lg:flex-row lg:items-start lg:justify-start">
-                <div className="flex items-center">
-                  <p className="font-handwritten no-text-stroke text-xl md:text-2xl lg:text-3xl text-rouge text-center lg:text-left whitespace-nowrap">
-                    {t('festiveOption')}
-                  </p>
-                  {/* Flèche à droite du texte sur desktop */}
-                  <div className="hidden lg:block lg:ml-4 xl:ml-6 w-24 h-16 text-rouge rotate-[350deg] -scale-y-100">
-                    <ArrowIcon />
+              <div className="flex items-center justify-center lg:justify-start">
+                <p className="font-handwritten no-text-stroke text-xl md:text-2xl lg:text-2xl text-rouge text-center lg:text-left whitespace-nowrap">
+                  {t('festiveOption')}
+                </p>
+                {/* Flèche à droite du texte sur desktop */}
+                <div className="hidden lg:block ml-4 w-20 h-14 text-rouge rotate-[350deg] -scale-y-100">
+                  <ArrowIcon />
+                </div>
+                {/* Verre à pied juste après la flèche sur desktop */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="hidden lg:block -ml-4 mt-28"
+                >
+                  <div className="w-24 h-36 text-rouge rotate-12">
+                    <WineGlassLogo />
                   </div>
-                </div>
-
-                              </div>
-
-              {/* Verre à droite sur desktop uniquement */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
-                className="hidden lg:block absolute lg:-right-24 xl:-right-28 top-8"
-              >
-                <div className="w-36 h-52 text-rouge rotate-12">
-                  <WineGlassLogo />
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
             </motion.div>
           </div>
         </div>
