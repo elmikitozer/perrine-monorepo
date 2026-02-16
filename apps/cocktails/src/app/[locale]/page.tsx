@@ -57,7 +57,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
           <h2 className="font-logo text-5xl md:text-7xl font-black text-rouge">
             {spiritSection?.title?.[locale] || tSpirit('title')}
           </h2>
-          <p className="font-handwritten no-text-stroke text-3xl md:text-4xl text-rouge-alcool">
+          <p className="font-handwritten no-text-stroke text-3xl md:text-4xl text-rouge">
             {tSpirit('subtitle')}
           </p>
 
@@ -72,14 +72,14 @@ export default async function Home({ params: { locale } }: { params: { locale: s
                 <p>{tStory('intro')}</p>
                 <p>{tStory('babou')}</p>
                 <p>{tStory('birth')}</p>
-                <p className="text-rouge font-medium">{tStory('creation')}</p>
+                <p>{tStory('creation')}</p>
                 <p>{tStory('tradition')}</p>
                 <p>{tStory('mission')}</p>
               </>
             )}
           </div>
 
-          <p className="font-handwritten no-text-stroke text-2xl md:text-4xl text-rouge-alcool pt-6 whitespace-nowrap">
+          <p className="font-handwritten no-text-stroke text-2xl md:text-4xl text-rouge pt-6 whitespace-nowrap">
             Pour que chaque instant compte
           </p>
 

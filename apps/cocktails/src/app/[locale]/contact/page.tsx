@@ -39,7 +39,7 @@ export default async function ContactPage({ params: { locale } }: { params: { lo
           <h1 className="font-logo text-5xl md:text-6xl font-bold mb-4 mt-4 text-rouge">
             {contactPage?.title?.[locale] || t('title')}
           </h1>
-          <p className="font-handwritten max-w-2xl mx-auto px-6 md:px-0 text-rouge/85 text-base md:text-lg leading-relaxed">
+          <p className="font-handwritten max-w-2xl mx-auto px-6 md:px-0 text-rouge/85 text-base md:text-lg leading-relaxed whitespace-pre-line">
             {t('intro')}
           </p>
         </div>

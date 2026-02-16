@@ -6,15 +6,15 @@
     "instagram": "Instagram"
   },
   "hero": {
-    "cta": "Decouvrir",
+    "cta": "Découvrir",
     "scrollDown": "Defiler",
     "tagline": "Un cocktail a partager.\n Des souvenirs a creer."
   },
   "cocktail": {
     "title": "Le Cocktail",
     "subtitle": "Chaque verre raconte une histoire",
-    "discover": "Decouvrir notre cocktail",
-    "description": "Dix Huit Zero Cinq est un cocktail solaire et accessible,\npense pour le plaisir et le partage.",
+    "discover": "Découvrir notre cocktail",
+    "description": "Dix Huit Zero Cinq est un cocktail solaire et accessible,\npensé pour le plaisir et le partage.",
     "serving": "A deguster bien frais. 26% vol – 70 cl",
     "recipe": "1/3 de cocktail Dix Huit Zero Cinq, 2/3 de jus tropical.\nA vous d'ajouter 1/3 de petillant pour une version encore plus conviviale et festive !",
     "tastingTitle": "Degustation",
@@ -29,12 +29,12 @@
     "subtitle": "Le gout des beaux moments"
   },
   "story": {
-    "intro": "Dix Huit Zero Cinq est bien plus qu'un cocktail. C'est une histoire que l'on partage, transmise au fil des annees, pensee pour accompagner et celebrer les plus beaux moments.",
-    "babou": "Apres la guerre, ma grand-mere, femme forte et independante appelee Babou, avec les fonds de sa boutique, creait ses propres recettes de cocktails, qu'elle faisait decouvrir autour d'elle.",
-    "birth": "Parmi elles, une recette toute particuliere est nee le 18 mai 1994. Le meme jour que moi. A l'epoque, dans le ventre de ma maman, on ne connaissait pas encore mon sexe. Tout le monde m'appelait le Pacha.",
-    "creation": "Ce jour-la, ma grand-mere a cree ce cocktail, sans savoir que nous naissions ensemble.",
-    "tradition": "Chaque annee, a mon anniversaire, Dix Huit Zero Cinq etait de la fete. Il a accompagne les plus beaux moments de ma vie : nos etes, nos rires, et meme mon mariage.",
-    "mission": "Face a l'engouement, il nous est apparu evident, avec mon papa, qu'il etait temps de le partager au-dela de notre cercle familial pour faire vivre cette histoire.",
+    "intro": "Dix Huit Zero Cinq est bien plus qu'un cocktail. C'est une histoire que l'on partage, transmise au fil des années, pensée pour accompagner et celebrer les plus beaux moments.",
+    "babou": "Après la guerre, ma grand-mère, femme forte et indépendante appelée Babou, avec les fonds de sa boutique, créait ses propres recettes de cocktails, qu'elle faisait découvrir autour d'elle.",
+    "birth": "Parmi elles, une recette toute particulière est née le 18 mai 1994. Le même jour que moi. À l'époque, dans le ventre de ma maman, on ne connaissait pas encore mon sexe. Tout le monde m'appelait le Pacha.",
+    "creation": "Ce jour-là, ma grand-mère a crée ce cocktail, sans savoir que nous naissions ensemble.",
+    "tradition": "Chaque année, à mon anniversaire, Dix Huit Zero Cinq était de la fête. Il a accompagné les plus beaux moments de ma vie : nos étés, nos rires, et même mon mariage.",
+    "mission": "Face à l'engouement, il nous est apparu évident, avec mon papa, qu'il était temps de le partager au-delà de notre cercle familial pour faire vivre cette histoire.",
     "closing": "Pour que chaque instant compte."
   },
   "positioning": {
@@ -55,20 +55,20 @@
     "description": "Nous serions ravis d'echanger avec vous sur nos creations et votre projet.",
     "successMessage": "Message envoye avec succes !",
     "errorMessage": "Une erreur s'est produite. Veuillez reessayer.",
-    "intro": "Dix Huit Zero Cinq s'adresse a celles et ceux qui cherchent des produits porteurs de sens, de souvenirs et d'emotion. Un cocktail qui se vit plus qu'il ne s'explique. Un pretexte pour se retrouver, ralentir et profiter de l'instant."
+    "intro": "Dix Huit Zero Cinq s'adresse a celles et ceux\nqui cherchent des produits porteurs de sens, de souvenirs et d'emotion.\nUn cocktail qui se vit plus qu'il ne s'explique.\nUn pretexte pour se retrouver, ralentir et profiter de l'instant."
   },
   "footer": {
-    "rights": "Tous droits reserves",
+    "rights": "Tous droits réservés",
     "follow": "Suivez-nous",
     "alcoholWarning": "L'abus d'alcool est dangereux pour la sante",
-    "alcoholMessage": "A consommer avec moderation. \n La vente d'alcool a des mineurs de moins de 18 ans est interdite.",
+    "alcoholMessage": "À consommer avec moderation. \n La vente d'alcool à des mineurs de moins de 18 ans est interdite.",
     "responsibleDrinking": "Buvez responsablement",
-    "tagline": "Un cocktail a partager.\n Des souvenirs a creer.",
+    "tagline": "Un cocktail à partager.\n Des souvenirs à creer.",
     "address": "101 rue Daremont, 75018 Paris",
     "company": "DIX HUIT ZERO CINQ SASU"
   },
   "shop": {
-    "comingSoon": "Boutique a venir",
+    "comingSoon": "Boutique à venir",
     "description": "Notre boutique en ligne sera bientot disponible."
   }
 }

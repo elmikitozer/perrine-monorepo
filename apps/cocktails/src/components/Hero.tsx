@@ -82,15 +82,15 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
       <div className="absolute inset-0 bg-gradient-to-b from-jaune/0 via-transparent to-jaune/0" />
 
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center lg:justify-end lg:pb-32 px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="-mb-4"
+          className="-mb-4 lg:mb-0"
         >
           <span className="sr-only">{title}</span>
-          <div className="relative mx-auto w-[320px] md:w-[560px] lg:w-[720px] h-[320px] md:h-[560px] lg:h-[720px]">
+          <div className="relative mx-auto w-[320px] md:w-[560px] lg:w-[720px] h-[320px] md:h-[560px] lg:h-[540px]">
             <Image
               // src="/1805_bouteille_fruits_clear.png"
               src="/1805_Logo rouge-jaune_horizontal_clean.png"
@@ -109,7 +109,7 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="font-handwritten no-text-stroke text-xl md:text-2xl lg:text-3xl text-rouge/90 max-w-3xl mb-12"
+            className="font-handwritten no-text-stroke text-xl md:text-2xl lg:text-3xl text-rouge/90 max-w-3xl mb-12 lg:mb-10"
           >
             {subtitle}
           </motion.p>
