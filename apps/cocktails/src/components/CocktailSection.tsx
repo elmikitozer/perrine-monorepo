@@ -82,7 +82,7 @@ export function CocktailSection() {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4 }}
-                className="absolute -right-[1.6rem] -bottom-[2rem] right-2 sm:right-[2rem] md:right-10 lg:-right-6 xl:-right-2 -top-2 md:top-1 lg:-top-6"
+                className="absolute -right-6 -bottom-[2rem] sm:right-[2rem] md:right-10 lg:-right-6 xl:-right-2 -top-2 md:top-1 lg:-top-6"
               >
                 <div className="w-14 h-20 md:w-20 md:h-30 lg:w-28 lg:h-40 text-rouge rotate-6">
                   <WaterGlassIcon />
