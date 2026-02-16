@@ -84,7 +84,7 @@ export function Navigation() {
 
             {/* Instagram */}
             <a
-              href="https://instagram.com"
+              href="https://instagram.com/dixhuitzerocinq"
               target="_blank"
               rel="noopener noreferrer"
               className="text-jaune/90 hover:text-jaune transition-colors font-medium flex items-center gap-2"
@@ -159,7 +159,7 @@ export function Navigation() {
                 {t('contact')}
               </Link>
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/dixhuitzerocinq"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-rouge/80 hover:text-rouge-alcool transition-colors font-medium flex items-center gap-2"
