@@ -90,7 +90,7 @@ export function CocktailSection() {
               </motion.div>
 
               {/* Flèche verre d'eau - entre le verre et "1/3 de cocktail" */}
-              <div className="absolute right-[2rem] top-8 md:right-28 lg:right-20 xl:right-24 top-10 md:top-10 lg:top-12 xl:top-12 w-8 h-6 md:w-12 md:h-10 lg:w-14 lg:h-12 xl:w-20 xl:h-14 text-rouge rotate-[10deg]">
+              <div className="absolute right-[2rem] top-8 sm:right-[6rem] sm:bottom-[2.5rem] sm:w-8 sm:h-6 md:right-28 lg:right-20 xl:right-24 top-10 md:top-10 lg:top-12 xl:top-12 w-8 h-6 md:w-12 md:h-10 lg:w-14 lg:h-12 xl:w-20 xl:h-14 text-rouge rotate-[10deg]">
                 <ArrowIcon />
               </div>
 
