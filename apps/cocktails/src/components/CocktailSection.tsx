@@ -45,71 +45,131 @@ export function CocktailSection() {
             />
           </motion.div>
 
-          {/* Recette */}
+          {/* Bloc Dégustation / Recette */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="flex-1 relative text-center lg:text-left"
+            className="flex-1"
           >
-            <h3 className="font-handwritten no-text-stroke text-3xl md:text-5xl lg:text-4xl text-rouge mb-6 lg:mb-8">
-              {t('tastingTitle')}
-            </h3>
+            <div className="relative overflow-hidden py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-14">
 
-            <div className="relative">
-              {/* Lignes de texte - flux normal */}
-              <div className="flex flex-col gap-3 lg:gap-5">
-                <p className="font-handwritten no-text-stroke text-sm md:text-2xl lg:text-3xl text-rouge whitespace-nowrap">
-                  {t('iceText')}
-                </p>
-                <p className="font-handwritten no-text-stroke text-sm md:text-2xl lg:text-3xl text-rouge whitespace-nowrap">
-                  {t('mixLine1')}
-                </p>
-                <p className="font-handwritten no-text-stroke text-sm md:text-2xl lg:text-3xl text-rouge">
-                  {t('mixLine2')}
-                </p>
-                <p className="font-handwritten no-text-stroke text-sm md:text-2xl lg:text-3xl text-rouge whitespace-nowrap">
+              {/* === TEXTE RECETTE (z-10 au-dessus des décos) === */}
+              <div className="relative z-10 text-center">
+                <h3 className="font-handwritten no-text-stroke text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl text-rouge mb-4 sm:mb-5 md:mb-6 lg:mb-7 xl:mb-8">
+                  {t('tastingTitle')}
+                </h3>
+
+                <div className="flex flex-col gap-1.5 sm:gap-2 md:gap-2.5 lg:gap-3 xl:gap-3.5 2xl:gap-4">
+                  <p className="font-handwritten no-text-stroke text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl text-rouge">
+                    {t('iceText')}
+                  </p>
+                  <p className="font-handwritten no-text-stroke text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl text-rouge">
+                    {t('mixLine1')}
+                  </p>
+                  <p className="font-handwritten no-text-stroke text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl text-rouge">
+                    {t('mixLine2')}
+                  </p>
+                </div>
+
+                <p className="font-handwritten no-text-stroke text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-xl text-rouge/80 mt-3 sm:mt-4 md:mt-5 lg:mt-6 xl:mt-6 italic">
                   {t('festiveOption')}
                 </p>
-                <p className="font-handwritten no-text-stroke text-sm md:text-2xl lg:text-3xl text-rouge">
+
+                <p className="font-handwritten no-text-stroke text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl text-rouge font-bold mt-3 sm:mt-4 md:mt-5 lg:mt-6 xl:mt-6">
                   {t('servedChilled')}
                 </p>
               </div>
 
-              {/* Verre d'eau - en haut à droite */}
+              {/* === VERRE À PIED (vin) — BAS-GAUCHE, remonté au bout de la flèche === */}
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
-                className="absolute -right-6 -bottom-[2rem] sm:right-[2rem] md:right-10 lg:-right-6 xl:-right-2 -top-2 md:top-1 lg:-top-6"
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                className="absolute z-0
+                  bottom-[5rem] left-[1.5rem]
+                  sm:bottom-[6rem] sm:left-[9rem]
+                  md:bottom-[7rem] md:left-[9.5rem]
+                  lg:bottom-[8rem] lg:left-[3.5rem]
+                  xl:bottom-[9rem] xl:left-[4rem]
+                  2xl:bottom-[9rem] 2xl:left-[2rem]
+                  w-10 h-14
+                  sm:w-12 sm:h-[4.5rem]
+                  md:w-14 md:h-20
+                  lg:w-[4.5rem] lg:h-24
+                  xl:w-20 xl:h-28
+                  2xl:w-24 2xl:h-36
+                  text-rouge -rotate-6"
               >
-                <div className="w-14 h-20 md:w-20 md:h-30 lg:w-28 lg:h-40 text-rouge rotate-6">
-                  <WaterGlassIcon />
-                </div>
+                <WineGlassLogo />
               </motion.div>
 
-              {/* Flèche verre d'eau - entre le verre et "1/3 de cocktail" */}
-              <div className="absolute right-[2rem] top-8 sm:right-[6rem] sm:bottom-[2.5rem] sm:w-8 sm:h-6 md:right-28 lg:right-20 xl:right-24 top-10 md:top-10 lg:top-12 xl:top-12 w-8 h-6 md:w-12 md:h-10 lg:w-14 lg:h-12 xl:w-20 xl:h-14 text-rouge rotate-[10deg]">
+              {/* === FLÈCHE BAS-GAUCHE — inversée, pointe vers le bas/gauche === */}
+              <div
+                className="absolute z-0
+                  bottom-[3.5rem] left-[3.5rem]
+                  sm:bottom-[4.5rem] sm:left-[11rem]
+                  md:bottom-[5.5rem] md:left-[12rem]
+                  lg:bottom-[6rem] lg:left-[6rem]
+                  xl:bottom-[7rem] xl:left-[7rem]
+                  2xl:bottom-[7rem] 2xl:left-[5.5rem]
+                  w-5 h-3.5
+                  sm:w-6 sm:h-4
+                  md:w-7 md:h-5
+                  lg:w-10 lg:h-7
+                  xl:w-12 xl:h-8
+                  2xl:w-14 2xl:h-10
+                  text-rouge rotate-[195deg] -scale-y-100"
+              >
                 <ArrowIcon />
               </div>
 
-              {/* Flèche verre à pied - desktop uniquement */}
-              <div className="block absolute right-[1.5rem] bottom-[1.8rem] w-8 h-6 sm:right-[6rem] sm:bottom-[2.5rem] sm:w-8 sm:h-6 text-rouge rotate-[350deg] -scale-y-100 md:block absolute md:right-[6rem] md:bottom-[2.5rem] md:w-12 md:h-10 text-rouge rotate-[350deg] -scale-y-100 lg:block absolute lg:right-[1rem] lg:bottom-[3rem] lg:w-14 lg:h-12 text-rouge rotate-[350deg] -scale-y-100 xl:block absolute xl:right-[3rem] xl:bottom-[3rem] xl:w-20 xl:h-14 text-rouge rotate-[350deg] -scale-y-100">
+              {/* === VERRE TUMBLER (eau) — DROITE, descendu en face de "1/3 de cocktail" === */}
+              <motion.div
+                initial={{ opacity: 0, x: 10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                className="absolute z-0
+                  top-[4rem] right-[.5rem]
+                  sm:top-[4.25rem] sm:right-[6.25rem]
+                  md:top-[5.5rem] md:right-[7.5rem]
+                  lg:top-[5.5rem] lg:right-[1.5rem]
+                  xl:top-[6rem] xl:right-[1rem]
+                  2xl:top-[6rem] 2xl:right-[0rem]
+                  w-12 h-10
+                  sm:w-14 sm:h-12
+                  md:w-[4.5rem] md:h-14
+                  lg:w-[5.5rem] lg:h-[4.5rem]
+                  xl:w-24 xl:h-20
+                  2xl:w-28 2xl:h-24
+                  text-rouge -rotate-6"
+              >
+                <WaterGlassIcon />
+              </motion.div>
+
+              {/* === FLÈCHE DROITE — descendue avec le tumbler === */}
+              <div
+                className="absolute z-0
+                  top-[6rem] right-[3rem]
+                  sm:top-[7rem] sm:right-[9rem]
+                  md:top-[8.5rem] md:right-[11rem]
+                  lg:top-[9.5rem] lg:right-[6rem]
+                  xl:top-[10.5rem] xl:right-[5.5rem]
+                  2xl:top-[11.5rem] 2xl:right-[5rem]
+                  w-5 h-3.5
+                  sm:w-6 sm:h-4
+                  md:w-7 md:h-5
+                  lg:w-10 lg:h-7
+                  xl:w-12 xl:h-8
+                  2xl:w-14 2xl:h-10
+                  text-rouge rotate-[15deg]"
+              >
                 <ArrowIcon />
               </div>
 
-              {/* Verre à pied */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
-                className="block absolute -right-[1.5rem] -bottom-[2.5rem] sm:right-[2rem] sm:-bottom-[2rem] md:right-[2rem] md:-bottom-6 xl:right-[-2.5rem] lg:block absolute lg:right-[-4rem] lg:-bottom-12 xl:right-[-2.5rem]"
-              >
-                <div className="w-14 h-20 md:w-16 md:h-24 lg:w-24 lg:h-36 text-rouge rotate-12">
-                  <WineGlassLogo />
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         </div>
