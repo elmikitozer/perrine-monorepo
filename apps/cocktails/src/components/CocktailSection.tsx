@@ -73,7 +73,7 @@ export function CocktailSection() {
                   </p>
                 </div>
 
-                <p className="font-handwritten no-text-stroke text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-xl text-rouge/80 mt-3 sm:mt-4 md:mt-5 lg:mt-6 xl:mt-6 italic">
+                <p className="font-handwritten no-text-stroke text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-xl text-rouge mt-3 sm:mt-4 md:mt-5 lg:mt-6 xl:mt-6 italic">
                   {t('festiveOption')}
                 </p>
 

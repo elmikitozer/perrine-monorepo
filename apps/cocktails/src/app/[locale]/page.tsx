@@ -80,7 +80,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
           </div>
 
           <p className="font-handwritten no-text-stroke text-2xl md:text-4xl text-rouge pt-6 whitespace-nowrap">
-            Pour que chaque instant compte
+            {tStory('closing')}
           </p>
 
           {/* Images Grid */}

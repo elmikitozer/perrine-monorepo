@@ -44,7 +44,7 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const messages = await getMessages();
+  const messages = await getMessages({ locale });
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -52,7 +52,7 @@ export default async function LocaleLayout({
         className="font-sans min-h-screen text-rouge antialiased"
         suppressHydrationWarning
       >
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <WaveBackground variant="yellow" className="min-h-screen">
             <Navigation />
             {children}
