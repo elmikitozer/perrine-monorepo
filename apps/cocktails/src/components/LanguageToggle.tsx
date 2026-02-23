@@ -1,18 +1,17 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 
 export function LanguageToggle() {
-  const locale = useLocale();
-  const router = useRouter();
   const pathname = usePathname();
 
+  const currentLocale = pathname.startsWith('/en') ? 'en' : 'fr';
+  const newLocale = currentLocale === 'fr' ? 'en' : 'fr';
+
   const toggleLanguage = () => {
-    const newLocale = locale === 'fr' ? 'en' : 'fr';
-    const newPath = pathname.replace(`/${locale}`, `/${newLocale}`);
-    router.push(newPath || `/${newLocale}`);
+    const newPath = '/' + newLocale + pathname.replace(/^\/(fr|en)/, '');
+    window.location.href = newPath || `/${newLocale}`;
   };
 
   return (
@@ -22,9 +21,9 @@ export function LanguageToggle() {
       onClick={toggleLanguage}
       className="fixed top-6 right-6 z-50 bg-blanc/10 backdrop-blur-md border border-blanc/20 rounded-full px-4 py-2 text-blanc hover:bg-blanc/20 transition-colors"
     >
-      <span className="font-bold">{locale.toUpperCase()}</span>
+      <span className="font-bold">{currentLocale.toUpperCase()}</span>
       <span className="mx-1">→</span>
-      <span className="opacity-70">{locale === 'fr' ? 'EN' : 'FR'}</span>
+      <span className="opacity-70">{newLocale.toUpperCase()}</span>
     </motion.button>
   );
 }
