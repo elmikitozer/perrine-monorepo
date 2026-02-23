@@ -3,17 +3,18 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname, useRouter } from 'next/navigation';
-import { useLocale, useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const locale = useLocale();
-  const router = useRouter();
   const pathname = usePathname();
   const t = useTranslations('nav');
+
+  const locale = pathname.startsWith('/en') ? 'en' : 'fr';
+  const newLocale = locale === 'fr' ? 'en' : 'fr';
 
   // Detect scroll
   useEffect(() => {
@@ -26,9 +27,8 @@ export function Navigation() {
 
   // Toggle language
   const toggleLanguage = () => {
-    const newLocale = locale === 'fr' ? 'en' : 'fr';
-    const newPath = pathname.replace(`/${locale}`, `/${newLocale}`);
-    router.push(newPath || `/${newLocale}`);
+    const newPath = '/' + newLocale + pathname.replace(/^\/(fr|en)/, '');
+    window.location.href = newPath || `/${newLocale}`;
   };
 
   return (
@@ -102,7 +102,7 @@ export function Navigation() {
             >
               <span className="font-bold">{locale.toUpperCase()}</span>
               <span className="text-jaune/60">→</span>
-              <span className="text-jaune/80">{locale === 'fr' ? 'EN' : 'FR'}</span>
+              <span className="text-jaune/80">{newLocale.toUpperCase()}</span>
             </button>
           </div>
 
@@ -176,7 +176,7 @@ export function Navigation() {
               >
                 <span className="font-bold">{locale.toUpperCase()}</span>
                 <span className="text-rouge/60">→</span>
-                <span className="text-rouge/80">{locale === 'fr' ? 'EN' : 'FR'}</span>
+                <span className="text-rouge/80">{newLocale.toUpperCase()}</span>
               </button>
             </div>
           </motion.div>
