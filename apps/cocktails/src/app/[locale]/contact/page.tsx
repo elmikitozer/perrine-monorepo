@@ -36,7 +36,7 @@ export default async function ContactPage({ params: { locale } }: { params: { lo
       <div className="min-h-screen bg-transparent">
         <div className="h-20" />
         <div className="text-center">
-          <h1 className="font-logo text-5xl md:text-6xl font-bold mb-4 mt-4 text-rouge">
+          <h1 className="font-logo text-5xl md:text-6xl font-bold mb-8 mt-4 text-rouge">
             {contactPage?.title?.[locale] || t('title')}
           </h1>
           <p className="font-handwritten max-w-2xl mx-auto px-6 md:px-0 text-rouge/85 text-base md:text-lg leading-relaxed whitespace-pre-line">
@@ -44,7 +44,7 @@ export default async function ContactPage({ params: { locale } }: { params: { lo
           </p>
         </div>
 
-        <Section className="py-4 md:py-10">
+        <Section className="!pt-4 md:!pt-6 py-4 md:py-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: Practical Info Grid */}
             <div className="flex flex-col items-center justify-center space-y-10 w-full">

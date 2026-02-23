@@ -90,7 +90,7 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
           className="-mb-4 lg:mb-0"
         >
           <span className="sr-only">{title}</span>
-          <div className="relative mx-auto w-[320px] md:w-[560px] lg:w-[720px] h-[320px] md:h-[560px] lg:h-[540px]">
+          <div className="relative mx-auto w-full max-w-[320px] md:max-w-[560px] lg:max-w-[720px] h-[320px] md:h-[560px] lg:h-[540px]">
             <Image
               // src="/1805_bouteille_fruits_clear.png"
               src="/1805_Logo rouge-jaune_horizontal_clean.png"

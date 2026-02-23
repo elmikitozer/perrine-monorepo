@@ -9,7 +9,7 @@ export function CocktailSection() {
   const t = useTranslations('cocktail');
 
   return (
-    <section id="cocktail" className="pt-6 pb-16 md:pt-8 md:pb-24 bg-transparent overflow-hidden">
+    <section id="cocktail" className="pt-6 pb-4 md:pt-8 md:pb-8 bg-transparent overflow-hidden">
       <div className="mx-auto px-4 md:px-6 lg:px-8 max-w-screen-md lg:max-w-[1000px] xl:max-w-[1100px]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

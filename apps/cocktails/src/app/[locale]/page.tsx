@@ -51,7 +51,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       <CocktailSection />
 
       {/* Spirit Section - Brand Story */}
-      <Section className="bg-transparent" fullWidth>
+      <Section className="bg-transparent !pt-8 md:!pt-12" fullWidth>
         <div className="mx-auto px-4 md:px-6 lg:px-8 max-w-screen-lg lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px]">
           <div className="max-w-6xl xl:max-w-7xl mx-auto text-center space-y-8">
           <h2 className="font-logo text-5xl md:text-7xl font-black text-rouge">
