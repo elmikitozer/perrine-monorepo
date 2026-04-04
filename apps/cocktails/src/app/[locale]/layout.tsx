@@ -1,6 +1,6 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import { Navigation, WaveBackground } from '@/components';
+import { Navigation, WaveBackground, AgeVerification } from '@/components';
 import type { Metadata } from 'next';
 import '../globals.css';
 
@@ -53,6 +53,7 @@ export default async function LocaleLayout({
         suppressHydrationWarning
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <AgeVerification />
           <WaveBackground variant="yellow" className="min-h-screen">
             <Navigation />
             {children}

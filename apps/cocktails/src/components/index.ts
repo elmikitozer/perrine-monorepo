@@ -1,3 +1,4 @@
+export { AgeVerification } from './AgeVerification';
 export { Hero } from './Hero';
 export { Section } from './Section';
 export { FooterCocktail } from './FooterCocktail';

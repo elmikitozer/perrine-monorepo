@@ -1,280 +1,289 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
+type Lang = 'fr' | 'en';
+
+const content = {
+  fr: {
+    tagline: 'Le goût des beaux moments',
+    subtitle: "Ce site fait la promotion d'une boisson alcoolisée.",
+    question: "Vous devez avoir l'âge légal pour y accéder.",
+    birthdate: 'Date de naissance',
+    day: 'JJ',
+    month: 'MM',
+    year: 'AAAA',
+    enter: 'Entrer',
+    remember: 'Se souvenir de moi',
+    rememberNote: "Ne cochez pas si l'appareil est partagé ou accessible à des mineurs.",
+    legal: "En poursuivant, vous confirmez avoir l'âge légal requis dans votre pays pour consommer de l'alcool.",
+    warning: "L'abus d'alcool est dangereux pour la santé. À consommer avec modération.",
+    share: 'Ne pas partager à une personne de moins de 18 ans.',
+    errorEmpty: 'Veuillez remplir tous les champs.',
+    errorInvalid: 'Date invalide.',
+    errorAge: "Vous devez avoir 18 ans ou plus pour accéder à ce site.",
+    decline: "Non, je n'ai pas l'âge légal",
+    declineMsg: "Vous devez avoir 18 ans ou plus pour accéder à ce site. Ce site est réservé aux adultes en âge légal de consommer de l'alcool.",
+  },
+  en: {
+    tagline: 'The taste of beautiful moments',
+    subtitle: 'This site promotes an alcoholic beverage.',
+    question: 'You must be of legal drinking age to access our site.',
+    birthdate: 'Date of birth',
+    day: 'DD',
+    month: 'MM',
+    year: 'YYYY',
+    enter: 'Enter',
+    remember: 'Remember me',
+    rememberNote: 'Do not check if the device is shared or accessible to minors.',
+    legal: 'By continuing, you confirm that you are of legal drinking age in your country.',
+    warning: 'Alcohol abuse is dangerous to your health. Please drink responsibly.',
+    share: 'Please do not share with anyone under 18 years of age.',
+    errorEmpty: 'Please fill in all fields.',
+    errorInvalid: 'Invalid date.',
+    errorAge: 'You must be 18 or older to access this site.',
+    decline: 'No, I am not of legal age',
+    declineMsg: 'You must be 18 years or older to access this site. This site is reserved for adults of legal drinking age.',
+  },
+};
+
+
+function getCookie(name: string): string | undefined {
+  if (typeof document === 'undefined') return undefined;
+  const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+  return match ? decodeURIComponent(match[1]) : undefined;
+}
+
 export function AgeVerification() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState<'fr' | 'en'>('fr');
-  const [day, setDay] = useState('');
-  const [month, setMonth] = useState('');
+  const [visible, setVisible] = useState(false);
+  const [declined, setDeclined] = useState(false);
+  const [lang, setLang] = useState<Lang>('fr');
   const [year, setYear] = useState('');
   const [rememberMe, setRememberMe] = useState(true);
   const [error, setError] = useState('');
   const router = useRouter();
   const pathname = usePathname();
-  const dayInputRef = useRef<HTMLInputElement>(null);
+  const yearRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    // Check if user already verified (localStorage or sessionStorage)
-    const verified = localStorage.getItem('age_verified') || sessionStorage.getItem('age_verified');
-    const savedLang = (localStorage.getItem('preferred_language') || sessionStorage.getItem('preferred_language')) as 'fr' | 'en' | null;
-
+    const verified = getCookie('age_verified');
     if (!verified) {
-      setIsOpen(true);
-      // Focus on first input when popup opens
-      setTimeout(() => {
-        dayInputRef.current?.focus();
-      }, 100);
+      setVisible(true);
+      document.body.style.overflow = 'hidden';
     }
-
-    if (savedLang) {
-      setSelectedLanguage(savedLang);
-    }
-  }, []);
-
-  const calculateAge = (birthDay: number, birthMonth: number, birthYear: number) => {
-    const today = new Date();
-    const birthDate = new Date(birthYear, birthMonth - 1, birthDay);
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const monthDiff = today.getMonth() - birthDate.getMonth();
-
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-    }
-
-    return age;
-  };
+    // Detect locale from URL
+    if (pathname.startsWith('/en')) setLang('en');
+  }, [pathname]);
 
   const handleSubmit = () => {
     setError('');
+    if (!year) { setError(t.errorEmpty); return; }
+    const y = parseInt(year);
+    const currentYear = new Date().getFullYear();
+    if (y < 1900 || y > currentYear) { setError(t.errorInvalid); return; }
+    if (currentYear - y < 18) { setError(t.errorAge); return; }
 
-    // Validate inputs
-    const dayNum = parseInt(day);
-    const monthNum = parseInt(month);
-    const yearNum = parseInt(year);
+    const maxAge = rememberMe ? 60 * 60 * 24 * 365 : 60 * 60 * 24;
+    document.cookie = `age_verified=true; path=/; max-age=${maxAge}; SameSite=Lax`;
+    document.body.style.overflow = '';
+    setVisible(false);
 
-    if (!day || !month || !year) {
-      setError(selectedLanguage === 'fr'
-        ? 'Veuillez remplir tous les champs'
-        : 'Please fill in all fields');
-      return;
+    // Switch locale if needed
+    const currentLocale = pathname.startsWith('/en') ? 'en' : 'fr';
+    if (lang !== currentLocale) {
+      router.push(`/${lang}${pathname.replace(/^\/(fr|en)/, '')}`);
     }
-
-    if (dayNum < 1 || dayNum > 31 || monthNum < 1 || monthNum > 12 || yearNum < 1900 || yearNum > new Date().getFullYear()) {
-      setError(selectedLanguage === 'fr'
-        ? 'Date invalide'
-        : 'Invalid date');
-      return;
-    }
-
-    const age = calculateAge(dayNum, monthNum, yearNum);
-
-    if (age < 18) {
-      setError(selectedLanguage === 'fr'
-        ? 'Vous devez avoir 18 ans ou plus pour accéder à ce site'
-        : 'You must be 18 or older to access this site');
-      return;
-    }
-
-    // Save verification and language preference (only if remember me is checked)
-    if (rememberMe) {
-      localStorage.setItem('age_verified', 'true');
-      localStorage.setItem('preferred_language', selectedLanguage);
-    } else {
-      sessionStorage.setItem('age_verified', 'true');
-      sessionStorage.setItem('preferred_language', selectedLanguage);
-    }
-
-    // Redirect to chosen language if different from current
-    const currentLocale = pathname.split('/')[1];
-    if (currentLocale !== selectedLanguage) {
-      router.push(`/${selectedLanguage}`);
-    }
-
-    setIsOpen(false);
   };
 
-  const content = {
-    fr: {
-      title: "Bienvenue",
-      subtitle: "Vous devez avoir l'âge légal pour accéder à notre site",
-      birthdate: "Date de naissance",
-      day: "JJ",
-      month: "MM",
-      year: "AAAA",
-      enter: "Entrer",
-      remember: "Se souvenir de moi",
-      rememberWarning: "Veuillez ne pas cocher cette case si vous utilisez un appareil partagé ou utilisé par des personnes n'ayant pas l'âge légal.",
-      legal: "En poursuivant, vous acceptez nos conditions d'utilisation et notre politique de confidentialité.",
-      warning: "L'abus d'alcool est dangereux pour la santé. À consommer avec modération.",
-      shareWarning: "Merci de ne pas partager à une personne âgée de moins de 18 ans.",
-    },
-    en: {
-      title: "Welcome",
-      subtitle: "You must be of legal drinking age to access our site",
-      birthdate: "Date of birth",
-      day: "DD",
-      month: "MM",
-      year: "YYYY",
-      enter: "Enter",
-      remember: "Remember me",
-      rememberWarning: "Please do not check this box if you are using a shared device or one used by persons under the legal drinking age.",
-      legal: "By continuing, you accept our terms of use and privacy policy.",
-      warning: "Alcohol abuse is dangerous for your health. Please drink responsibly.",
-      shareWarning: "Please do not share with anyone under 18 years of age.",
-    },
-  };
+  const t = content[lang];
 
-  const t = content[selectedLanguage];
+  if (!visible) return null;
+
+  if (declined) {
+    return (
+      <div className="fixed inset-0 z-[200] bg-noir flex flex-col items-center justify-center p-8 text-center">
+        <div className="absolute inset-0 bg-jaune" />
+        <div className="relative z-10 space-y-6 max-w-sm">
+          <div className="relative w-44 h-14 mx-auto">
+            <Image src="/1805_Logo rouge-jaune_horizontal_clean.png" alt="Dix Huit Zéro Cinq" fill className="object-contain" />
+          </div>
+          <p className="text-rouge/60 text-sm leading-relaxed mt-4">{t.declineMsg}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-noir/95 backdrop-blur-md p-4"
-        >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            transition={{ delay: 0.1 }}
-            className="bg-gradient-to-br from-noir to-noir/90 border border-safran/30 rounded-2xl p-8 md:p-12 max-w-md w-full shadow-2xl"
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="fixed inset-0 z-[200] overflow-auto"
+    >
+      {/* Background */}
+      <div className="absolute inset-0 bg-jaune" />
+
+      {/* Decorative shapes */}
+      <div className="absolute -bottom-16 -left-16 w-72 h-72 opacity-20 pointer-events-none rotate-[20deg]">
+        <Image src="/1805_2502_Forme2.png" alt="" fill className="object-contain" />
+      </div>
+      <div className="absolute top-[-40px] right-1/4 w-40 h-40 opacity-10 pointer-events-none -rotate-12">
+        <Image src="/1805_2502_Forme.png" alt="" fill className="object-contain" />
+      </div>
+
+      {/* Language toggle */}
+      <div className="relative z-10 flex justify-end p-5">
+        <div className="flex items-center gap-1">
+          <button
+            onClick={() => setLang('fr')}
+            className={`text-xs font-medium tracking-widest uppercase px-3 py-1.5 rounded-full transition-all ${
+              lang === 'fr' ? 'text-jaune bg-rouge border border-rouge' : 'text-rouge/50 hover:text-rouge'
+            }`}
           >
-            {/* Logo/Title */}
-            <div className="text-center mb-8">
-              <h1 className="text-4xl md:text-5xl font-bold text-safran mb-4">
-                {t.title}
-              </h1>
-              <p className="text-blanc/70 text-sm leading-relaxed max-w-xs mx-auto">
-                {t.subtitle}
-              </p>
-            </div>
+            FR
+          </button>
+          <span className="text-rouge/20 text-xs">|</span>
+          <button
+            onClick={() => setLang('en')}
+            className={`text-xs font-medium tracking-widest uppercase px-3 py-1.5 rounded-full transition-all ${
+              lang === 'en' ? 'text-jaune bg-rouge border border-rouge' : 'text-rouge/50 hover:text-rouge'
+            }`}
+          >
+            EN
+          </button>
+        </div>
+      </div>
 
-            {/* Language Selector */}
-            <div className="flex justify-center gap-2 mb-8">
-              <button
-                onClick={() => setSelectedLanguage('fr')}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
-                  selectedLanguage === 'fr'
-                    ? 'bg-safran text-rouge'
-                    : 'bg-blanc/10 text-blanc/70 hover:bg-blanc/20'
-                }`}
-              >
-                Français
-              </button>
-              <button
-                onClick={() => setSelectedLanguage('en')}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
-                  selectedLanguage === 'en'
-                    ? 'bg-safran text-rouge'
-                    : 'bg-blanc/10 text-blanc/70 hover:bg-blanc/20'
-                }`}
-              >
-                English
-              </button>
-            </div>
+      {/* Main layout */}
+      <div className="relative z-10 min-h-[calc(100vh-60px)] flex flex-col lg:flex-row items-center justify-center gap-8 px-6 pb-8 max-w-5xl mx-auto">
 
-            {/* Date Inputs */}
-            <div className="space-y-3 mb-6">
-              <label className="block text-blanc/70 text-xs font-medium uppercase tracking-wider text-center">
-                {t.birthdate}
-              </label>
-              <div className="grid grid-cols-3 gap-3">
-                <input
-                  ref={dayInputRef}
-                  type="text"
-                  inputMode="numeric"
-                  pattern="[0-9]*"
-                  placeholder={t.day}
-                  value={day}
-                  onChange={(e) => setDay(e.target.value.replace(/\D/g, '').slice(0, 2))}
-                  maxLength={2}
-                  className="bg-blanc/5 border border-blanc/10 rounded-lg px-4 py-3 text-blanc text-center text-sm focus:outline-none focus:ring-1 focus:ring-safran focus:border-safran transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                />
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  pattern="[0-9]*"
-                  placeholder={t.month}
-                  value={month}
-                  onChange={(e) => setMonth(e.target.value.replace(/\D/g, '').slice(0, 2))}
-                  maxLength={2}
-                  className="bg-blanc/5 border border-blanc/10 rounded-lg px-4 py-3 text-blanc text-center text-sm focus:outline-none focus:ring-1 focus:ring-safran focus:border-safran transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                />
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  pattern="[0-9]*"
-                  placeholder={t.year}
-                  value={year}
-                  onChange={(e) => setYear(e.target.value.replace(/\D/g, '').slice(0, 4))}
-                  maxLength={4}
-                  className="bg-blanc/5 border border-blanc/10 rounded-lg px-4 py-3 text-blanc text-center text-sm focus:outline-none focus:ring-1 focus:ring-safran focus:border-safran transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                />
+        {/* LEFT — Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left max-w-md w-full"
+        >
+          {/* Logo */}
+          <div className="relative w-44 h-14 mb-6">
+            <Image
+              src="/1805_Logo rouge-jaune_horizontal_clean.png"
+              alt="Dix Huit Zéro Cinq"
+              fill
+              className="object-contain object-center lg:object-left"
+              priority
+            />
+          </div>
+
+          {/* Tagline */}
+          <p className="font-handwritten text-rouge text-2xl md:text-3xl mb-6 leading-snug">
+            {t.tagline}
+          </p>
+
+          <div className="w-10 h-px bg-rouge/30 mb-6 mx-auto lg:mx-0" />
+
+          {/* Subtitle */}
+          <p className="text-rouge/60 text-sm mb-8 leading-relaxed max-w-xs mx-auto lg:mx-0">
+            {t.subtitle} {t.question}
+          </p>
+
+          {/* Year input only */}
+          <div className="w-full max-w-xs mx-auto lg:mx-0 space-y-3 mb-5">
+            <label className="text-rouge/50 text-[10px] uppercase tracking-widest block text-center lg:text-left">
+              {t.birthdate}
+            </label>
+            <input
+              ref={yearRef}
+              type="text"
+              inputMode="numeric"
+              placeholder={t.year}
+              value={year}
+              autoFocus
+              onChange={(e) => setYear(e.target.value.replace(/\D/g, '').slice(0, 4))}
+              maxLength={4}
+              className="w-full bg-rouge/10 border border-rouge/30 rounded-xl px-4 py-4 text-rouge text-center text-xl font-bold focus:outline-none focus:ring-2 focus:ring-rouge focus:border-rouge transition-all placeholder:text-rouge/30"
+            />
+          </div>
+
+          {/* Remember me */}
+          <div className="w-full max-w-xs mx-auto lg:mx-0 mb-5">
+            <label className="flex items-start gap-2.5 cursor-pointer group">
+              <div className="relative mt-0.5 flex-shrink-0" onClick={() => setRememberMe(!rememberMe)}>
+                <div className={`w-4 h-4 rounded border transition-all ${rememberMe ? 'bg-rouge border-rouge' : 'border-rouge/30 bg-rouge/5'}`} />
+                {rememberMe && (
+                  <svg className="absolute inset-0 w-4 h-4 text-jaune pointer-events-none" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8l3.5 3.5L13 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                )}
               </div>
-            </div>
+              <span className="text-rouge/40 text-xs leading-relaxed group-hover:text-rouge/60 transition-colors">
+                <span className="text-rouge/60 font-medium">{t.remember}</span> — {t.rememberNote}
+              </span>
+            </label>
+          </div>
 
-            {/* Remember Me Checkbox */}
-            <div className="mb-6 bg-blanc/5 rounded-lg p-4">
-              <label className="flex items-start gap-3 cursor-pointer group">
-                <input
-                  type="checkbox"
-                  checked={rememberMe}
-                  onChange={(e) => setRememberMe(e.target.checked)}
-                  className="mt-0.5 w-4 h-4 rounded border-blanc/20 bg-blanc/10 text-safran focus:ring-safran focus:ring-offset-0"
-                />
-                <span className="text-blanc/70 text-xs leading-relaxed group-hover:text-blanc/90 transition-colors">
-                  <span className="font-medium text-blanc/90">{t.remember}</span>
-                  <br />
-                  <span className="text-blanc/50">{t.rememberWarning}</span>
-                </span>
-              </label>
-            </div>
-
-            {/* Error Message */}
+          {/* Error */}
+          <AnimatePresence mode="wait">
             {error && (
               <motion.p
-                initial={{ opacity: 0, y: -10 }}
+                key={error}
+                initial={{ opacity: 0, y: -6 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-orange text-sm text-center mb-4 bg-orange/10 border border-orange/30 rounded-lg py-2 px-4"
+                exit={{ opacity: 0 }}
+                className="w-full max-w-xs mx-auto lg:mx-0 text-rouge text-xs text-center py-2 px-4 rounded-lg bg-rouge/10 border border-rouge/30 mb-4"
               >
                 {error}
               </motion.p>
             )}
+          </AnimatePresence>
 
-            {/* Submit Button */}
+          {/* Buttons */}
+          <div className="w-full max-w-xs mx-auto lg:mx-0 space-y-3">
             <button
               onClick={handleSubmit}
-              className="w-full bg-safran hover:bg-orange text-rouge font-bold py-4 rounded-full transition-all transform hover:scale-[1.02] mb-6 uppercase tracking-wider text-sm"
+              className="w-full bg-rouge hover:bg-rouge-alcool text-jaune font-bold py-4 rounded-full uppercase tracking-wider text-sm transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-rouge/30"
             >
               {t.enter}
             </button>
+            <button
+              onClick={() => setDeclined(true)}
+              className="w-full text-rouge/30 hover:text-rouge/60 text-xs py-2 transition-all"
+            >
+              {t.decline}
+            </button>
+          </div>
 
-            {/* Legal & Warnings */}
-            <div className="space-y-3 text-center">
-              <p className="text-blanc/50 text-xs leading-relaxed">
-                {t.legal}
-              </p>
-              <div className="border-t border-blanc/10 pt-3 space-y-2">
-                <p className="text-blanc/40 text-xs leading-relaxed">
-                  {t.warning}
-                </p>
-                <p className="text-blanc/30 text-xs">
-                  {t.shareWarning}
-                </p>
-              </div>
-              <p className="text-blanc/30 text-xs pt-2">
-                © {new Date().getFullYear()} Dix Huit Zéro Cinq
-              </p>
-            </div>
-          </motion.div>
+          {/* Legal */}
+          <p className="mt-5 text-rouge/30 text-[10px] leading-relaxed max-w-xs mx-auto lg:mx-0 text-center lg:text-left">
+            {t.legal}
+          </p>
         </motion.div>
-      )}
-    </AnimatePresence>
+
+        {/* RIGHT — Bottle */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.88 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, ease: 'easeOut', delay: 0.15 }}
+          className="relative flex-shrink-0 w-56 h-72 md:w-72 md:h-96 lg:w-[340px] lg:h-[460px] xl:w-[400px] xl:h-[540px]"
+        >
+          <Image
+            src="/1805_bouteille_fruits_clear.png"
+            alt="Dix Huit Zéro Cinq"
+            fill
+            className="object-contain drop-shadow-[0_20px_60px_rgba(197,25,44,0.35)]"
+            priority
+          />
+        </motion.div>
+      </div>
+
+      {/* Footer warning */}
+      <div className="relative z-10 border-t border-blanc/[0.05] py-4 px-6">
+        <p className="text-rouge/30 text-[10px] text-center max-w-xl mx-auto leading-relaxed">
+          {t.warning} — {t.share}
+        </p>
+      </div>
+    </motion.div>
   );
 }
