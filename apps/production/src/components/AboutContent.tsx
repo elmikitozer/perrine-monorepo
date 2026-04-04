@@ -29,11 +29,11 @@ export default function AboutContent({ about }: AboutContentProps) {
         ) : (
           <div className="space-y-6">
             <p className="text-gray-700 leading-relaxed font-light">
-              Direction artistique spécialisée dans l'univers de la mode et du luxe. Une vision
+              Direction artistique spécialisée dans l&apos;univers de la mode et du luxe. Une vision
               esthétique rigoureuse au service des grandes maisons et des marques émergentes.
             </p>
             <p className="text-gray-700 leading-relaxed font-light">
-              Diplômée de l'École Nationale Supérieure des Arts Décoratifs, elle développe une
+              Diplômée de l&apos;École Nationale Supérieure des Arts Décoratifs, elle développe une
               pratique exigeante mêlant photographie, mise en scène et conception graphique.
             </p>
           </div>
