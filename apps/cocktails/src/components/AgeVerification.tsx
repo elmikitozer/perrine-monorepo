@@ -190,7 +190,7 @@ export function AgeVerification() {
           </p>
 
           {/* Year input only */}
-          <div className="w-full max-w-xs mx-auto lg:mx-0 space-y-3 mb-5">
+          <form autoComplete="off" onSubmit={(e) => { e.preventDefault(); handleSubmit(); }} className="w-full max-w-xs mx-auto lg:mx-0 space-y-3 mb-5">
             <label className="text-rouge/50 text-[10px] uppercase tracking-widest block text-center lg:text-left">
               {t.birthdate}
             </label>
@@ -201,11 +201,13 @@ export function AgeVerification() {
               placeholder={t.year}
               value={year}
               autoFocus
+              autoComplete="off"
+              name="age-year"
               onChange={(e) => setYear(e.target.value.replace(/\D/g, '').slice(0, 4))}
               maxLength={4}
               className="w-full bg-rouge/10 border border-rouge/30 rounded-xl px-4 py-4 text-rouge text-center text-xl font-bold focus:outline-none focus:ring-2 focus:ring-rouge focus:border-rouge transition-all placeholder:text-rouge/30"
             />
-          </div>
+          </form>
 
           {/* Remember me */}
           <div className="w-full max-w-xs mx-auto lg:mx-0 mb-5">
@@ -260,7 +262,7 @@ export function AgeVerification() {
             {t.legal}{' '}
             <a
               href={`/${lang}/legal#privacy`}
-              className="underline hover:text-rouge/60 transition-colors"
+              className="underline decoration-rouge/20 hover:decoration-rouge/50 transition-colors"
             >
               {lang === 'fr' ? 'Politique de confidentialité' : 'Privacy Policy'}
             </a>
