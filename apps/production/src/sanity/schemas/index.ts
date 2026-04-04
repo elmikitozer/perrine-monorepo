@@ -1,7 +1,5 @@
-import { projectProduction } from './projectProduction';
-import { service } from './service';
-import { testimonial } from './testimonial';
-import { page } from './page';
+import project from './project';
+import aboutPage from './aboutPage';
 
-export const schemaTypes = [projectProduction, service, testimonial, page];
+export const schemaTypes = [project, aboutPage];
 
