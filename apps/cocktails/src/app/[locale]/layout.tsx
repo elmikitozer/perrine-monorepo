@@ -1,6 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { Navigation, WaveBackground, AgeVerification } from '@/components';
+import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
 import '../globals.css';
 
@@ -59,6 +60,7 @@ export default async function LocaleLayout({
             {children}
           </WaveBackground>
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

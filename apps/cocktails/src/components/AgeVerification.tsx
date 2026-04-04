@@ -257,7 +257,13 @@ export function AgeVerification() {
 
           {/* Legal */}
           <p className="mt-5 text-rouge/30 text-[10px] leading-relaxed max-w-xs mx-auto lg:mx-0 text-center lg:text-left">
-            {t.legal}
+            {t.legal}{' '}
+            <a
+              href={`/${lang}/legal#privacy`}
+              className="underline hover:text-rouge/60 transition-colors"
+            >
+              {lang === 'fr' ? 'Politique de confidentialité' : 'Privacy Policy'}
+            </a>
           </p>
         </motion.div>
 

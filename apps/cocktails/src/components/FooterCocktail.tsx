@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 interface FooterCocktailProps {
   socials?: {
@@ -14,6 +15,14 @@ interface FooterCocktailProps {
 
 export function FooterCocktail({ socials }: FooterCocktailProps) {
   const t = useTranslations('footer');
+  const pathname = usePathname();
+  const locale = pathname.startsWith('/en') ? 'en' : 'fr';
+
+  const legalLabels = {
+    fr: { mentions: 'Mentions légales', privacy: 'Confidentialité', cgu: 'CGU' },
+    en: { mentions: 'Legal Notice', privacy: 'Privacy', cgu: 'Terms of Use' },
+  };
+  const legal = legalLabels[locale];
 
   return (
     <footer className="bg-rouge-alcool/80 backdrop-blur-sm text-blanc py-12 border-t border-blanc/20">
@@ -49,7 +58,18 @@ export function FooterCocktail({ socials }: FooterCocktailProps) {
             <p className="font-sans text-jaune/90 text-xs leading-relaxed whitespace-pre-line">
               {t('alcoholWarning')}. {t('alcoholMessage')}
             </p>
-            <p className="font-sans text-jaune/90 text-xs pt-2">
+            <div className="flex flex-wrap justify-center md:justify-end gap-x-4 gap-y-1 pt-2">
+              <Link href={`/${locale}/legal#mentions`} className="text-jaune/50 hover:text-jaune text-xs transition-colors">
+                {legal.mentions}
+              </Link>
+              <Link href={`/${locale}/legal#privacy`} className="text-jaune/50 hover:text-jaune text-xs transition-colors">
+                {legal.privacy}
+              </Link>
+              <Link href={`/${locale}/legal#cgu`} className="text-jaune/50 hover:text-jaune text-xs transition-colors">
+                {legal.cgu}
+              </Link>
+            </div>
+            <p className="font-sans text-jaune/50 text-xs">
               © {new Date().getFullYear()} {t('company')}. {t('rights')}.
             </p>
           </div>
