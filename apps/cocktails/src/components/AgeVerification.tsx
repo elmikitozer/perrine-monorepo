@@ -120,10 +120,8 @@ export function AgeVerification() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="fixed inset-0 z-[200] overflow-auto"
+      className="fixed inset-0 z-[200] overflow-auto bg-jaune"
     >
-      {/* Background */}
-      <div className="absolute inset-0 bg-jaune" />
 
       {/* Decorative shapes */}
       <div className="absolute -bottom-16 -left-16 w-72 h-72 opacity-20 pointer-events-none rotate-[20deg]">
