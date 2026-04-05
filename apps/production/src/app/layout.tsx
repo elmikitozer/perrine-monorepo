@@ -16,7 +16,19 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: 'PV Studio',
-  description: 'Direction artistique mode & fashion',
+  description: 'Perrine Vael Roquere Studio',
+  icons: {
+    icon: '/images/logo/monogramme_clear.png',
+  },
+  openGraph: {
+    title: 'PV Studio',
+    description: 'Perrine Vael Roquere Studio',
+    images: [{ url: '/images/logo/logotype-a.png' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/logo/logotype-a.png'],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
