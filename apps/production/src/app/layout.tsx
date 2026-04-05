@@ -17,9 +17,6 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: 'PV Studio',
   description: 'Perrine Vael Roquere Studio',
-  icons: {
-    icon: '/images/logo/monogramme_clear.png',
-  },
   openGraph: {
     title: 'PV Studio',
     description: 'Perrine Vael Roquere Studio',
