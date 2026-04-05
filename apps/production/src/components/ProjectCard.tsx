@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { urlFor as urlForImage } from '@/sanity/lib/image';
 import type { Project } from '@/types/sanity';
 
@@ -15,12 +16,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     project.image?.metadata?.dimensions?.aspectRatio != null &&
     project.image.metadata.dimensions.aspectRatio < 1;
 
-  return (
-    <article
-      className={`project-card relative overflow-hidden bg-gray-100 ${
-        isPortrait ? 'row-span-2' : 'row-span-1'
-      }`}
-    >
+  const href = project.slug?.current ? `/projects/${project.slug.current}` : null;
+
+  const inner = (
+    <>
       {imageUrl ? (
         <div className="relative w-full h-full min-h-[280px]">
           <Image
@@ -32,7 +31,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             placeholder={project.image?.metadata?.lqip ? 'blur' : 'empty'}
             blurDataURL={project.image?.metadata?.lqip ?? undefined}
           />
-          {/* Hover overlay */}
           <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-all duration-300 flex items-end opacity-0 hover:opacity-100">
             <div className="p-4 w-full">
               {project.client && (
@@ -52,6 +50,22 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             {project.title}
           </span>
         </div>
+      )}
+    </>
+  );
+
+  return (
+    <article
+      className={`project-card relative overflow-hidden bg-gray-100 ${
+        isPortrait ? 'row-span-2' : 'row-span-1'
+      }`}
+    >
+      {href ? (
+        <Link href={href} className="block w-full h-full">
+          {inner}
+        </Link>
+      ) : (
+        inner
       )}
     </article>
   );

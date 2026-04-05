@@ -50,6 +50,20 @@ export default defineType({
       type: 'number',
     }),
     defineField({
+      name: 'images',
+      title: 'Galerie du projet',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+        },
+      ],
+      description: 'Toutes les photos affichées dans la galerie du projet',
+    }),
+    defineField({
       name: 'isVisible',
       title: 'Visible sur le site',
       type: 'boolean',

@@ -20,6 +20,32 @@ export const projectsQuery = `
   }
 `;
 
+export const projectBySlugQuery = `
+  *[_type == "project" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    client,
+    year,
+    image {
+      ...,
+      asset->{
+        _id,
+        url,
+        metadata { dimensions, lqip }
+      }
+    },
+    images[] {
+      ...,
+      asset->{
+        _id,
+        url,
+        metadata { dimensions, lqip }
+      }
+    }
+  }
+`;
+
 export const aboutQuery = `
   *[_type == "aboutPage"][0] {
     bio,
