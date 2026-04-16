@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
-import { DM_Sans } from 'next/font/google';
+import localFont from 'next/font/local';
 import Image from 'next/image';
 import Navigation from '@/components/Navigation';
 import './globals.css';
 
-// DM Sans — géométriquement proche de Muller Next, disponible sur Google Fonts.
-// Pour passer à Muller Next : acheter les .woff2 sur fontfabric.com
-// puis suivre les instructions dans README.md
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '700'],
+const mullerNext = localFont({
+  src: [
+    { path: './fonts/MullerNextTrial-Thin.woff2', weight: '100', style: 'normal' },
+    { path: './fonts/MullerNextTrial-Regular.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/MullerNextTrial-ExtraBold.woff2', weight: '800', style: 'normal' },
+  ],
   variable: '--font-sans',
   display: 'swap',
 });
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
-      <body className={`${dmSans.variable} font-sans min-h-screen flex flex-col bg-gray-50`}>
+      <body className={`${mullerNext.variable} font-sans min-h-screen flex flex-col bg-gray-50`}>
         <Navigation />
         <main className="flex-1">{children}</main>
         <footer className="py-8 px-6 md:px-12 border-t border-gray-200">

@@ -24,11 +24,11 @@ export default function Navigation() {
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center hover:opacity-70 transition-opacity duration-300">
           <Image
-            src="/images/logo/logotype_Clear.png"
+            src="/images/logo/logotype-c.png"
             alt="PV Studio"
             width={360}
             height={96}
-            className="h-12 w-auto object-contain mix-blend-multiply"
+            className="h-12 w-auto object-contain"
             priority
           />
         </Link>

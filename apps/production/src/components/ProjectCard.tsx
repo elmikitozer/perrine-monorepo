@@ -12,16 +12,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     ? urlForImage(project.image)?.width(1200).quality(85).url()
     : null;
 
-  const isPortrait =
-    project.image?.metadata?.dimensions?.aspectRatio != null &&
-    project.image.metadata.dimensions.aspectRatio < 1;
-
   const href = project.slug?.current ? `/projects/${project.slug.current}` : null;
 
   const inner = (
     <>
       {imageUrl ? (
-        <div className="relative w-full h-full min-h-[280px]">
+        <div className="relative w-full aspect-[2/3]">
           <Image
             src={imageUrl}
             alt={project.title}
@@ -56,9 +52,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <article
-      className={`project-card relative overflow-hidden bg-gray-100 ${
-        isPortrait ? 'row-span-2' : 'row-span-1'
-      }`}
+      className="project-card relative overflow-hidden bg-gray-100"
     >
       {href ? (
         <Link href={href} className="block w-full h-full">
