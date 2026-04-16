@@ -19,7 +19,7 @@ export default function AboutContent({ about }: AboutContentProps) {
       {/* Bio section */}
       <section className="mb-20">
         <h1 className="text-3xl font-light tracking-wider-custom uppercase mb-12 text-gray-900">
-          À propos
+          <span className="text-[#F572B6]">—</span> À propos
         </h1>
 
         {about?.bio ? (
@@ -43,7 +43,7 @@ export default function AboutContent({ about }: AboutContentProps) {
       {/* Contact section */}
       <section>
         <h2 className="text-lg font-light tracking-wider-custom uppercase mb-10 text-gray-900">
-          Contact
+          <span className="text-[#F572B6]">—</span> Contact
         </h2>
 
         <div className="flex flex-col gap-6">
@@ -64,7 +64,7 @@ export default function AboutContent({ about }: AboutContentProps) {
                 href={about.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs tracking-wider-custom uppercase text-gray-500 hover:text-gray-900 transition-colors duration-300"
+                className="text-xs tracking-wider-custom uppercase text-gray-500 hover:text-[#F572B6] transition-colors duration-300"
               >
                 Instagram
               </a>
@@ -74,7 +74,7 @@ export default function AboutContent({ about }: AboutContentProps) {
                 href={about.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs tracking-wider-custom uppercase text-gray-500 hover:text-gray-900 transition-colors duration-300"
+                className="text-xs tracking-wider-custom uppercase text-gray-500 hover:text-[#F572B6] transition-colors duration-300"
               >
                 LinkedIn
               </a>

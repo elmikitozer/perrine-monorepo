@@ -27,7 +27,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             placeholder={project.image?.metadata?.lqip ? 'blur' : 'empty'}
             blurDataURL={project.image?.metadata?.lqip ?? undefined}
           />
-          <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end bg-gradient-to-t from-black/70 via-black/20 to-transparent">
+          <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end bg-gradient-to-t from-black/70 via-[#F572B6]/10 to-transparent">
             <div className="p-5 w-full">
               {project.client && (
                 <p className="text-white/80 text-xs tracking-wider-custom uppercase font-light">

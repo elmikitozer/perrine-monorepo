@@ -54,7 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 href="https://instagram.com/perrinevaelroquerestudio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs tracking-wider-custom text-gray-400 uppercase hover:text-gray-900 transition-colors duration-300"
+                className="text-xs tracking-wider-custom text-gray-400 uppercase hover:text-[#F572B6] transition-colors duration-300"
               >
                 Instagram
               </a>
@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs tracking-wider-custom text-gray-400 uppercase hover:text-gray-900 transition-colors duration-300"
+                className="text-xs tracking-wider-custom text-gray-400 uppercase hover:text-[#F572B6] transition-colors duration-300"
               >
                 LinkedIn
               </a>

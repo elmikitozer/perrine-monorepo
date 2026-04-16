@@ -22,7 +22,7 @@
     letter-spacing: 0.02em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #F9FAFB;
+    background-color: #fdf8f9;
     color: #111827;
   }
 
@@ -55,7 +55,7 @@
     left: 0;
     width: 0;
     height: 1px;
-    background-color: #111827;
+    background: linear-gradient(90deg, #F4B8C8 0%, #F572B6 100%);
     transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 

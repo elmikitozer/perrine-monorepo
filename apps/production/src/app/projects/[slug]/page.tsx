@@ -46,7 +46,7 @@ export default async function ProjectPage({ params }: Props) {
           </div>
           <Link
             href="/"
-            className="text-xs tracking-wider-custom uppercase text-gray-400 hover:text-black transition-colors"
+            className="text-xs tracking-wider-custom uppercase text-gray-400 hover:text-[#F572B6] transition-colors"
           >
             ← Retour
           </Link>
