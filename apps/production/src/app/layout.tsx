@@ -15,6 +15,7 @@ const mullerNext = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3002'),
   title: 'PV Studio',
   description: 'Perrine Vael Roquere Studio',
   openGraph: {

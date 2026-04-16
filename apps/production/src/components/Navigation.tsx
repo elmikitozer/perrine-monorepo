@@ -24,7 +24,7 @@ export default function Navigation() {
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center hover:opacity-70 transition-opacity duration-300">
           <Image
-            src="/images/logo/logotype-c.png"
+            src="/images/logo/logotype_A_clear_borders.png"
             alt="PV Studio"
             width={360}
             height={96}
