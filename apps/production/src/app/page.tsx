@@ -1,4 +1,4 @@
-import ProjectGrid from '@/components/ProjectGrid';
+import ProjectGrid from '@/components/projects/ProjectGrid';
 import { client } from '@/sanity/lib/client';
 import { projectsQuery } from '@/sanity/lib/queries';
 import type { Project } from '@/types/sanity';
