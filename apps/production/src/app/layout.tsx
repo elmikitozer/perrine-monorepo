@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import Image from 'next/image';
+import InitialSplash from '@/components/InitialSplash';
 import Navigation from '@/components/Navigation';
 import './globals.css';
 
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr">
       <body className={`${mullerNext.variable} font-sans min-h-screen flex flex-col bg-gray-50`}>
+        <InitialSplash />
         <Navigation />
         <main className="flex-1">{children}</main>
         <footer className="py-8 px-6 md:px-12 border-t border-gray-200">
