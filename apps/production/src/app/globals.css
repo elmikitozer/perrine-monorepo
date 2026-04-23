@@ -79,7 +79,7 @@
   .initial-splash__counter {
     position: relative;
     margin: 0;
-    color: #888;
+    color: #000;
     font-size: 0.625rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
