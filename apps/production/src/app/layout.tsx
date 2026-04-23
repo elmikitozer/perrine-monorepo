@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <Image
-                src="/images/logo/monogramme-noir.png"
+                src="/images/monogramme/monogramme-noir.png"
                 alt="PV Studio"
                 width={24}
                 height={24}
