@@ -41,29 +41,60 @@
     justify-content: center;
     overflow: hidden;
     background: #fdf8f9;
-    animation: splash-fade-out var(--splash-duration, 1200ms) ease forwards;
   }
 
-  .initial-splash__mark {
-    position: relative;
+  .initial-splash--counter {
+    transition: opacity 350ms ease-out;
+  }
+
+  .initial-splash--leaving {
+    opacity: 0;
+  }
+
+  .initial-splash__stack {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    animation: splash-scale-in calc(var(--splash-duration, 1200ms) * 0.8) cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+    gap: 1.5rem;
   }
 
-  .initial-splash__monogram {
-    width: 200px;
-    height: auto;
+  .initial-splash__logo-shell {
+    position: relative;
+    width: 220px;
+    height: 220px;
   }
 
-  .initial-splash__sweep {
+  .initial-splash__logo-base,
+  .initial-splash__logo-overlay {
+    object-fit: contain;
+  }
+
+  .initial-splash__logo-reveal {
     position: absolute;
-    inset: -2.5rem;
-    background: linear-gradient(90deg, transparent 0%, #f4b8c8 45%, #f572b6 55%, transparent 100%);
-    mix-blend-mode: multiply;
-    animation: splash-sweep calc(var(--splash-duration, 1200ms) * 0.8) ease-out forwards;
-    pointer-events: none;
+    inset: 0;
+    will-change: clip-path;
+  }
+
+  .initial-splash__counter {
+    position: relative;
+    margin: 0;
+    color: #888;
+    font-size: 0.625rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .initial-splash__counter-base,
+  .initial-splash__counter-overlay {
+    display: block;
+  }
+
+  .initial-splash__counter-overlay {
+    position: absolute;
+    inset: 0;
+    will-change: clip-path;
   }
 
   .initial-splash__label {
@@ -112,50 +143,5 @@
 
   .nav-link.active::after {
     width: 100%;
-  }
-}
-
-@keyframes splash-scale-in {
-  0% {
-    opacity: 0;
-    transform: scale(0.6);
-  }
-
-  45% {
-    opacity: 1;
-    transform: scale(1.06);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-}
-
-@keyframes splash-sweep {
-  0% {
-    opacity: 0;
-    transform: translateX(-42%);
-  }
-
-  18% {
-    opacity: 0.95;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateX(115%);
-  }
-}
-
-@keyframes splash-fade-out {
-  0%,
-  78% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    visibility: hidden;
   }
 }
