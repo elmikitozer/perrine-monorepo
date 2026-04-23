@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import Image from 'next/image';
-import Navigation from '@/components/Navigation';
+import Navigation from '@/components/layout/Navigation';
 import './globals.css';
 
 const mullerNext = localFont({
