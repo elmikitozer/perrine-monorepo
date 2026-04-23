@@ -13,6 +13,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     : null;
 
   const href = project.slug?.current ? `/projects/${project.slug.current}` : null;
+  const hoverPatternUrl = '/images/motifs/jpg/vuittonage_rose.jpg';
 
   const inner = (
     <>
@@ -23,12 +24,25 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             alt={project.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover"
+            className="object-cover transition-opacity duration-300 group-hover:opacity-45"
             placeholder={project.image?.metadata?.lqip ? 'blur' : 'empty'}
             blurDataURL={project.image?.metadata?.lqip ?? undefined}
           />
-          <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end bg-gradient-to-t from-black/70 via-[#F572B6]/10 to-transparent">
-            <div className="p-5 w-full">
+          <div
+            className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-45 mix-blend-multiply"
+            style={{
+              backgroundImage: `url('${hoverPatternUrl}')`,
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
+              WebkitMaskImage: 'linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.45) 52%, rgba(0, 0, 0, 0.12) 68%, rgba(0, 0, 0, 0) 82%)',
+              maskImage: 'linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.45) 52%, rgba(0, 0, 0, 0.12) 68%, rgba(0, 0, 0, 0) 82%)',
+            }}
+          />
+          <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-gradient-to-t from-[#f572b6]/12 via-[#f572b6]/4 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-gradient-to-t from-black/50 via-black/18 to-transparent" />
+          <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-end">
+            <div className="p-5 w-full relative z-10">
               {project.client && (
                 <p className="text-white/80 text-xs tracking-wider-custom uppercase font-light">
                   {project.client}
@@ -52,7 +66,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <article
-      className="project-card relative overflow-hidden bg-gray-100"
+      className="project-card group relative overflow-hidden bg-gray-100"
     >
       {href ? (
         <Link href={href} className="block w-full h-full">
