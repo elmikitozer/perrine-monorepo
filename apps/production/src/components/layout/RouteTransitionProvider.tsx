@@ -269,6 +269,7 @@ export function RouteTransitionProvider({ children }: PropsWithChildren) {
 
     isTransitioningRef.current = true;
     lockBodyScroll(bodyOverflowBeforeLockRef, bodyPaddingRightBeforeLockRef);
+    setHiddenHomeSlug(projectHeroSlugRef.current);
     const sourceRect = toRect(projectHeroRef.current);
     const sourceImageUrl = getImageFromElement(projectHeroRef.current)?.currentSrc || projectHeroImageRef.current;
     setPending({

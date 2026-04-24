@@ -51,6 +51,13 @@ export default function ProjectExperience({ project, gallery }: ProjectExperienc
               projectChromeVisible ? 'opacity-100' : 'opacity-0'
             }`}
           >
+            <button
+              type="button"
+              onClick={reverseToHomeFromHero}
+              className="mb-8 rounded-full border border-black/20 px-4 py-2 text-[10px] uppercase tracking-[0.22em] text-gray-900 transition hover:border-[#F572B6] hover:text-[#F572B6]"
+            >
+              ← Retour aux projets
+            </button>
             <p className="text-[10px] uppercase tracking-[0.26em] text-gray-500">
               {project.client || 'Project'}{project.year ? ` · ${project.year}` : ''}
             </p>
@@ -70,13 +77,6 @@ export default function ProjectExperience({ project, gallery }: ProjectExperienc
               ))}
             </dl>
 
-            <button
-              type="button"
-              onClick={reverseToHomeFromHero}
-              className="mt-8 rounded-full border border-black/20 px-4 py-2 text-[10px] uppercase tracking-[0.22em] text-gray-900 transition hover:border-[#F572B6] hover:text-[#F572B6]"
-            >
-              ← Retour aux projets
-            </button>
           </aside>
 
           <section
