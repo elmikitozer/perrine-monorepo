@@ -338,8 +338,10 @@ export function RouteTransitionProvider({ children }: PropsWithChildren) {
 
     if (pathname !== '/') return;
 
-    if (Math.abs(window.scrollY - pending.homeScrollY) > 1) {
-      window.scrollTo({ top: pending.homeScrollY, behavior: 'auto' });
+    const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
+    const targetScrollY = Math.min(pending.homeScrollY, Math.max(0, maxScrollY));
+    if (Math.abs(window.scrollY - targetScrollY) > 1) {
+      window.scrollTo({ top: targetScrollY, behavior: 'auto' });
       requestAnimationFrame(() => {
         setHomeRegistryVersion((value) => value + 1);
       });
