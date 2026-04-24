@@ -3,8 +3,18 @@ import { client } from '@/sanity/lib/client';
 import { projectsQuery } from '@/sanity/lib/queries';
 import type { Project } from '@/types/sanity';
 
+const ENABLE_ARTIFICIAL_LOADING_DELAY = false;
+const ARTIFICIAL_LOADING_DELAY_MS = 1500;
+
+async function waitForSkeletonPreview() {
+  if (!ENABLE_ARTIFICIAL_LOADING_DELAY) return;
+
+  await new Promise((resolve) => setTimeout(resolve, ARTIFICIAL_LOADING_DELAY_MS));
+}
+
 async function getProjects(): Promise<Project[]> {
   try {
+    await waitForSkeletonPreview();
     return await client.fetch(projectsQuery);
   } catch (error) {
     console.error('Error fetching projects:', error);

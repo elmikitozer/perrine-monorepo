@@ -5,12 +5,22 @@ import { projectBySlugQuery } from '@/sanity/lib/queries';
 import { urlFor as urlForImage } from '@/sanity/lib/image';
 import type { Project } from '@/types/sanity';
 
+const ENABLE_ARTIFICIAL_LOADING_DELAY = false;
+const ARTIFICIAL_LOADING_DELAY_MS = 1500;
+
 interface Props {
   params: { slug: string };
 }
 
+async function waitForSkeletonPreview() {
+  if (!ENABLE_ARTIFICIAL_LOADING_DELAY) return;
+
+  await new Promise((resolve) => setTimeout(resolve, ARTIFICIAL_LOADING_DELAY_MS));
+}
+
 async function getProject(slug: string): Promise<Project | null> {
   try {
+    await waitForSkeletonPreview();
     return await client.fetch(projectBySlugQuery, { slug });
   } catch {
     return null;

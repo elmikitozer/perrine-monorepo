@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import Image from 'next/image';
+import InitialSplash from '@/components/layout/InitialSplash';
 import Navigation from '@/components/layout/Navigation';
 import { RouteTransitionProvider } from '@/components/layout/RouteTransitionProvider';
 import './globals.css';
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr">
       <body className={`${mullerNext.variable} font-sans min-h-screen flex flex-col bg-gray-50`}>
+        <InitialSplash />
         <RouteTransitionProvider>
           <Navigation />
           <main className="flex-1">{children}</main>
