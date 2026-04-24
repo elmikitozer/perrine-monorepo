@@ -79,6 +79,9 @@ export default function InitialSplash() {
       window.clearTimeout(exitTimeoutId);
       window.clearTimeout(unmountTimeoutId);
       document.body.style.overflow = previousOverflow;
+      setIsMounted(false);
+      setIsLeaving(false);
+      setProgress(0);
     };
   }, []);
 
