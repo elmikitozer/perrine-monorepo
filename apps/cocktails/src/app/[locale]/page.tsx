@@ -1,11 +1,9 @@
-import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Hero, Section, FooterCocktail } from '@/components';
+import { Hero, Section, FooterCocktail, CocktailSection } from '@/components';
 import { client } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
-import { motion } from 'framer-motion';
 
 async function getHomeData(locale: string) {
   const query = `{
@@ -25,11 +23,10 @@ async function getHomeData(locale: string) {
 export default async function Home({ params: { locale } }: { params: { locale: string } }) {
   const data = await getHomeData(locale);
   const t = await getTranslations({ locale, namespace: 'hero' });
-  const tCocktail = await getTranslations({ locale, namespace: 'cocktail' });
   const tSpirit = await getTranslations({ locale, namespace: 'spirit' });
+  const tStory = await getTranslations({ locale, namespace: 'story' });
 
   const heroData = data.homepage?.hero;
-  const cocktailSection = data.homepage?.cocktailSection;
   const spiritSection = data.homepage?.spiritSection;
 
   return (
@@ -37,13 +34,13 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       {/* Hero Section */}
       <Hero
         title={heroData?.title?.[locale] || 'Dix Huit Zéro Cinq'}
-        subtitle={heroData?.subtitle?.[locale] || "L'art du cocktail d'exception"}
+        subtitle={heroData?.subtitle?.[locale] || t('tagline')}
         backgroundImage={heroData?.backgroundImage}
         backgroundVideo={heroData?.backgroundVideo}
         cta={
           <Link
             href="#cocktail"
-            className="inline-block bg-orange hover:bg-rouge text-blanc px-8 py-4 rounded-full font-bold text-lg transition-colors"
+            className="inline-block bg-rouge backdrop-blur-sm hover:bg-rouge-alcool text-jaune px-10 py-5 rounded-full font-black text-lg transition-all shadow-2xl shadow-rouge/30 border border-rouge/50"
           >
             {t('cta')}
           </Link>
@@ -51,88 +48,40 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       />
 
       {/* Cocktail Section */}
-      <Section id="cocktail" className="bg-gradient-to-b from-noir to-noir/95">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Image */}
-          <div className="relative h-[600px] lg:h-[700px]">
-            <Image
-              src="/images/bottle.png"
-              alt="Dix Huit Zéro Cinq Bottle"
-              fill
-              className="object-contain"
-            />
-          </div>
+      <CocktailSection />
 
-          {/* Content */}
-          <div className="space-y-6">
-            <h2 className="text-5xl md:text-6xl font-bold text-safran">
-              {cocktailSection?.title?.[locale] || tCocktail('title')}
-            </h2>
-            <div className="text-lg md:text-xl text-blanc/80 space-y-4">
-              {cocktailSection?.story?.[locale] ? (
-                <div className="prose prose-invert max-w-none">
-                  {/* Render Sanity Portable Text here */}
-                  <p>
-                    Une création unique, née de la passion et du savoir-faire. Dix Huit Zéro Cinq
-                    incarne l&apos;excellence du cocktail français.
-                  </p>
-                </div>
-              ) : (
-                <>
-                  <p>
-                    Une création unique, née de la passion et du savoir-faire. Dix Huit Zéro Cinq
-                    incarne l&apos;excellence du cocktail français.
-                  </p>
-                  <p>
-                    Chaque bouteille raconte une histoire, celle d&apos;une quête d&apos;excellence
-                    et d&apos;un engagement envers l&apos;authenticité.
-                  </p>
-                </>
-              )}
-            </div>
-            <Link
-              href="/contact"
-              className="inline-block bg-safran hover:bg-orange text-noir px-8 py-4 rounded-full font-bold transition-colors"
-            >
-              {cocktailSection?.ctaText?.[locale] || tCocktail('discover')}
-            </Link>
-          </div>
-        </div>
-      </Section>
-
-      {/* Spirit Section */}
-      <Section className="bg-gradient-to-b from-noir/95 to-noir">
-        <div className="max-w-5xl mx-auto text-center space-y-8">
-          <h2 className="text-5xl md:text-7xl font-bold text-blanc">
+      {/* Spirit Section - Brand Story */}
+      <Section className="bg-transparent !pt-8 md:!pt-12" fullWidth>
+        <div className="mx-auto px-4 md:px-6 lg:px-8 max-w-screen-lg lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px]">
+          <div className="max-w-6xl xl:max-w-7xl mx-auto text-center space-y-8">
+          <h2 className="font-logo text-5xl md:text-7xl font-black text-rouge">
             {spiritSection?.title?.[locale] || tSpirit('title')}
           </h2>
+          <p className="font-handwritten no-text-stroke text-3xl md:text-4xl text-rouge">
+            {tSpirit('subtitle')}
+          </p>
 
-          <div className="text-lg md:text-xl text-blanc/80 space-y-6 max-w-3xl mx-auto">
+          <div className="font-sans text-lg md:text-xl text-rouge/90 space-y-6 max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto text-justify">
             {spiritSection?.content?.[locale] ? (
-              <div className="prose prose-invert prose-lg max-w-none">
+              <div className="prose prose-lg max-w-none">
                 {/* Render Sanity Portable Text here */}
-                <p>
-                  Dix Huit Zéro Cinq, c&apos;est avant tout un état d&apos;esprit. Une philosophie
-                  qui célèbre l&apos;élégance, la qualité et le partage.
-                </p>
+                <p>{tStory('intro')}</p>
               </div>
             ) : (
               <>
-                <p>
-                  Dix Huit Zéro Cinq, c&apos;est avant tout un état d&apos;esprit. Une philosophie
-                  qui célèbre l&apos;élégance, la qualité et le partage.
-                </p>
-                <p>
-                  Nous croyons que chaque moment mérite d&apos;être savouré, que chaque rencontre
-                  mérite d&apos;être célébrée avec un cocktail d&apos;exception.
-                </p>
-                <p>
-                  Notre engagement : créer des expériences gustatives inoubliables qui rassemblent
-                  et inspirent.
-                </p>
+                <p>{tStory('intro')}</p>
+                <p>{tStory('babou')}</p>
+                <p>{tStory('birth')}</p>
+                <p>{tStory('creation')}</p>
+                <p>{tStory('tradition')}</p>
+                <p>{tStory('mission')}</p>
               </>
             )}
           </div>
+
+          <p className="font-handwritten no-text-stroke text-2xl md:text-4xl text-rouge pt-6 whitespace-nowrap">
+            {tStory('closing')}
+          </p>
 
           {/* Images Grid */}
           {spiritSection?.images && spiritSection.images.length > 0 && (
@@ -149,38 +98,41 @@ export default async function Home({ params: { locale } }: { params: { locale: s
               ))}
             </div>
           )}
+          </div>
         </div>
       </Section>
 
       {/* Featured Cocktails */}
       {data.featuredCocktails && data.featuredCocktails.length > 0 && (
-        <Section className="bg-noir/90">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-safran">
-            Nos Créations
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {data.featuredCocktails.map((cocktail: any) => (
-              <div
-                key={cocktail._id}
-                className="group relative overflow-hidden rounded-lg bg-blanc/5 backdrop-blur-sm border border-blanc/10 hover:border-safran/50 transition-all"
-              >
-                {cocktail.mainImage && (
-                  <div className="relative h-80">
-                    <Image
-                      src={urlForImage(cocktail.mainImage).url()}
-                      alt={cocktail.name?.[locale] || cocktail.name?.fr}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
+        <Section className="bg-transparent" fullWidth>
+          <div className="mx-auto px-4 md:px-6 lg:px-8 max-w-screen-md lg:max-w-[1200px] xl:max-w-[1400px] 2xl:max-w-[1600px]">
+            <h2 className="font-logo text-4xl md:text-5xl font-black text-center mb-12 text-rouge">
+              Nos Créations
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {data.featuredCocktails.map((cocktail: any) => (
+                <div
+                  key={cocktail._id}
+                  className="group relative overflow-hidden rounded-lg bg-noir/5 backdrop-blur-sm border border-noir/10 hover:border-orange/50 transition-all"
+                >
+                  {cocktail.mainImage && (
+                    <div className="relative h-80">
+                      <Image
+                        src={urlForImage(cocktail.mainImage).url()}
+                        alt={cocktail.name?.[locale] || cocktail.name?.fr}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold text-rouge mb-2">
+                      {cocktail.name?.[locale] || cocktail.name?.fr}
+                    </h3>
                   </div>
-                )}
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-blanc mb-2">
-                    {cocktail.name?.[locale] || cocktail.name?.fr}
-                  </h3>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </Section>
       )}

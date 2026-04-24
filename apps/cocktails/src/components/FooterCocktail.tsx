@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 interface FooterCocktailProps {
   socials?: {
@@ -14,78 +15,66 @@ interface FooterCocktailProps {
 
 export function FooterCocktail({ socials }: FooterCocktailProps) {
   const t = useTranslations('footer');
+  const pathname = usePathname();
+  const locale = pathname.startsWith('/en') ? 'en' : 'fr';
+
+  const legalLabels = {
+    fr: { mentions: 'Mentions légales', privacy: 'Confidentialité', cgu: 'CGU' },
+    en: { mentions: 'Legal Notice', privacy: 'Privacy', cgu: 'Terms of Use' },
+  };
+  const legal = legalLabels[locale];
 
   return (
-    <footer className="bg-noir text-blanc py-12 border-t border-blanc/10">
+    <footer className="bg-rouge-alcool/80 backdrop-blur-sm text-blanc py-12 border-t border-blanc/20">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Brand */}
-          <div>
-            <h3 className="text-2xl font-bold mb-4 text-safran">Dix Huit Zéro Cinq</h3>
-            <p className="text-blanc/70">L&apos;art du cocktail d&apos;exception</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+          {/* Left: Brand */}
+          <div className="text-center md:text-left">
+            <h3 className="font-logo text-2xl font-black mb-2 text-jaune">Dix Huit Zéro Cinq</h3>
+            <p className="font-handwritten no-text-stroke text-jaune/70 text-sm">{t('tagline')}</p>
           </div>
 
-          {/* Links */}
-          <div>
-            <h4 className="font-bold mb-4">Navigation</h4>
-            <nav className="flex flex-col gap-2">
-              <Link href="/" className="text-blanc/70 hover:text-safran transition-colors">
-                Accueil
-              </Link>
-              <Link href="/contact" className="text-blanc/70 hover:text-safran transition-colors">
-                Contact
-              </Link>
-              <Link href="/shop" className="text-blanc/70 hover:text-safran transition-colors">
-                Boutique
-              </Link>
-            </nav>
+          {/* Center: Contact Info */}
+          <div className="text-center space-y-2">
+            <p className="font-sans text-jaune/80 text-sm font-semibold pb-2">{t('company')}</p>
+            <p className="font-sans text-jaune/70 text-sm">
+              101 Rue Damrémont, 75018 Paris
+            </p>
+            <a
+              href="mailto:hello@dixhuitzerocinq.com"
+              className="font-sans text-jaune/70 text-sm hover:text-jaune transition-colors hover:underline hover:decoration-jaune"
+            >
+              hello@dixhuitzerocinq.com
+            </a>
+            {socials?.instagram && (
+              <p className="font-sans text-jaune/70 text-sm">
+                @dixhuitzerocinq
+              </p>
+            )}
           </div>
 
-          {/* Socials */}
-          {socials && Object.values(socials).some(Boolean) && (
-            <div>
-              <h4 className="font-bold mb-4">{t('follow')}</h4>
-              <div className="flex gap-4">
-                {socials.instagram && (
-                  <a
-                    href={socials.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blanc/70 hover:text-safran transition-colors"
-                  >
-                    Instagram
-                  </a>
-                )}
-                {socials.facebook && (
-                  <a
-                    href={socials.facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blanc/70 hover:text-safran transition-colors"
-                  >
-                    Facebook
-                  </a>
-                )}
-                {socials.twitter && (
-                  <a
-                    href={socials.twitter}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blanc/70 hover:text-safran transition-colors"
-                  >
-                    Twitter
-                  </a>
-                )}
-              </div>
+          {/* Right: Warnings & Legal */}
+          <div className="text-center md:text-right space-y-3">
+            <p className="font-sans text-jaune/90 text-xs leading-relaxed whitespace-pre-line">
+              {t('alcoholWarning')}. {t('alcoholMessage')}
+            </p>
+            <div className="flex flex-wrap justify-center md:justify-end gap-x-4 gap-y-1 pt-2">
+              <Link href={`/${locale}/legal#mentions`} className="text-jaune/50 hover:text-jaune text-xs transition-colors">
+                {legal.mentions}
+              </Link>
+              <Link href={`/${locale}/legal#privacy`} className="text-jaune/50 hover:text-jaune text-xs transition-colors">
+                {legal.privacy}
+              </Link>
+              <Link href={`/${locale}/legal#cgu`} className="text-jaune/50 hover:text-jaune text-xs transition-colors">
+                {legal.cgu}
+              </Link>
             </div>
-          )}
-        </div>
-
-        <div className="border-t border-blanc/10 pt-8 text-center text-blanc/50 text-sm">
-          <p>© {new Date().getFullYear()} Dix Huit Zéro Cinq. {t('rights')}.</p>
+            <p className="font-sans text-jaune/50 text-xs">
+              © {new Date().getFullYear()} {t('company')}. {t('rights')}.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
   );
 }
-

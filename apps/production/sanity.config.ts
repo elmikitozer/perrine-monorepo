@@ -7,8 +7,8 @@ const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '';
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
 
 export default defineConfig({
-  name: 'production',
-  title: 'Production - Services Audiovisuels',
+  name: 'pv-studio',
+  title: 'PV Studio',
   basePath: '/studio',
   projectId,
   dataset,

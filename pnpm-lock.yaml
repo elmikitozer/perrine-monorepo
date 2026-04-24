@@ -29,6 +29,9 @@ importers:
       '@sanity/vision':
         specifier: ^3.58.0
         version: 3.99.0(@babel/runtime@7.28.4)(@codemirror/lint@6.9.0)(@codemirror/theme-one-dark@6.1.3)(codemirror@6.0.2)(react-dom@18.3.1)(react-is@19.2.0)(react@18.3.1)(styled-components@6.1.19)
+      '@vercel/analytics':
+        specifier: ^2.0.1
+        version: 2.0.1(next@14.2.5)(react@18.3.1)
       framer-motion:
         specifier: ^12.23.24
         version: 12.23.24(react-dom@18.3.1)(react@18.3.1)
@@ -69,6 +72,9 @@ importers:
       autoprefixer:
         specifier: ^10.4.19
         version: 10.4.21(postcss@8.5.6)
+      baseline-browser-mapping:
+        specifier: ^2.9.18
+        version: 2.9.18
       eslint:
         specifier: ^8.57.0
         version: 8.57.1
@@ -148,6 +154,12 @@ importers:
       '@perrine/ui':
         specifier: workspace:*
         version: link:../../packages/ui
+      '@portabletext/react':
+        specifier: ^3.0.0
+        version: 3.2.4(react@18.3.1)
+      '@sanity/client':
+        specifier: ^7.6.0
+        version: 7.12.0(debug@4.4.3)
       '@sanity/image-url':
         specifier: ^1.0.2
         version: 1.2.0
@@ -4467,6 +4479,39 @@ packages:
     dev: true
     optional: true
 
+  /@vercel/analytics@2.0.1(next@14.2.5)(react@18.3.1):
+    resolution: {integrity: sha512-MTQG6V9qQrt1tsDeF+2Uoo5aPjqbVPys1xvnIftXSJYG2SrwXRHnqEvVoYID7BTruDz4lCd2Z7rM1BdkUehk2g==}
+    peerDependencies:
+      '@remix-run/react': ^2
+      '@sveltejs/kit': ^1 || ^2
+      next: '>= 13'
+      nuxt: '>= 3'
+      react: ^18 || ^19 || ^19.0.0-rc
+      svelte: '>= 4'
+      vue: ^3
+      vue-router: ^4
+    peerDependenciesMeta:
+      '@remix-run/react':
+        optional: true
+      '@sveltejs/kit':
+        optional: true
+      next:
+        optional: true
+      nuxt:
+        optional: true
+      react:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+      vue-router:
+        optional: true
+    dependencies:
+      next: 14.2.5(@babel/core@7.28.4)(react-dom@18.3.1)(react@18.3.1)
+      react: 18.3.1
+    dev: false
+
   /@vercel/edge@1.2.2:
     resolution: {integrity: sha512-1+y+f6rk0Yc9ss9bRDgz/gdpLimwoRteKHhrcgHvEpjbP1nyT3ByqEMWm2BTcpIO5UtDmIFXc8zdq4LR190PDA==}
     dev: false
@@ -4887,6 +4932,11 @@ packages:
   /baseline-browser-mapping@2.8.19:
     resolution: {integrity: sha512-zoKGUdu6vb2jd3YOq0nnhEDQVbPcHhco3UImJrv5dSkvxTc2pl2WjOPsjZXDwPDSl5eghIMuY3R6J9NDKF3KcQ==}
     hasBin: true
+
+  /baseline-browser-mapping@2.9.18:
+    resolution: {integrity: sha512-e23vBV1ZLfjb9apvfPk4rHVu2ry6RIr2Wfs+O324okSidrX7pTAnEJPCh/O5BtRlr7QtZI7ktOP3vsqr7Z5XoA==}
+    hasBin: true
+    dev: true
 
   /before-after-hook@2.2.3:
     resolution: {integrity: sha512-NzUnlZexiaH/46WDhANlyR2bXRopNg4F/zuSA3OpZnllCUgRaOF2znDioDWrmbNVsuZk6l9pMquQB38cfBZwkQ==}

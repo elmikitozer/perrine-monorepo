@@ -2,6 +2,162 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================
+   Brand Fonts - Dix Huit Zéro Cinq
+   Selon la charte graphique:
+   - Chantal: Grands titres
+   - Avenir LT Pro: Textes courants (fallback: Fashion Fetish / system-ui)
+   - DearJoe: Petites phrases signatures
+   ============================================ */
+
+/* --- CHANTAL (Logo) --- */
+@font-face {
+  font-family: 'Chantal';
+  src: url('/fonts/chantal/Chantal-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Chantal';
+  src: url('/fonts/chantal/Chantal-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Chantal';
+  src: url('/fonts/chantal/Chantal-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- FASHION FETISH (Titres) --- */
+@font-face {
+  font-family: 'Fashion Fetish';
+  src: url('/fonts/fashion-fetish/FashionFetish-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fashion Fetish';
+  src: url('/fonts/fashion-fetish/FashionFetish-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fashion Fetish';
+  src: url('/fonts/fashion-fetish/FashionFetish-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fashion Fetish';
+  src: url('/fonts/fashion-fetish/FashionFetish-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- DEARJOE (Style manuscrit) --- */
+@font-face {
+  font-family: 'DearJoe';
+  src: url('/fonts/dearjoe/DearJoe6.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- AVENIR LT PRO (Texte courant) --- */
+@font-face {
+  font-family: 'Avenir LT Pro';
+  src: url('/fonts/avenir-lt-pro/AvenirLTProLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir LT Pro';
+  src: url('/fonts/avenir-lt-pro/AvenirLTProLightOblique.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir LT Pro';
+  src: url('/fonts/avenir-lt-pro/AvenirLTProRoman.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir LT Pro';
+  src: url('/fonts/avenir-lt-pro/AvenirLTProOblique.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir LT Pro';
+  src: url('/fonts/avenir-lt-pro/AvenirLTProMedium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir LT Pro';
+  src: url('/fonts/avenir-lt-pro/AvenirLTProMediumOblique.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir LT Pro';
+  src: url('/fonts/avenir-lt-pro/AvenirLTProHeavy.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir LT Pro';
+  src: url('/fonts/avenir-lt-pro/AvenirLTProHeavyOblique.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir LT Pro';
+  src: url('/fonts/avenir-lt-pro/AvenirLTProBlack.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir LT Pro';
+  src: url('/fonts/avenir-lt-pro/AvenirLTProBlackOblique.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -9,12 +165,32 @@
   }
 
   body {
-    @apply bg-noir text-blanc;
+    @apply bg-blanc text-rouge;
+  }
+
+  a {
+    text-decoration-color: currentColor;
   }
 }
 
 @layer utilities {
   .text-gradient {
     @apply bg-gradient-to-r from-orange via-safran to-rouge bg-clip-text text-transparent;
+  }
+
+  /* Subtle black stroke for all red text variants */
+  [class*="text-rouge"] {
+    -webkit-text-stroke: 0.075px #000;
+    /* text-shadow: 0 0 0.3px #000; */
+  }
+  .no-text-stroke {
+    -webkit-text-stroke: 0 !important;
+    text-shadow: none !important;
+  }
+
+  /* Police manuscrite */
+  .font-handwritten {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke: 0 !important;
   }
 }

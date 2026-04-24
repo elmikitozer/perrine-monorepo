@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { urlForImage } from '@/sanity/lib/image';
+import { useState, useEffect } from 'react';
 
 interface HeroProps {
   title: string;
@@ -13,49 +14,102 @@ interface HeroProps {
 }
 
 export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }: HeroProps) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const handleScrollClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const cocktailSection = document.getElementById('cocktail');
+    if (cocktailSection) {
+      if (isMobile) {
+        // Mobile: scroll vers le bouton "Découvrir" avec un petit espace en bas
+        const ctaButton = cocktailSection.querySelector('a[href="/contact"]');
+        if (ctaButton) {
+          // Position du bouton + hauteur de viewport + petit espace (60px)
+          const buttonRect = ctaButton.getBoundingClientRect();
+          const scrollPosition = window.pageYOffset + buttonRect.bottom - window.innerHeight + 20;
+          window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+        } else {
+          cocktailSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // Desktop: scroll normal vers le début de la section
+        cocktailSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-noir">
-      {/* Background Media */}
+    <section className="relative h-screen w-full overflow-hidden bg-transparent">
+      {/* Background Media with Parallax Effect */}
       {backgroundVideo ? (
-        <video
+        <motion.video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 h-full w-full object-cover opacity-60"
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 20, ease: 'linear', repeat: Infinity, repeatType: 'reverse' }}
+          className="absolute inset-0 h-full w-full object-cover opacity-50"
         >
           <source src={backgroundVideo} type="video/mp4" />
-        </video>
+        </motion.video>
       ) : backgroundImage ? (
-        <Image
-          src={urlForImage(backgroundImage).url()}
-          alt="Hero background"
-          fill
-          className="object-cover opacity-60"
-          priority
-        />
+        <motion.div
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 20, ease: 'linear', repeat: Infinity, repeatType: 'reverse' }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={urlForImage(backgroundImage).url()}
+            alt="Hero background"
+            fill
+            className="object-cover opacity-50"
+            priority
+          />
+        </motion.div>
       ) : null}
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-noir/70 via-noir/50 to-noir" />
+      {/* Gradient Overlay - Subtil sur jaune */}
+      <div className="absolute inset-0 bg-gradient-to-b from-jaune/0 via-transparent to-jaune/0" />
 
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
-        <motion.h1
+      <div className="relative z-10 flex h-full flex-col items-center justify-center lg:justify-end lg:pb-32 px-4 text-center">
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="text-6xl md:text-8xl lg:text-9xl font-bold text-blanc mb-6 tracking-tight"
+          className="-mb-4 lg:mb-0"
         >
-          {title}
-        </motion.h1>
+          <span className="sr-only">{title}</span>
+          <div className="relative mx-auto w-[90vw] md:w-[560px] lg:w-[720px] h-[320px] md:h-[560px] lg:h-[540px]">
+            <Image
+              // src="/1805_bouteille_fruits_clear.png"
+              src="/1805_Logo rouge-jaune_horizontal_clean.png"
+              alt={typeof title === 'string' ? title : 'Dix Huit Zéro Cinq'}
+              fill
+              className="object-contain"
+              priority
+              quality={100}
+              sizes="(min-width: 1024px) 720px, (min-width: 768px) 560px, 320px"
+            />
+          </div>
+        </motion.div>
 
         {subtitle && (
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="text-xl md:text-2xl lg:text-3xl text-blanc/90 max-w-3xl mb-12"
+            className="font-handwritten no-text-stroke text-xl md:text-2xl lg:text-3xl text-rouge/90 max-w-3xl mb-12 lg:mb-10"
           >
             {subtitle}
           </motion.p>
@@ -66,29 +120,28 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             {cta}
           </motion.div>
         )}
 
         {/* Scroll Indicator */}
-        <motion.div
+        <motion.a
+          href="#cocktail"
+          onClick={handleScrollClick}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 cursor-pointer"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="text-blanc/50"
+            className="text-rouge/50 hover:text-rouge/80 transition-colors"
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -97,10 +150,8 @@ export function Hero({ title, subtitle, backgroundImage, backgroundVideo, cta }:
               />
             </svg>
           </motion.div>
-        </motion.div>
+        </motion.a>
       </div>
     </section>
   );
 }
-
-
