@@ -4,10 +4,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useRouteTransition } from '@/components/layout/RouteTransitionProvider';
 
 export default function Navigation() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const { reverseToHomeFromHero } = useRouteTransition();
+  const isProjectPage = pathname.startsWith('/projects/');
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -22,7 +25,15 @@ export default function Navigation() {
       }`}
     >
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center hover:opacity-70 transition-opacity duration-300">
+        <Link
+          href="/"
+          onClick={(event) => {
+            if (!isProjectPage) return;
+            event.preventDefault();
+            reverseToHomeFromHero();
+          }}
+          className="flex items-center hover:opacity-70 transition-opacity duration-300"
+        >
           <Image
             src="/images/logo/logotype_A_clear_borders.png"
             alt="PV Studio"
@@ -36,6 +47,11 @@ export default function Navigation() {
         <div className="flex items-center gap-8">
           <Link
             href="/"
+            onClick={(event) => {
+              if (!isProjectPage) return;
+              event.preventDefault();
+              reverseToHomeFromHero();
+            }}
             className={`nav-link text-gray-900 ${pathname === '/' ? 'active' : ''}`}
           >
             Work

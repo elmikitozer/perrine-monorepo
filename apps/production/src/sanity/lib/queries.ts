@@ -14,6 +14,17 @@ export const projectsQuery = `
         }
       }
     },
+    images[0...4] {
+      ...,
+      asset->{
+        _id,
+        url,
+        metadata {
+          dimensions,
+          lqip
+        }
+      }
+    },
     client,
     year,
     order
