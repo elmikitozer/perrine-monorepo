@@ -19,7 +19,6 @@ export interface SanityImage {
   _type: 'image';
   asset?: SanityImageAsset;
   hotspot?: { x: number; y: number; width: number; height: number };
-  metadata?: SanityImageMetadata;
 }
 
 export interface Project {

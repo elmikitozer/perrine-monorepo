@@ -24,8 +24,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover"
-            placeholder={project.image?.metadata?.lqip ? 'blur' : 'empty'}
-            blurDataURL={project.image?.metadata?.lqip ?? undefined}
+            placeholder={project.image?.asset?.metadata?.lqip ? 'blur' : 'empty'}
+            blurDataURL={project.image?.asset?.metadata?.lqip ?? undefined}
           />
           <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end bg-gradient-to-t from-black/70 via-[#F572B6]/10 to-transparent">
             <div className="p-5 w-full">

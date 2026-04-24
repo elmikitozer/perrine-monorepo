@@ -1,19 +1,36 @@
 /**
  * Script d'upload des projets portfolio vers Sanity
- * Usage: node scripts/upload-projects.mjs
+ * Usage:
+ *   node scripts/upload-projects.mjs --photos-dir=/path/to/photos
+ *
+ * Variables d'environnement supportées:
+ *   SANITY_API_TOKEN      requis
+ *   SANITY_PHOTOS_DIR     requis sauf si --photos-dir est fourni
+ *   SANITY_PROJECT_ID     optionnel, fallback sur NEXT_PUBLIC_SANITY_PROJECT_ID
+ *   SANITY_DATASET        optionnel, fallback sur NEXT_PUBLIC_SANITY_DATASET puis "production"
  */
 
 import { createClient } from '@sanity/client';
-import { createReadStream, readdirSync, statSync } from 'fs';
-import { join, extname, basename } from 'path';
+import { createReadStream, existsSync, readFileSync, readdirSync, statSync } from 'fs';
+import { basename, dirname, extname, join, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
-const PHOTOS_DIR = '/Users/mikayay/Downloads/wetransfer_photos-pv_2026-04-03_2220';
-const PROJECT_ID = '93a10qqu';
-const DATASET = 'production';
-const TOKEN = 'sk8me1SUEnqNlqeXSxBRVPOMrNzIK40vcaQulYIgmIsOhs3jWRvc2jhcvxFLWqXO3W1xaVbFdMW6mxqH5hxLohIvYBcUqQhWFlFbYgr68hkDmX1oFFrM8eUKHMMLGepqtVuKhmrbTQbGvtzsp2AEZCzTAVOALas6q0vSzp3LIsxpumClciLe';
-
 const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.tiff', '.tif'];
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const APP_ROOT = resolve(__dirname, '..');
+
+loadEnvFile(resolve(APP_ROOT, '.env.local'));
+loadEnvFile(resolve(APP_ROOT, '.env'));
+
+const PHOTOS_DIR = getCliArg('photos-dir') || process.env.SANITY_PHOTOS_DIR;
+const PROJECT_ID = process.env.SANITY_PROJECT_ID || process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+const DATASET = process.env.SANITY_DATASET || process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
+const TOKEN = process.env.SANITY_API_TOKEN;
+
+assertRequired('SANITY_API_TOKEN', TOKEN);
+assertRequired('SANITY_PHOTOS_DIR', PHOTOS_DIR, '--photos-dir peut aussi etre utilise');
+assertRequired('SANITY_PROJECT_ID', PROJECT_ID, 'NEXT_PUBLIC_SANITY_PROJECT_ID peut servir de fallback');
 
 const client = createClient({
   projectId: PROJECT_ID,
@@ -22,6 +39,57 @@ const client = createClient({
   apiVersion: '2024-10-21',
   useCdn: false,
 });
+
+function loadEnvFile(filePath) {
+  if (!existsSync(filePath)) return;
+
+  const content = readFileSync(filePath, 'utf8');
+  for (const line of content.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+
+    const match = trimmed.match(/^([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)$/);
+    if (!match) continue;
+
+    const [, key, rawValue] = match;
+    if (process.env[key] !== undefined) continue;
+
+    let value = rawValue.trim();
+    if (value.endsWith(';')) value = value.slice(0, -1).trim();
+    if (
+      (value.startsWith('"') && value.endsWith('"')) ||
+      (value.startsWith("'") && value.endsWith("'"))
+    ) {
+      value = value.slice(1, -1);
+    }
+
+    process.env[key] = value;
+  }
+}
+
+function getCliArg(name) {
+  const exactFlag = `--${name}`;
+  const prefixedFlag = `${exactFlag}=`;
+
+  for (let index = 0; index < process.argv.length; index += 1) {
+    const arg = process.argv[index];
+    if (arg.startsWith(prefixedFlag)) {
+      return arg.slice(prefixedFlag.length);
+    }
+    if (arg === exactFlag) {
+      return process.argv[index + 1];
+    }
+  }
+
+  return undefined;
+}
+
+function assertRequired(name, value, extraHint = '') {
+  if (value) return;
+
+  const hint = extraHint ? ` (${extraHint})` : '';
+  throw new Error(`Variable requise manquante: ${name}${hint}`);
+}
 
 function extractClientFromFolderName(folderName) {
   // Extrait le premier mot comme client (ex: "DIOR AW21" -> "Dior")

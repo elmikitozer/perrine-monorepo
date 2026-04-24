@@ -87,7 +87,10 @@ export default async function ContactPage({ params: { locale } }: { params: { lo
                   <span className="w-12 h-12 sm:w-14 sm:h-14 lg:w-20 lg:h-20">
                     <TikTokIcon />
                   </span>
-                  <span>@dixhuitzerocinq<br></br></span>
+                  <span>
+                    @dixhuitzerocinq
+                    <br />
+                  </span>
                 </a>
 
                 {/* Phone */}
