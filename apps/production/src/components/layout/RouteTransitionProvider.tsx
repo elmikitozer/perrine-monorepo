@@ -234,22 +234,23 @@ export function RouteTransitionProvider({ children }: PropsWithChildren) {
       homeScrollYRef.current = window.scrollY;
       lockBodyScroll(bodyOverflowBeforeLockRef, bodyPaddingRightBeforeLockRef);
       setProjectChromeVisible(false);
+      const sourceRect = toRect(fromEl);
+      const sourceImageUrl = getImageFromElement(fromEl)?.currentSrc || imageUrl;
       setPending({
         direction: 'forward',
         slug,
         href,
-        fromRect: toRect(fromEl),
-        imageUrl: getImageFromElement(fromEl)?.currentSrc || imageUrl,
+        fromRect: sourceRect,
+        imageUrl: sourceImageUrl,
         homeScrollY: homeScrollYRef.current,
       });
-      const sourceRect = toRect(fromEl);
       x.set(sourceRect.left);
       y.set(sourceRect.top);
       scaleX.set(1);
       scaleY.set(1);
       setOverlay({
         visible: true,
-        imageUrl: getImageFromElement(fromEl)?.currentSrc || imageUrl,
+        imageUrl: sourceImageUrl,
         baseWidth: sourceRect.width,
         baseHeight: sourceRect.height,
       });
@@ -268,22 +269,23 @@ export function RouteTransitionProvider({ children }: PropsWithChildren) {
 
     isTransitioningRef.current = true;
     lockBodyScroll(bodyOverflowBeforeLockRef, bodyPaddingRightBeforeLockRef);
+    const sourceRect = toRect(projectHeroRef.current);
+    const sourceImageUrl = getImageFromElement(projectHeroRef.current)?.currentSrc || projectHeroImageRef.current;
     setPending({
       direction: 'reverse',
       slug: projectHeroSlugRef.current,
       href: '/',
-      fromRect: toRect(projectHeroRef.current),
-      imageUrl: getImageFromElement(projectHeroRef.current)?.currentSrc || projectHeroImageRef.current,
+      fromRect: sourceRect,
+      imageUrl: sourceImageUrl,
       homeScrollY: homeScrollYRef.current,
     });
-    const sourceRect = toRect(projectHeroRef.current);
     x.set(sourceRect.left);
     y.set(sourceRect.top);
     scaleX.set(1);
     scaleY.set(1);
     setOverlay({
       visible: true,
-      imageUrl: getImageFromElement(projectHeroRef.current)?.currentSrc || projectHeroImageRef.current,
+      imageUrl: sourceImageUrl,
       baseWidth: sourceRect.width,
       baseHeight: sourceRect.height,
     });
