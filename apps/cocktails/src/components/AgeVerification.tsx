@@ -73,6 +73,7 @@ export function AgeVerification() {
     if (!verified) {
       setVisible(true);
       document.body.style.overflow = 'hidden';
+      return () => { document.body.style.overflow = ''; };
     }
     // Detect locale from URL
     if (pathname.startsWith('/en')) setLang('en');
@@ -87,7 +88,8 @@ export function AgeVerification() {
     if (currentYear - y < 18) { setError(t.errorAge); return; }
 
     const maxAge = rememberMe ? 60 * 60 * 24 * 365 : 60 * 60 * 24;
-    document.cookie = `age_verified=true; path=/; max-age=${maxAge}; SameSite=Lax`;
+    const secure = process.env.NODE_ENV === 'production' ? '; Secure' : '';
+    document.cookie = `age_verified=true; path=/; max-age=${maxAge}; SameSite=Lax${secure}`;
     document.body.style.overflow = '';
     setVisible(false);
 

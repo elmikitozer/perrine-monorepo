@@ -78,8 +78,8 @@ export default async function ProjectPage({ params }: Props) {
                     width={800}
                     height={600}
                     className="w-full h-auto"
-                    placeholder={img.metadata?.lqip ? 'blur' : 'empty'}
-                    blurDataURL={img.metadata?.lqip ?? undefined}
+                    placeholder={img.asset?.metadata?.lqip ? 'blur' : 'empty'}
+                    blurDataURL={img.asset?.metadata?.lqip ?? undefined}
                   />
                 </div>
               );

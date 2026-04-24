@@ -9,9 +9,7 @@ export default function RootPage() {
   // Detect if the browser prefers French
   const prefersFrench = acceptLanguage.toLowerCase().includes('fr');
 
-  // Redirect to the appropriate locale
-  // const locale = prefersFrench ? 'fr' : 'en';
-  const locale = 'fr';
+  const locale = prefersFrench ? 'fr' : 'en';
   redirect(`/${locale}`);
 }
 
