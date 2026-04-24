@@ -124,6 +124,7 @@ export function RouteTransitionProvider({ children }: PropsWithChildren) {
   const homeScrollYRef = useRef(0);
   const bodyOverflowBeforeLockRef = useRef<string>('');
   const bodyPaddingRightBeforeLockRef = useRef<string>('');
+  const transitionTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const [pending, setPending] = useState<PendingTransition | null>(null);
   const [homeRegistryVersion, setHomeRegistryVersion] = useState(0);
@@ -143,6 +144,20 @@ export function RouteTransitionProvider({ children }: PropsWithChildren) {
   const scaleX = useMotionValue(1);
   const scaleY = useMotionValue(1);
 
+  const resetTransition = useCallback(() => {
+    if (transitionTimeoutRef.current !== null) {
+      clearTimeout(transitionTimeoutRef.current);
+      transitionTimeoutRef.current = null;
+    }
+    setPending(null);
+    isTransitioningRef.current = false;
+    unlockBodyScroll(bodyOverflowBeforeLockRef, bodyPaddingRightBeforeLockRef);
+    setOverlay({ visible: false, imageUrl: null, baseWidth: 0, baseHeight: 0 });
+    setProjectChromeVisible(true);
+    setHideProjectHero(false);
+    setHiddenHomeSlug(null);
+  }, []);
+
   const runFlipAnimation = useCallback(
     async (input: {
       direction: Direction;
@@ -153,6 +168,11 @@ export function RouteTransitionProvider({ children }: PropsWithChildren) {
       targetElement: HTMLElement | null;
     }) => {
       const { direction, fromRect, toRect, imageUrl, slug, targetElement } = input;
+
+      if (transitionTimeoutRef.current !== null) {
+        clearTimeout(transitionTimeoutRef.current);
+        transitionTimeoutRef.current = null;
+      }
 
       if (direction === 'forward') {
         setHideProjectHero(true);
@@ -234,8 +254,9 @@ export function RouteTransitionProvider({ children }: PropsWithChildren) {
         baseHeight: sourceRect.height,
       });
       router.push(href);
+      transitionTimeoutRef.current = setTimeout(resetTransition, 4000);
     },
-    [router, scaleX, scaleY, x, y],
+    [resetTransition, router, scaleX, scaleY, x, y],
   );
 
   const reverseToHomeFromHero = useCallback(() => {
@@ -267,7 +288,8 @@ export function RouteTransitionProvider({ children }: PropsWithChildren) {
       baseHeight: sourceRect.height,
     });
     router.push('/');
-  }, [router, scaleX, scaleY, x, y]);
+    transitionTimeoutRef.current = setTimeout(resetTransition, 4000);
+  }, [resetTransition, router, scaleX, scaleY, x, y]);
 
   const registerHomeCard = useCallback((slug: string, element: HTMLElement | null) => {
     if (element) {

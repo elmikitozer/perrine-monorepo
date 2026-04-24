@@ -29,6 +29,7 @@ export default function Navigation() {
           href="/"
           onClick={(event) => {
             if (!isProjectPage) return;
+            if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
             event.preventDefault();
             reverseToHomeFromHero();
           }}

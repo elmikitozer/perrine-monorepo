@@ -100,6 +100,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           onMouseEnter={warmupTransitionAssets}
           onClick={(event) => {
             if (!project.slug?.current || !articleRef.current) return;
+            if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
             event.preventDefault();
             warmupTransitionAssets();
             startForwardTransition({
