@@ -1,6 +1,5 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import ProjectExperience from '@/components/projects/ProjectExperience';
 import { client } from '@/sanity/lib/client';
 import { projectBySlugQuery } from '@/sanity/lib/queries';
 import { urlFor as urlForImage } from '@/sanity/lib/image';
@@ -29,54 +28,38 @@ export default async function ProjectPage({ params }: Props) {
     ? [project.image]
     : [];
 
-  return (
-    <div className="pt-24 pb-16 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-10 flex items-center justify-between">
-          <div>
-            <h1 className="text-sm tracking-wider-custom uppercase font-light">
-              {project.title}
-            </h1>
-            {project.client && (
-              <p className="text-xs text-gray-400 tracking-wider-custom uppercase mt-1">
-                {project.client}{project.year ? ` — ${project.year}` : ''}
-              </p>
-            )}
-          </div>
-          <Link
-            href="/"
-            className="text-xs tracking-wider-custom uppercase text-gray-400 hover:text-[#F572B6] transition-colors"
-          >
-            ← Retour
-          </Link>
-        </div>
+  const gallery = allImages
+    .map((img, index) => {
+      const src = urlForImage(img)?.width(1400).quality(80).fit('max').auto('format').url();
+      if (!src) return null;
+      return {
+        id: `${project._id}-${index}`,
+        src,
+        lqip: img.asset?.metadata?.lqip,
+        alt: `${project.title} — ${index + 1}`,
+      };
+    })
+    .filter((item): item is NonNullable<typeof item> => item !== null);
 
-        {/* Gallery */}
-        {allImages.length === 0 ? (
+  if (gallery.length === 0) {
+    return (
+      <div className="pt-24 pb-16 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
           <p className="text-gray-400 text-sm">Aucune image disponible.</p>
-        ) : (
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-3 space-y-3">
-            {allImages.map((img, i) => {
-              const url = urlForImage(img)?.width(1600).quality(90).url();
-              if (!url) return null;
-              return (
-                <div key={i} className="break-inside-avoid">
-                  <Image
-                    src={url}
-                    alt={`${project.title} — ${i + 1}`}
-                    width={800}
-                    height={600}
-                    className="w-full h-auto"
-                    placeholder={img.asset?.metadata?.lqip ? 'blur' : 'empty'}
-                    blurDataURL={img.asset?.metadata?.lqip ?? undefined}
-                  />
-                </div>
-              );
-            })}
-          </div>
-        )}
+        </div>
       </div>
-    </div>
+    );
+  }
+
+  return (
+    <ProjectExperience
+      project={{
+        slug: project.slug?.current || params.slug,
+        title: project.title,
+        client: project.client,
+        year: project.year,
+      }}
+      gallery={gallery}
+    />
   );
 }

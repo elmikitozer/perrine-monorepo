@@ -1,4 +1,4 @@
-import AboutContent from '@/components/AboutContent';
+import AboutContent from '@/components/about/AboutContent';
 import { client } from '@/sanity/lib/client';
 import { aboutQuery } from '@/sanity/lib/queries';
 import type { AboutPage } from '@/types/sanity';
