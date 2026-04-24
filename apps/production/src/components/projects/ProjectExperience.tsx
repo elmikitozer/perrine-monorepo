@@ -43,7 +43,7 @@ export default function ProjectExperience({ project, gallery }: ProjectExperienc
   );
 
   return (
-    <div className="pt-20">
+    <div className="pt-24">
       <div className="mx-auto max-w-7xl px-4 pb-16 md:px-8">
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-[340px_minmax(0,1fr)]">
           <aside
