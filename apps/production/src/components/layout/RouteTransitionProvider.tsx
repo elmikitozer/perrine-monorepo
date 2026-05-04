@@ -4,7 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -194,9 +194,9 @@ export function RouteTransitionProvider({ children }: PropsWithChildren) {
 
       const springTransition = {
         type: 'spring' as const,
-        stiffness: direction === 'forward' ? 145 : 170,
-        damping: direction === 'forward' ? 30 : 32,
-        mass: 1.02,
+        stiffness: direction === 'forward' ? 174 : 204,
+        damping: direction === 'forward' ? 33 : 35,
+        mass: 0.85,
       };
 
       await Promise.all([
@@ -207,11 +207,11 @@ export function RouteTransitionProvider({ children }: PropsWithChildren) {
       ]);
 
       if (direction === 'forward') {
+        setProjectChromeVisible(true);
         setHideProjectHero(false);
         await waitForElementImageReady(targetElement);
         await waitFrame();
         await waitFrame();
-        setTimeout(() => setProjectChromeVisible(true), 180);
       } else {
         setHiddenHomeSlug(null);
         await waitForElementImageReady(targetElement);
@@ -319,7 +319,7 @@ export function RouteTransitionProvider({ children }: PropsWithChildren) {
     [],
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!pending) return;
 
     if (pending.direction === 'forward') {

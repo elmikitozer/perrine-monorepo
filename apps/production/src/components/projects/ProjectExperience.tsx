@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useMemo, useRef } from 'react';
+import { useLayoutEffect, useMemo, useRef } from 'react';
 import { useRouteTransition } from '@/components/layout/RouteTransitionProvider';
 
 interface GalleryItem {
@@ -27,7 +27,7 @@ export default function ProjectExperience({ project, gallery }: ProjectExperienc
   const { hideProjectHero, projectChromeVisible, registerProjectHero, reverseToHomeFromHero } =
     useRouteTransition();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     registerProjectHero({ slug: project.slug, element: heroRef.current, imageUrl: heroImage });
     return () => registerProjectHero({ slug: project.slug, element: null, imageUrl: null });
   }, [heroImage, project.slug, registerProjectHero]);
@@ -47,7 +47,7 @@ export default function ProjectExperience({ project, gallery }: ProjectExperienc
       <div className="mx-auto max-w-7xl px-4 pb-16 md:px-8">
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-[340px_minmax(0,1fr)]">
           <aside
-            className={`rounded-sm border border-black/10 bg-[#fdf8f9] p-6 lg:sticky lg:top-24 lg:h-[calc(100vh-7rem)] lg:overflow-auto transition-opacity duration-500 ${
+            className={`rounded-sm border border-black/10 bg-[#fdf8f9] p-6 lg:sticky lg:top-24 lg:h-[calc(100vh-7rem)] lg:overflow-auto transition-opacity duration-150 ${
               projectChromeVisible ? 'opacity-100' : 'opacity-0'
             }`}
           >

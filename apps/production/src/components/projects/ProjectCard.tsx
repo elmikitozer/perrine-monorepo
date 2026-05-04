@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { urlFor as urlForImage } from '@/sanity/lib/image';
 import { useRouteTransition } from '@/components/layout/RouteTransitionProvider';
@@ -27,7 +27,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const warmedUrlsRef = useRef(new Set<string>());
   const { hiddenHomeSlug, registerHomeCard, startForwardTransition } = useRouteTransition();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const slug = project.slug?.current;
     if (!slug) return;
 
