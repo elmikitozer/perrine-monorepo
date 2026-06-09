@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useLayoutEffect, useMemo, useRef } from 'react';
+import { useMemo } from 'react';
 import { useRouteTransition } from '@/components/layout/RouteTransitionProvider';
 
 interface GalleryItem {
@@ -22,15 +22,7 @@ interface ProjectExperienceProps {
 }
 
 export default function ProjectExperience({ project, gallery }: ProjectExperienceProps) {
-  const heroRef = useRef<HTMLDivElement | null>(null);
-  const heroImage = gallery[0]?.src ?? null;
-  const { hideProjectHero, projectChromeVisible, registerProjectHero, reverseToHomeFromHero } =
-    useRouteTransition();
-
-  useLayoutEffect(() => {
-    registerProjectHero({ slug: project.slug, element: heroRef.current, imageUrl: heroImage });
-    return () => registerProjectHero({ slug: project.slug, element: null, imageUrl: null });
-  }, [heroImage, project.slug, registerProjectHero]);
+  const { navigateBack } = useRouteTransition();
 
   const projectMeta = useMemo(
     () => [
@@ -46,14 +38,10 @@ export default function ProjectExperience({ project, gallery }: ProjectExperienc
     <div className="pt-24">
       <div className="mx-auto max-w-7xl px-4 pb-16 md:px-8">
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-[340px_minmax(0,1fr)]">
-          <aside
-            className={`rounded-sm border border-black/10 bg-[#fdf8f9] p-6 lg:sticky lg:top-24 lg:h-[calc(100vh-7rem)] lg:overflow-auto transition-opacity duration-150 ${
-              projectChromeVisible ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
+          <aside className="rounded-sm border border-black/10 bg-[#fdf8f9] p-6 lg:sticky lg:top-24 lg:h-[calc(100vh-7rem)] lg:overflow-auto">
             <button
               type="button"
-              onClick={reverseToHomeFromHero}
+              onClick={navigateBack}
               className="mb-8 rounded-full border border-black/20 px-4 py-2 text-[10px] uppercase tracking-[0.22em] text-gray-900 transition hover:border-[#F572B6] hover:text-[#F572B6]"
             >
               ← Retour aux projets
@@ -79,21 +67,15 @@ export default function ProjectExperience({ project, gallery }: ProjectExperienc
 
           </aside>
 
-          <section
-            className="grid grid-cols-1 gap-3 sm:grid-cols-2"
-          >
+          <section className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {gallery.map((item, index) => {
-              const isHero = index === 0;
               const isWide = index === 2;
-              const aspectClass = isHero ? 'aspect-[2/3]' : isWide ? 'aspect-[16/9]' : 'aspect-[4/5]';
+              const aspectClass = index === 0 ? 'aspect-[2/3]' : isWide ? 'aspect-[16/9]' : 'aspect-[4/5]';
 
               return (
                 <div
                   key={item.id}
-                  ref={isHero ? heroRef : null}
-                  data-hero-target={isHero ? 'true' : undefined}
                   className={`${isWide ? 'sm:col-span-2' : ''} ${aspectClass} relative overflow-hidden bg-[#e8dde3]`}
-                  style={{ visibility: isHero && hideProjectHero ? 'hidden' : 'visible' }}
                 >
                   <Image
                     src={item.src}
@@ -103,8 +85,8 @@ export default function ProjectExperience({ project, gallery }: ProjectExperienc
                     className="object-cover"
                     placeholder={item.lqip ? 'blur' : 'empty'}
                     blurDataURL={item.lqip}
-                    priority={isHero}
-                    loading={isHero ? 'eager' : 'lazy'}
+                    priority={index === 0}
+                    loading={index === 0 ? 'eager' : 'lazy'}
                   />
                   <div
                     className="pointer-events-none absolute inset-0"

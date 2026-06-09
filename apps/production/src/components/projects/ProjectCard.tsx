@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useLayoutEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { urlFor as urlForImage } from '@/sanity/lib/image';
 import { useRouteTransition } from '@/components/layout/RouteTransitionProvider';
@@ -23,17 +23,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
   const href = project.slug?.current ? `/projects/${project.slug.current}` : null;
   const router = useRouter();
-  const articleRef = useRef<HTMLElement | null>(null);
   const warmedUrlsRef = useRef(new Set<string>());
-  const { hiddenHomeSlug, registerHomeCard, startForwardTransition } = useRouteTransition();
-
-  useLayoutEffect(() => {
-    const slug = project.slug?.current;
-    if (!slug) return;
-
-    registerHomeCard(slug, articleRef.current);
-    return () => registerHomeCard(slug, null);
-  }, [project.slug?.current, registerHomeCard]);
+  const { navigateTo } = useRouteTransition();
 
   const warmupTransitionAssets = () => {
     if (!href) return;
@@ -88,10 +79,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <article
-      ref={articleRef}
-      data-project={project.slug?.current}
       className="project-card relative overflow-hidden bg-gray-100"
-      style={{ visibility: hiddenHomeSlug === project.slug?.current ? 'hidden' : 'visible' }}
     >
       {href ? (
         <Link
@@ -99,16 +87,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           className="block w-full h-full"
           onMouseEnter={warmupTransitionAssets}
           onClick={(event) => {
-            if (!project.slug?.current || !articleRef.current) return;
             if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
             event.preventDefault();
             warmupTransitionAssets();
-            startForwardTransition({
-              slug: project.slug.current,
-              href,
-              fromEl: articleRef.current,
-              imageUrl: imageUrl ?? null,
-            });
+            navigateTo(href);
           }}
         >
           {inner}

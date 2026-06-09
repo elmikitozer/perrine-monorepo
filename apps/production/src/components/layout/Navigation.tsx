@@ -9,7 +9,7 @@ import { useRouteTransition } from '@/components/layout/RouteTransitionProvider'
 export default function Navigation() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const { reverseToHomeFromHero } = useRouteTransition();
+  const { navigateBack } = useRouteTransition();
   const isProjectPage = pathname.startsWith('/projects/');
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function Navigation() {
             if (!isProjectPage) return;
             if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
             event.preventDefault();
-            reverseToHomeFromHero();
+            navigateBack();
           }}
           className="flex items-center hover:opacity-70 transition-opacity duration-300"
         >
@@ -51,7 +51,7 @@ export default function Navigation() {
             onClick={(event) => {
               if (!isProjectPage) return;
               event.preventDefault();
-              reverseToHomeFromHero();
+              navigateBack();
             }}
             className={`nav-link text-gray-900 ${pathname === '/' ? 'active' : ''}`}
           >
