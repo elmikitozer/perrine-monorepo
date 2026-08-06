@@ -41,9 +41,6 @@
     justify-content: center;
     overflow: hidden;
     background: #fdf8f9;
-  }
-
-  .initial-splash--counter {
     transition: opacity 350ms ease-out;
   }
 
@@ -71,27 +68,6 @@
   }
 
   .initial-splash__logo-reveal {
-    position: absolute;
-    inset: 0;
-    will-change: clip-path;
-  }
-
-  .initial-splash__counter {
-    position: relative;
-    margin: 0;
-    color: #000;
-    font-size: 0.625rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .initial-splash__counter-base,
-  .initial-splash__counter-overlay {
-    display: block;
-  }
-
-  .initial-splash__counter-overlay {
     position: absolute;
     inset: 0;
     will-change: clip-path;
@@ -153,15 +129,6 @@
 
   .project-skeleton__line--title {
     background: rgba(245, 114, 182, 0.12);
-  }
-
-  .project-card {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .project-card:hover {
-    opacity: 0.9;
-    transform: scale(1.02);
   }
 
   .nav-link {

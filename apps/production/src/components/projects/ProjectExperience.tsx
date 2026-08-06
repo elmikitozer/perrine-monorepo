@@ -27,11 +27,9 @@ export default function ProjectExperience({ project, gallery }: ProjectExperienc
   const projectMeta = useMemo(
     () => [
       { label: 'Client', value: project.client || '—' },
-      { label: 'Annee', value: project.year ? String(project.year) : '—' },
-      { label: 'Slug', value: project.slug },
-      { label: 'Images', value: String(gallery.length) },
+      { label: 'Année', value: project.year ? String(project.year) : '—' },
     ],
-    [gallery.length, project.client, project.slug, project.year],
+    [project.client, project.year],
   );
 
   return (

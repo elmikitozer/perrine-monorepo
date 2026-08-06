@@ -8,10 +8,10 @@ interface ProjectGridProps {
 export default function ProjectGrid({ projects }: ProjectGridProps) {
   return (
     <div
-      className="grid grid-cols-2 lg:grid-cols-3 gap-3"
+      className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-12"
     >
-      {projects.map((project) => (
-        <ProjectCard key={project._id} project={project} />
+      {projects.map((project, index) => (
+        <ProjectCard key={project._id} project={project} index={index} />
       ))}
     </div>
   );

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 const SPLASH_DURATION_MS = 2000;
@@ -8,18 +8,11 @@ const EXIT_FADE_MS = 350;
 const EXIT_DELAY_MS = 180;
 const SPLASH_SESSION_KEY = 'pv-studio-initial-splash-seen';
 const FORCE_SPLASH_EVERY_LOAD = false;
-const PINK = '#F572B6';
-const COUNTER_REVEAL_START = 0.22;
-const COUNTER_REVEAL_END = 0.82;
 
 function easeInOutCubic(value: number) {
   return value < 0.5
     ? 4 * value * value * value
     : 1 - Math.pow(-2 * value + 2, 3) / 2;
-}
-
-function clamp(value: number, min: number, max: number) {
-  return Math.min(Math.max(value, min), max);
 }
 
 export default function InitialSplash() {
@@ -85,20 +78,6 @@ export default function InitialSplash() {
     };
   }, []);
 
-  const percentLabel = useMemo(
-    () => Math.round(progress * 100).toString().padStart(3, '0'),
-    [progress],
-  );
-  const counterReveal = useMemo(() => {
-    const windowedProgress = clamp(
-      (progress - COUNTER_REVEAL_START) / (COUNTER_REVEAL_END - COUNTER_REVEAL_START),
-      0,
-      1,
-    );
-
-    return easeInOutCubic(windowedProgress);
-  }, [progress]);
-
   if (!isMounted) {
     return null;
   }
@@ -106,7 +85,7 @@ export default function InitialSplash() {
   return (
     <div
       aria-hidden="true"
-      className={`initial-splash initial-splash--counter ${isLeaving ? 'initial-splash--leaving' : ''}`}
+      className={`initial-splash ${isLeaving ? 'initial-splash--leaving' : ''}`}
     >
       <div className="initial-splash__stack">
         <div className="initial-splash__logo-shell">
@@ -132,19 +111,6 @@ export default function InitialSplash() {
             />
           </div>
         </div>
-
-        <p className="initial-splash__counter">
-          <span className="initial-splash__counter-base">{percentLabel}%</span>
-          <span
-            className="initial-splash__counter-overlay"
-            style={{
-              color: PINK,
-              clipPath: `inset(0 ${(1 - counterReveal) * 100}% 0 0)`,
-            }}
-          >
-            {percentLabel}%
-          </span>
-        </p>
       </div>
 
       <p className="initial-splash__label">Perrine Vael-Roquere Studio</p>

@@ -10,9 +10,10 @@ import type { Project } from '@/types/sanity';
 
 interface ProjectCardProps {
   project: Project;
+  index: number;
 }
 
-export default function ProjectCard({ project }: ProjectCardProps) {
+export default function ProjectCard({ project, index }: ProjectCardProps) {
   const imageUrl = project.image
     ? urlForImage(project.image)?.width(900).quality(78).fit('max').auto('format').url()
     : null;
@@ -41,46 +42,50 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     });
   };
 
+  const number = String(index + 1).padStart(2, '0');
+  const caption = [project.client, project.year].filter(Boolean).join(' · ');
+
   const inner = (
     <>
       {imageUrl ? (
-        <div className="relative w-full aspect-[2/3]">
+        <div className="relative w-full aspect-[2/3] overflow-hidden bg-gray-100">
           <Image
             src={imageUrl}
             alt={project.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
             placeholder={project.image?.asset?.metadata?.lqip ? 'blur' : 'empty'}
             blurDataURL={project.image?.asset?.metadata?.lqip ?? undefined}
           />
-          <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end bg-gradient-to-t from-black/70 via-[#F572B6]/10 to-transparent">
-            <div className="p-5 w-full">
-              {project.client && (
-                <p className="text-white/80 text-xs tracking-wider-custom uppercase font-light">
-                  {project.client}
-                </p>
-              )}
-              <p className="text-white text-sm tracking-wider-custom uppercase font-light mt-1">
-                {project.title}
-              </p>
-            </div>
-          </div>
         </div>
       ) : (
-        <div className="w-full min-h-[280px] bg-gray-200 flex items-center justify-center">
+        <div className="w-full aspect-[2/3] bg-gray-200 flex items-center justify-center">
           <span className="text-gray-400 text-xs tracking-wider-custom uppercase">
             {project.title}
           </span>
         </div>
       )}
+      <div className="mt-3 flex items-baseline gap-3">
+        <span className="text-[10px] tabular-nums tracking-[0.2em] text-gray-400 transition-colors duration-300 group-hover:text-[#F572B6]">
+          {number}
+        </span>
+        <div className="min-w-0">
+          <p className="truncate text-xs uppercase tracking-[0.18em] text-gray-900">
+            {project.title}
+          </p>
+          {caption && (
+            <p className="mt-1 truncate text-[10px] uppercase tracking-[0.18em] text-gray-400">
+              {caption}
+            </p>
+          )}
+        </div>
+      </div>
     </>
   );
 
   return (
-    <article
-      className="project-card relative overflow-hidden bg-gray-100"
-    >
+    <article className="project-card group relative">
       {href ? (
         <Link
           href={href}
