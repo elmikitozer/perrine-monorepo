@@ -2,14 +2,13 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useRouteTransition } from '@/components/layout/RouteTransitionProvider';
 
 export default function Navigation() {
   const pathname = usePathname();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
-  const { navigateBack } = useRouteTransition();
   const isProjectPage = pathname.startsWith('/projects/');
 
   useEffect(() => {
@@ -31,7 +30,7 @@ export default function Navigation() {
             if (!isProjectPage) return;
             if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
             event.preventDefault();
-            navigateBack();
+            router.back();
           }}
           className="flex items-center hover:opacity-70 transition-opacity duration-300"
         >
@@ -51,7 +50,7 @@ export default function Navigation() {
             onClick={(event) => {
               if (!isProjectPage) return;
               event.preventDefault();
-              navigateBack();
+              router.back();
             }}
             className={`nav-link text-gray-900 ${pathname === '/' ? 'active' : ''}`}
           >

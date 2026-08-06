@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useMemo } from 'react';
-import { useRouteTransition } from '@/components/layout/RouteTransitionProvider';
+import { useRouter } from 'next/navigation';
 
 interface GalleryItem {
   id: string;
@@ -22,7 +22,7 @@ interface ProjectExperienceProps {
 }
 
 export default function ProjectExperience({ project, gallery }: ProjectExperienceProps) {
-  const { navigateBack } = useRouteTransition();
+  const router = useRouter();
 
   const projectMeta = useMemo(
     () => [
@@ -39,7 +39,7 @@ export default function ProjectExperience({ project, gallery }: ProjectExperienc
           <aside className="rounded-sm border border-black/10 bg-[#fdf8f9] p-6 lg:sticky lg:top-24 lg:h-[calc(100vh-7rem)] lg:overflow-auto">
             <button
               type="button"
-              onClick={navigateBack}
+              onClick={() => router.back()}
               className="mb-8 rounded-full border border-black/20 px-4 py-2 text-[10px] uppercase tracking-[0.22em] text-gray-900 transition hover:border-[#F572B6] hover:text-[#F572B6]"
             >
               ← Retour aux projets
