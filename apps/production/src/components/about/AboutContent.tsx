@@ -17,7 +17,7 @@ export default function AboutContent({ about }: AboutContentProps) {
   return (
     <div>
       {/* Bio section */}
-      <section className="mb-20">
+      <section className="rise-in mb-20">
         <h1 className="text-3xl font-light tracking-wider-custom uppercase mb-12 text-gray-900">
           <span className="text-[#F572B6]">—</span> À propos
         </h1>
@@ -41,7 +41,7 @@ export default function AboutContent({ about }: AboutContentProps) {
       </section>
 
       {/* Contact section */}
-      <section>
+      <section className="rise-in" style={{ animationDelay: '140ms' }}>
         <h2 className="text-lg font-light tracking-wider-custom uppercase mb-10 text-gray-900">
           <span className="text-[#F572B6]">—</span> Contact
         </h2>

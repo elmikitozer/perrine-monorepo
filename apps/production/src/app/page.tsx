@@ -36,7 +36,7 @@ export default async function Home() {
           </div>
         ) : (
           <>
-            <header className="mb-10 flex items-baseline justify-between border-b border-black/10 pb-4">
+            <header className="rise-in mb-10 flex items-baseline justify-between border-b border-black/10 pb-4">
               <h1 className="text-xs uppercase tracking-[0.3em] text-gray-900">Projets</h1>
               <span className="text-[10px] tabular-nums uppercase tracking-[0.2em] text-gray-400">
                 ({String(projects.length).padStart(2, '0')})

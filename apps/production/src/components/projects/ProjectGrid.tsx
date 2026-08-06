@@ -10,8 +10,14 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
     <div
       className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-12"
     >
-      {projects.map((project) => (
-        <ProjectCard key={project._id} project={project} />
+      {projects.map((project, index) => (
+        <div
+          key={project._id}
+          className="rise-in"
+          style={{ animationDelay: `${80 + Math.min(index * 70, 490)}ms` }}
+        >
+          <ProjectCard project={project} />
+        </div>
       ))}
     </div>
   );

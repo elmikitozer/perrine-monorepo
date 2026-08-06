@@ -37,6 +37,7 @@ export default function InitialSplash() {
     }
 
     setIsMounted(true);
+    document.documentElement.setAttribute('data-splash', '');
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -57,6 +58,7 @@ export default function InitialSplash() {
 
       exitTimeoutId = window.setTimeout(() => {
         setIsLeaving(true);
+        document.documentElement.removeAttribute('data-splash');
 
         unmountTimeoutId = window.setTimeout(() => {
           document.body.style.overflow = previousOverflow;
@@ -72,6 +74,7 @@ export default function InitialSplash() {
       window.clearTimeout(exitTimeoutId);
       window.clearTimeout(unmountTimeoutId);
       document.body.style.overflow = previousOverflow;
+      document.documentElement.removeAttribute('data-splash');
       setIsMounted(false);
       setIsLeaving(false);
       setProgress(0);

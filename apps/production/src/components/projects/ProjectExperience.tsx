@@ -36,7 +36,7 @@ export default function ProjectExperience({ project, gallery }: ProjectExperienc
     <div className="pt-24">
       <div className="mx-auto max-w-7xl px-4 pb-16 md:px-8">
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-[340px_minmax(0,1fr)]">
-          <aside className="rounded-sm border border-black/10 bg-[#fdf8f9] p-6 lg:sticky lg:top-24 lg:h-[calc(100vh-7rem)] lg:overflow-auto">
+          <aside className="rise-in rounded-sm border border-black/10 bg-[#fdf8f9] p-6 lg:sticky lg:top-24 lg:h-[calc(100vh-7rem)] lg:overflow-auto">
             <button
               type="button"
               onClick={() => router.back()}
@@ -73,7 +73,8 @@ export default function ProjectExperience({ project, gallery }: ProjectExperienc
               return (
                 <div
                   key={item.id}
-                  className={`${isWide ? 'sm:col-span-2' : ''} ${aspectClass} relative overflow-hidden bg-[#e8dde3]`}
+                  className={`${isWide ? 'sm:col-span-2' : ''} ${aspectClass} rise-in relative overflow-hidden bg-[#e8dde3]`}
+                  style={{ animationDelay: `${120 + Math.min(index * 90, 450)}ms` }}
                 >
                   <Image
                     src={item.src}
