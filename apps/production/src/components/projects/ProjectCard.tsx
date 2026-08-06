@@ -10,10 +10,9 @@ import type { Project } from '@/types/sanity';
 
 interface ProjectCardProps {
   project: Project;
-  index: number;
 }
 
-export default function ProjectCard({ project, index }: ProjectCardProps) {
+export default function ProjectCard({ project }: ProjectCardProps) {
   const imageUrl = project.image
     ? urlForImage(project.image)?.width(900).quality(78).fit('max').auto('format').url()
     : null;
@@ -42,7 +41,6 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     });
   };
 
-  const number = String(index + 1).padStart(2, '0');
   const caption = [project.client, project.year].filter(Boolean).join(' · ');
 
   const inner = (
@@ -66,20 +64,15 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           </span>
         </div>
       )}
-      <div className="mt-3 flex items-baseline gap-3">
-        <span className="text-[10px] tabular-nums tracking-[0.2em] text-gray-400 transition-colors duration-300 group-hover:text-[#F572B6]">
-          {number}
-        </span>
-        <div className="min-w-0">
-          <p className="truncate text-xs uppercase tracking-[0.18em] text-gray-900">
-            {project.title}
+      <div className="mt-3 min-w-0">
+        <p className="truncate text-xs uppercase tracking-[0.18em] text-gray-900 transition-colors duration-300 group-hover:text-[#F572B6]">
+          {project.title}
+        </p>
+        {caption && (
+          <p className="mt-1 truncate text-[10px] uppercase tracking-[0.18em] text-gray-400">
+            {caption}
           </p>
-          {caption && (
-            <p className="mt-1 truncate text-[10px] uppercase tracking-[0.18em] text-gray-400">
-              {caption}
-            </p>
-          )}
-        </div>
+        )}
       </div>
     </>
   );

@@ -103,7 +103,7 @@ export function RouteTransitionProvider({ children }: PropsWithChildren) {
               style={{ y: logoY, opacity: logoOpacity, scale: logoScale }}
             >
               <Image
-                src="/images/monogramme/monogramme_dégradé_clear.png"
+                src="/images/monogramme/monogramme-noir.png"
                 alt=""
                 fill
                 sizes="144px"
