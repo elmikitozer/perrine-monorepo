@@ -1,3 +1,4 @@
+import MasonryGrid from '@/components/layout/MasonryGrid';
 import ProjectCard from './ProjectCard';
 import type { Project } from '@/types/sanity';
 
@@ -6,19 +7,15 @@ interface ProjectGridProps {
 }
 
 export default function ProjectGrid({ projects }: ProjectGridProps) {
+  const ratios = projects.map(
+    (project) => project.image?.asset?.metadata?.dimensions?.aspectRatio ?? 3 / 4,
+  );
+
   return (
-    <div
-      className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-12"
-    >
+    <MasonryGrid ratios={ratios} gap={10}>
       {projects.map((project, index) => (
-        <div
-          key={project._id}
-          className="rise-in"
-          style={{ animationDelay: `${80 + Math.min(index * 70, 490)}ms` }}
-        >
-          <ProjectCard project={project} />
-        </div>
+        <ProjectCard key={project._id} project={project} index={index} />
       ))}
-    </div>
+    </MasonryGrid>
   );
 }

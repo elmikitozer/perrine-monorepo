@@ -38,6 +38,7 @@ export const projectBySlugQuery = `
     slug,
     client,
     year,
+    role,
     image {
       ...,
       asset->{

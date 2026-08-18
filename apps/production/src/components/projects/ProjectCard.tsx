@@ -9,11 +9,12 @@ import type { Project } from '@/types/sanity';
 
 interface ProjectCardProps {
   project: Project;
+  index?: number;
 }
 
-export default function ProjectCard({ project }: ProjectCardProps) {
+export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const imageUrl = project.image
-    ? urlForImage(project.image)?.width(900).quality(78).fit('max').auto('format').url()
+    ? urlForImage(project.image)?.width(1000).quality(78).fit('max').auto('format').url()
     : null;
   const galleryWarmupUrls =
     project.images?.slice(0, 3).map((image) =>
@@ -44,45 +45,45 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const inner = (
     <>
       {imageUrl ? (
-        <div className="relative w-full aspect-[2/3] overflow-hidden bg-gray-100">
-          <Image
-            src={imageUrl}
-            alt={project.title}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-            placeholder={project.image?.asset?.metadata?.lqip ? 'blur' : 'empty'}
-            blurDataURL={project.image?.asset?.metadata?.lqip ?? undefined}
-          />
-        </div>
+        <Image
+          src={imageUrl}
+          alt={project.title}
+          fill
+          sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
+          className="object-cover"
+          placeholder={project.image?.asset?.metadata?.lqip ? 'blur' : 'empty'}
+          blurDataURL={project.image?.asset?.metadata?.lqip ?? undefined}
+          priority={index < 4}
+        />
       ) : (
-        <div className="w-full aspect-[2/3] bg-gray-200 flex items-center justify-center">
-          <span className="text-gray-400 text-xs tracking-wider-custom uppercase">
-            {project.title}
-          </span>
+        <div className="flex h-full w-full items-center justify-center bg-[#ece7e9]">
+          <span className="text-xs uppercase tracking-[0.18em] text-gray-400">{project.title}</span>
         </div>
       )}
-      <div className="mt-3 min-w-0">
-        <p className="truncate text-xs uppercase tracking-[0.18em] text-gray-900 transition-colors duration-300 group-hover:text-[#F572B6]">
-          {project.title}
-        </p>
-        {caption && (
-          <p className="mt-1 truncate text-[10px] uppercase tracking-[0.18em] text-gray-400">
-            {caption}
+
+      <div className="hover-veil">
+        <div className="hover-veil__scrim" />
+        <div className="hover-veil__text">
+          <p className="text-[11px] uppercase tracking-[0.26em] text-gray-900 md:text-xs">
+            {project.title}
           </p>
-        )}
+          {caption && (
+            <p className="hover-veil__caption text-[10px] uppercase tracking-[0.2em] text-gray-700">
+              {caption}
+            </p>
+          )}
+        </div>
       </div>
     </>
   );
 
   return (
-    <article className="project-card group relative">
+    <article
+      className="project-card rise-in group relative h-full w-full overflow-hidden bg-[#ece7e9]"
+      style={{ animationDelay: `${80 + Math.min(index * 60, 420)}ms` }}
+    >
       {href ? (
-        <Link
-          href={href}
-          className="block w-full h-full"
-          onMouseEnter={warmupTransitionAssets}
-        >
+        <Link href={href} className="block h-full w-full" onMouseEnter={warmupTransitionAssets}>
           {inner}
         </Link>
       ) : (

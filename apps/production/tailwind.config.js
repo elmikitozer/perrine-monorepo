@@ -8,30 +8,29 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // Palette officielle PV Studio — Pantone Néon coated (approximations hex)
+      // Palette officielle PV Studio — Pantone Néon coated.
+      // Valeurs relevées sur le nuancier de la charte (brand-assets/), pas des approximations.
+      // Les clés reprennent la référence Pantone : text-brand-933, bg-brand-9284, etc.
       colors: {
         brand: {
-          // Pantone 9284C — rose poudré clair
-          100: '#F4B8C8',
-          // Pantone 9324C — rose lavande
-          200: '#EBC4DE',
-          // Pantone 940C / 920C — rose doux
-          300: '#F590BE',
-          // Pantone 933C — rose vif
-          400: '#F572B6',
-          // Pantone 934C — rose chaud
-          500: '#F050A0',
-          // Pantone 927C — rose intense
-          600: '#F03098',
-          // Pantone 926C — rose corail
-          700: '#F04878',
+          DEFAULT: '#F578C2', // 933 C — rose signature, accent du site
+          9284: '#F9B3CB', // rose poudré clair — logotype
+          940: '#F799D1', // rose doux
+          934: '#DC77C2', // rose orchidée
+          927: '#D762B8', // violet rosé
+          926: '#F362B8', // magenta
+          939: '#FAB7B5', // pêche
+          9324: '#EFB6DF', // lavande rosée — logotype
+          933: '#F578C2', // rose vif — logotype
+          920: '#F293CF', // rose moyen
+          941: '#E98FCD', // mauve rosé
         },
       },
       backgroundImage: {
-        // Dégradé principal de la charte (Pantone 9284C → 933C)
-        'brand-gradient': 'linear-gradient(135deg, #F4B8C8 0%, #F572B6 100%)',
-        // Dégradé horizontal (style étiquette)
-        'brand-gradient-h': 'linear-gradient(90deg, #F4B8C8 0%, #F572B6 100%)',
+        // Dégradés de la charte
+        'brand-gradient': 'linear-gradient(135deg, #F9B3CB 0%, #F578C2 100%)', // 9284 → 933
+        'brand-gradient-h': 'linear-gradient(90deg, #F9B3CB 0%, #F578C2 100%)',
+        'brand-gradient-magenta': 'linear-gradient(135deg, #F362B8 0%, #D762B8 100%)', // 926 → 927
       },
       fontFamily: {
         sans: ['var(--font-sans)', 'system-ui', '-apple-system', 'sans-serif'],

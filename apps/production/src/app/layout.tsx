@@ -15,8 +15,16 @@ const mullerNext = localFont({
   display: 'swap',
 });
 
+// Sur Vercel, VERCEL_PROJECT_PRODUCTION_URL est fourni automatiquement : les URLs
+// canoniques et les images de partage restent justes même sans variable manuelle.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : 'http://localhost:3002');
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3002'),
+  metadataBase: new URL(siteUrl),
   title: 'PV Studio',
   description: 'Perrine Vael Roquere Studio',
   openGraph: {
@@ -37,8 +45,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <InitialSplash />
         <Navigation />
         <main className="flex-1">{children}</main>
-        <footer className="py-8 px-6 md:px-12 border-t border-gray-200">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <footer className="border-t border-black/10 px-6 py-8 md:px-8">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <div className="flex items-center gap-3">
               <Image
                 src="/images/monogramme/monogramme-noir.png"
@@ -56,7 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 href="https://instagram.com/perrinevaelroquerestudio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs tracking-wider-custom text-gray-400 uppercase hover:text-[#F572B6] transition-colors duration-300"
+                className="text-xs tracking-wider-custom text-gray-400 uppercase hover:text-brand transition-colors duration-300"
               >
                 Instagram
               </a>
@@ -64,7 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs tracking-wider-custom text-gray-400 uppercase hover:text-[#F572B6] transition-colors duration-300"
+                className="text-xs tracking-wider-custom text-gray-400 uppercase hover:text-brand transition-colors duration-300"
               >
                 LinkedIn
               </a>

@@ -30,6 +30,7 @@ export interface Project {
   order: number;
   client?: string;
   year?: number;
+  role?: string;
   isVisible?: boolean;
 }
 

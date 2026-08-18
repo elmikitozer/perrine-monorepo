@@ -16,7 +16,7 @@ export default async function About() {
   const about = await getAboutData();
 
   return (
-    <div className="pt-32 pb-24 px-6 md:px-12">
+    <div className="px-6 pb-24 pt-[calc(var(--nav-height)+3.5rem)] md:px-10">
       <div className="max-w-2xl mx-auto">
         <AboutContent about={about} />
       </div>

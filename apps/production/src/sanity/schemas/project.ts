@@ -50,6 +50,13 @@ export default defineType({
       type: 'number',
     }),
     defineField({
+      name: 'role',
+      title: 'Rôle / Mission',
+      type: 'string',
+      description:
+        'Optionnel — ce qui a été fait sur le projet. Ex : Coordination de défilé, Direction artistique, Scénographie',
+    }),
+    defineField({
       name: 'images',
       title: 'Galerie du projet',
       type: 'array',

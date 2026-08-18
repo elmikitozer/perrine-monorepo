@@ -3,27 +3,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
 export default function Navigation() {
   const pathname = usePathname();
   const router = useRouter();
-  const [scrolled, setScrolled] = useState(false);
   const isProjectPage = pathname.startsWith('/projects/');
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4 transition-all duration-300 ${
-        scrolled ? 'backdrop-blur-sm bg-gray-50/80' : 'bg-transparent'
-      }`}
-    >
-      <nav className="max-w-7xl mx-auto flex items-center justify-between">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-[#fdf8f9]/95 px-6 backdrop-blur md:px-8">
+      <nav className="flex h-[var(--nav-height)] items-center justify-between">
         <Link
           href="/"
           onClick={(event) => {

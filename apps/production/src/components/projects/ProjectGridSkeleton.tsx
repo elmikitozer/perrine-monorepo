@@ -1,22 +1,26 @@
-const tileHeights = [
+const tileAspects = [
+  'aspect-[3/4]',
+  'aspect-[4/5]',
   'aspect-[2/3]',
+  'aspect-[1/1]',
+  'aspect-[3/4]',
+  'aspect-[4/5]',
   'aspect-[2/3]',
-  'aspect-[2/3]',
-  'aspect-[2/3]',
-  'aspect-[2/3]',
-  'aspect-[2/3]',
+  'aspect-[3/4]',
 ];
 
 export default function ProjectGridSkeleton() {
   return (
-    <div className="grid grid-cols-2 gap-3 lg:grid-cols-3" aria-hidden="true">
-      {tileHeights.map((aspectClass, index) => (
-        <div key={index} className={`project-skeleton ${aspectClass}`}>
+    <div
+      className="columns-2 [column-gap:10px] md:columns-3 xl:columns-4"
+      aria-hidden="true"
+    >
+      {tileAspects.map((aspectClass, index) => (
+        <div
+          key={index}
+          className={`project-skeleton mb-[10px] break-inside-avoid ${aspectClass}`}
+        >
           <div className="project-skeleton__sheen" />
-          <div className="project-skeleton__meta">
-            <div className="project-skeleton__line w-20" />
-            <div className="project-skeleton__line project-skeleton__line--title w-28" />
-          </div>
         </div>
       ))}
     </div>

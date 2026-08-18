@@ -26,26 +26,19 @@ export default async function Home() {
   const projects = await getProjects();
 
   return (
-    <div className="pt-24 pb-16 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
-        {projects.length === 0 ? (
-          <div className="min-h-[60vh] flex items-center justify-center">
-            <p className="text-gray-400 tracking-wider-custom uppercase text-sm">
-              Aucun projet pour le moment
-            </p>
-          </div>
-        ) : (
-          <>
-            <header className="rise-in mb-10 flex items-baseline justify-between border-b border-black/10 pb-4">
-              <h1 className="text-xs uppercase tracking-[0.3em] text-gray-900">Projets</h1>
-              <span className="text-[10px] tabular-nums uppercase tracking-[0.2em] text-gray-400">
-                ({String(projects.length).padStart(2, '0')})
-              </span>
-            </header>
-            <ProjectGrid projects={projects} />
-          </>
-        )}
-      </div>
+    <div className="pb-16 pt-[calc(var(--nav-height)+0.625rem)]">
+      <h1 className="sr-only">Projets</h1>
+      {projects.length === 0 ? (
+        <div className="flex min-h-[60vh] items-center justify-center">
+          <p className="text-sm uppercase tracking-wider-custom text-gray-400">
+            Aucun projet pour le moment
+          </p>
+        </div>
+      ) : (
+        <div className="px-[10px]">
+          <ProjectGrid projects={projects} />
+        </div>
+      )}
     </div>
   );
 }

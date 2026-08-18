@@ -1,3 +1,5 @@
+import { cache } from 'react';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ProjectExperience from '@/components/projects/ProjectExperience';
 import { client } from '@/sanity/lib/client';
@@ -18,13 +20,51 @@ async function waitForSkeletonPreview() {
   await new Promise((resolve) => setTimeout(resolve, ARTIFICIAL_LOADING_DELAY_MS));
 }
 
-async function getProject(slug: string): Promise<Project | null> {
+// `cache` évite un second appel Sanity : generateMetadata et la page partagent le résultat.
+const getProject = cache(async (slug: string): Promise<Project | null> => {
   try {
     await waitForSkeletonPreview();
     return await client.fetch(projectBySlugQuery, { slug });
   } catch {
     return null;
   }
+});
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const project = await getProject(params.slug);
+
+  if (!project) {
+    return { title: 'Projet introuvable — PV Studio' };
+  }
+
+  const title = `${project.title} — PV Studio`;
+  const description =
+    [project.role, project.client, project.year].filter(Boolean).join(' · ') ||
+    'Perrine Vaël-Roquere Studio — designer graphique événementiel';
+
+  const cover = project.image ?? project.images?.[0];
+  const ogImage = cover
+    ? urlForImage(cover)?.width(1200).height(630).quality(80).fit('crop').auto('format').url()
+    : null;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: `/projects/${project.slug?.current ?? params.slug}` },
+    openGraph: {
+      type: 'article',
+      title,
+      description,
+      url: `/projects/${project.slug?.current ?? params.slug}`,
+      images: ogImage ? [{ url: ogImage, width: 1200, height: 630, alt: project.title }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ogImage ? [ogImage] : undefined,
+    },
+  };
 }
 
 export default async function ProjectPage({ params }: Props) {
@@ -47,15 +87,16 @@ export default async function ProjectPage({ params }: Props) {
         src,
         lqip: img.asset?.metadata?.lqip,
         alt: `${project.title} — ${index + 1}`,
+        ratio: img.asset?.metadata?.dimensions?.aspectRatio,
       };
     })
     .filter((item): item is NonNullable<typeof item> => item !== null);
 
   if (gallery.length === 0) {
     return (
-      <div className="pt-24 pb-16 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-gray-400 text-sm">Aucune image disponible.</p>
+      <div className="px-6 pb-16 pt-[calc(var(--nav-height)+2rem)] md:px-10">
+        <div className="mx-auto max-w-5xl">
+          <p className="text-sm text-gray-400">Aucune image disponible.</p>
         </div>
       </div>
     );
@@ -68,6 +109,7 @@ export default async function ProjectPage({ params }: Props) {
         title: project.title,
         client: project.client,
         year: project.year,
+        role: project.role,
       }}
       gallery={gallery}
     />

@@ -1,14 +1,15 @@
 'use client';
 
 import Image from 'next/image';
-import { useMemo } from 'react';
 import { useRouter } from 'next/navigation';
+import MasonryGrid from '@/components/layout/MasonryGrid';
 
 interface GalleryItem {
   id: string;
   src: string;
   lqip?: string;
   alt: string;
+  ratio?: number;
 }
 
 interface ProjectExperienceProps {
@@ -17,6 +18,7 @@ interface ProjectExperienceProps {
     title: string;
     client?: string;
     year?: number;
+    role?: string;
   };
   gallery: GalleryItem[];
 }
@@ -24,83 +26,68 @@ interface ProjectExperienceProps {
 export default function ProjectExperience({ project, gallery }: ProjectExperienceProps) {
   const router = useRouter();
 
-  const projectMeta = useMemo(
-    () => [
-      { label: 'Client', value: project.client || '—' },
-      { label: 'Année', value: project.year ? String(project.year) : '—' },
-    ],
-    [project.client, project.year],
-  );
+  const meta = [
+    project.client ? { label: 'Client', value: project.client } : null,
+    project.role ? { label: 'Rôle', value: project.role } : null,
+    project.year ? { label: 'Année', value: String(project.year) } : null,
+  ].filter((item): item is { label: string; value: string } => item !== null);
 
   return (
-    <div className="pt-24">
-      <div className="mx-auto max-w-7xl px-4 pb-16 md:px-8">
-        <div className="grid grid-cols-1 gap-5 lg:grid-cols-[340px_minmax(0,1fr)]">
-          <aside className="rise-in rounded-sm border border-black/10 bg-[#fdf8f9] p-6 lg:sticky lg:top-24 lg:h-[calc(100vh-7rem)] lg:overflow-auto">
-            <button
-              type="button"
-              onClick={() => router.back()}
-              className="mb-8 rounded-full border border-black/20 px-4 py-2 text-[10px] uppercase tracking-[0.22em] text-gray-900 transition hover:border-[#F572B6] hover:text-[#F572B6]"
-            >
-              ← Retour aux projets
-            </button>
-            <p className="text-[10px] uppercase tracking-[0.26em] text-gray-500">
-              {project.client || 'Project'}{project.year ? ` · ${project.year}` : ''}
-            </p>
-            <h1 className="mt-3 text-5xl font-extrabold uppercase leading-[0.9] tracking-[-0.03em] text-gray-900">
+    <div className="pb-24 pt-[var(--nav-height)]">
+      <header className="rise-in px-6 md:px-10">
+        <div className="mx-auto max-w-5xl pb-10 pt-8 md:pb-12 md:pt-10">
+          <button
+            type="button"
+            onClick={() => router.back()}
+            className="text-[10px] uppercase tracking-[0.24em] text-gray-400 transition-colors duration-300 hover:text-brand"
+          >
+            ← Retour
+          </button>
+
+          <div className="mt-10 text-center md:mt-12">
+            <h1 className="text-2xl font-thin uppercase leading-tight tracking-[0.18em] text-gray-900 md:text-4xl md:tracking-[0.22em]">
               {project.title}
             </h1>
 
-            <dl className="mt-8 border-t border-black/10">
-              {projectMeta.map((item) => (
-                <div
-                  key={item.label}
-                  className="grid grid-cols-[96px_1fr] items-start border-b border-black/10 py-3"
-                >
-                  <dt className="text-[10px] uppercase tracking-[0.2em] text-gray-500">{item.label}</dt>
-                  <dd className="text-xs uppercase tracking-[0.14em] text-gray-800">{item.value}</dd>
+            <dl className="mt-7 flex flex-wrap items-baseline justify-center gap-x-8 gap-y-2 md:mt-9">
+              {meta.map((item) => (
+                <div key={item.label} className="flex items-baseline gap-2">
+                  <dt className="text-[9px] uppercase tracking-[0.22em] text-gray-400">
+                    {item.label}
+                  </dt>
+                  <dd className="text-[10px] uppercase tracking-[0.18em] text-gray-800">
+                    {item.value}
+                  </dd>
                 </div>
               ))}
             </dl>
-
-          </aside>
-
-          <section className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {gallery.map((item, index) => {
-              const isWide = index === 2;
-              const aspectClass = index === 0 ? 'aspect-[2/3]' : isWide ? 'aspect-[16/9]' : 'aspect-[4/5]';
-
-              return (
-                <div
-                  key={item.id}
-                  className={`${isWide ? 'sm:col-span-2' : ''} ${aspectClass} rise-in relative overflow-hidden bg-[#e8dde3]`}
-                  style={{ animationDelay: `${120 + Math.min(index * 90, 450)}ms` }}
-                >
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    sizes={isWide ? '(max-width: 640px) 100vw, 66vw' : '(max-width: 640px) 100vw, 33vw'}
-                    className="object-cover"
-                    placeholder={item.lqip ? 'blur' : 'empty'}
-                    blurDataURL={item.lqip}
-                    priority={index === 0}
-                    loading={index === 0 ? 'eager' : 'lazy'}
-                  />
-                  <div
-                    className="pointer-events-none absolute inset-0"
-                    style={{
-                      backgroundImage: "url('/images/motifs/jpg/vuittonage_rose.jpg')",
-                      backgroundSize: '280px',
-                      mixBlendMode: 'soft-light',
-                      opacity: 0.16,
-                    }}
-                  />
-                </div>
-              );
-            })}
-          </section>
+          </div>
         </div>
+
+        <div className="mx-auto h-px max-w-5xl bg-black/10" />
+      </header>
+
+      <div className="px-[10px] pt-[10px]">
+        <MasonryGrid ratios={gallery.map((item) => item.ratio ?? 3 / 4)} gap={10}>
+          {gallery.map((item, index) => (
+            <div
+              key={item.id}
+              className="rise-in absolute inset-0 overflow-hidden bg-[#ece7e9]"
+              style={{ animationDelay: `${120 + Math.min(index * 60, 420)}ms` }}
+            >
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                className="object-cover"
+                placeholder={item.lqip ? 'blur' : 'empty'}
+                blurDataURL={item.lqip}
+                priority={index < 4}
+              />
+            </div>
+          ))}
+        </MasonryGrid>
       </div>
     </div>
   );
