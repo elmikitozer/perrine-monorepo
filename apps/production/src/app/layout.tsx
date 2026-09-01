@@ -30,11 +30,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'PV Studio',
     description: 'Perrine Vael Roquere Studio',
-    images: [{ url: '/images/logo/logotype-a.png' }],
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['/images/logo/logotype-a.png'],
   },
 };
 
