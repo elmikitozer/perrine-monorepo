@@ -1,0 +1,144 @@
+{
+  "generatedAt": "2026-08-20T12:22:56.654Z",
+  "seconds": 8,
+  "projects": {
+    "bosideng": {
+      "src": "/videos/loops/bosideng.mp4",
+      "width": 1280,
+      "height": 608,
+      "durationSeconds": 8,
+      "startSeconds": 6.02,
+      "bytes": 872705,
+      "poster": {
+        "id": "bosideng",
+        "width": 1280,
+        "height": 608,
+        "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAKABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAUBBP/EAB4QAAEEAgMBAAAAAAAAAAAAAAEAAgMEESEFEjGB/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A4qnHRWZ+mcAKkacFN3Rgy/HqkUHOE2nEfVReSZ9knSQQQc+ItCLE/9k=",
+        "variants": {
+          "avif": [
+            {
+              "width": 640,
+              "height": 304,
+              "bytes": 9405,
+              "src": "/images/posters/bosideng/bosideng-640.avif"
+            },
+            {
+              "width": 1280,
+              "height": 608,
+              "bytes": 22212,
+              "src": "/images/posters/bosideng/bosideng-1280.avif"
+            }
+          ],
+          "webp": [
+            {
+              "width": 640,
+              "height": 304,
+              "bytes": 12166,
+              "src": "/images/posters/bosideng/bosideng-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 608,
+              "bytes": 27160,
+              "src": "/images/posters/bosideng/bosideng-1280.webp"
+            }
+          ]
+        },
+        "alt": ""
+      },
+      "posterIsProvisional": true
+    },
+    "dior-trunk-show": {
+      "src": "/videos/loops/dior-trunk-show.mp4",
+      "width": 1280,
+      "height": 720,
+      "durationSeconds": 8,
+      "startSeconds": 10.93,
+      "bytes": 1091036,
+      "poster": {
+        "id": "dior-trunk-show",
+        "width": 1280,
+        "height": 720,
+        "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFAf/EAB8QAAIBBAIDAAAAAAAAAAAAAAABAgMEEUETISIyYf/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABURAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIRAxEAPwCbaSTa+Ia5Y1qFVbRMtG8PvRtnKWavegSFaVmvJgE/ZgTH/9k=",
+        "variants": {
+          "avif": [
+            {
+              "width": 640,
+              "height": 360,
+              "bytes": 8910,
+              "src": "/images/posters/dior-trunk-show/dior-trunk-show-640.avif"
+            },
+            {
+              "width": 1280,
+              "height": 720,
+              "bytes": 20213,
+              "src": "/images/posters/dior-trunk-show/dior-trunk-show-1280.avif"
+            }
+          ],
+          "webp": [
+            {
+              "width": 640,
+              "height": 360,
+              "bytes": 11158,
+              "src": "/images/posters/dior-trunk-show/dior-trunk-show-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 720,
+              "bytes": 24294,
+              "src": "/images/posters/dior-trunk-show/dior-trunk-show-1280.webp"
+            }
+          ]
+        },
+        "alt": ""
+      },
+      "posterIsProvisional": true
+    },
+    "villa-dior": {
+      "src": "/videos/loops/villa-dior.mp4",
+      "width": 1280,
+      "height": 608,
+      "durationSeconds": 8,
+      "startSeconds": 11.39,
+      "bytes": 493049,
+      "poster": {
+        "id": "villa-dior",
+        "width": 1280,
+        "height": 608,
+        "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAKABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAwQA/8QAHRABAAICAgMAAAAAAAAAAAAAAQACAyEEETEyM//EABYBAQEBAAAAAAAAAAAAAAAAAAIAA//EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAwDAQACEQMRAD8ALHdsiuot8xVOtskw/Ah097QRqovzsjZ0M0mfM0hx/9k=",
+        "variants": {
+          "avif": [
+            {
+              "width": 640,
+              "height": 304,
+              "bytes": 8498,
+              "src": "/images/posters/villa-dior/villa-dior-640.avif"
+            },
+            {
+              "width": 1280,
+              "height": 608,
+              "bytes": 19780,
+              "src": "/images/posters/villa-dior/villa-dior-1280.avif"
+            }
+          ],
+          "webp": [
+            {
+              "width": 640,
+              "height": 304,
+              "bytes": 11502,
+              "src": "/images/posters/villa-dior/villa-dior-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 608,
+              "bytes": 26290,
+              "src": "/images/posters/villa-dior/villa-dior-1280.webp"
+            }
+          ]
+        },
+        "alt": ""
+      },
+      "posterIsProvisional": true
+    }
+  }
+}

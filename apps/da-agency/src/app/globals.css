@@ -6,5 +6,108 @@
   html {
     @apply antialiased;
   }
+
+  /*
+    Le titrage passe en didone pour tout le site sans toucher aux composants :
+    les fiches projet et la page à propos héritent de la règle. Le corps de
+    texte reste en grotesque, via `font-sans` sur <body>.
+  */
+  h1,
+  h2 {
+    font-family: var(--font-display), Didot, Georgia, serif;
+  }
 }
 
+@layer components {
+  /*
+    Voile de survol des tuiles de la mosaïque.
+
+    Reprend le principe des deux autres sites du package : un scrim qui monte
+    en opacité et un titre qui apparaît en fondu. Sans motif de marque ici —
+    le vuittonage rose appartient à PV Studio.
+  */
+  .hover-veil {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  /*
+    Voile volontairement léger, et sombre plutôt que clair.
+    PV Studio pose un voile opaque parce qu'il n'y a rien à regarder dessous :
+    l'image est fixe. Ici le survol démarre un film, et un voile à 0.88
+    l'effacerait — le titre serait lisible, mais on aurait masqué exactement ce
+    qu'on voulait montrer. Assez de densité pour porter un texte blanc, pas
+    assez pour cacher l'image ou la boucle.
+  */
+  .hover-veil__scrim {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(18, 18, 18, 0.34);
+    opacity: 0;
+    transition: opacity 550ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .hover-veil__text {
+    position: relative;
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+      opacity 550ms cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 550ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-delay: 60ms;
+  }
+
+  .group:hover .hover-veil__scrim,
+  .group:focus-visible .hover-veil__scrim {
+    opacity: 1;
+  }
+
+  .group:hover .hover-veil__text,
+  .group:focus-visible .hover-veil__text {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /*
+    Sans survol possible (tactile), un titre qui n'apparaît qu'au hover est un
+    titre invisible. Il repasse donc en permanence, posé sur un dégradé de pied
+    de tuile plutôt que sur un scrim plein.
+  */
+  @media (hover: none) {
+    .hover-veil {
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 0.625rem;
+      text-align: left;
+    }
+
+    .hover-veil__scrim {
+      opacity: 1;
+      background-color: transparent;
+      background-image: linear-gradient(
+        to top,
+        rgba(20, 20, 20, 0.62) 0%,
+        rgba(20, 20, 20, 0) 55%
+      );
+    }
+
+    .hover-veil__text {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hover-veil__scrim,
+    .hover-veil__text {
+      transition-duration: 1ms;
+    }
+  }
+}

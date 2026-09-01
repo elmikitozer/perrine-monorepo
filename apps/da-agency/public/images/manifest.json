@@ -1,0 +1,910 @@
+{
+  "generatedAt": "2026-08-20T11:54:40.912Z",
+  "widths": [
+    640,
+    1280,
+    2048
+  ],
+  "projects": {
+    "antazero-x-kris-van-assche": {
+      "folder": "ANTAZERO x KRIS VAN ASSCHE",
+      "images": [
+        {
+          "id": "dsc03608",
+          "source": "ANTAZERO x KRIS VAN ASSCHE/DSC03608.jpg",
+          "width": 6569,
+          "height": 4379,
+          "orientation": "landscape",
+          "aspectRatio": "6569:4379",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUBAgMG/8QAHRAAAgMBAAMBAAAAAAAAAAAAAQIAAwQREiEiQf/EABQBAQAAAAAAAAAAAAAAAAAAAAL/xAAWEQEBAQAAAAAAAAAAAAAAAAAAASH/2gAMAwEAAhEDEQA/AE++n6FyD1JNtbVoST5fs0u0n5pCgL2MnyUpmDBB0iC05HP26wHIUnkJXXWovPByEQ6//9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 426,
+                "bytes": 18820,
+                "src": "/images/antazero-x-kris-van-assche/dsc03608-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 54423,
+                "src": "/images/antazero-x-kris-van-assche/dsc03608-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 112912,
+                "src": "/images/antazero-x-kris-van-assche/dsc03608-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 426,
+                "bytes": 31578,
+                "src": "/images/antazero-x-kris-van-assche/dsc03608-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 88860,
+                "src": "/images/antazero-x-kris-van-assche/dsc03608-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 182504,
+                "src": "/images/antazero-x-kris-van-assche/dsc03608-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "dsc03613",
+          "source": "ANTAZERO x KRIS VAN ASSCHE/DSC03613.jpg",
+          "width": 6726,
+          "height": 4484,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAAF/8QAHxAAAQQCAgMAAAAAAAAAAAAAAQACAxEEIQUjMUFC/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//EABYRAAMAAAAAAAAAAAAAAAAAAAABEf/aAAwDAQACEQMRAD8AwWTEVbkozxBre0k+wgY2OHSC3HS0RgxP8ilDhoqAmm7DTtKTzxUR+ipFQoz/2Q==",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 19083,
+                "src": "/images/antazero-x-kris-van-assche/dsc03613-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 854,
+                "bytes": 60070,
+                "src": "/images/antazero-x-kris-van-assche/dsc03613-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 136504,
+                "src": "/images/antazero-x-kris-van-assche/dsc03613-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 28746,
+                "src": "/images/antazero-x-kris-van-assche/dsc03613-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 854,
+                "bytes": 87608,
+                "src": "/images/antazero-x-kris-van-assche/dsc03613-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 200888,
+                "src": "/images/antazero-x-kris-van-assche/dsc03613-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "dsc03624",
+          "source": "ANTAZERO x KRIS VAN ASSCHE/DSC03624.jpg",
+          "width": 6666,
+          "height": 4444,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAADBf/EACAQAAICAQMFAAAAAAAAAAAAAAECAAMEESEiEhMjQVH/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//EABURAQEAAAAAAAAAAAAAAAAAAAAh/9oADAMBAAIRAxEAPwDmvkKq9aMTrMkyltbynjH046GntkbfYfJwq0pYrsRJxWh2WhXIRuPqUPprKKDX/9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 426,
+                "bytes": 20620,
+                "src": "/images/antazero-x-kris-van-assche/dsc03624-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 854,
+                "bytes": 67583,
+                "src": "/images/antazero-x-kris-van-assche/dsc03624-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 153520,
+                "src": "/images/antazero-x-kris-van-assche/dsc03624-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 426,
+                "bytes": 32858,
+                "src": "/images/antazero-x-kris-van-assche/dsc03624-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 854,
+                "bytes": 104342,
+                "src": "/images/antazero-x-kris-van-assche/dsc03624-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 234644,
+                "src": "/images/antazero-x-kris-van-assche/dsc03624-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "dsc03633",
+          "source": "ANTAZERO x KRIS VAN ASSCHE/DSC03633.jpg",
+          "width": 7008,
+          "height": 4672,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFAv/EAB4QAAICAgIDAAAAAAAAAAAAAAECAAMEERIhIzFR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAYEQADAQEAAAAAAAAAAAAAAAAAARESIv/aAAwDAQACEQMRAD8AjDLCXEMdkdbjTeS6sBgVMRxalycgs/31KNCK7WDWuPQkOCKmrMha2KgAgQky8lbWG4RFkPo//9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 26911,
+                "src": "/images/antazero-x-kris-van-assche/dsc03633-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 83279,
+                "src": "/images/antazero-x-kris-van-assche/dsc03633-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 186870,
+                "src": "/images/antazero-x-kris-van-assche/dsc03633-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 44450,
+                "src": "/images/antazero-x-kris-van-assche/dsc03633-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 135308,
+                "src": "/images/antazero-x-kris-van-assche/dsc03633-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 293312,
+                "src": "/images/antazero-x-kris-van-assche/dsc03633-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "dsc03739",
+          "source": "ANTAZERO x KRIS VAN ASSCHE/DSC03739.jpg",
+          "width": 7008,
+          "height": 4672,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMFAf/EACAQAAICAQMFAAAAAAAAAAAAAAECAAMEBRFBEhMiIzH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAwDAQACEQMRAD8AlUX9pnO3Uh+R9LrkK3rETpeGMlmV3IA4EpXYq6fQz0kkkcw1ciA+nXM7FQAN4TXybSx8jCKX/9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 13045,
+                "src": "/images/antazero-x-kris-van-assche/dsc03739-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 34807,
+                "src": "/images/antazero-x-kris-van-assche/dsc03739-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 70004,
+                "src": "/images/antazero-x-kris-van-assche/dsc03739-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 20836,
+                "src": "/images/antazero-x-kris-van-assche/dsc03739-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 54724,
+                "src": "/images/antazero-x-kris-van-assche/dsc03739-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 107780,
+                "src": "/images/antazero-x-kris-van-assche/dsc03739-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "dsc03755",
+          "source": "ANTAZERO x KRIS VAN ASSCHE/DSC03755.jpg",
+          "width": 6488,
+          "height": 4325,
+          "orientation": "landscape",
+          "aspectRatio": "6488:4325",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAUGBP/EACAQAAIBAwQDAAAAAAAAAAAAAAECAAMEEgUGESETQVH/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAMAwEAAhEDEQA/AKBy2ZAHUxarVa2tfInRjbgRFuZylriPcVE++o3NVi2XEIvDn7CZyHa//9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 426,
+                "bytes": 15874,
+                "src": "/images/antazero-x-kris-van-assche/dsc03755-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 41784,
+                "src": "/images/antazero-x-kris-van-assche/dsc03755-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 75717,
+                "src": "/images/antazero-x-kris-van-assche/dsc03755-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 426,
+                "bytes": 24926,
+                "src": "/images/antazero-x-kris-van-assche/dsc03755-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 65980,
+                "src": "/images/antazero-x-kris-van-assche/dsc03755-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 121614,
+                "src": "/images/antazero-x-kris-van-assche/dsc03755-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "dsc03774",
+          "source": "ANTAZERO x KRIS VAN ASSCHE/DSC03774.jpg",
+          "width": 6603,
+          "height": 4402,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAYBAgUH/8QAHRAAAgIDAQEBAAAAAAAAAAAAAQIAAwQREiFBcf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAEh/9oADAMBAAIRAxEAPwDcvrUhhz8infnDHtsSisK2/THfKAFD/k55lJ1m2AnzcXSKO9jt077JhIYhToCEo//Z",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 15622,
+                "src": "/images/antazero-x-kris-van-assche/dsc03774-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 46512,
+                "src": "/images/antazero-x-kris-van-assche/dsc03774-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1366,
+                "bytes": 93983,
+                "src": "/images/antazero-x-kris-van-assche/dsc03774-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 23804,
+                "src": "/images/antazero-x-kris-van-assche/dsc03774-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 74434,
+                "src": "/images/antazero-x-kris-van-assche/dsc03774-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1366,
+                "bytes": 147756,
+                "src": "/images/antazero-x-kris-van-assche/dsc03774-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        }
+      ]
+    },
+    "bosideng": {
+      "folder": "BOSIDENG",
+      "images": [
+        {
+          "id": "26-01-16-empty-shot-ld-productions-a743747",
+          "source": "BOSIDENG/26-01-16_Empty Shot LD Productions-_A743747.jpg",
+          "width": 2000,
+          "height": 3000,
+          "orientation": "portrait",
+          "aspectRatio": "2:3",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAeABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEBQH/xAAfEAACAwABBQEAAAAAAAAAAAABAgADEQQSISIxUSP/xAAXAQADAQAAAAAAAAAAAAAAAAABAgMA/8QAGREAAwEBAQAAAAAAAAAAAAAAAAECAxIR/9oADAMBAAIRAxEAPwBAXZnc+r9Nl3E3kMST04fUn5QJtYE+pnKQVXRm9BhHN2MIoSym92fUrwRdrFmJ3vLaVA0D5Mm9itrZ9iTp2/Ct5KEcc+UIsvp2Eckf/9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 960,
+                "bytes": 40446,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743747-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 1920,
+                "bytes": 128408,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743747-1280.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 960,
+                "bytes": 59548,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743747-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 1920,
+                "bytes": 201156,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743747-1280.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "26-01-16-empty-shot-ld-productions-a743793",
+          "source": "BOSIDENG/26-01-16_Empty Shot LD Productions-_A743793.jpg",
+          "width": 3000,
+          "height": 2000,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EAB8QAAICAQQDAAAAAAAAAAAAAAECAAMEERIxQSEiUf/EABUBAQEAAAAAAAAAAAAAAAAAAAED/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAECExH/2gAMAwEAAhEDEQA/AM+nOdrSHPPAjjklWIfx8iMTHQX7+SJW6q7Hcok1ccLZ2RrnWaH27hGJTWoI29wirkM6P//Z",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 22293,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743793-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 66056,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743793-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 144068,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743793-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 30638,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743793-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 94118,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743793-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 213738,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743793-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "26-01-16-empty-shot-ld-productions-a743842",
+          "source": "BOSIDENG/26-01-16_Empty Shot LD Productions-_A743842.jpg",
+          "width": 3000,
+          "height": 2000,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAwX/xAAeEAABBAIDAQAAAAAAAAAAAAABAAIDEgQRBRMhYf/EABUBAQEAAAAAAAAAAAAAAAAAAAEA/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/AOXFwZkbvtA+KN+FXJ6bA+62t2SSUtc7UpLhNax2onmw+qQssChK+Rxd6doTA//Z",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 15266,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743842-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 44180,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743842-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 80407,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743842-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 19236,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743842-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 52128,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743842-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 97172,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743842-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "26-01-16-empty-shot-ld-productions-a743845",
+          "source": "BOSIDENG/26-01-16_Empty Shot LD Productions-_A743845.jpg",
+          "width": 3000,
+          "height": 2000,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAgAG/8QAHRAAAwACAgMAAAAAAAAAAAAAAAECAxEEIRIxYf/EABUBAQEAAAAAAAAAAAAAAAAAAAEA/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/AM6+NKx+brXwMYpr0PSc9gT0+uhgN4JTILttkKf/2Q==",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 20189,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743845-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 73528,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743845-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 171285,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743845-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 27332,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743845-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 98634,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743845-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 231190,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743845-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "26-01-16-empty-shot-ld-productions-a743847",
+          "source": "BOSIDENG/26-01-16_Empty Shot LD Productions-_A743847.jpg",
+          "width": 3000,
+          "height": 2000,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIDBAX/xAAgEAACAgICAgMAAAAAAAAAAAABAgADBBEFEhNBITFR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDIx+F82MLmtCg/sr5fGnGyVp7hu3sRqndscL3OgfrcjuZ/MpLkke5QX8e1NnQsD8bhFuscvssSYQP/2Q==",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 10316,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743847-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 29332,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743847-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 56118,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743847-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 12300,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743847-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 33682,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743847-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 66652,
+                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743847-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        }
+      ]
+    },
+    "dior-trunk-show": {
+      "folder": "DIOR TRUNK SHOW",
+      "images": []
+    },
+    "erl": {
+      "folder": "ERL 06 26",
+      "images": [
+        {
+          "id": "26-06-27-erl-1",
+          "source": "ERL 06 26/26-06-27_ERL-1.jpg",
+          "width": 3000,
+          "height": 2000,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAQP/xAAdEAACAwADAQEAAAAAAAAAAAACAwABEQQSISIx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAF/8QAGBEAAwEBAAAAAAAAAAAAAAAAABESAQL/2gAMAwEAAhEDEQA/AIyk/I2Mb5a+4rys89mGNLRXWdm7aFlvsMmv02sJ5ccAvL/YRk1iZbcJToY6P//Z",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 19189,
+                "src": "/images/erl/26-06-27-erl-1-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 53898,
+                "src": "/images/erl/26-06-27-erl-1-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 109131,
+                "src": "/images/erl/26-06-27-erl-1-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 25978,
+                "src": "/images/erl/26-06-27-erl-1-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 75786,
+                "src": "/images/erl/26-06-27-erl-1-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 158198,
+                "src": "/images/erl/26-06-27-erl-1-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "26-06-27-erl-15",
+          "source": "ERL 06 26/26-06-27_ERL-15.jpg",
+          "width": 3000,
+          "height": 2000,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUBAgME/8QAIRAAAQQBAwUAAAAAAAAAAAAAAQACAxEhEhMxBBQyQWH/xAAXAQADAQAAAAAAAAAAAAAAAAABAgMF/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAESAhH/2gAMAwEAAhEDEQA/AOWCIQx6h5+vipM6XqX1K4uITDQHsA4USwN2rGCEsmtqnoW9kDm0LTdIxXCEOMm6P//Z",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 25268,
+                "src": "/images/erl/26-06-27-erl-15-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 70983,
+                "src": "/images/erl/26-06-27-erl-15-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 137109,
+                "src": "/images/erl/26-06-27-erl-15-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 34022,
+                "src": "/images/erl/26-06-27-erl-15-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 96488,
+                "src": "/images/erl/26-06-27-erl-15-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 186284,
+                "src": "/images/erl/26-06-27-erl-15-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "26-06-27-erl-23",
+          "source": "ERL 06 26/26-06-27_ERL-23.jpg",
+          "width": 3000,
+          "height": 2000,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUCAwT/xAAfEAACAgIBBQAAAAAAAAAAAAABAgADBBFBEyEiMYH/xAAXAQADAQAAAAAAAAAAAAAAAAAAAgQF/8QAGREAAgMBAAAAAAAAAAAAAAAAAAECERIT/9oADAMBAAIRAxEAPwBfiUqNl/kptqJfz59RjYAlQAEldQgpD8kRcmpOTtpCvpIvbUJrTDUrssYQon6s/9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 25733,
+                "src": "/images/erl/26-06-27-erl-23-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 71117,
+                "src": "/images/erl/26-06-27-erl-23-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 138125,
+                "src": "/images/erl/26-06-27-erl-23-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 34926,
+                "src": "/images/erl/26-06-27-erl-23-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 98038,
+                "src": "/images/erl/26-06-27-erl-23-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 191796,
+                "src": "/images/erl/26-06-27-erl-23-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "26-06-27-erl-38",
+          "source": "ERL 06 26/26-06-27_ERL-38.jpg",
+          "width": 3000,
+          "height": 2000,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFAv/EAB8QAAIBBAIDAAAAAAAAAAAAAAECAAMEEiEFESJhcf/EABYBAQEBAAAAAAAAAAAAAAAAAAIBBf/EABgRAAMBAQAAAAAAAAAAAAAAAAABEhEx/9oADAMBAAIRAxEAPwCbb0AUzI0IYF2IXx9R3j+jQAIBm7impfQx+QSbT3iJDUkDEE7hHHtUyhLIJZ//2Q==",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 19101,
+                "src": "/images/erl/26-06-27-erl-38-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 53265,
+                "src": "/images/erl/26-06-27-erl-38-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 103564,
+                "src": "/images/erl/26-06-27-erl-38-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 24378,
+                "src": "/images/erl/26-06-27-erl-38-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 68442,
+                "src": "/images/erl/26-06-27-erl-38-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 138110,
+                "src": "/images/erl/26-06-27-erl-38-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "26-06-27-erl-67",
+          "source": "ERL 06 26/26-06-27_ERL-67.jpg",
+          "width": 2000,
+          "height": 3000,
+          "orientation": "portrait",
+          "aspectRatio": "2:3",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAeABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMFAgT/xAAiEAACAgIBAwUAAAAAAAAAAAABAgADBBESBhMhFCJBUWH/xAAYAQADAQEAAAAAAAAAAAAAAAABAgMABf/EABsRAAIDAAMAAAAAAAAAAAAAAAABAgMREhNB/9oADAMBAAIRAxEAPwCbh5TYlocAE/srXdQPbVwCDyNSSDU7EE+RALUzaB8yeNHXbrk9kN9JZb7xoAwmGrdDoORCDCnaZx8BnYnlv7je1RS29nlK9VCUIeI+JFuUveVB1sx3qQsK4eI66e3YnIiEfRhqtQBO4TJBfHT/2Q==",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 960,
+                "bytes": 35168,
+                "src": "/images/erl/26-06-27-erl-67-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 1920,
+                "bytes": 88597,
+                "src": "/images/erl/26-06-27-erl-67-1280.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 960,
+                "bytes": 41728,
+                "src": "/images/erl/26-06-27-erl-67-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 1920,
+                "bytes": 119390,
+                "src": "/images/erl/26-06-27-erl-67-1280.webp"
+              }
+            ]
+          },
+          "alt": ""
+        }
+      ]
+    },
+    "villa-dior": {
+      "folder": "VILLA DIOR",
+      "images": []
+    }
+  }
+}

@@ -9,10 +9,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        // Labeur : grotesque neutre, tout le corps de texte.
         sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        // Titrage : didone, employé avec retenue (logotype, titres, intertitres).
+        display: ['var(--font-display)', 'Didot', 'Georgia', 'serif'],
       },
     },
   },
   plugins: [],
 };
-

@@ -49,4 +49,24 @@ next-env.d.ts
 
 # Documentation
 *.md
+!**/docs/*.md
 
+# Sources lourdes (photos/vidéos clients) — jamais dans git
+raw
+raw/
+
+# Planches de candidats poster : fichiers de travail pour l'arbitrage client.
+media/
+
+# Proxys vidéo. Ils vivent sous public/ pour que Next puisse les servir, mais
+# pèsent ~300 Mo et sont régénérables depuis raw/ via scripts/transcode-video.mjs.
+# public/videos/manifest.json, lui, reste versionné.
+**/public/videos/**/*.mp4
+# Frames intermédiaires des boucles : entrée du pipeline d'images, régénérable.
+# Les dérivés optimisés (public/images/posters/) sont versionnés, eux.
+**/public/videos/loops/*.jpg
+
+# Cache d'idempotence des pipelines média
+.cache/
+
+.gstack/

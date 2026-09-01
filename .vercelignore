@@ -1,0 +1,26 @@
+# Remplace le repli sur .gitignore pour les deploiements Vercel.
+# Point essentiel : apps/da-agency/public/videos/ N'EST PAS exclu ici, alors
+# qu'il l'est de git. Sans ce fichier, Vercel retomberait sur .gitignore et
+# deploierait un site dont tous les films renvoient 404.
+
+node_modules
+.git
+.next
+.turbo
+.vercel
+.cache
+dist
+build
+coverage
+
+# Sources client et fichiers de travail : jamais deployes.
+apps/da-agency/raw
+apps/da-agency/media
+
+# Les autres apps du monorepo ne servent pas a construire da-agency.
+apps/cocktails/public
+apps/production/public
+apps/production/brand-assets
+
+*.log
+.DS_Store
