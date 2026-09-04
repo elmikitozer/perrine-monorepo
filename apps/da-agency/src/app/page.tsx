@@ -1,15 +1,21 @@
 /**
  * Accueil — une tuile par projet.
  *
- * Cinq tuiles, cinq projets, aucune répétition. Chacune mène à sa fiche.
+ * Onze tuiles, onze projets, aucune répétition. Chacune mène à sa fiche.
+ *
+ * L'ordre n'est pas décidé ici : `projects` arrive trié par numéro de
+ * publication décroissant (content/projects.ts), le plus récent en premier,
+ * comme le veut le document cliente du 04/09. Ni l'alphabet ni le nom de
+ * dossier ne donnent cet ordre.
  *
  * Même famille visuelle que les deux autres sites du package : grille en fond
  * perdu, gouttières fines, titre au survol en surimpression, aucune légende
  * permanente. La grille est régulière et non en maçonnerie — avec une seule
  * tuile par projet et un ratio commun, la maçonnerie n'aurait rien à équilibrer.
  *
- * Les trois projets qui ont un film animent leur tuile au survol ; voir
- * ProjectTile pour la mécanique et ses garde-fous (tactile, reduced-motion).
+ * Les projets qui ont un film animent leur tuile dès qu'elle entre dans le
+ * viewport, sur mobile comme sur desktop ; voir ProjectTile pour la mécanique
+ * et son garde-fou reduced-motion.
  */
 
 import { projects } from '@content/projects';

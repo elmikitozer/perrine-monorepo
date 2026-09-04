@@ -5,7 +5,7 @@
  *   node scripts/extract-loops.mjs
  *   node scripts/extract-loops.mjs --only=bosideng
  *   node scripts/extract-loops.mjs --force
- *   node scripts/extract-loops.mjs --start=12        (secondes, tous les films)
+ *   node scripts/extract-loops.mjs --start=12        (secondes, tous les films, ecrase la table)
  *
  * Sorties:
  *   public/videos/loops/<slug>.mp4        extrait muet de 8 s (gitignore)
@@ -13,16 +13,22 @@
  *   public/images/posters/<slug>/*.avif   derives du poster (versionnes)
  *   public/videos/loops.json              manifeste versionne
  *
- * Le poster est un DEPANNAGE TECHNIQUE, pas un choix editorial : il vient du
- * timecode de depart arbitraire de l'extrait. Le contenu le marque
- * `posterIsProvisional` et reportMissingContent() le signale, jusqu'a ce que la
- * cliente donne son timecode.
+ * Le point de depart de chaque extrait vient de CLIENT_START_SECONDS quand la
+ * cliente l'a donne : le poster, premiere frame de l'extrait, est alors son
+ * choix. Sinon il vient d'un defaut technique, et le manifeste le marque
+ * `posterIsProvisional` pour que reportMissingContent() le signale jusqu'a ce
+ * qu'elle tranche.
  *
  * Pourquoi un manifeste separe de public/videos/manifest.json : deux scripts
  * qui ecrivent le meme fichier finissent par s'ecraser l'un l'autre. Chacun
  * possede le sien, content/projects.ts fusionne a la lecture.
  *
- * raw/ est traite en LECTURE SEULE.
+ * Les sources client (raw/, raw-v2/) sont traitees en LECTURE SEULE. La racine
+ * se choisit avec --raw=<dossier>, defaut raw-v2.
+ *
+ * Aucun nettoyage ici non plus : boucles et posters d'une cle de projet qui
+ * changerait resteraient sur le disque, et public/images/posters/ est exclu du
+ * --prune du pipeline images. D'ou les cles figees dans SLUG_OVERRIDES.
  */
 
 import { spawn } from 'node:child_process';
@@ -40,6 +46,7 @@ import {
   hasFlag,
   listProjects,
   relativeToRaw,
+  sourceFingerprint,
 } from './lib/corpus.mjs';
 
 const LOOP_DIR = resolve(APP_ROOT, 'public', 'videos', 'loops');
@@ -61,6 +68,26 @@ const LOOP_CRF = 26;
  * valeur en secondes.
  */
 const DEFAULT_START_FRACTION = 0.15;
+
+/**
+ * Timecodes de depart donnes par la cliente, en secondes, par cle de projet.
+ *
+ * Source : colonne « TIME VIDEO » du document `SITE INTERNET PHOTOS .docx`
+ * (livraison v2, docs/reconciliation-v2.md §2) : `4:00`, `00:00`, `6:00`,
+ * `10:00`. Lus en minutes:secondes, trois des quatre tomberaient APRES la fin
+ * du film (76 s, 52 s, 73 s). Lus en secondes, les quatre tombent dans le film
+ * et laissent la place des 8 s d'extrait : c'est la seule lecture coherente,
+ * appliquee sur decision du 04/09 sans confirmation ecrite de la cliente. Si
+ * elle voulait autre chose, c'est cette table qu'il faut corriger.
+ *
+ * Un film absent d'ici part du defaut technique ci-dessus et reste provisoire.
+ */
+const CLIENT_START_SECONDS = {
+  'villa-dior': 4,
+  bosideng: 0,
+  'erl-season-13': 6,
+  'dior-trunk-show': 10,
+};
 
 /** ~2 Mo vise par extrait ; au-dela on previent plutot que d'echouer. */
 const SIZE_BUDGET_BYTES = 2.5 * 1024 * 1024;
@@ -134,11 +161,6 @@ function saveCache(cache) {
   writeFileSync(CACHE_PATH, `${JSON.stringify(cache, null, 2)}\n`);
 }
 
-function sourceFingerprint(file) {
-  const stats = statSync(file);
-  return `${stats.size}:${Math.round(stats.mtimeMs)}`;
-}
-
 /**
  * Reglages d'encodage, hors chemins. Sans audio : la boucle est muette par
  * conception, et la piste PCM du master pese plus lourd que l'image extraite.
@@ -172,11 +194,32 @@ function profileFingerprint(startSeconds) {
     .slice(0, 12);
 }
 
-function startFor(probe) {
-  if (START_OVERRIDE !== undefined) return Math.max(0, Number(START_OVERRIDE));
+/**
+ * Point de depart de l'extrait, et d'ou il vient. `fromClient` decide du
+ * marqueur provisoire : un `--start` de ligne de commande est un reglage
+ * technique, il ne vaut pas un choix de la cliente.
+ */
+function startFor(probe, slug) {
   // On garde la fin de l'extrait dans le film, sinon ffmpeg sort plus court.
   const latest = Math.max(0, probe.durationSeconds - LOOP_SECONDS);
-  return Math.min(probe.durationSeconds * DEFAULT_START_FRACTION, latest);
+
+  if (START_OVERRIDE !== undefined) {
+    return { startSeconds: Math.min(Math.max(0, Number(START_OVERRIDE)), latest), fromClient: false };
+  }
+  if (slug in CLIENT_START_SECONDS) {
+    const wanted = CLIENT_START_SECONDS[slug];
+    if (wanted > latest) {
+      throw new Error(
+        `${slug} : timecode cliente ${wanted} s trop tard pour un extrait de ${LOOP_SECONDS} s ` +
+          `sur un film de ${probe.durationSeconds.toFixed(1)} s.`
+      );
+    }
+    return { startSeconds: wanted, fromClient: true };
+  }
+  return {
+    startSeconds: Math.min(probe.durationSeconds * DEFAULT_START_FRACTION, latest),
+    fromClient: false,
+  };
 }
 
 async function extract(source, target, startSeconds) {
@@ -253,7 +296,7 @@ async function main() {
   for (const project of selected) {
     const source = project.videos[0];
     const probe = await ffprobe(source);
-    const startSeconds = startFor(probe);
+    const { startSeconds, fromClient } = startFor(probe, project.slug);
     const fingerprint = sourceFingerprint(source);
     const profile = profileFingerprint(startSeconds);
     const target = join(LOOP_DIR, `${project.slug}.mp4`);
@@ -280,8 +323,9 @@ async function main() {
       await extract(source, target, startSeconds);
       const size = statSync(target).size;
       console.log(
-        `\r  ${LOOP_SECONDS} s a partir de ${startSeconds.toFixed(1)} s · ${LOOP_WIDTH} px · ` +
-          `${formatBytes(size)} · ${formatDuration((Date.now() - startedAt) / 1000)}   `
+        `\r  ${LOOP_SECONDS} s a partir de ${startSeconds.toFixed(1)} s` +
+          ` (${fromClient ? 'timecode cliente' : 'defaut technique, provisoire'})` +
+          ` · ${LOOP_WIDTH} px · ${formatBytes(size)} · ${formatDuration((Date.now() - startedAt) / 1000)}   `
       );
       if (size > SIZE_BUDGET_BYTES) {
         console.log(
@@ -311,9 +355,9 @@ async function main() {
       durationSeconds: Number(loopProbe.durationSeconds.toFixed(2)),
       startSeconds: Number(startSeconds.toFixed(2)),
       bytes: statSync(target).size,
-      // Provisoire par construction : issu du timecode de depart par defaut.
       poster,
-      posterIsProvisional: true,
+      // Provisoire des que le depart n'est pas celui de la cliente.
+      posterIsProvisional: !fromClient,
     };
 
     console.log('');

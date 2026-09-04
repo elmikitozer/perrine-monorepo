@@ -6,16 +6,20 @@
  *   node scripts/optimize-images.mjs --only=bosideng
  *   node scripts/optimize-images.mjs --force
  *   node scripts/optimize-images.mjs --prune     supprime les dérivés orphelins
+ *   node scripts/optimize-images.mjs --raw=raw   vise la livraison v1 (défaut : raw-v2)
  *
  * Sorties:
  *   public/images/<slug>/<image>-<largeur>.avif|webp
  *   public/images/manifest.json   dimensions réelles + LQIP, alimente projects.ts
  *
- * raw/ est traité en LECTURE SEULE (lien symbolique vers les sources client).
+ * Les sources client (raw/, raw-v2/) sont traitées en LECTURE SEULE.
  *
  * Idempotence : cache par hash SHA-1 du fichier source dans
  * .cache/optimize-images.json. Une image inchangée n'est pas retraitée, sinon
- * chaque livraison de photos coûterait plusieurs minutes.
+ * chaque livraison de photos coûterait plusieurs minutes. Le cache est indexé
+ * par chemin source : une livraison qui renomme tout, comme la v2, ré-encode
+ * tout, y compris les photos identiques à l'octet près — leurs dérivés changent
+ * de nom de toute façon.
  */
 
 import { createHash } from 'node:crypto';
@@ -28,12 +32,14 @@ import {
   buildLqip,
   expectedFilenames,
   orientationOf,
+  readColorProfile,
   readDimensions,
   renderVariants,
 } from './lib/images.mjs';
 import {
   APP_ROOT,
   MIN_USABLE_WIDTH,
+  RAW_NAME,
   ensureDir,
   formatBytes,
   formatDuration,
@@ -80,9 +86,19 @@ function saveCache(cache) {
  * photo est insérée dans l'ordre alphabétique lors d'une nouvelle livraison :
  * toutes les URL suivantes changeraient. Le nom source reste stable et garde
  * la traçabilité vers le fichier d'origine.
+ *
+ * Deux sources de la v2 ont une extension doublée : `SITE_2.6jpg.jpg` et
+ * `SITE_10.1jpg.jpg`. Sans traitement, l'identifiant public serait `site-2-6jpg`
+ * et partirait tel quel dans les URL. On retire l'extension parasite quand elle
+ * suit un chiffre ou un point, jamais quand elle termine un mot : `camping`
+ * doit rester `camping`. Corrigé ici et pas en renommant la source, qui est en
+ * lecture seule.
  */
+const DOUBLED_EXTENSION = /(?<=[\d.])\.?(jpe?g|png|tiff?|heic|webp)$/i;
+
 function imageId(file, taken) {
-  const base = slugify(basename(file, extname(file))) || 'image';
+  const stem = basename(file, extname(file)).replace(DOUBLED_EXTENSION, '');
+  const base = slugify(stem) || 'image';
   if (!taken.has(base)) {
     taken.add(base);
     return base;
@@ -113,11 +129,27 @@ async function main() {
     );
   }
 
+  // Garde-fou : --prune sur une découverte vide effacerait tous les dérivés
+  // sans rien régénérer. C'est passé près avec la v2, dont les fichiers sont un
+  // niveau plus bas que ceux de la v1 : avant la lecture récursive, 11 projets
+  // à 0 image auraient vidé public/images/. On refuse plutôt que d'effacer.
+  const discovered = selected.reduce((total, project) => total + project.images.length, 0);
+  if (PRUNE && discovered === 0) {
+    throw new Error(
+      `--prune refusé : aucune image trouvée dans ${RAW_NAME}/ pour ${selected.length} projet(s).\n` +
+        `  Une découverte vide effacerait tous les dérivés existants. Vérifier la racine (--raw=)\n` +
+        `  et la structure des dossiers avant de relancer.`
+    );
+  }
+
+  console.log(`\nSources : ${RAW_NAME}/ · ${selected.length} projet(s) · ${discovered} image(s)\n`);
+
   const manifest = { generatedAt: new Date().toISOString(), widths: WIDTHS, projects: {} };
   let processed = 0;
   let skipped = 0;
   let outputBytes = 0;
   const unusable = [];
+  const converted = [];
 
   for (const project of selected) {
     console.log(`${project.folder}  ->  ${project.slug}`);
@@ -141,6 +173,15 @@ async function main() {
 
       const belowMinWidth = width < MIN_USABLE_WIDTH;
       if (belowMinWidth) unusable.push({ project: project.slug, file: basename(file), width });
+
+      // Rendu visible, pas décidé ici : la conversion est faite par sharp
+      // (lib/images.mjs). Sans cette ligne, 9 fichiers Adobe RGB passeraient
+      // en sRGB sans que personne ne le voie.
+      const profile = await readColorProfile(file);
+      if (profile && !/sRGB/i.test(profile)) {
+        converted.push({ project: project.slug, file: basename(file), profile });
+        console.log(`  ${basename(file)} · ${profile} -> converti en sRGB`);
+      }
 
       const cached = cache[relative];
       const outputsExist =
@@ -205,7 +246,8 @@ async function main() {
     if (PRUNE) {
       const expected = new Set(entries.flatMap((entry) => expectedFilenames(entry)));
       const orphans = readdirSync(targetDir).filter((name) => !expected.has(name));
-      for (const orphan of orphans) rmSync(join(targetDir, orphan), { force: true });
+      // `recursive` : un sous-dossier inattendu ferait lever ERR_FS_EISDIR sans lui.
+      for (const orphan of orphans) rmSync(join(targetDir, orphan), { recursive: true, force: true });
       if (orphans.length > 0) console.log(`  ${orphans.length} dérivé(s) orphelin(s) supprimé(s)`);
     }
 
@@ -249,6 +291,13 @@ async function main() {
   console.log(`${processed} image(s) traitée(s), ${skipped} inchangée(s).`);
   console.log(`Dérivés : ${formatBytes(outputBytes)} dans public/images/`);
   console.log(`Manifeste : public/images/manifest.json`);
+
+  if (converted.length > 0) {
+    console.log(`\n${converted.length} image(s) hors sRGB, converties depuis leur profil embarqué :`);
+    for (const item of converted) {
+      console.log(`  ${item.project}/${item.file} — ${item.profile}`);
+    }
+  }
 
   if (unusable.length > 0) {
     console.log(`\n${unusable.length} image(s) sous ${MIN_USABLE_WIDTH} px, marquées belowMinWidth :`);

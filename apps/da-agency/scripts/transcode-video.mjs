@@ -6,6 +6,7 @@
  *   node scripts/transcode-video.mjs --only=bosideng
  *   node scripts/transcode-video.mjs --force
  *   node scripts/transcode-video.mjs --posters-only
+ *   node scripts/transcode-video.mjs --raw=raw     vise la livraison v1 (defaut : raw-v2)
  *
  * Sorties:
  *   public/videos/<slug>.mp4                  proxy H.264 servi par Next (mp4 gitignores)
@@ -14,12 +15,15 @@
  *
  * Les proxys vivent sous public/ parce que Next ne sert que ce qui s'y trouve :
  * un fichier dans media/ n'aurait pas d'URL. Seul le manifeste est versionne,
- * les .mp4 sont gitignores et regenerables depuis raw/.
+ * les .mp4 sont gitignores et regenerables depuis les sources.
  *
- * raw/ est traite en LECTURE SEULE. C'est un lien symbolique vers le dossier
- * de sources du client : une ecriture involontaire irait polluer ses fichiers
- * originaux. Toutes les sorties passent par ensureDir(), qui refuse tout
- * chemin retombant dans raw/.
+ * Les sources client (raw/, raw-v2/) sont traitees en LECTURE SEULE : une
+ * ecriture involontaire irait polluer les fichiers originaux. Toutes les
+ * sorties passent par ensureDir(), qui refuse tout chemin retombant dedans.
+ *
+ * Aucun nettoyage ici : un proxy dont la cle de projet change devient un
+ * orphelin que rien ne retire. Les cles sont figees dans SLUG_OVERRIDES
+ * (lib/corpus.mjs) precisement pour que ca n'arrive pas.
  *
  * Ce script NE CHOISIT PAS la frame de poster (addendum §4). Il produit la
  * planche, le client tranche.
@@ -39,6 +43,7 @@ import {
   hasFlag,
   listProjects,
   relativeToRaw,
+  sourceFingerprint,
 } from './lib/corpus.mjs';
 
 const PROXY_DIR = resolve(APP_ROOT, 'public', 'videos');
@@ -122,11 +127,11 @@ function ffprobe(file) {
 /**
  * Idempotence.
  *
- * Les images sont mises en cache par hash (cf. optimize-images.mjs), mais ces
- * masters pesent jusqu'a 768 Mo : les rehacher a chaque lancement couterait
- * plus longtemps que le transcodage qu'on cherche a eviter. On se base donc
- * sur taille + date de modification de la source, ce qui suffit pour un
- * dossier de livraison client. `--force` retranscode inconditionnellement.
+ * Les images sont mises en cache par hash complet (cf. optimize-images.mjs),
+ * mais ces masters pesent jusqu'a 768 Mo. L'empreinte partagee
+ * sourceFingerprint() (lib/corpus.mjs) ne lit que les extremites du fichier,
+ * et survit a une copie du dossier de livraison, ce que l'ancienne empreinte
+ * taille + mtime ne faisait pas. `--force` retranscode inconditionnellement.
  */
 function loadCache() {
   if (!existsSync(CACHE_PATH)) return {};
@@ -141,11 +146,6 @@ function loadCache() {
 function saveCache(cache) {
   ensureDir(resolve(APP_ROOT, '.cache'));
   writeFileSync(CACHE_PATH, `${JSON.stringify(cache, null, 2)}\n`);
-}
-
-function sourceFingerprint(file) {
-  const stats = statSync(file);
-  return `${stats.size}:${Math.round(stats.mtimeMs)}`;
 }
 
 /** Reduit le ratio a sa forme la plus simple, pour le CSS `aspect-ratio`. */

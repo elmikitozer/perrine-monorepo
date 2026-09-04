@@ -55,7 +55,64 @@ export async function readDimensions(file) {
 }
 
 /**
+ * Description lisible du profil ICC embarque (`Adobe RGB (1998)`,
+ * `sRGB IEC61966-2.1`...), ou null si le fichier n'en porte pas.
+ *
+ * Sert uniquement a rendre visible en console ce que la chaine convertit :
+ * la conversion elle-meme est faite par sharp, voir renderVariants().
+ */
+export async function readColorProfile(file) {
+  const metadata = await sharp(file).metadata();
+  if (!metadata.icc) return null;
+  return iccDescription(Buffer.from(metadata.icc)) ?? `profil ${metadata.space} sans description`;
+}
+
+/**
+ * Lit le tag `desc` d'un profil ICC : chaine ASCII en v2 (`desc`), UTF-16BE en
+ * v4 (`mluc`). Le format est simple et stable, et aucune dependance ne le fait
+ * sans tirer un parseur complet.
+ */
+function iccDescription(icc) {
+  if (icc.length < 132) return null;
+  const tagCount = icc.readUInt32BE(128);
+  for (let index = 0; index < tagCount; index += 1) {
+    const at = 132 + index * 12;
+    if (at + 12 > icc.length) break;
+    if (icc.toString('ascii', at, at + 4) !== 'desc') continue;
+
+    const offset = icc.readUInt32BE(at + 4);
+    const size = icc.readUInt32BE(at + 8);
+    if (offset + size > icc.length || size < 12) return null;
+
+    const type = icc.toString('ascii', offset, offset + 4);
+    if (type === 'desc') {
+      const length = icc.readUInt32BE(offset + 8);
+      return icc.toString('ascii', offset + 12, offset + 12 + length).replace(/\0+$/, '') || null;
+    }
+    if (type === 'mluc' && size >= 28) {
+      const length = icc.readUInt32BE(offset + 20);
+      const start = offset + icc.readUInt32BE(offset + 24);
+      if (start + length > icc.length) return null;
+      return Buffer.from(icc.subarray(start, start + length)).swap16().toString('utf16le') || null;
+    }
+  }
+  return null;
+}
+
+/**
  * Produit les variantes AVIF + WebP.
+ *
+ * Couleur : les sources ne sont pas toutes en sRGB. La v2 livre 9 fichiers en
+ * Adobe RGB (1998), dont les 8 de DIOR HAUTE JOAILLERIE - DIORAMA. Un JPEG
+ * Adobe RGB affiche sans gestion de couleur sort desature, surtout dans les
+ * rouges. La conversion est faite par sharp lui-meme : des que la sortie est
+ * sRGB (son defaut, rendu explicite par `.toColorspace('srgb')`), il applique
+ * le profil embarque de la source avant tout traitement, puis retire le profil
+ * de la sortie, que les navigateurs lisent alors comme du sRGB. Verifie sur
+ * sharp 0.35.3 avec `SITE_3.6.jpg` : le resultat est identique a un
+ * `.withIccProfile('srgb')` explicite, et different d'un `ignoreIcc: true`.
+ * Le LQIP passe par la meme mecanique, sans appel explicite. Ne pas ajouter
+ * de `withIccProfile` : il rattacherait un profil a chaque derive pour rien.
  *
  * `publicDir` est le chemin URL du dossier de sortie (ex. `/images/bosideng`) :
  * il ne se deduit pas du dossier disque, les posters ne vivant pas au meme
@@ -80,7 +137,7 @@ export async function renderVariants({ file, targetDir, publicDir, id, sourceWid
       const pipeline = sharp(file)
         .rotate() // applique l'orientation EXIF avant de la perdre
         .resize({ width, withoutEnlargement: true })
-        .toColorspace('srgb');
+        .toColorspace('srgb'); // conversion depuis le profil embarque, voir ci-dessus
 
       const info = await format.apply(pipeline).toFile(join(targetDir, filename));
 

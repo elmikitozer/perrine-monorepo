@@ -54,6 +54,9 @@ next-env.d.ts
 # Sources lourdes (photos/vidéos clients) — jamais dans git
 raw
 raw/
+# Livraisons suivantes : raw-v2/ est un vrai dossier de 2 Go, pas un lien.
+raw-*
+raw-*/
 
 # Planches de candidats poster : fichiers de travail pour l'arbitrage client.
 media/

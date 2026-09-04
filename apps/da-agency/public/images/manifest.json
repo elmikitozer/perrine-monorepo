@@ -1,176 +1,1309 @@
 {
-  "generatedAt": "2026-08-20T11:54:40.912Z",
+  "generatedAt": "2026-09-04T16:11:24.981Z",
   "widths": [
     640,
     1280,
     2048
   ],
   "projects": {
-    "antazero-x-kris-van-assche": {
-      "folder": "ANTAZERO x KRIS VAN ASSCHE",
+    "dior-haute-joaillerie-24": {
+      "folder": "1-DIOR Haute Joaillerie 24",
       "images": [
         {
-          "id": "dsc03608",
-          "source": "ANTAZERO x KRIS VAN ASSCHE/DSC03608.jpg",
-          "width": 6569,
-          "height": 4379,
-          "orientation": "landscape",
-          "aspectRatio": "6569:4379",
-          "belowMinWidth": false,
-          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUBAgMG/8QAHRAAAgMBAAMBAAAAAAAAAAAAAQIAAwQREiEiQf/EABQBAQAAAAAAAAAAAAAAAAAAAAL/xAAWEQEBAQAAAAAAAAAAAAAAAAAAASH/2gAMAwEAAhEDEQA/AE++n6FyD1JNtbVoST5fs0u0n5pCgL2MnyUpmDBB0iC05HP26wHIUnkJXXWovPByEQ6//9k=",
-          "variants": {
-            "avif": [
-              {
-                "width": 640,
-                "height": 426,
-                "bytes": 18820,
-                "src": "/images/antazero-x-kris-van-assche/dsc03608-640.avif"
-              },
-              {
-                "width": 1280,
-                "height": 853,
-                "bytes": 54423,
-                "src": "/images/antazero-x-kris-van-assche/dsc03608-1280.avif"
-              },
-              {
-                "width": 2048,
-                "height": 1365,
-                "bytes": 112912,
-                "src": "/images/antazero-x-kris-van-assche/dsc03608-2048.avif"
-              }
-            ],
-            "webp": [
-              {
-                "width": 640,
-                "height": 426,
-                "bytes": 31578,
-                "src": "/images/antazero-x-kris-van-assche/dsc03608-640.webp"
-              },
-              {
-                "width": 1280,
-                "height": 853,
-                "bytes": 88860,
-                "src": "/images/antazero-x-kris-van-assche/dsc03608-1280.webp"
-              },
-              {
-                "width": 2048,
-                "height": 1365,
-                "bytes": 182504,
-                "src": "/images/antazero-x-kris-van-assche/dsc03608-2048.webp"
-              }
-            ]
-          },
-          "alt": ""
-        },
-        {
-          "id": "dsc03613",
-          "source": "ANTAZERO x KRIS VAN ASSCHE/DSC03613.jpg",
-          "width": 6726,
-          "height": 4484,
+          "id": "site-1-1",
+          "source": "raw-v2/1-DIOR Haute Joaillerie 24/A METTRE SUR SITE/SITE_1.1.jpg",
+          "width": 5568,
+          "height": 3712,
           "orientation": "landscape",
           "aspectRatio": "3:2",
           "belowMinWidth": false,
-          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAAF/8QAHxAAAQQCAgMAAAAAAAAAAAAAAQACAxEEIQUjMUFC/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//EABYRAAMAAAAAAAAAAAAAAAAAAAABEf/aAAwDAQACEQMRAD8AwWTEVbkozxBre0k+wgY2OHSC3HS0RgxP8ilDhoqAmm7DTtKTzxUR+ipFQoz/2Q==",
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAIBAwQG/8QAHRAAAgIDAAMAAAAAAAAAAAAAAAEDEQISIRQjMf/EABUBAQEAAAAAAAAAAAAAAAAAAAID/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIRAxEAPwDllFa4N470tFiy1+IaObJ2uAktUZUq4wJlfsYCwH//2Q==",
           "variants": {
             "avif": [
               {
                 "width": 640,
                 "height": 427,
-                "bytes": 19083,
-                "src": "/images/antazero-x-kris-van-assche/dsc03613-640.avif"
+                "bytes": 24851,
+                "src": "/images/dior-haute-joaillerie-24/site-1-1-640.avif"
               },
               {
                 "width": 1280,
-                "height": 854,
-                "bytes": 60070,
-                "src": "/images/antazero-x-kris-van-assche/dsc03613-1280.avif"
+                "height": 853,
+                "bytes": 78496,
+                "src": "/images/dior-haute-joaillerie-24/site-1-1-1280.avif"
               },
               {
                 "width": 2048,
                 "height": 1365,
-                "bytes": 136504,
-                "src": "/images/antazero-x-kris-van-assche/dsc03613-2048.avif"
+                "bytes": 163407,
+                "src": "/images/dior-haute-joaillerie-24/site-1-1-2048.avif"
               }
             ],
             "webp": [
               {
                 "width": 640,
                 "height": 427,
-                "bytes": 28746,
-                "src": "/images/antazero-x-kris-van-assche/dsc03613-640.webp"
+                "bytes": 39330,
+                "src": "/images/dior-haute-joaillerie-24/site-1-1-640.webp"
               },
               {
                 "width": 1280,
-                "height": 854,
-                "bytes": 87608,
-                "src": "/images/antazero-x-kris-van-assche/dsc03613-1280.webp"
+                "height": 853,
+                "bytes": 121946,
+                "src": "/images/dior-haute-joaillerie-24/site-1-1-1280.webp"
               },
               {
                 "width": 2048,
                 "height": 1365,
-                "bytes": 200888,
-                "src": "/images/antazero-x-kris-van-assche/dsc03613-2048.webp"
+                "bytes": 246722,
+                "src": "/images/dior-haute-joaillerie-24/site-1-1-2048.webp"
               }
             ]
           },
           "alt": ""
         },
         {
-          "id": "dsc03624",
-          "source": "ANTAZERO x KRIS VAN ASSCHE/DSC03624.jpg",
-          "width": 6666,
-          "height": 4444,
+          "id": "site-1-2",
+          "source": "raw-v2/1-DIOR Haute Joaillerie 24/A METTRE SUR SITE/SITE_1.2.jpg",
+          "width": 5338,
+          "height": 6673,
+          "orientation": "portrait",
+          "aspectRatio": "5338:6673",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAZABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EACIQAAICAQMEAwAAAAAAAAAAAAABAgMSBBEhEzEycSIzUf/EABcBAAMBAAAAAAAAAAAAAAAAAAECAwD/xAAXEQEBAQEAAAAAAAAAAAAAAAAAARES/9oADAMBAAIRAxEAPwDBpaHcSi5Pt+k8q3T8oveIzeU6HF8eiWqpnjJtsCyqmHTWXcDdUMOr0KdCc7H6GJ10VtYlt31ozdV5jBU09QsmBJPzYDEf/9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 800,
+                "bytes": 42565,
+                "src": "/images/dior-haute-joaillerie-24/site-1-2-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 1600,
+                "bytes": 109100,
+                "src": "/images/dior-haute-joaillerie-24/site-1-2-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 2560,
+                "bytes": 210368,
+                "src": "/images/dior-haute-joaillerie-24/site-1-2-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 800,
+                "bytes": 68702,
+                "src": "/images/dior-haute-joaillerie-24/site-1-2-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 1600,
+                "bytes": 174042,
+                "src": "/images/dior-haute-joaillerie-24/site-1-2-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 2560,
+                "bytes": 349316,
+                "src": "/images/dior-haute-joaillerie-24/site-1-2-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-1-3",
+          "source": "raw-v2/1-DIOR Haute Joaillerie 24/A METTRE SUR SITE/SITE_1.3.jpg",
+          "width": 6218,
+          "height": 7773,
+          "orientation": "portrait",
+          "aspectRatio": "6218:7773",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAZABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMEBQYC/8QAIhAAAgICAQMFAAAAAAAAAAAAAQIAAwQRIRIxQRMiMjRx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQMC/8QAGBEBAQADAAAAAAAAAAAAAAAAABEBAiH/2gAMAwEAAhEDEQA/AM+KNtte07NJ1GnGda9IedeIelbRQbGGwR5k1FZaunMJI2p5Kkkwm6xD8TP6OHPMs+pMirTn2zMjvNBifVX8hlTXqLZUiuQmyIR7/IwhDH//2Q==",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 800,
+                "bytes": 41255,
+                "src": "/images/dior-haute-joaillerie-24/site-1-3-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 1600,
+                "bytes": 114767,
+                "src": "/images/dior-haute-joaillerie-24/site-1-3-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 2560,
+                "bytes": 220942,
+                "src": "/images/dior-haute-joaillerie-24/site-1-3-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 800,
+                "bytes": 66448,
+                "src": "/images/dior-haute-joaillerie-24/site-1-3-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 1600,
+                "bytes": 184016,
+                "src": "/images/dior-haute-joaillerie-24/site-1-3-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 2560,
+                "bytes": 355770,
+                "src": "/images/dior-haute-joaillerie-24/site-1-3-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-1-4",
+          "source": "raw-v2/1-DIOR Haute Joaillerie 24/A METTRE SUR SITE/SITE_1.4.jpg",
+          "width": 3591,
+          "height": 5387,
+          "orientation": "portrait",
+          "aspectRatio": "3591:5387",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAeABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgX/xAAhEAACAgEEAgMAAAAAAAAAAAABAgADEQQSITEFQRMykf/EABcBAAMBAAAAAAAAAAAAAAAAAAECAwT/xAAZEQADAQEBAAAAAAAAAAAAAAAAARECEjH/2gAMAwEAAhEDEQA/AOBdWFrwPsPcSK2YgHqUVae2wsPUeg2MEYZMz9OxF4vRJ0lYxhieISo0O5ymAIRuNguRvjzvdlYbRH6qqpRle5PXb8qNcAFx0BMW3EVbz+SsjEoB3XgLmEkXW5HKmEMEp//Z",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 960,
+                "bytes": 82951,
+                "src": "/images/dior-haute-joaillerie-24/site-1-4-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 1920,
+                "bytes": 247693,
+                "src": "/images/dior-haute-joaillerie-24/site-1-4-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 3072,
+                "bytes": 485675,
+                "src": "/images/dior-haute-joaillerie-24/site-1-4-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 960,
+                "bytes": 139552,
+                "src": "/images/dior-haute-joaillerie-24/site-1-4-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 1920,
+                "bytes": 413636,
+                "src": "/images/dior-haute-joaillerie-24/site-1-4-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 3072,
+                "bytes": 815880,
+                "src": "/images/dior-haute-joaillerie-24/site-1-4-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-1-5",
+          "source": "raw-v2/1-DIOR Haute Joaillerie 24/A METTRE SUR SITE/SITE_1.5.jpg",
+          "width": 5315,
+          "height": 3543,
+          "orientation": "landscape",
+          "aspectRatio": "5315:3543",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAUGAf/EACAQAAICAQMFAAAAAAAAAAAAAAECAAMEBRESFCExUWH/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAgP/xAAWEQEBAQAAAAAAAAAAAAAAAAAAESH/2gAMAwEAAhEDEQA/AJdaGPcDcTDQd/Ec6SR1CVsgZT7lDm6ZjNVyVAp+TPVxBGsAwj23FqVyOIMIpH//2Q==",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 35297,
+                "src": "/images/dior-haute-joaillerie-24/site-1-5-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 128975,
+                "src": "/images/dior-haute-joaillerie-24/site-1-5-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 310270,
+                "src": "/images/dior-haute-joaillerie-24/site-1-5-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 54032,
+                "src": "/images/dior-haute-joaillerie-24/site-1-5-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 205964,
+                "src": "/images/dior-haute-joaillerie-24/site-1-5-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 493800,
+                "src": "/images/dior-haute-joaillerie-24/site-1-5-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-1-6",
+          "source": "raw-v2/1-DIOR Haute Joaillerie 24/A METTRE SUR SITE/SITE_1.6.jpg",
+          "width": 3452,
+          "height": 5178,
+          "orientation": "portrait",
+          "aspectRatio": "2:3",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAeABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgb/xAAgEAACAgICAgMAAAAAAAAAAAABAgADBBESQQUUITFx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAB/8QAGBEBAQEBAQAAAAAAAAAAAAAAABEBEgL/2gAMAwEAAhEDEQA/AOUOLYv2s16tutcY7bkK+iOpsZCnbdahpTCC4VzDar8QlGrL4pqEPetnkrViszDR3+Sg3izXTzY6J6j2JdXURxqEW8vc7OCpIB6kpEawFXIhGFpRl22yYTeQj//Z",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 960,
+                "bytes": 67016,
+                "src": "/images/dior-haute-joaillerie-24/site-1-6-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 1920,
+                "bytes": 248031,
+                "src": "/images/dior-haute-joaillerie-24/site-1-6-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 3072,
+                "bytes": 537212,
+                "src": "/images/dior-haute-joaillerie-24/site-1-6-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 960,
+                "bytes": 107528,
+                "src": "/images/dior-haute-joaillerie-24/site-1-6-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 1920,
+                "bytes": 397062,
+                "src": "/images/dior-haute-joaillerie-24/site-1-6-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 3072,
+                "bytes": 872936,
+                "src": "/images/dior-haute-joaillerie-24/site-1-6-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-1-7",
+          "source": "raw-v2/1-DIOR Haute Joaillerie 24/A METTRE SUR SITE/SITE_1.7.jpg",
+          "width": 3433,
+          "height": 5150,
+          "orientation": "portrait",
+          "aspectRatio": "3433:5150",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMEBQYC/8QAIRAAAgICAQQDAAAAAAAAAAAAAQIAEQQSAwUGEyExQVH/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/xAAWEQEBAQAAAAAAAAAAAAAAAAAAESH/2gAMAwEAAhEDEQA/AMhqYamOZdn9ThgwapmkvQwjQD+wlTidxYuj25sy0xOjNzMGZBqfuRlHkUN8XNFguUx1F3CFGHbuNXsG4Sx8zQkn/9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 960,
+                "bytes": 59673,
+                "src": "/images/dior-haute-joaillerie-24/site-1-7-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 1920,
+                "bytes": 230042,
+                "src": "/images/dior-haute-joaillerie-24/site-1-7-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 3072,
+                "bytes": 489775,
+                "src": "/images/dior-haute-joaillerie-24/site-1-7-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 960,
+                "bytes": 97062,
+                "src": "/images/dior-haute-joaillerie-24/site-1-7-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 1920,
+                "bytes": 377306,
+                "src": "/images/dior-haute-joaillerie-24/site-1-7-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 3072,
+                "bytes": 791804,
+                "src": "/images/dior-haute-joaillerie-24/site-1-7-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-1-8",
+          "source": "raw-v2/1-DIOR Haute Joaillerie 24/A METTRE SUR SITE/SITE_1.8.jpg",
+          "width": 3712,
+          "height": 5568,
+          "orientation": "portrait",
+          "aspectRatio": "2:3",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAeABQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAMEAQIG/8QAHxAAAwABAwUAAAAAAAAAAAAAAAECAxIhQRETIjFh/8QAFwEAAwEAAAAAAAAAAAAAAAAAAgMEAf/EABcRAAMBAAAAAAAAAAAAAAAAAAABEQL/2gAMAwEAAhEDEQA/APPPGcuCvJKWwp+XrgY9RwWstqk+gB+lAGDRs5JbbZjud+CPr9Mq2TFI92kwJO6wNrBh/9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 960,
+                "bytes": 30176,
+                "src": "/images/dior-haute-joaillerie-24/site-1-8-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 1920,
+                "bytes": 105766,
+                "src": "/images/dior-haute-joaillerie-24/site-1-8-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 3072,
+                "bytes": 306006,
+                "src": "/images/dior-haute-joaillerie-24/site-1-8-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 960,
+                "bytes": 50446,
+                "src": "/images/dior-haute-joaillerie-24/site-1-8-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 1920,
+                "bytes": 186572,
+                "src": "/images/dior-haute-joaillerie-24/site-1-8-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 3072,
+                "bytes": 532690,
+                "src": "/images/dior-haute-joaillerie-24/site-1-8-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        }
+      ]
+    },
+    "diorhj25": {
+      "folder": "2-DIORHJ25",
+      "images": [
+        {
+          "id": "site-2-1",
+          "source": "raw-v2/2-DIORHJ25/A METTRE SUR SITE/SITE_2.1.jpg",
+          "width": 4413,
+          "height": 3534,
+          "orientation": "landscape",
+          "aspectRatio": "1471:1178",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAQABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUCAwT/xAAeEAACAgICAwAAAAAAAAAAAAABAgADBRIRMSFBUf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFxEBAQEBAAAAAAAAAAAAAAAAAAECEf/aAAwDAQACEQMRAD8AXUZW1ytQUCv5LMi4qQFezE9G241PE2ZGm1K1csSCJPaZktsfZySPMJEke+4RD//Z",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 512,
+                "bytes": 49731,
+                "src": "/images/diorhj25/site-2-1-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 1025,
+                "bytes": 158899,
+                "src": "/images/diorhj25/site-2-1-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1640,
+                "bytes": 332814,
+                "src": "/images/diorhj25/site-2-1-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 512,
+                "bytes": 79342,
+                "src": "/images/diorhj25/site-2-1-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 1025,
+                "bytes": 252880,
+                "src": "/images/diorhj25/site-2-1-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1640,
+                "bytes": 534258,
+                "src": "/images/diorhj25/site-2-1-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-2-2",
+          "source": "raw-v2/2-DIORHJ25/A METTRE SUR SITE/SITE_2.2.jpg",
+          "width": 5387,
+          "height": 3591,
+          "orientation": "landscape",
+          "aspectRatio": "5387:3591",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EAB4QAAEEAgMBAAAAAAAAAAAAAAEAAgMRBCITITFR/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAD/8QAFxEBAQEBAAAAAAAAAAAAAAAAAAESIf/aAAwDAQACEQMRAD8Ai5crXSNLCSa7Skuy0xd5aKdyIGcdgUQszk4jGwfEJmh8QrQP/9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 42016,
+                "src": "/images/diorhj25/site-2-2-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 146362,
+                "src": "/images/diorhj25/site-2-2-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 329787,
+                "src": "/images/diorhj25/site-2-2-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 66832,
+                "src": "/images/diorhj25/site-2-2-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 226950,
+                "src": "/images/diorhj25/site-2-2-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 518240,
+                "src": "/images/diorhj25/site-2-2-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-2-3",
+          "source": "raw-v2/2-DIORHJ25/A METTRE SUR SITE/SITE_2.3.jpg",
+          "width": 5568,
+          "height": 3712,
           "orientation": "landscape",
           "aspectRatio": "3:2",
           "belowMinWidth": false,
-          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAADBf/EACAQAAICAQMFAAAAAAAAAAAAAAECAAMEESEiEhMjQVH/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//EABURAQEAAAAAAAAAAAAAAAAAAAAh/9oADAMBAAIRAxEAPwDmvkKq9aMTrMkyltbynjH046GntkbfYfJwq0pYrsRJxWh2WhXIRuPqUPprKKDX/9k=",
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgb/xAAdEAACAgIDAQAAAAAAAAAAAAABAgARBBIDISIx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDnOJAUoD1cW6sGoipfhUSw1HUxlIFBaQtDoIRitY+QiH//2Q==",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 24408,
+                "src": "/images/diorhj25/site-2-3-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 76394,
+                "src": "/images/diorhj25/site-2-3-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 155405,
+                "src": "/images/diorhj25/site-2-3-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 39232,
+                "src": "/images/diorhj25/site-2-3-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 120190,
+                "src": "/images/diorhj25/site-2-3-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 241378,
+                "src": "/images/diorhj25/site-2-3-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-2-4",
+          "source": "raw-v2/2-DIORHJ25/A METTRE SUR SITE/SITE_2.4.jpg",
+          "width": 1440,
+          "height": 1800,
+          "orientation": "portrait",
+          "aspectRatio": "4:5",
+          "belowMinWidth": true,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAZABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEBf/EACAQAAICAgICAwAAAAAAAAAAAAECAAMRMSEiBBITMjP/xAAXAQADAQAAAAAAAAAAAAAAAAAAAgMB/8QAGBEBAAMBAAAAAAAAAAAAAAAAAAEREgL/2gAMAwEAAhEDEQA/AMEL8tuXBWKavWwk6mi6JY3UakjV2NeEx1J3J2rm0x8VmOQ3EJXbQyuQrcCEzQyrPA6cRDZ673GH2iWfpHmCc9SYEEZMIsIqlv/Z",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 800,
+                "bytes": 62452,
+                "src": "/images/diorhj25/site-2-4-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 1600,
+                "bytes": 160393,
+                "src": "/images/diorhj25/site-2-4-1280.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 800,
+                "bytes": 98472,
+                "src": "/images/diorhj25/site-2-4-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 1600,
+                "bytes": 245984,
+                "src": "/images/diorhj25/site-2-4-1280.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-2-5",
+          "source": "raw-v2/2-DIORHJ25/A METTRE SUR SITE/SITE_2.5.jpg",
+          "width": 1440,
+          "height": 1800,
+          "orientation": "portrait",
+          "aspectRatio": "4:5",
+          "belowMinWidth": true,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAZABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAf/EACEQAAIDAAAGAwAAAAAAAAAAAAECAAMRBBIhMTJxFSJR/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//EABcRAQEBAQAAAAAAAAAAAAAAAAABERL/2gAMAwEAAhEDEQA/AJCiNxTWL4zDyu3LmbHilmXTiye7avsOsy5aW6Pj6m6wmJxJKjAYRkfxzMSWRsH5I7LQagN2Pv8ACQHuPcuiHLU+DDghKR2HqEnA/9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 800,
+                "bytes": 44142,
+                "src": "/images/diorhj25/site-2-5-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 1600,
+                "bytes": 115881,
+                "src": "/images/diorhj25/site-2-5-1280.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 800,
+                "bytes": 71482,
+                "src": "/images/diorhj25/site-2-5-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 1600,
+                "bytes": 182554,
+                "src": "/images/diorhj25/site-2-5-1280.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-2-6",
+          "source": "raw-v2/2-DIORHJ25/A METTRE SUR SITE/SITE_2.6jpg.jpg",
+          "width": 8256,
+          "height": 5504,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDBAb/xAAfEAACAgEEAwAAAAAAAAAAAAAAAgERIQMEEjEUQVH/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/EABoRAAMAAwEAAAAAAAAAAAAAAAABAhESMVH/2gAMAwEAAhEDEQA/AOdRaz7L8nlcGTyH6wMu5ePgJdLhWk+luLT3dgLG61Ji5oA7V6LEn//Z",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 35967,
+                "src": "/images/diorhj25/site-2-6-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 128437,
+                "src": "/images/diorhj25/site-2-6-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 310902,
+                "src": "/images/diorhj25/site-2-6-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 55734,
+                "src": "/images/diorhj25/site-2-6-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 207656,
+                "src": "/images/diorhj25/site-2-6-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 515548,
+                "src": "/images/diorhj25/site-2-6-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-2-7",
+          "source": "raw-v2/2-DIORHJ25/A METTRE SUR SITE/SITE_2.7.jpg",
+          "width": 8018,
+          "height": 5345,
+          "orientation": "landscape",
+          "aspectRatio": "8018:5345",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAYCAwQF/8QAHhABAAICAgMBAAAAAAAAAAAAAQACAwQSIQUiMWH/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//EABYRAQEBAAAAAAAAAAAAAAAAAAAREv/aAAwDAQACEQMRAD8AVaa69LNWPxmax60Ufk6ujqYqhZOT+y/d2r4grQCTp5L99XhZrbpISWe1nKq9sIhf/9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 36964,
+                "src": "/images/diorhj25/site-2-7-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 130290,
+                "src": "/images/diorhj25/site-2-7-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 297312,
+                "src": "/images/diorhj25/site-2-7-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 61182,
+                "src": "/images/diorhj25/site-2-7-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 224148,
+                "src": "/images/diorhj25/site-2-7-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 520032,
+                "src": "/images/diorhj25/site-2-7-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-2-8",
+          "source": "raw-v2/2-DIORHJ25/A METTRE SUR SITE/SITE_2.8.jpg",
+          "width": 9520,
+          "height": 6336,
+          "orientation": "landscape",
+          "aspectRatio": "595:396",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIFBAb/xAAeEAACAgICAwAAAAAAAAAAAAABAgADESEEEhMUUf/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABcRAAMBAAAAAAAAAAAAAAAAAAABESH/2gAMAwEAAhEDEQA/AOcvrJswBqNVx0LYc6lv16reKrMu/snNWvkIGsQJuRDhiNKgkZhFsY9zCbpH/9k=",
           "variants": {
             "avif": [
               {
                 "width": 640,
                 "height": 426,
-                "bytes": 20620,
-                "src": "/images/antazero-x-kris-van-assche/dsc03624-640.avif"
+                "bytes": 33183,
+                "src": "/images/diorhj25/site-2-8-640.avif"
               },
               {
                 "width": 1280,
-                "height": 854,
-                "bytes": 67583,
-                "src": "/images/antazero-x-kris-van-assche/dsc03624-1280.avif"
+                "height": 852,
+                "bytes": 120471,
+                "src": "/images/diorhj25/site-2-8-1280.avif"
               },
               {
                 "width": 2048,
-                "height": 1365,
-                "bytes": 153520,
-                "src": "/images/antazero-x-kris-van-assche/dsc03624-2048.avif"
+                "height": 1363,
+                "bytes": 284105,
+                "src": "/images/diorhj25/site-2-8-2048.avif"
               }
             ],
             "webp": [
               {
                 "width": 640,
                 "height": 426,
-                "bytes": 32858,
-                "src": "/images/antazero-x-kris-van-assche/dsc03624-640.webp"
+                "bytes": 54310,
+                "src": "/images/diorhj25/site-2-8-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 852,
+                "bytes": 199070,
+                "src": "/images/diorhj25/site-2-8-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1363,
+                "bytes": 470786,
+                "src": "/images/diorhj25/site-2-8-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        }
+      ]
+    },
+    "nectar-vessels-by-kris-van-assche": {
+      "folder": "3-NECTAR VESSELS BY KRIS VAN ASSCHE",
+      "images": [
+        {
+          "id": "site-3-1",
+          "source": "raw-v2/3-NECTAR VESSELS BY KRIS VAN ASSCHE/A METTRE SUR SITE/SITE_3.1.jpg",
+          "width": 2560,
+          "height": 1708,
+          "orientation": "landscape",
+          "aspectRatio": "640:427",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQBBf/EAB0QAQACAgMBAQAAAAAAAAAAAAEAAgMRBBITIWH/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//EABgRAAMBAQAAAAAAAAAAAAAAAAABERMC/9oADAMBAAIRAxEAPwDi3L9w7H5MSzZ2myRet13uVcY9seRs/QgbhRc0FbP3ZEo4+GriFWIdEPNn/9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 42500,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-1-640.avif"
               },
               {
                 "width": 1280,
                 "height": 854,
-                "bytes": 104342,
-                "src": "/images/antazero-x-kris-van-assche/dsc03624-1280.webp"
+                "bytes": 138144,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-1-1280.avif"
               },
               {
                 "width": 2048,
-                "height": 1365,
-                "bytes": 234644,
-                "src": "/images/antazero-x-kris-van-assche/dsc03624-2048.webp"
+                "height": 1366,
+                "bytes": 280242,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-1-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 68244,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-1-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 854,
+                "bytes": 221072,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-1-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1366,
+                "bytes": 439244,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-1-2048.webp"
               }
             ]
           },
           "alt": ""
         },
         {
-          "id": "dsc03633",
-          "source": "ANTAZERO x KRIS VAN ASSCHE/DSC03633.jpg",
+          "id": "site-3-2",
+          "source": "raw-v2/3-NECTAR VESSELS BY KRIS VAN ASSCHE/A METTRE SUR SITE/SITE_3.2.jpg",
+          "width": 2560,
+          "height": 1708,
+          "orientation": "landscape",
+          "aspectRatio": "640:427",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUCAwb/xAAdEAABBAMBAQAAAAAAAAAAAAABAAIDEQQSISJR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQD/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAMAwEAAhEDEQA/AM3i4jJoS7uwV4wWBvoEGlDGmdFGQ36mUzy6JhoWR1BJzjC+XSEwa/UVqEJyrY//2Q==",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 23616,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-2-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 854,
+                "bytes": 74148,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-2-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1366,
+                "bytes": 155400,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-2-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 36068,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-2-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 854,
+                "bytes": 115272,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-2-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1366,
+                "bytes": 236160,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-2-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-3-3",
+          "source": "raw-v2/3-NECTAR VESSELS BY KRIS VAN ASSCHE/A METTRE SUR SITE/SITE_3.3.jpg",
+          "width": 2560,
+          "height": 1708,
+          "orientation": "landscape",
+          "aspectRatio": "640:427",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMBAgQF/8QAHhAAAgIBBQEAAAAAAAAAAAAAAQIAAxEEBRIhMVH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABYRAQEBAAAAAAAAAAAAAAAAAAEAEf/aAAwDAQACEQMRAD8A4TbZwOWOAYi+lBWCq47xma7nYOoLE9SzVK1Sk/YLIUV6XTCtc+47hHXoEcAecRCTrVhf/9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 25607,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-3-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 854,
+                "bytes": 76485,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-3-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1366,
+                "bytes": 144199,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-3-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 40070,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-3-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 854,
+                "bytes": 116686,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-3-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1366,
+                "bytes": 219874,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-3-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-3-4",
+          "source": "raw-v2/3-NECTAR VESSELS BY KRIS VAN ASSCHE/A METTRE SUR SITE/SITE_3.4.jpg",
+          "width": 2560,
+          "height": 1708,
+          "orientation": "landscape",
+          "aspectRatio": "640:427",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMFAQT/xAAgEAACAgEDBQAAAAAAAAAAAAABAgADBAUREhMUMVFx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAB/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQACEf/aAAwDAQACEQMRAD8Am5OGi2otTAgmIyNLRb+LPsT4EZcxS+kCbaTZnpyMLrswpuTidC4p6hOjUSe6b5CQ2Jf/2Q==",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 24191,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-4-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 854,
+                "bytes": 67825,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-4-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1366,
+                "bytes": 126725,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-4-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 36880,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-4-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 854,
+                "bytes": 105632,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-4-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1366,
+                "bytes": 198682,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-4-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-3-5",
+          "source": "raw-v2/3-NECTAR VESSELS BY KRIS VAN ASSCHE/A METTRE SUR SITE/SITE_3.5.jpg",
+          "width": 1708,
+          "height": 2560,
+          "orientation": "portrait",
+          "aspectRatio": "427:640",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAeABQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAIDBQQG/8QAHxAAAgICAwADAAAAAAAAAAAAAQIAAwQRISIxEkGB/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//EABkRAAMBAQEAAAAAAAAAAAAAAAABEQISMf/aAAwDAQACEQMRAD8A82tqmsKNiWqvUVqSNBT7HWqpsY7XsBwRIUIrqEJ++YRB6Lku11xcDgwne6Y9R+PvEJNGQpy1qrdCAdjQj49RbHZ1X9mYG37NbAyCuOatcN7I04a5VM6w9zttwlLqVFh1uEa0g4Z//9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 959,
+                "bytes": 68463,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-5-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 1919,
+                "bytes": 191775,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-5-1280.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 959,
+                "bytes": 106432,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-5-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 1919,
+                "bytes": 292132,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-5-1280.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-3-6",
+          "source": "raw-v2/3-NECTAR VESSELS BY KRIS VAN ASSCHE/A METTRE SUR SITE/SITE_3.6.jpg",
+          "width": 1707,
+          "height": 2560,
+          "orientation": "portrait",
+          "aspectRatio": "1707:2560",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAeABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAABQACBAH/xAAhEAACAgEEAgMAAAAAAAAAAAABAgADEQQFITESIjJBUf/EABYBAQEBAAAAAAAAAAAAAAAAAAIBA//EABgRAQEBAQEAAAAAAAAAAAAAAAABAiER/9oADAMBAAIRAxEAPwAXR7Yt/DNjA7nj7YD61tlszrPpSGrOCJrSeTV2uvyAhumkzOgL6jVaUPYlNaglrmLd5lKBDUXlAFU5E7NpYlLM/hg2WPJMY2hsBsiGzhShNQSb34+5RyyiouT4DuUfgv/Z",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 960,
+                "bytes": 44648,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-6-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 1920,
+                "bytes": 135365,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-6-1280.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 960,
+                "bytes": 74386,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-6-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 1920,
+                "bytes": 226180,
+                "src": "/images/nectar-vessels-by-kris-van-assche/site-3-6-1280.webp"
+              }
+            ]
+          },
+          "alt": ""
+        }
+      ]
+    },
+    "antazero-x-kris-van-assche": {
+      "folder": "4-ANTA ZERO X KRIS VAN ASSCHE",
+      "images": [
+        {
+          "id": "site-4-1",
+          "source": "raw-v2/4-ANTA ZERO X KRIS VAN ASSCHE/A METTRE SUR SITE/SITE_4.1.jpg",
+          "width": 7008,
+          "height": 4672,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQCAwX/xAAgEAACAgIBBQEAAAAAAAAAAAABAgAEAxESBRMhMUFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgP/xAAYEQEBAAMAAAAAAAAAAAAAAAAAIQIRUf/aAAwDAQACEQMRAD8Ax61xslcguQwj5OI1k0w5t7hU6fgNItrTD7K61RLCNyJBU+NQRSoviRG0c43+wiVmkFzMO40IoGsuv//Z",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 26357,
+                "src": "/images/antazero-x-kris-van-assche/site-4-1-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 77930,
+                "src": "/images/antazero-x-kris-van-assche/site-4-1-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 166740,
+                "src": "/images/antazero-x-kris-van-assche/site-4-1-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 45856,
+                "src": "/images/antazero-x-kris-van-assche/site-4-1-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 132494,
+                "src": "/images/antazero-x-kris-van-assche/site-4-1-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 272196,
+                "src": "/images/antazero-x-kris-van-assche/site-4-1-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-4-2",
+          "source": "raw-v2/4-ANTA ZERO X KRIS VAN ASSCHE/A METTRE SUR SITE/SITE_4.2.jpg",
+          "width": 6095,
+          "height": 4063,
+          "orientation": "landscape",
+          "aspectRatio": "6095:4063",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EAB4QAAICAgMBAQAAAAAAAAAAAAECAAMEERIxQSJR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAL/xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAMAwEAAhEDEQA/AMWvOZcdQp67jMXLqKu7p9+GQUV8622SNTVwcSq3FJI0f2TsXlQXO7vyBI3COsqCOVHkII//2Q==",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 426,
+                "bytes": 19878,
+                "src": "/images/antazero-x-kris-van-assche/site-4-2-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 61872,
+                "src": "/images/antazero-x-kris-van-assche/site-4-2-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 135754,
+                "src": "/images/antazero-x-kris-van-assche/site-4-2-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 426,
+                "bytes": 30800,
+                "src": "/images/antazero-x-kris-van-assche/site-4-2-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 94248,
+                "src": "/images/antazero-x-kris-van-assche/site-4-2-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 199618,
+                "src": "/images/antazero-x-kris-van-assche/site-4-2-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-4-3",
+          "source": "raw-v2/4-ANTA ZERO X KRIS VAN ASSCHE/A METTRE SUR SITE/SITE_4.3.jpg",
+          "width": 7008,
+          "height": 4672,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EAB8QAAEEAgIDAAAAAAAAAAAAAAEAAgMEERITQSEiUf/EABQBAQAAAAAAAAAAAAAAAAAAAAL/xAAWEQEBAQAAAAAAAAAAAAAAAAAAIRH/2gAMAwEAAhEDEQA/AJs7mxZ1JwFm2zHIAC9V7lOKGHTG2eykjRgbUkeG+wCEOkOeNpIH1CmknJ89oSHX/9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 22901,
+                "src": "/images/antazero-x-kris-van-assche/site-4-3-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 67533,
+                "src": "/images/antazero-x-kris-van-assche/site-4-3-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 137935,
+                "src": "/images/antazero-x-kris-van-assche/site-4-3-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 36758,
+                "src": "/images/antazero-x-kris-van-assche/site-4-3-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 102964,
+                "src": "/images/antazero-x-kris-van-assche/site-4-3-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 202076,
+                "src": "/images/antazero-x-kris-van-assche/site-4-3-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-4-4",
+          "source": "raw-v2/4-ANTA ZERO X KRIS VAN ASSCHE/A METTRE SUR SITE/SITE_4.4.jpg",
           "width": 7008,
           "height": 4672,
           "orientation": "landscape",
@@ -183,19 +1316,19 @@
                 "width": 640,
                 "height": 427,
                 "bytes": 26911,
-                "src": "/images/antazero-x-kris-van-assche/dsc03633-640.avif"
+                "src": "/images/antazero-x-kris-van-assche/site-4-4-640.avif"
               },
               {
                 "width": 1280,
                 "height": 853,
                 "bytes": 83279,
-                "src": "/images/antazero-x-kris-van-assche/dsc03633-1280.avif"
+                "src": "/images/antazero-x-kris-van-assche/site-4-4-1280.avif"
               },
               {
                 "width": 2048,
                 "height": 1365,
                 "bytes": 186870,
-                "src": "/images/antazero-x-kris-van-assche/dsc03633-2048.avif"
+                "src": "/images/antazero-x-kris-van-assche/site-4-4-2048.avif"
               }
             ],
             "webp": [
@@ -203,133 +1336,133 @@
                 "width": 640,
                 "height": 427,
                 "bytes": 44450,
-                "src": "/images/antazero-x-kris-van-assche/dsc03633-640.webp"
+                "src": "/images/antazero-x-kris-van-assche/site-4-4-640.webp"
               },
               {
                 "width": 1280,
                 "height": 853,
                 "bytes": 135308,
-                "src": "/images/antazero-x-kris-van-assche/dsc03633-1280.webp"
+                "src": "/images/antazero-x-kris-van-assche/site-4-4-1280.webp"
               },
               {
                 "width": 2048,
                 "height": 1365,
                 "bytes": 293312,
-                "src": "/images/antazero-x-kris-van-assche/dsc03633-2048.webp"
+                "src": "/images/antazero-x-kris-van-assche/site-4-4-2048.webp"
               }
             ]
           },
           "alt": ""
         },
         {
-          "id": "dsc03739",
-          "source": "ANTAZERO x KRIS VAN ASSCHE/DSC03739.jpg",
+          "id": "site-4-5",
+          "source": "raw-v2/4-ANTA ZERO X KRIS VAN ASSCHE/A METTRE SUR SITE/SITE_4.5.jpg",
           "width": 7008,
           "height": 4672,
           "orientation": "landscape",
           "aspectRatio": "3:2",
           "belowMinWidth": false,
-          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMFAf/EACAQAAICAQMFAAAAAAAAAAAAAAECAAMEBRFBEhMiIzH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAwDAQACEQMRAD8AlUX9pnO3Uh+R9LrkK3rETpeGMlmV3IA4EpXYq6fQz0kkkcw1ciA+nXM7FQAN4TXybSx8jCKX/9k=",
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EABwQAAICAwEBAAAAAAAAAAAAAAECAAMEBRFBIf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABgRAQEAAwAAAAAAAAAAAAAAABEAAQIh/9oADAMBAAIRAxEAPwBN9kiXEsSWm1WStmPZaVBYH5IYbo6QOyzqVW/GYOPYbeo9qmLYLqFcrzvkIzXiKiAKxAhJMjf/2Q==",
           "variants": {
             "avif": [
               {
                 "width": 640,
                 "height": 427,
-                "bytes": 13045,
-                "src": "/images/antazero-x-kris-van-assche/dsc03739-640.avif"
+                "bytes": 15898,
+                "src": "/images/antazero-x-kris-van-assche/site-4-5-640.avif"
               },
               {
                 "width": 1280,
                 "height": 853,
-                "bytes": 34807,
-                "src": "/images/antazero-x-kris-van-assche/dsc03739-1280.avif"
+                "bytes": 42674,
+                "src": "/images/antazero-x-kris-van-assche/site-4-5-1280.avif"
               },
               {
                 "width": 2048,
                 "height": 1365,
-                "bytes": 70004,
-                "src": "/images/antazero-x-kris-van-assche/dsc03739-2048.avif"
+                "bytes": 90998,
+                "src": "/images/antazero-x-kris-van-assche/site-4-5-2048.avif"
               }
             ],
             "webp": [
               {
                 "width": 640,
                 "height": 427,
-                "bytes": 20836,
-                "src": "/images/antazero-x-kris-van-assche/dsc03739-640.webp"
+                "bytes": 25026,
+                "src": "/images/antazero-x-kris-van-assche/site-4-5-640.webp"
               },
               {
                 "width": 1280,
                 "height": 853,
-                "bytes": 54724,
-                "src": "/images/antazero-x-kris-van-assche/dsc03739-1280.webp"
+                "bytes": 67150,
+                "src": "/images/antazero-x-kris-van-assche/site-4-5-1280.webp"
               },
               {
                 "width": 2048,
                 "height": 1365,
-                "bytes": 107780,
-                "src": "/images/antazero-x-kris-van-assche/dsc03739-2048.webp"
+                "bytes": 139502,
+                "src": "/images/antazero-x-kris-van-assche/site-4-5-2048.webp"
               }
             ]
           },
           "alt": ""
         },
         {
-          "id": "dsc03755",
-          "source": "ANTAZERO x KRIS VAN ASSCHE/DSC03755.jpg",
-          "width": 6488,
-          "height": 4325,
+          "id": "site-4-6",
+          "source": "raw-v2/4-ANTA ZERO X KRIS VAN ASSCHE/A METTRE SUR SITE/SITE_4.6.jpg",
+          "width": 7008,
+          "height": 4672,
           "orientation": "landscape",
-          "aspectRatio": "6488:4325",
+          "aspectRatio": "3:2",
           "belowMinWidth": false,
-          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAUGBP/EACAQAAIBAwQDAAAAAAAAAAAAAAECAAMEEgUGESETQVH/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAMAwEAAhEDEQA/AKBy2ZAHUxarVa2tfInRjbgRFuZylriPcVE++o3NVi2XEIvDn7CZyHa//9k=",
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEBf/EAB8QAAICAQQDAAAAAAAAAAAAAAECAAMRBBMxQRIVIf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AiGps20QsWZucxbXSq5V2wc9xtIgvZc/CO5p+vrZw7EkiBFaBkBxyISpLNtfEAECEkv/Z",
           "variants": {
             "avif": [
               {
                 "width": 640,
-                "height": 426,
-                "bytes": 15874,
-                "src": "/images/antazero-x-kris-van-assche/dsc03755-640.avif"
+                "height": 427,
+                "bytes": 16720,
+                "src": "/images/antazero-x-kris-van-assche/site-4-6-640.avif"
               },
               {
                 "width": 1280,
                 "height": 853,
-                "bytes": 41784,
-                "src": "/images/antazero-x-kris-van-assche/dsc03755-1280.avif"
+                "bytes": 48354,
+                "src": "/images/antazero-x-kris-van-assche/site-4-6-1280.avif"
               },
               {
                 "width": 2048,
                 "height": 1365,
-                "bytes": 75717,
-                "src": "/images/antazero-x-kris-van-assche/dsc03755-2048.avif"
+                "bytes": 104870,
+                "src": "/images/antazero-x-kris-van-assche/site-4-6-2048.avif"
               }
             ],
             "webp": [
               {
                 "width": 640,
-                "height": 426,
-                "bytes": 24926,
-                "src": "/images/antazero-x-kris-van-assche/dsc03755-640.webp"
+                "height": 427,
+                "bytes": 26706,
+                "src": "/images/antazero-x-kris-van-assche/site-4-6-640.webp"
               },
               {
                 "width": 1280,
                 "height": 853,
-                "bytes": 65980,
-                "src": "/images/antazero-x-kris-van-assche/dsc03755-1280.webp"
+                "bytes": 77218,
+                "src": "/images/antazero-x-kris-van-assche/site-4-6-1280.webp"
               },
               {
                 "width": 2048,
                 "height": 1365,
-                "bytes": 121614,
-                "src": "/images/antazero-x-kris-van-assche/dsc03755-2048.webp"
+                "bytes": 165802,
+                "src": "/images/antazero-x-kris-van-assche/site-4-6-2048.webp"
               }
             ]
           },
           "alt": ""
         },
         {
-          "id": "dsc03774",
-          "source": "ANTAZERO x KRIS VAN ASSCHE/DSC03774.jpg",
+          "id": "site-4-7",
+          "source": "raw-v2/4-ANTA ZERO X KRIS VAN ASSCHE/A METTRE SUR SITE/SITE_4.7.jpg",
           "width": 6603,
           "height": 4402,
           "orientation": "landscape",
@@ -342,19 +1475,19 @@
                 "width": 640,
                 "height": 427,
                 "bytes": 15622,
-                "src": "/images/antazero-x-kris-van-assche/dsc03774-640.avif"
+                "src": "/images/antazero-x-kris-van-assche/site-4-7-640.avif"
               },
               {
                 "width": 1280,
                 "height": 853,
                 "bytes": 46512,
-                "src": "/images/antazero-x-kris-van-assche/dsc03774-1280.avif"
+                "src": "/images/antazero-x-kris-van-assche/site-4-7-1280.avif"
               },
               {
                 "width": 2048,
                 "height": 1366,
                 "bytes": 93983,
-                "src": "/images/antazero-x-kris-van-assche/dsc03774-2048.avif"
+                "src": "/images/antazero-x-kris-van-assche/site-4-7-2048.avif"
               }
             ],
             "webp": [
@@ -362,19 +1495,19 @@
                 "width": 640,
                 "height": 427,
                 "bytes": 23804,
-                "src": "/images/antazero-x-kris-van-assche/dsc03774-640.webp"
+                "src": "/images/antazero-x-kris-van-assche/site-4-7-640.webp"
               },
               {
                 "width": 1280,
                 "height": 853,
                 "bytes": 74434,
-                "src": "/images/antazero-x-kris-van-assche/dsc03774-1280.webp"
+                "src": "/images/antazero-x-kris-van-assche/site-4-7-1280.webp"
               },
               {
                 "width": 2048,
                 "height": 1366,
                 "bytes": 147756,
-                "src": "/images/antazero-x-kris-van-assche/dsc03774-2048.webp"
+                "src": "/images/antazero-x-kris-van-assche/site-4-7-2048.webp"
               }
             ]
           },
@@ -382,12 +1515,16 @@
         }
       ]
     },
+    "villa-dior": {
+      "folder": "5-VILLA DIOR",
+      "images": []
+    },
     "bosideng": {
-      "folder": "BOSIDENG",
+      "folder": "6-BOSIDENG AREAL X KIM JONES",
       "images": [
         {
-          "id": "26-01-16-empty-shot-ld-productions-a743747",
-          "source": "BOSIDENG/26-01-16_Empty Shot LD Productions-_A743747.jpg",
+          "id": "site-6-2",
+          "source": "raw-v2/6-BOSIDENG AREAL X KIM JONES/A METTRE SUR SITE/SITE_6.2.jpg",
           "width": 2000,
           "height": 3000,
           "orientation": "portrait",
@@ -400,13 +1537,13 @@
                 "width": 640,
                 "height": 960,
                 "bytes": 40446,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743747-640.avif"
+                "src": "/images/bosideng/site-6-2-640.avif"
               },
               {
                 "width": 1280,
                 "height": 1920,
                 "bytes": 128408,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743747-1280.avif"
+                "src": "/images/bosideng/site-6-2-1280.avif"
               }
             ],
             "webp": [
@@ -414,127 +1551,74 @@
                 "width": 640,
                 "height": 960,
                 "bytes": 59548,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743747-640.webp"
+                "src": "/images/bosideng/site-6-2-640.webp"
               },
               {
                 "width": 1280,
                 "height": 1920,
                 "bytes": 201156,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743747-1280.webp"
+                "src": "/images/bosideng/site-6-2-1280.webp"
               }
             ]
           },
           "alt": ""
         },
         {
-          "id": "26-01-16-empty-shot-ld-productions-a743793",
-          "source": "BOSIDENG/26-01-16_Empty Shot LD Productions-_A743793.jpg",
+          "id": "site-6-3",
+          "source": "raw-v2/6-BOSIDENG AREAL X KIM JONES/A METTRE SUR SITE/SITE_6.3.jpg",
           "width": 3000,
           "height": 2000,
           "orientation": "landscape",
           "aspectRatio": "3:2",
           "belowMinWidth": false,
-          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EAB8QAAICAQQDAAAAAAAAAAAAAAECAAMEERIxQSEiUf/EABUBAQEAAAAAAAAAAAAAAAAAAAED/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAECExH/2gAMAwEAAhEDEQA/AM+nOdrSHPPAjjklWIfx8iMTHQX7+SJW6q7Hcok1ccLZ2RrnWaH27hGJTWoI29wirkM6P//Z",
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEBf/EAB4QAAICAQUBAAAAAAAAAAAAAAECABESAwQFISJB/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgED/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAR/9oADAMBAAIRAxEAPwCMb0uocpQuo243uCeUvLqPx+kuomLCwJHzKlHBU1XyHRctMQ2zHX22Qo3CLmz9sbMJYX//2Q==",
           "variants": {
             "avif": [
               {
                 "width": 640,
                 "height": 427,
-                "bytes": 22293,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743793-640.avif"
+                "bytes": 17116,
+                "src": "/images/bosideng/site-6-3-640.avif"
               },
               {
                 "width": 1280,
                 "height": 853,
-                "bytes": 66056,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743793-1280.avif"
+                "bytes": 52173,
+                "src": "/images/bosideng/site-6-3-1280.avif"
               },
               {
                 "width": 2048,
                 "height": 1365,
-                "bytes": 144068,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743793-2048.avif"
+                "bytes": 116833,
+                "src": "/images/bosideng/site-6-3-2048.avif"
               }
             ],
             "webp": [
               {
                 "width": 640,
                 "height": 427,
-                "bytes": 30638,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743793-640.webp"
+                "bytes": 23214,
+                "src": "/images/bosideng/site-6-3-640.webp"
               },
               {
                 "width": 1280,
                 "height": 853,
-                "bytes": 94118,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743793-1280.webp"
+                "bytes": 71314,
+                "src": "/images/bosideng/site-6-3-1280.webp"
               },
               {
                 "width": 2048,
                 "height": 1365,
-                "bytes": 213738,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743793-2048.webp"
+                "bytes": 173246,
+                "src": "/images/bosideng/site-6-3-2048.webp"
               }
             ]
           },
           "alt": ""
         },
         {
-          "id": "26-01-16-empty-shot-ld-productions-a743842",
-          "source": "BOSIDENG/26-01-16_Empty Shot LD Productions-_A743842.jpg",
-          "width": 3000,
-          "height": 2000,
-          "orientation": "landscape",
-          "aspectRatio": "3:2",
-          "belowMinWidth": false,
-          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAwX/xAAeEAABBAIDAQAAAAAAAAAAAAABAAIDEgQRBRMhYf/EABUBAQEAAAAAAAAAAAAAAAAAAAEA/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/AOXFwZkbvtA+KN+FXJ6bA+62t2SSUtc7UpLhNax2onmw+qQssChK+Rxd6doTA//Z",
-          "variants": {
-            "avif": [
-              {
-                "width": 640,
-                "height": 427,
-                "bytes": 15266,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743842-640.avif"
-              },
-              {
-                "width": 1280,
-                "height": 853,
-                "bytes": 44180,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743842-1280.avif"
-              },
-              {
-                "width": 2048,
-                "height": 1365,
-                "bytes": 80407,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743842-2048.avif"
-              }
-            ],
-            "webp": [
-              {
-                "width": 640,
-                "height": 427,
-                "bytes": 19236,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743842-640.webp"
-              },
-              {
-                "width": 1280,
-                "height": 853,
-                "bytes": 52128,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743842-1280.webp"
-              },
-              {
-                "width": 2048,
-                "height": 1365,
-                "bytes": 97172,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743842-2048.webp"
-              }
-            ]
-          },
-          "alt": ""
-        },
-        {
-          "id": "26-01-16-empty-shot-ld-productions-a743845",
-          "source": "BOSIDENG/26-01-16_Empty Shot LD Productions-_A743845.jpg",
+          "id": "site-6-4",
+          "source": "raw-v2/6-BOSIDENG AREAL X KIM JONES/A METTRE SUR SITE/SITE_6.4.jpg",
           "width": 3000,
           "height": 2000,
           "orientation": "landscape",
@@ -547,19 +1631,19 @@
                 "width": 640,
                 "height": 427,
                 "bytes": 20189,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743845-640.avif"
+                "src": "/images/bosideng/site-6-4-640.avif"
               },
               {
                 "width": 1280,
                 "height": 853,
                 "bytes": 73528,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743845-1280.avif"
+                "src": "/images/bosideng/site-6-4-1280.avif"
               },
               {
                 "width": 2048,
                 "height": 1365,
                 "bytes": 171285,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743845-2048.avif"
+                "src": "/images/bosideng/site-6-4-2048.avif"
               }
             ],
             "webp": [
@@ -567,27 +1651,27 @@
                 "width": 640,
                 "height": 427,
                 "bytes": 27332,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743845-640.webp"
+                "src": "/images/bosideng/site-6-4-640.webp"
               },
               {
                 "width": 1280,
                 "height": 853,
                 "bytes": 98634,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743845-1280.webp"
+                "src": "/images/bosideng/site-6-4-1280.webp"
               },
               {
                 "width": 2048,
                 "height": 1365,
                 "bytes": 231190,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743845-2048.webp"
+                "src": "/images/bosideng/site-6-4-2048.webp"
               }
             ]
           },
           "alt": ""
         },
         {
-          "id": "26-01-16-empty-shot-ld-productions-a743847",
-          "source": "BOSIDENG/26-01-16_Empty Shot LD Productions-_A743847.jpg",
+          "id": "site-6-5",
+          "source": "raw-v2/6-BOSIDENG AREAL X KIM JONES/A METTRE SUR SITE/SITE_6.5.jpg",
           "width": 3000,
           "height": 2000,
           "orientation": "landscape",
@@ -600,19 +1684,19 @@
                 "width": 640,
                 "height": 427,
                 "bytes": 10316,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743847-640.avif"
+                "src": "/images/bosideng/site-6-5-640.avif"
               },
               {
                 "width": 1280,
                 "height": 853,
                 "bytes": 29332,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743847-1280.avif"
+                "src": "/images/bosideng/site-6-5-1280.avif"
               },
               {
                 "width": 2048,
                 "height": 1365,
                 "bytes": 56118,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743847-2048.avif"
+                "src": "/images/bosideng/site-6-5-2048.avif"
               }
             ],
             "webp": [
@@ -620,19 +1704,72 @@
                 "width": 640,
                 "height": 427,
                 "bytes": 12300,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743847-640.webp"
+                "src": "/images/bosideng/site-6-5-640.webp"
               },
               {
                 "width": 1280,
                 "height": 853,
                 "bytes": 33682,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743847-1280.webp"
+                "src": "/images/bosideng/site-6-5-1280.webp"
               },
               {
                 "width": 2048,
                 "height": 1365,
                 "bytes": 66652,
-                "src": "/images/bosideng/26-01-16-empty-shot-ld-productions-a743847-2048.webp"
+                "src": "/images/bosideng/site-6-5-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-6-6",
+          "source": "raw-v2/6-BOSIDENG AREAL X KIM JONES/A METTRE SUR SITE/SITE_6.6.jpg",
+          "width": 3000,
+          "height": 2000,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EAB4QAAEEAgMBAAAAAAAAAAAAAAEAAhEhAwQSFDET/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAYEQACAwAAAAAAAAAAAAAAAAAAAQIREv/aAAwDAQACEQMRAD8Ayu6fpEeeqsbLSBFEpAwsLHOiyl4mxs8DYCJKyk6Ke+0VxmELJ2iWZ3BpqUIwh3I//9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 18514,
+                "src": "/images/bosideng/site-6-6-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 53276,
+                "src": "/images/bosideng/site-6-6-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 112262,
+                "src": "/images/bosideng/site-6-6-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 29262,
+                "src": "/images/bosideng/site-6-6-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 86642,
+                "src": "/images/bosideng/site-6-6-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 185582,
+                "src": "/images/bosideng/site-6-6-2048.webp"
               }
             ]
           },
@@ -640,16 +1777,507 @@
         }
       ]
     },
-    "dior-trunk-show": {
-      "folder": "DIOR TRUNK SHOW",
+    "erl-season-13": {
+      "folder": "7-ERL SEASON 13",
       "images": []
     },
-    "erl": {
-      "folder": "ERL 06 26",
+    "dior-trunk-show": {
+      "folder": "8-DIOR-TRUNK0226",
+      "images": []
+    },
+    "venetian-heritage": {
+      "folder": "9-VENETHIAN HERITAGE",
       "images": [
         {
-          "id": "26-06-27-erl-1",
-          "source": "ERL 06 26/26-06-27_ERL-1.jpg",
+          "id": "site-9-1",
+          "source": "raw-v2/9-VENETHIAN HERITAGE/A METTRE SUR SITE/SITE_9.1.jpg",
+          "width": 4910,
+          "height": 3274,
+          "orientation": "landscape",
+          "aspectRatio": "2455:1637",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQDBv/EAB0QAAIBBAMAAAAAAAAAAAAAAAECAAMREyExQVH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAA//EABcRAQEBAQAAAAAAAAAAAAAAAAAREgH/2gAMAwEAAhEDEQA/AObxkLqb00CqD3JUrNax3D1WAuDIzq9VZXHESHO/sRg0/9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 35246,
+                "src": "/images/venetian-heritage/site-9-1-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 854,
+                "bytes": 116195,
+                "src": "/images/venetian-heritage/site-9-1-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1366,
+                "bytes": 249153,
+                "src": "/images/venetian-heritage/site-9-1-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 55264,
+                "src": "/images/venetian-heritage/site-9-1-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 854,
+                "bytes": 184492,
+                "src": "/images/venetian-heritage/site-9-1-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1366,
+                "bytes": 392400,
+                "src": "/images/venetian-heritage/site-9-1-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-9-2",
+          "source": "raw-v2/9-VENETHIAN HERITAGE/A METTRE SUR SITE/SITE_9.2.jpg",
+          "width": 3905,
+          "height": 5857,
+          "orientation": "portrait",
+          "aspectRatio": "3905:5857",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAeABQDASIAAhEBAxEB/8QAGgAAAgIDAAAAAAAAAAAAAAAAAAMEBQECBv/EACEQAAICAgIBBQAAAAAAAAAAAAECAAMREgQxBRUhQVFh/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQIDAP/EABoRAAMBAAMAAAAAAAAAAAAAAAABEhETUWH/2gAMAwEAAhEDEQA/AOaq4W1BsJ6mKaFBJbqTV4zKFVdip7/JG5A1fVM4EhTZVoW1Fee4SbT41rqw4buEF+hx9DfUkbAUaj5jb+RxLKQETLfcoVM3Wxl6MaRtLyii5qwUyFhKyvyt9a6qfYQi8ZqR/9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 960,
+                "bytes": 29090,
+                "src": "/images/venetian-heritage/site-9-2-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 1920,
+                "bytes": 75679,
+                "src": "/images/venetian-heritage/site-9-2-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 3072,
+                "bytes": 180034,
+                "src": "/images/venetian-heritage/site-9-2-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 960,
+                "bytes": 46622,
+                "src": "/images/venetian-heritage/site-9-2-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 1920,
+                "bytes": 120228,
+                "src": "/images/venetian-heritage/site-9-2-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 3072,
+                "bytes": 275244,
+                "src": "/images/venetian-heritage/site-9-2-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-9-3",
+          "source": "raw-v2/9-VENETHIAN HERITAGE/A METTRE SUR SITE/SITE_9.3.jpg",
+          "width": 5877,
+          "height": 3918,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAQX/xAAeEAACAgICAwAAAAAAAAAAAAABAgADETESExQhUf/EABYBAQEBAAAAAAAAAAAAAAAAAAMAAv/EABkRAAIDAQAAAAAAAAAAAAAAAAABERIxQf/aAAwDAQACEQMRAD8A4VzhlwBse4lC83AbQka3P9j+Q40cQqvB0+ldyqthG4TKae2sOznJhMlJ/9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 426,
+                "bytes": 30056,
+                "src": "/images/venetian-heritage/site-9-3-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 107151,
+                "src": "/images/venetian-heritage/site-9-3-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 240490,
+                "src": "/images/venetian-heritage/site-9-3-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 426,
+                "bytes": 46526,
+                "src": "/images/venetian-heritage/site-9-3-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 165830,
+                "src": "/images/venetian-heritage/site-9-3-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 382708,
+                "src": "/images/venetian-heritage/site-9-3-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-9-4",
+          "source": "raw-v2/9-VENETHIAN HERITAGE/A METTRE SUR SITE/SITE_9.4.jpg",
+          "width": 5678,
+          "height": 3786,
+          "orientation": "landscape",
+          "aspectRatio": "2839:1893",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIEBQb/xAAbEAEAAwEBAQEAAAAAAAAAAAABAAIDEQQhIv/EABUBAQEAAAAAAAAAAAAAAAAAAAED/8QAGREBAAIDAAAAAAAAAAAAAAAAABESITFh/9oADAMBAAIRAxEAPwDOOK9rV7Gwq5X/AGIMnnkrTE0F7E9OJrmPU4SOdLQGvjeLb7CVOleWTrCNeiX/2Q==",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 33353,
+                "src": "/images/venetian-heritage/site-9-4-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 89902,
+                "src": "/images/venetian-heritage/site-9-4-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1366,
+                "bytes": 172931,
+                "src": "/images/venetian-heritage/site-9-4-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 50994,
+                "src": "/images/venetian-heritage/site-9-4-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 136658,
+                "src": "/images/venetian-heritage/site-9-4-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1366,
+                "bytes": 265270,
+                "src": "/images/venetian-heritage/site-9-4-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-9-5",
+          "source": "raw-v2/9-VENETHIAN HERITAGE/A METTRE SUR SITE/SITE_9.5.jpg",
+          "width": 6000,
+          "height": 4000,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAQP/xAAgEAACAgEDBQAAAAAAAAAAAAAAAQIREwMhQRIjMTJR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAP/xAAWEQEBAQAAAAAAAAAAAAAAAAAAERL/2gAMAwEAAhEDEQA/AICfep+p01HF6bdb8E/JK/JuST5JZW0ae7vpAWyy+gIV/9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 31537,
+                "src": "/images/venetian-heritage/site-9-5-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 109295,
+                "src": "/images/venetian-heritage/site-9-5-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 249567,
+                "src": "/images/venetian-heritage/site-9-5-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 48458,
+                "src": "/images/venetian-heritage/site-9-5-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 170750,
+                "src": "/images/venetian-heritage/site-9-5-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 389902,
+                "src": "/images/venetian-heritage/site-9-5-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        }
+      ]
+    },
+    "diorvhhj26": {
+      "folder": "10-DIORVHHJ26",
+      "images": [
+        {
+          "id": "site-10-1",
+          "source": "raw-v2/10-DIORVHHJ26/A METTRE SUR SITE/SITE_10.1jpg.jpg",
+          "width": 5476,
+          "height": 3650,
+          "orientation": "landscape",
+          "aspectRatio": "2738:1825",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAYEBf/EAB8QAAICAgEFAAAAAAAAAAAAAAECAAMEERIFEyFTkf/EABUBAQEAAAAAAAAAAAAAAAAAAAAD/8QAFhEBAQEAAAAAAAAAAAAAAAAAABES/9oADAMBAAIRAxEAPwCVGPY68kUkQuNeTrgfkqenrWlOhWJp2nrWS0tEWyFTojzE7+RRS1zHtiI0R//Z",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 426,
+                "bytes": 18912,
+                "src": "/images/diorvhhj26/site-10-1-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 57039,
+                "src": "/images/diorvhhj26/site-10-1-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 124847,
+                "src": "/images/diorvhhj26/site-10-1-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 426,
+                "bytes": 32332,
+                "src": "/images/diorvhhj26/site-10-1-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 96648,
+                "src": "/images/diorvhhj26/site-10-1-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 204658,
+                "src": "/images/diorvhhj26/site-10-1-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-10-2",
+          "source": "raw-v2/10-DIORVHHJ26/A METTRE SUR SITE/SITE_10.2.jpg",
+          "width": 5803,
+          "height": 7253,
+          "orientation": "portrait",
+          "aspectRatio": "5803:7253",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAZABQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAUBAgQDBv/EACAQAAICAQMFAAAAAAAAAAAAAAABAhEEEhMhAwUVIjH/xAAXAQEBAQEAAAAAAAAAAAAAAAABAAID/8QAFhEBAQEAAAAAAAAAAAAAAAAAABIB/9oADAMBAAIRAxEAPwDyEelcbbJ2k/jN8sV7bVUUhiSUlZinSS+UadAMZ4r1P1AqwRrrLuFxa0rllYZzjJSaujCSE4q0w8guW4rlgLgGcN6//9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 800,
+                "bytes": 17508,
+                "src": "/images/diorvhhj26/site-10-2-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 1600,
+                "bytes": 53012,
+                "src": "/images/diorvhhj26/site-10-2-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 2560,
+                "bytes": 111876,
+                "src": "/images/diorvhhj26/site-10-2-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 800,
+                "bytes": 27106,
+                "src": "/images/diorvhhj26/site-10-2-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 1600,
+                "bytes": 82862,
+                "src": "/images/diorvhhj26/site-10-2-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 2560,
+                "bytes": 175002,
+                "src": "/images/diorvhhj26/site-10-2-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-10-3",
+          "source": "raw-v2/10-DIORVHHJ26/A METTRE SUR SITE/SITE_10.3.jpg",
+          "width": 5867,
+          "height": 3911,
+          "orientation": "landscape",
+          "aspectRatio": "5867:3911",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMFBP/EAB4QAQACAgIDAQAAAAAAAAAAAAEAAgMREjEEEyFh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQP/xAAWEQEBAQAAAAAAAAAAAAAAAAAAERL/2gAMAwEAAhEDEQA/AINc3Gu17InNatvoaYjGtnTN2DxK2d2V/JKRZPaq9Qlvhioa9Ywjov/Z",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 426,
+                "bytes": 21299,
+                "src": "/images/diorvhhj26/site-10-3-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 64445,
+                "src": "/images/diorvhhj26/site-10-3-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 130119,
+                "src": "/images/diorvhhj26/site-10-3-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 426,
+                "bytes": 30144,
+                "src": "/images/diorvhhj26/site-10-3-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 93710,
+                "src": "/images/diorvhhj26/site-10-3-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 196100,
+                "src": "/images/diorvhhj26/site-10-3-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-10-4",
+          "source": "raw-v2/10-DIORVHHJ26/A METTRE SUR SITE/SITE_10.4.jpg",
+          "width": 5901,
+          "height": 3934,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAwb/xAAdEAACAwACAwAAAAAAAAAAAAABAgADEQQhEzFR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQP/xAAYEQEBAAMAAAAAAAAAAAAAAAAAAQIREv/aAAwDAQACEQMRAD8A5fjAI2th+SnXdW1LeRCWzqRlJM0FzhcB6krjtaGGB3ogQihdifcI8h//2Q==",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 426,
+                "bytes": 20688,
+                "src": "/images/diorvhhj26/site-10-4-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 54707,
+                "src": "/images/diorvhhj26/site-10-4-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 104239,
+                "src": "/images/diorvhhj26/site-10-4-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 426,
+                "bytes": 30286,
+                "src": "/images/diorvhhj26/site-10-4-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 82674,
+                "src": "/images/diorvhhj26/site-10-4-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 160056,
+                "src": "/images/diorvhhj26/site-10-4-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        }
+      ]
+    },
+    "erl": {
+      "folder": "11-ERL SEASON 14",
+      "images": [
+        {
+          "id": "site-11-1",
+          "source": "raw-v2/11-ERL SEASON 14/A METTRE SUR SITE/SITE_11.1.jpg",
           "width": 3000,
           "height": 2000,
           "orientation": "landscape",
@@ -662,19 +2290,19 @@
                 "width": 640,
                 "height": 427,
                 "bytes": 19189,
-                "src": "/images/erl/26-06-27-erl-1-640.avif"
+                "src": "/images/erl/site-11-1-640.avif"
               },
               {
                 "width": 1280,
                 "height": 853,
                 "bytes": 53898,
-                "src": "/images/erl/26-06-27-erl-1-1280.avif"
+                "src": "/images/erl/site-11-1-1280.avif"
               },
               {
                 "width": 2048,
                 "height": 1365,
                 "bytes": 109131,
-                "src": "/images/erl/26-06-27-erl-1-2048.avif"
+                "src": "/images/erl/site-11-1-2048.avif"
               }
             ],
             "webp": [
@@ -682,229 +2310,278 @@
                 "width": 640,
                 "height": 427,
                 "bytes": 25978,
-                "src": "/images/erl/26-06-27-erl-1-640.webp"
+                "src": "/images/erl/site-11-1-640.webp"
               },
               {
                 "width": 1280,
                 "height": 853,
                 "bytes": 75786,
-                "src": "/images/erl/26-06-27-erl-1-1280.webp"
+                "src": "/images/erl/site-11-1-1280.webp"
               },
               {
                 "width": 2048,
                 "height": 1365,
                 "bytes": 158198,
-                "src": "/images/erl/26-06-27-erl-1-2048.webp"
+                "src": "/images/erl/site-11-1-2048.webp"
               }
             ]
           },
           "alt": ""
         },
         {
-          "id": "26-06-27-erl-15",
-          "source": "ERL 06 26/26-06-27_ERL-15.jpg",
-          "width": 3000,
-          "height": 2000,
-          "orientation": "landscape",
-          "aspectRatio": "3:2",
-          "belowMinWidth": false,
-          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUBAgME/8QAIRAAAQQBAwUAAAAAAAAAAAAAAQACAxEhEhMxBBQyQWH/xAAXAQADAQAAAAAAAAAAAAAAAAABAgMF/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAESAhH/2gAMAwEAAhEDEQA/AOWCIQx6h5+vipM6XqX1K4uITDQHsA4USwN2rGCEsmtqnoW9kDm0LTdIxXCEOMm6P//Z",
-          "variants": {
-            "avif": [
-              {
-                "width": 640,
-                "height": 427,
-                "bytes": 25268,
-                "src": "/images/erl/26-06-27-erl-15-640.avif"
-              },
-              {
-                "width": 1280,
-                "height": 853,
-                "bytes": 70983,
-                "src": "/images/erl/26-06-27-erl-15-1280.avif"
-              },
-              {
-                "width": 2048,
-                "height": 1365,
-                "bytes": 137109,
-                "src": "/images/erl/26-06-27-erl-15-2048.avif"
-              }
-            ],
-            "webp": [
-              {
-                "width": 640,
-                "height": 427,
-                "bytes": 34022,
-                "src": "/images/erl/26-06-27-erl-15-640.webp"
-              },
-              {
-                "width": 1280,
-                "height": 853,
-                "bytes": 96488,
-                "src": "/images/erl/26-06-27-erl-15-1280.webp"
-              },
-              {
-                "width": 2048,
-                "height": 1365,
-                "bytes": 186284,
-                "src": "/images/erl/26-06-27-erl-15-2048.webp"
-              }
-            ]
-          },
-          "alt": ""
-        },
-        {
-          "id": "26-06-27-erl-23",
-          "source": "ERL 06 26/26-06-27_ERL-23.jpg",
-          "width": 3000,
-          "height": 2000,
-          "orientation": "landscape",
-          "aspectRatio": "3:2",
-          "belowMinWidth": false,
-          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUCAwT/xAAfEAACAgIBBQAAAAAAAAAAAAABAgADBBFBEyEiMYH/xAAXAQADAQAAAAAAAAAAAAAAAAAAAgQF/8QAGREAAgMBAAAAAAAAAAAAAAAAAAECERIT/9oADAMBAAIRAxEAPwBfiUqNl/kptqJfz59RjYAlQAEldQgpD8kRcmpOTtpCvpIvbUJrTDUrssYQon6s/9k=",
-          "variants": {
-            "avif": [
-              {
-                "width": 640,
-                "height": 427,
-                "bytes": 25733,
-                "src": "/images/erl/26-06-27-erl-23-640.avif"
-              },
-              {
-                "width": 1280,
-                "height": 853,
-                "bytes": 71117,
-                "src": "/images/erl/26-06-27-erl-23-1280.avif"
-              },
-              {
-                "width": 2048,
-                "height": 1365,
-                "bytes": 138125,
-                "src": "/images/erl/26-06-27-erl-23-2048.avif"
-              }
-            ],
-            "webp": [
-              {
-                "width": 640,
-                "height": 427,
-                "bytes": 34926,
-                "src": "/images/erl/26-06-27-erl-23-640.webp"
-              },
-              {
-                "width": 1280,
-                "height": 853,
-                "bytes": 98038,
-                "src": "/images/erl/26-06-27-erl-23-1280.webp"
-              },
-              {
-                "width": 2048,
-                "height": 1365,
-                "bytes": 191796,
-                "src": "/images/erl/26-06-27-erl-23-2048.webp"
-              }
-            ]
-          },
-          "alt": ""
-        },
-        {
-          "id": "26-06-27-erl-38",
-          "source": "ERL 06 26/26-06-27_ERL-38.jpg",
-          "width": 3000,
-          "height": 2000,
-          "orientation": "landscape",
-          "aspectRatio": "3:2",
-          "belowMinWidth": false,
-          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFAv/EAB8QAAIBBAIDAAAAAAAAAAAAAAECAAMEEiEFESJhcf/EABYBAQEBAAAAAAAAAAAAAAAAAAIBBf/EABgRAAMBAQAAAAAAAAAAAAAAAAABEhEx/9oADAMBAAIRAxEAPwCbb0AUzI0IYF2IXx9R3j+jQAIBm7impfQx+QSbT3iJDUkDEE7hHHtUyhLIJZ//2Q==",
-          "variants": {
-            "avif": [
-              {
-                "width": 640,
-                "height": 427,
-                "bytes": 19101,
-                "src": "/images/erl/26-06-27-erl-38-640.avif"
-              },
-              {
-                "width": 1280,
-                "height": 853,
-                "bytes": 53265,
-                "src": "/images/erl/26-06-27-erl-38-1280.avif"
-              },
-              {
-                "width": 2048,
-                "height": 1365,
-                "bytes": 103564,
-                "src": "/images/erl/26-06-27-erl-38-2048.avif"
-              }
-            ],
-            "webp": [
-              {
-                "width": 640,
-                "height": 427,
-                "bytes": 24378,
-                "src": "/images/erl/26-06-27-erl-38-640.webp"
-              },
-              {
-                "width": 1280,
-                "height": 853,
-                "bytes": 68442,
-                "src": "/images/erl/26-06-27-erl-38-1280.webp"
-              },
-              {
-                "width": 2048,
-                "height": 1365,
-                "bytes": 138110,
-                "src": "/images/erl/26-06-27-erl-38-2048.webp"
-              }
-            ]
-          },
-          "alt": ""
-        },
-        {
-          "id": "26-06-27-erl-67",
-          "source": "ERL 06 26/26-06-27_ERL-67.jpg",
+          "id": "site-11-2",
+          "source": "raw-v2/11-ERL SEASON 14/A METTRE SUR SITE/SITE_11.2.jpg",
           "width": 2000,
           "height": 3000,
           "orientation": "portrait",
           "aspectRatio": "2:3",
           "belowMinWidth": false,
-          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAeABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMFAgT/xAAiEAACAgIBAwUAAAAAAAAAAAABAgADBBESBhMhFCJBUWH/xAAYAQADAQEAAAAAAAAAAAAAAAABAgMABf/EABsRAAIDAAMAAAAAAAAAAAAAAAABAgMREhNB/9oADAMBAAIRAxEAPwCbh5TYlocAE/srXdQPbVwCDyNSSDU7EE+RALUzaB8yeNHXbrk9kN9JZb7xoAwmGrdDoORCDCnaZx8BnYnlv7je1RS29nlK9VCUIeI+JFuUveVB1sx3qQsK4eI66e3YnIiEfRhqtQBO4TJBfHT/2Q==",
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUCAwQB/8QAIBAAAgICAgIDAAAAAAAAAAAAAQIAAwQhERITFDJCYf/EABYBAQEBAAAAAAAAAAAAAAAAAAMCBf/EABwRAAEEAwEAAAAAAAAAAAAAAAABAhESEyFRA//aAAwDAQACEQMRAD8AVva9u9mQ8LkcmNkqT1+EAIEouAqII2sJNmtmSNmIY0JJs9QxAWESikZ2myrIQoF6nsZywM1Zr6mWV0BKDZ9gdSNeUz5KoR8pLWRsK7bRAvOAxOwYR+aP2EWV6Nj8+H//2Q==",
           "variants": {
             "avif": [
               {
                 "width": 640,
                 "height": 960,
-                "bytes": 35168,
-                "src": "/images/erl/26-06-27-erl-67-640.avif"
+                "bytes": 39641,
+                "src": "/images/erl/site-11-2-640.avif"
               },
               {
                 "width": 1280,
                 "height": 1920,
-                "bytes": 88597,
-                "src": "/images/erl/26-06-27-erl-67-1280.avif"
+                "bytes": 92895,
+                "src": "/images/erl/site-11-2-1280.avif"
               }
             ],
             "webp": [
               {
                 "width": 640,
                 "height": 960,
-                "bytes": 41728,
-                "src": "/images/erl/26-06-27-erl-67-640.webp"
+                "bytes": 55900,
+                "src": "/images/erl/site-11-2-640.webp"
               },
               {
                 "width": 1280,
                 "height": 1920,
-                "bytes": 119390,
-                "src": "/images/erl/26-06-27-erl-67-1280.webp"
+                "bytes": 135790,
+                "src": "/images/erl/site-11-2-1280.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-11-3",
+          "source": "raw-v2/11-ERL SEASON 14/A METTRE SUR SITE/SITE_11.3.jpg",
+          "width": 3000,
+          "height": 2000,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EAB8QAAEDBQADAAAAAAAAAAAAAAEAAgMEERIhIgVRYf/EABYBAQEBAAAAAAAAAAAAAAAAAAIDBf/EABgRAQEBAQEAAAAAAAAAAAAAAAEAAhFR/9oADAMBAAIRAxEAPwCc6OPHK4W1GxrZg++glpgBA0fU742MOY7Ldghy1TbpfJmeppTJ3soUmTqRxPtCXaK6G//Z",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 22726,
+                "src": "/images/erl/site-11-3-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 55146,
+                "src": "/images/erl/site-11-3-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 97386,
+                "src": "/images/erl/site-11-3-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 30162,
+                "src": "/images/erl/site-11-3-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 74036,
+                "src": "/images/erl/site-11-3-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 139632,
+                "src": "/images/erl/site-11-3-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-11-4",
+          "source": "raw-v2/11-ERL SEASON 14/A METTRE SUR SITE/SITE_11.4.jpg",
+          "width": 3000,
+          "height": 2000,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMFBP/EABwQAAIDAQEBAQAAAAAAAAAAAAECAAMRBCEiMf/EABcBAAMBAAAAAAAAAAAAAAAAAAECAwX/xAAYEQEAAwEAAAAAAAAAAAAAAAAAAhESYf/aAAwDAQACEQMRAD8Ak1VEBSsb00lmXzNE18yqijzYzqP2owZkTLalxIapFOH9hHW1A2EwhynUn//Z",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 15981,
+                "src": "/images/erl/site-11-4-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 42743,
+                "src": "/images/erl/site-11-4-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 82965,
+                "src": "/images/erl/site-11-4-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 19256,
+                "src": "/images/erl/site-11-4-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 54034,
+                "src": "/images/erl/site-11-4-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 107446,
+                "src": "/images/erl/site-11-4-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-11-5",
+          "source": "raw-v2/11-ERL SEASON 14/A METTRE SUR SITE/SITE_11.5.jpg",
+          "width": 3000,
+          "height": 2000,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMFAQT/xAAeEAABBAIDAQAAAAAAAAAAAAABAAIDEgQhETFBYf/EABcBAAMBAAAAAAAAAAAAAAAAAAECAwX/xAAYEQEAAwEAAAAAAAAAAAAAAAAAERIhQf/aAAwDAQACEQMRAD8AmYks+O0iJ5APYWSwXbf31PwgDI7kaCZLoP8AqSrZzifVjdIXPITc7QihL//Z",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 13917,
+                "src": "/images/erl/site-11-5-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 34639,
+                "src": "/images/erl/site-11-5-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 64569,
+                "src": "/images/erl/site-11-5-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 17610,
+                "src": "/images/erl/site-11-5-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 45318,
+                "src": "/images/erl/site-11-5-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 86222,
+                "src": "/images/erl/site-11-5-2048.webp"
+              }
+            ]
+          },
+          "alt": ""
+        },
+        {
+          "id": "site-11-6",
+          "source": "raw-v2/11-ERL SEASON 14/A METTRE SUR SITE/SITE_11.6.jpg",
+          "width": 3000,
+          "height": 2000,
+          "orientation": "landscape",
+          "aspectRatio": "3:2",
+          "belowMinWidth": false,
+          "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAf/EAB0QAAICAgMBAAAAAAAAAAAAAAECABEDMQQSIUH/xAAVAQEBAAAAAAAAAAAAAAAAAAADBf/EABkRAAIDAQAAAAAAAAAAAAAAAAABAhIxE//aAAwDAQACEQMRAD8AmPGUaq5P1RnIO43vQ1MxYldj8hrSvzktEtgo+MISg8Zb2YRKh1Z//9k=",
+          "variants": {
+            "avif": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 29180,
+                "src": "/images/erl/site-11-6-640.avif"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 78992,
+                "src": "/images/erl/site-11-6-1280.avif"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 158566,
+                "src": "/images/erl/site-11-6-2048.avif"
+              }
+            ],
+            "webp": [
+              {
+                "width": 640,
+                "height": 427,
+                "bytes": 35982,
+                "src": "/images/erl/site-11-6-640.webp"
+              },
+              {
+                "width": 1280,
+                "height": 853,
+                "bytes": 104048,
+                "src": "/images/erl/site-11-6-1280.webp"
+              },
+              {
+                "width": 2048,
+                "height": 1365,
+                "bytes": 214784,
+                "src": "/images/erl/site-11-6-2048.webp"
               }
             ]
           },
           "alt": ""
         }
       ]
-    },
-    "villa-dior": {
-      "folder": "VILLA DIOR",
-      "images": []
     }
   }
 }

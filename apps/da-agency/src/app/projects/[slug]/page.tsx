@@ -2,14 +2,16 @@
  * §3.3 étapes 3 et 4 — fiche projet, les trois états du catalogue.
  *
  *   film + galerie   AREAL KIM JONES
- *   film seul        DIOR TRUNK SHOW, VILLA DIOR    -> aucune section galerie
- *   galerie seule    ANTAZERO, ERL SEASON 14        -> aucun lecteur
+ *   film seul        DIOR TRUNK SHOW, VILLA DIOR, ERL SEASON 13  -> aucune section galerie
+ *   galerie seule    les 7 autres                                -> aucun lecteur
  *
- * Deux traitements de galerie coexistent, déclarés dans le contenu :
- * `grid` (cellules 3:2) et `sequential` (plein cadre, réservé à Antazero).
+ * La galerie a un seul traitement, la grille de cellules. Antazero a eu un
+ * temps un plein cadre séquentiel ; il a été retiré à la demande de la cliente,
+ * qui veut le même rendu qu'ERL sur tout le catalogue.
  *
  * Le quatrième état du brief, « aucun asset exploitable », n'a plus de sujet :
- * Kris Van Assche a été retiré du catalogue le 19/08.
+ * Nectar Vessels, retiré le 19/08 pour ses sources à 533 px, est revenu avec
+ * la v2 à 2560 px.
  *
  * Aucune de ces trois formes n'est un cas particulier dans le rendu. Une
  * section absente n'est pas une section vide : elle n'est pas rendue.
@@ -17,11 +19,13 @@
 
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import type { CSSProperties } from 'react';
 
 import { getProject, projects, type Image, type ImageFormat, type Project } from '@content/projects';
+import { ui } from '@content/ui';
 import { ProjectVideo } from '@/components/ProjectVideo';
 
-// Les 5 projets du catalogue sont générés. Un slug inconnu renvoie 404 plutôt
+// Les 11 projets du catalogue sont générés. Un slug inconnu renvoie 404 plutôt
 // que d'être rendu à la demande.
 export const dynamicParams = false;
 
@@ -46,20 +50,16 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
  */
 const VIDEO_SIZES = '(min-width: 1200px) 1152px, 100vw';
 const GALLERY_SIZES = '(min-width: 1200px) 576px, (min-width: 768px) 50vw, 100vw';
-/** La galerie séquentielle sort du conteneur : chaque image occupe la fenêtre. */
-const SEQUENTIAL_SIZES = '100vw';
 
 function ProjectImage({
   image,
   sizes,
   priority = false,
-  className = 'h-full w-full object-cover',
 }: {
   image: Image;
   sizes: string;
   /** Vrai pour la seule image visible au chargement : elle ne doit pas être différée. */
   priority?: boolean;
-  className?: string;
 }) {
   const srcSet = (format: ImageFormat) =>
     image.sources
@@ -81,13 +81,12 @@ function ProjectImage({
         loading={priority ? 'eager' : 'lazy'}
         fetchPriority={priority ? 'high' : undefined}
         decoding={priority ? 'sync' : 'async'}
-        className={className}
+        className="h-full w-full object-cover"
         style={{ backgroundImage: `url(${image.lqip})`, backgroundSize: 'cover' }}
       />
     </picture>
   );
 }
-
 
 function ProjectGallery({ gallery }: { gallery: Image[] }) {
   // [] est un état nominal ailleurs dans le catalogue : on ne rend pas une
@@ -99,13 +98,22 @@ function ProjectGallery({ gallery }: { gallery: Image[] }) {
       {gallery.map((image, index) => (
         <li
           key={image.src}
-          // Le corpus est en 3:2 strict. Un portrait dans une cellule paysage
-          // perdrait son sujet : il occupe deux rangs, ce qui ne lui coûte
-          // qu'un recadrage marginal en haut et en bas.
+          // Le corpus n'est plus en 3:2 strict : la v2 apporte cinq 4:5 et un
+          // 5:4 (docs/inventory-v2.md). Deux régimes, décidés en direction
+          // artistique le 04/09 :
+          //   - colonne unique mobile : le ratio natif de l'image. Rien n'a à
+          //     s'aligner horizontalement, et un 4:5 forcé en 2:3 perdrait 17 %
+          //     de sa largeur ;
+          //   - grille à partir de md : cellule 3:2 pour les paysages, deux rangs
+          //     (soit 3:4) pour les portraits. Un 4:5 n'y perd que 6 %, un 2:3
+          //     en perd 11 % — le sujet reste entier. Le seul 5:4 (SITE_2.1) perd
+          //     17 % de hauteur en cellule 3:2 ; accepté en galerie, refusé en
+          //     couverture d'accueil, où une autre photo est choisie.
+          style={{ '--native-ratio': `${image.width} / ${image.height}` } as CSSProperties}
           className={
             image.orientation === 'portrait'
-              ? 'relative aspect-[2/3] overflow-hidden bg-neutral-100 md:row-span-2 md:aspect-auto md:h-full'
-              : 'relative aspect-[3/2] overflow-hidden bg-neutral-100'
+              ? 'relative aspect-[var(--native-ratio)] overflow-hidden bg-neutral-100 dark:bg-neutral-800 md:row-span-2 md:aspect-auto md:h-full'
+              : 'relative aspect-[var(--native-ratio)] overflow-hidden bg-neutral-100 dark:bg-neutral-800 md:aspect-[3/2]'
           }
         >
           <ProjectImage image={image} sizes={GALLERY_SIZES} priority={index === 0} />
@@ -115,50 +123,32 @@ function ProjectGallery({ gallery }: { gallery: Image[] }) {
   );
 }
 
-/**
- * Plein cadre séquentiel, réservé à Antazero.
- *
- * Les images gardent leur ratio 3:2 natif sur toute la largeur de la fenêtre :
- * à 6800 px de source, elles supportent l'agrandissement, et ne pas recadrer
- * est justement ce qui motive ce traitement plutôt que la grille.
- *
- * Le palier maximal du pipeline est 2048 px : au-delà d'une fenêtre de 2048 px
- * le navigateur étire la plus grande variante. C'est le compromis de poids
- * arrêté en Phase 2, pas un oubli.
- */
-function SequentialGallery({ gallery }: { gallery: Image[] }) {
-  if (gallery.length === 0) return null;
-
-  return (
-    <div className="space-y-2 md:space-y-4">
-      {gallery.map((image, index) => (
-        <figure key={image.src} className="relative w-full bg-neutral-100">
-          <ProjectImage
-            image={image}
-            sizes={SEQUENTIAL_SIZES}
-            priority={index === 0}
-            className="h-auto w-full"
-          />
-        </figure>
-      ))}
-    </div>
-  );
-}
-
 function ProjectHeader({ project }: { project: Project }) {
-  // client, année et type sont fournis ; lieu et description ne le sont pas et
-  // ne sont donc pas rendus — pas de ligne vide, pas de placeholder.
-  const meta = [project.client, String(project.year), project.eventType];
+  // Année et type sont toujours fournis ; le client manque sur six projets de
+  // la v2, lieu et description partout. Un champ absent n'est pas rendu — pas
+  // de ligne vide, pas de séparateur orphelin, pas de placeholder.
+  const meta = [project.client, String(project.year), project.eventType].filter(
+    (value): value is string => Boolean(value)
+  );
 
   return (
     <header className="mb-8 md:mb-12">
       <h1 className="text-3xl font-semibold tracking-tight md:text-5xl">{project.title}</h1>
-      <p className="mt-3 text-sm uppercase tracking-widest text-neutral-500">
+      <p className="mt-3 text-sm uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
         {meta.join(' · ')}
       </p>
-      {project.location && <p className="mt-2 text-neutral-600">{project.location}</p>}
+      {/* Crédits photographes, en ligne discrète sous les métadonnées : un cran
+          plus petit et plus clair, pour ne pas concurrencer le client et l'année. */}
+      {project.credits && (
+        <p className="mt-2 text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500">
+          {ui.project.photoCredits} · {project.credits}
+        </p>
+      )}
+      {project.location && (
+        <p className="mt-2 text-neutral-600 dark:text-neutral-300">{project.location}</p>
+      )}
       {project.description && (
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-700">
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-700 dark:text-neutral-300">
           {project.description}
         </p>
       )}
@@ -169,8 +159,6 @@ function ProjectHeader({ project }: { project: Project }) {
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = getProject(params.slug);
   if (!project) notFound();
-
-  const sequential = project.galleryLayout === 'sequential';
 
   return (
     <article className="pb-12 md:pb-20">
@@ -192,15 +180,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           />
         )}
 
-        {!sequential && <ProjectGallery gallery={project.gallery} />}
+        <ProjectGallery gallery={project.gallery} />
       </div>
-
-      {/* Hors conteneur : le plein cadre occupe toute la largeur de la fenêtre. */}
-      {sequential && (
-        <div className="mt-10 md:mt-16">
-          <SequentialGallery gallery={project.gallery} />
-        </div>
-      )}
     </article>
   );
 }
