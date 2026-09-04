@@ -19,3 +19,19 @@
 export type SiteTheme = 'A' | 'B';
 
 export const SITE_THEME: SiteTheme = 'A';
+
+/**
+ * Forme du logo dans l'en-tête, deux variantes préparées le 04/09 pour
+ * arbitrage :
+ *
+ *   monogram            le monogramme seul, le nom en Bodoni disparaît
+ *   monogram-and-name   monogramme et nom côte à côte
+ *
+ * L'en-tête est sombre dans les deux thèmes, comme le pied de page et pour la
+ * même raison : le monogramme #C0D3BF fait 1,58:1 sur blanc et 11,4:1 sur
+ * neutral-900. En thème A, en-tête et pied de page encadrent ainsi la page
+ * claire de deux bandes sombres de même couleur.
+ */
+export type HeaderLogo = 'monogram' | 'monogram-and-name';
+
+export const HEADER_LOGO: HeaderLogo = 'monogram-and-name';

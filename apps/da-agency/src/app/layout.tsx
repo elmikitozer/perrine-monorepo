@@ -3,8 +3,9 @@ import { Archivo, Bodoni_Moda } from 'next/font/google';
 import Link from 'next/link';
 import './globals.css';
 
+import { site } from '@content/site';
 import { SiteFooter } from '@/components/SiteFooter';
-import { SITE_THEME } from '@/config/theme';
+import { HEADER_LOGO, SITE_THEME } from '@/config/theme';
 
 /**
  * Paire typographique.
@@ -61,27 +62,49 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={`${display.variable} ${sans.variable} font-sans min-h-screen flex flex-col bg-white text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100`}
       >
         {/*
-          L'en-tête garde le nom en logotype, pas le monogramme : le logo reçu
-          est carré et ne se lit que sur fond sombre, il vit au pied de page. Le
-          nom est traité en didone, capitales, interlettrage très ouvert et
-          graisse moyenne, pour que les déliés du Bodoni tiennent à cette échelle
-          sans disparaître.
+          En-tête sombre dans les deux thèmes, comme le pied de page : c'est la
+          seule façon de poser le monogramme #C0D3BF sans le recolorer (voir
+          src/config/theme.ts). Le monogramme fait 40 px, un cran sous les 48 px
+          du pied de page, pour que la bande reste mince au-dessus des photos.
+
+          Le nom, quand il est rendu (HEADER_LOGO), reste en logotype : didone,
+          capitales, interlettrage très ouvert et graisse moyenne, pour que les
+          déliés du Bodoni tiennent à cette échelle sans disparaître. Sans lui,
+          c'est l'alt du monogramme qui nomme le lien d'accueil.
 
           Le Header et le Footer de @perrine/ui ont été retirés : ils portaient
           le nom d'un autre projet et une navigation en français. Le pied de
           page du site vit dans src/components/SiteFooter.tsx.
         */}
-        <header className="flex items-baseline justify-between px-3 py-6 md:px-4 md:py-8">
-          <Link
-            href="/"
-            className="font-display text-[15px] font-medium uppercase leading-none tracking-[0.34em] transition-opacity hover:opacity-60 md:text-[18px]"
-          >
-            LD Productions
+        <header className="flex items-center justify-between bg-neutral-900 px-3 py-4 text-neutral-100 md:px-4 md:py-5">
+          <Link href="/" className="flex items-center gap-4 transition-opacity hover:opacity-60 md:gap-5">
+            {site.logo && (
+              // Servi tel quel, comme au pied de page : WebP sans perte déjà à
+              // sa taille, dimensions déclarées, pas de CLS.
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={site.logo.monogram.src}
+                alt={site.logo.alt}
+                width={site.logo.monogram.width}
+                height={site.logo.monogram.height}
+                className="h-10 w-10 object-contain"
+              />
+            )}
+            {(HEADER_LOGO === 'monogram-and-name' || !site.logo) && (
+              <span
+                // aria-hidden quand le monogramme est là : l'alt nomme déjà le lien,
+                // un lecteur d'écran n'a pas à entendre le nom deux fois.
+                aria-hidden={site.logo ? true : undefined}
+                className="font-display text-[15px] font-medium uppercase leading-none tracking-[0.34em] md:text-[18px]"
+              >
+                LD Productions
+              </span>
+            )}
           </Link>
           <nav>
             <Link
               href="/about"
-              className="text-[11px] uppercase tracking-[0.24em] text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
+              className="text-[11px] uppercase tracking-[0.24em] text-neutral-400 transition-colors hover:text-white"
             >
               About
             </Link>
