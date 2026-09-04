@@ -8,6 +8,14 @@
   }
 
   /*
+    Variante B (src/config/theme.ts) : les contrôles natifs, dont ceux du
+    lecteur <video>, et les barres de défilement suivent le fond sombre.
+  */
+  html.dark {
+    color-scheme: dark;
+  }
+
+  /*
     Le titrage passe en didone pour tout le site sans toucher aux composants :
     les fiches projet et la page à propos héritent de la règle. Le corps de
     texte reste en grotesque, via `font-sans` sur <body>.

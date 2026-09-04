@@ -3,6 +3,9 @@ import { Archivo, Bodoni_Moda } from 'next/font/google';
 import Link from 'next/link';
 import './globals.css';
 
+import { SiteFooter } from '@/components/SiteFooter';
+import { SITE_THEME } from '@/config/theme';
+
 /**
  * Paire typographique.
  *
@@ -51,16 +54,22 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${display.variable} ${sans.variable} font-sans min-h-screen flex flex-col`}>
+    // La classe `dark` est le seul effet de la variante B : tout le reste est
+    // porté par les classes `dark:` des composants. Voir src/config/theme.ts.
+    <html lang="en" className={SITE_THEME === 'B' ? 'dark' : undefined}>
+      <body
+        className={`${display.variable} ${sans.variable} font-sans min-h-screen flex flex-col bg-white text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100`}
+      >
         {/*
-          Le site n'a pas de logo : le nom EST son identité visuelle. Il est donc
-          traité en logotype — didone, capitales, interlettrage très ouvert et
+          L'en-tête garde le nom en logotype, pas le monogramme : le logo reçu
+          est carré et ne se lit que sur fond sombre, il vit au pied de page. Le
+          nom est traité en didone, capitales, interlettrage très ouvert et
           graisse moyenne, pour que les déliés du Bodoni tiennent à cette échelle
           sans disparaître.
 
           Le Header et le Footer de @perrine/ui ont été retirés : ils portaient
-          le nom d'un autre projet et une navigation en français.
+          le nom d'un autre projet et une navigation en français. Le pied de
+          page du site vit dans src/components/SiteFooter.tsx.
         */}
         <header className="flex items-baseline justify-between px-3 py-6 md:px-4 md:py-8">
           <Link
@@ -72,13 +81,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <nav>
             <Link
               href="/about"
-              className="text-[11px] uppercase tracking-[0.24em] text-neutral-500 transition-colors hover:text-neutral-900"
+              className="text-[11px] uppercase tracking-[0.24em] text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
             >
               About
             </Link>
           </nav>
         </header>
         <main className="flex-1">{children}</main>
+        <SiteFooter />
       </body>
     </html>
   );

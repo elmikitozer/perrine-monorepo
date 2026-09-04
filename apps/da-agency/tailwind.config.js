@@ -1,10 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // Piloté par la classe `dark` sur <html>, posée ou non par src/config/theme.ts.
+  // Pas `media` : la variante est un choix de direction artistique, pas une
+  // préférence du visiteur.
+  darkMode: 'class',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    '../../packages/ui/src/**/*.{js,ts,jsx,tsx}',
+    // Plus de composants partagés : @perrine/ui a été retiré avec la page
+    // contact héritée d'un autre site. Ce site n'a que ses propres composants.
   ],
   theme: {
     extend: {

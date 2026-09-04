@@ -93,9 +93,6 @@ importers:
 
   apps/da-agency:
     dependencies:
-      '@perrine/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
       '@sanity/image-url':
         specifier: ^1.0.2
         version: 1.2.0

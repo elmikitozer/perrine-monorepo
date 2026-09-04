@@ -159,9 +159,14 @@ le lien email si tu n'as pas besoin de plus.
 
 ### 15. Réseaux sociaux et mentions légales
 
-- Y a-t-il un Instagram (ou autre) à lier depuis le site ?
+- Le pied de page attend les URL complètes des comptes LinkedIn et Instagram de l'agence.
+  Tant qu'elles manquent, le lien n'est pas affiché : je ne devine pas un compte, un lien
+  vers le mauvais profil est pire que pas de lien. Y a-t-il d'autres réseaux à lier ?
+- Le logo du pied de page n'a pas encore été livré : sa place est réservée, au format d'un
+  logotype horizontal. Un SVG est préférable à un PNG.
 - Sous quel statut factures-tu ? Il faut le nom de la structure, le SIRET et une adresse
-  pour les mentions légales — c'est obligatoire pour un site professionnel en France.
+  pour les mentions légales — c'est obligatoire pour un site professionnel en France. La
+  page /legal existe et est liée, mais elle reste sans texte tant que je n'ai pas ça.
 
 ### 16. Y a-t-il des images sous embargo ?
 

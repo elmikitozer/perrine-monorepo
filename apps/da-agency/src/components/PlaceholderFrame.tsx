@@ -25,10 +25,10 @@ export function PlaceholderFrame({
   return (
     <div
       style={{ aspectRatio }}
-      className={`relative w-full overflow-hidden bg-neutral-100 ${className ?? ''}`}
+      className={`relative w-full overflow-hidden bg-neutral-100 dark:bg-neutral-800 ${className ?? ''}`}
     >
-      <div className="absolute inset-0 flex items-end border border-dashed border-neutral-300 p-4">
-        <span className="text-xs uppercase tracking-[0.2em] text-neutral-400">{label}</span>
+      <div className="absolute inset-0 flex items-end border border-dashed border-neutral-300 p-4 dark:border-neutral-600">
+        <span className="text-xs uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-500">{label}</span>
       </div>
     </div>
   );
