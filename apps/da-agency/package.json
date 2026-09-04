@@ -23,7 +23,6 @@
     "sanity": "^3.58.0"
   },
   "devDependencies": {
-    "@perrine/tsconfig": "workspace:*",
     "@types/node": "^20.14.11",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",

@@ -1,6 +1,36 @@
 {
-  "extends": "@perrine/tsconfig/nextjs.json",
+  // Autonome : plus d'`extends` vers @perrine/tsconfig. Vercel installe avec
+  // npm, qui ne comprend pas le protocole `workspace:*` de pnpm, et ce paquet
+  // était la dernière dépendance de workspace de l'app. Le contenu de
+  // packages/tsconfig/base.json puis nextjs.json est fusionné ici, dans cet
+  // ordre, les options locales par-dessus. Les autres apps gardent le paquet.
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
+    // packages/tsconfig/base.json
+    "composite": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "inlineSources": false,
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "preserveWatchOutput": true,
+    "skipLibCheck": true,
+    "strict": true,
+    // packages/tsconfig/nextjs.json (declaration et declarationMap y passent à false)
+    "plugins": [{ "name": "next" }],
+    "allowJs": true,
+    "declaration": false,
+    "declarationMap": false,
+    "incremental": true,
+    "jsx": "preserve",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "target": "es5",
+    // Options locales
     "paths": {
       "@/*": ["./src/*"],
       "@content/*": ["./content/*"]
@@ -9,4 +39,3 @@
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
-
