@@ -34,4 +34,5 @@ export const SITE_THEME: SiteTheme = 'A';
  */
 export type HeaderLogo = 'monogram' | 'monogram-and-name';
 
-export const HEADER_LOGO: HeaderLogo = 'monogram-and-name';
+// Arbitré le 04/09 : monogramme seul.
+export const HEADER_LOGO: HeaderLogo = 'monogram';
