@@ -7,14 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "media:images": "node scripts/optimize-images.mjs",
     "media:video": "node scripts/transcode-video.mjs",
     "media:loops": "node scripts/extract-loops.mjs",
     "media:logo": "node scripts/build-logo.mjs",
-    "media": "pnpm media:images && pnpm media:video"
+    "media": "pnpm media:video && pnpm media:loops",
+    "migrate": "node scripts/migrate-to-sanity.mjs",
+    "migrate:order-rank": "node scripts/init-order-rank.mjs"
   },
   "dependencies": {
     "@sanity/image-url": "^1.0.2",
+    "@sanity/orderable-document-list": "^1.5.1",
+    "lexorank": "^1.0.5",
     "next": "14.2.5",
     "next-sanity": "^9.5.0",
     "react": "^18.3.1",

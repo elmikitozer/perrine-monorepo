@@ -21,20 +21,20 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import type { CSSProperties } from 'react';
 
-import { getProject, projects, type Image, type ImageFormat, type Project } from '@content/projects';
+import { getProject, getProjects, type Image, type ImageFormat, type Project } from '@content/projects';
 import { ui } from '@content/ui';
 import { ProjectVideo } from '@/components/ProjectVideo';
 
-// Les 11 projets du catalogue sont générés. Un slug inconnu renvoie 404 plutôt
-// que d'être rendu à la demande.
+// Tous les projets visibles du studio sont générés au build. Un slug inconnu
+// renvoie 404 plutôt que d'être rendu à la demande.
 export const dynamicParams = false;
 
-export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
+export async function generateStaticParams() {
+  return (await getProjects()).map((project) => ({ slug: project.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const project = getProject(params.slug);
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const project = await getProject(params.slug);
   if (!project) return {};
 
   // Le nom du site est ajouté par le template défini dans layout.tsx.
@@ -166,8 +166,8 @@ function ProjectHeader({ project }: { project: Project }) {
   );
 }
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = getProject(params.slug);
+export default async function ProjectPage({ params }: { params: { slug: string } }) {
+  const project = await getProject(params.slug);
   if (!project) notFound();
 
   return (

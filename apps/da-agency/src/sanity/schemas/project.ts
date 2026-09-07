@@ -21,6 +21,7 @@
  * Les libellés sont en français : c'est ce que la cliente voit dans le studio.
  */
 
+import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-list';
 import { defineArrayMember, defineField, defineType } from 'sanity';
 
 /** Métadonnées d'image demandées à Sanity : le LQIP sert de fond flou au chargement. */
@@ -87,14 +88,11 @@ export const project = defineType({
       options: { hotspot: true, metadata: [...IMAGE_METADATA] },
       fields: [altField],
     }),
-    defineField({
-      name: 'order',
-      title: 'Ordre d’affichage',
-      type: 'number',
-      group: 'content',
-      description: 'Plus petit nombre = affiché en premier sur la page d’accueil.',
-      validation: (Rule) => Rule.required().integer().min(0),
-    }),
+    // Ordre d'affichage : un rang géré par @sanity/orderable-document-list,
+    // que la cliente change en glissant les projets dans la liste du studio.
+    // Le champ est masqué du formulaire ; scripts/migrate-to-sanity.mjs
+    // l'initialise à partir du rang de publication du document cliente.
+    orderRankField({ type: 'project', newItemPosition: 'before' }),
     defineField({
       name: 'client',
       title: 'Client',
@@ -230,13 +228,30 @@ export const project = defineType({
       description: 'Le film en H.264 1080p pour le lecteur de la fiche, produit par scripts/transcode-video.mjs.',
       options: { accept: 'video/mp4' },
     }),
+    // Un fichier Sanity n'a pas de dimensions : les scripts les écrivent ici,
+    // parce que le lecteur et la tuile ont besoin du ratio avant tout
+    // chargement pour ne pas provoquer de saut de mise en page.
+    ...['videoProxyMeta', 'videoLoopMeta'].map((name) =>
+      defineField({
+        name,
+        title: name === 'videoProxyMeta' ? 'Mesures de la version de lecture' : 'Mesures de la boucle',
+        type: 'object',
+        group: 'technical',
+        fieldset: 'derivatives',
+        readOnly: true,
+        fields: [
+          defineField({ name: 'width', title: 'Largeur', type: 'number' }),
+          defineField({ name: 'height', title: 'Hauteur', type: 'number' }),
+          defineField({ name: 'durationSeconds', title: 'Durée (s)', type: 'number' }),
+          ...(name === 'videoLoopMeta'
+            ? [defineField({ name: 'startSeconds', title: 'Départ dans le master (s)', type: 'number' })]
+            : []),
+        ],
+      })
+    ),
   ],
   orderings: [
-    {
-      title: 'Ordre d’affichage',
-      name: 'orderAsc',
-      by: [{ field: 'order', direction: 'asc' }],
-    },
+    orderRankOrdering,
     {
       title: 'Année, plus récent en premier',
       name: 'yearDesc',
@@ -248,14 +263,13 @@ export const project = defineType({
       title: 'title',
       subtitle: 'subtitle',
       year: 'year',
-      order: 'order',
       media: 'cover',
       isVisible: 'isVisible',
     },
-    prepare({ title, subtitle, year, order, media, isVisible }) {
+    prepare({ title, subtitle, year, media, isVisible }) {
       const parts = [year, subtitle].filter(Boolean).join(' · ');
       return {
-        title: `${order ?? '?'}. ${title ?? 'Sans titre'}${isVisible === false ? ' (masqué)' : ''}`,
+        title: `${title ?? 'Sans titre'}${isVisible === false ? ' (masqué)' : ''}`,
         subtitle: parts,
         media,
       };

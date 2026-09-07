@@ -28,7 +28,9 @@
 
 import type { Metadata } from 'next';
 
-import { about, aboutDescription } from '@content/about';
+import { notFound } from 'next/navigation';
+
+import { getAbout, getAboutDescription } from '@content/about';
 import type { Image, ImageFormat } from '@content/projects';
 import { ui } from '@content/ui';
 import { PlaceholderFrame } from '@/components/PlaceholderFrame';
@@ -61,13 +63,23 @@ function AgencyPortrait({ image }: { image: Image }) {
   );
 }
 
-export const metadata: Metadata = {
-  title: about.sections[0].heading,
-  // Première phrase du texte client, reprise telle quelle.
-  description: aboutDescription,
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const about = await getAbout();
+  const description = await getAboutDescription();
+  return {
+    title: about.sections[0]?.heading,
+    // Première phrase du texte client, reprise telle quelle. Absente tant
+    // qu'elle n'est pas saisie : pas de meta plutôt qu'une meta vide.
+    ...(description ? { description } : {}),
+  };
+}
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const about = await getAbout();
+  // Sans texte saisi dans le studio, il n'y a pas de page à rendre : ni titre
+  // inventé, ni page vide. reportMissingContent() signale le manque au build.
+  if (about.sections.length === 0) notFound();
+
   const [lead, ...rest] = about.sections;
   // Le chapô est le premier paragraphe du client, pas une phrase extraite : le
   // découpage en paragraphes est le sien. `support` peut être vide, et le jour

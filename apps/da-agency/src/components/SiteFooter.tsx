@@ -24,15 +24,16 @@
 
 import Link from 'next/link';
 
-import { copyrightYear, site } from '@content/site';
+import { copyrightYear, getSiteContent, site } from '@content/site';
 import { ui } from '@content/ui';
 import { PlaceholderFrame } from './PlaceholderFrame';
 
 /** Emplacement du logo : carré, 48 px. */
 const LOGO_SLOT = 'h-12 w-12';
 
-export function SiteFooter() {
-  const social = site.social.filter((account) => account.href);
+export async function SiteFooter() {
+  // Les comptes viennent du studio ; un compte sans URL n'est pas rendu.
+  const social = (await getSiteContent()).social.filter((account) => account.href);
 
   return (
     <footer className="mt-16 border-t border-neutral-800 bg-neutral-900 px-3 py-6 text-neutral-400 md:mt-20 md:px-4 md:py-7">

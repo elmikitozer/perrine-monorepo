@@ -5,19 +5,23 @@
  *   node scripts/migrate-to-sanity.mjs            passage a blanc : liste ce qui serait cree
  *   node scripts/migrate-to-sanity.mjs --apply    ecrit dans le dataset
  *
- * Sources :
- *   content/projects.ts, content/about.ts, content/site.ts   le contenu, charge tel quel
- *   public/images/manifest.json                              chemin source de chaque image
- *   public/videos/manifest.json, public/videos/loops.json     master de chaque film, point de depart cliente
- *   raw-v2/                                                   les fichiers eux-memes, en lecture seule
+ * Sources : scripts/legacy-content/, copie figee de ce que le site affichait
+ * avant Sanity — content/projects.ts, about.ts, site.ts et les trois
+ * manifestes des pipelines. L'etape 3 a remplace ces fichiers par des
+ * requetes GROQ et supprime public/images/ ; la copie est ce qui rend la
+ * migration encore executable, et relancable. Les fichiers eux-memes viennent
+ * de raw-v2/, en lecture seule.
  *
  * Ce sont les SOURCES qui partent chez Sanity, pas les derives de public/ :
  * Sanity fait sa propre optimisation. Le master video part lui aussi, dans le
  * champ videoMaster, dont l'etape 4 tirera boucle, poster et proxy.
  *
  * Ordre : le document cliente numerote « de la plus ancienne a la plus
- * recente », 1 a 11, et l'accueil affiche 11 en premier. Sanity trie en
- * croissant, plus petit = premier : le nº 11 devient order 1, le nº 1 order 11.
+ * recente », 1 a 11, et l'accueil affiche 11 en premier. Le studio trie en
+ * croissant sur `orderRank`, un rang LexoRank gere par
+ * @sanity/orderable-document-list : le nº 11 recoit le premier rang, le nº 1
+ * le dernier. Les rangs sont generes en chaine (middle, puis genNext), ce que
+ * le plugin fait lui-meme pour une liste neuve.
  *
  * Idempotence :
  *   - identifiants deterministes (`project-<assetKey>`, `siteSettings`) ;
@@ -38,14 +42,16 @@ import { basename, join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 import { build } from 'esbuild';
+import { LexoRank } from 'lexorank';
 
 import { APP_ROOT, ensureDir, formatBytes, hasFlag } from './lib/corpus.mjs';
 
 const APPLY = hasFlag('apply');
 
-const IMAGE_MANIFEST = join(APP_ROOT, 'public', 'images', 'manifest.json');
-const VIDEO_MANIFEST = join(APP_ROOT, 'public', 'videos', 'manifest.json');
-const LOOP_MANIFEST = join(APP_ROOT, 'public', 'videos', 'loops.json');
+const LEGACY_DIR = resolve(APP_ROOT, 'scripts', 'legacy-content');
+const IMAGE_MANIFEST = join(LEGACY_DIR, 'images-manifest.json');
+const VIDEO_MANIFEST = join(LEGACY_DIR, 'videos-manifest.json');
+const LOOP_MANIFEST = join(LEGACY_DIR, 'loops.json');
 
 /** Identifiant fixe du singleton, le meme que dans sanity.config.ts. */
 const SITE_SETTINGS_ID = 'siteSettings';
@@ -72,9 +78,9 @@ async function loadContent() {
   writeFileSync(
     entry,
     [
-      `export { projects } from ${JSON.stringify(resolve(APP_ROOT, 'content', 'projects.ts'))};`,
-      `export { about } from ${JSON.stringify(resolve(APP_ROOT, 'content', 'about.ts'))};`,
-      `export { site } from ${JSON.stringify(resolve(APP_ROOT, 'content', 'site.ts'))};`,
+      `export { projects } from ${JSON.stringify(join(LEGACY_DIR, 'projects.ts'))};`,
+      `export { about } from ${JSON.stringify(join(LEGACY_DIR, 'about.ts'))};`,
+      `export { site } from ${JSON.stringify(join(LEGACY_DIR, 'site.ts'))};`,
       '',
     ].join('\n')
   );
@@ -118,6 +124,15 @@ function buildPlan({ projects, about, site }) {
   const loops = readJson(LOOP_MANIFEST).projects;
   const total = projects.length;
 
+  // Rangs LexoRank en chaine, dans l'ordre d'affichage : le premier projet
+  // recoit le rang du milieu, chaque suivant le rang d'apres.
+  const ranks = new Map();
+  let rank = LexoRank.middle();
+  for (const project of [...projects].sort((a, b) => b.publicationNumber - a.publicationNumber)) {
+    ranks.set(project.assetKey, rank.toString());
+    rank = rank.genNext();
+  }
+
   const plan = projects.map((project) => {
     const gallery = (images[project.assetKey]?.images ?? []).map((image) => ({
       id: image.id,
@@ -150,6 +165,7 @@ function buildPlan({ projects, about, site }) {
       _id: `project-${project.assetKey}`,
       assetKey: project.assetKey,
       order: orderFor(project.publicationNumber, total),
+      orderRank: ranks.get(project.assetKey),
       publicationNumber: project.publicationNumber,
       title: project.title,
       slug: project.slug,
@@ -192,7 +208,7 @@ function printPlan({ plan, settings }) {
     imageBytes += images;
     if (item.master) videoBytes += item.master.bytes;
 
-    console.log(`order ${String(item.order).padStart(2)}  ${item._id}`);
+    console.log(`order ${String(item.order).padStart(2)}  ${item._id}  (orderRank ${item.orderRank})`);
     console.log(`          titre      ${item.title}`);
     console.log(`          slug       ${item.slug} · ${item.year} · ${item.subtitle}${item.client ? ` · client ${item.client}` : ''}`);
     if (item.credits.length > 0) console.log(`          credits    ${item.credits.map((c) => `${c.role} — ${c.name}`).join(' ; ')}`);
@@ -307,7 +323,7 @@ async function apply({ plan, settings }) {
       title: item.title,
       slug: { _type: 'slug', current: item.slug },
       subtitle: item.subtitle,
-      order: item.order,
+      orderRank: item.orderRank,
       year: item.year,
       isVisible: true,
       gallery: galleryRefs.map((entry) => entry.ref),

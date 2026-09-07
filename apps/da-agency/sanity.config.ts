@@ -1,9 +1,9 @@
 /**
  * Studio Sanity de LD Productions, servi sous /studio par Next.
  *
- * Deux entrées dans la colonne de gauche : les projets, triés dans l'ordre
- * d'affichage du site, et les réglages du site, document unique ouvert
- * directement. Pas d'outil Vision : la cliente n'a pas à voir un éditeur de
+ * Deux entrées dans la colonne de gauche : les projets, dans l'ordre
+ * d'affichage du site et réordonnables à la main, et les réglages du site,
+ * document unique ouvert directement. Pas d'outil Vision : la cliente n'a pas à voir un éditeur de
  * requêtes GROQ.
  *
  * Le singleton est tenu par trois verrous : la structure l'ouvre à un
@@ -11,6 +11,7 @@
  * actions de suppression, duplication et dépublication lui sont refusées.
  */
 
+import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
 import { defineConfig } from 'sanity';
 import { structureTool, type StructureResolver } from 'sanity/structure';
 
@@ -22,18 +23,16 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
 /** Identifiant fixe du document de réglages. Le script de migration écrit au même. */
 export const SITE_SETTINGS_ID = 'siteSettings';
 
-const structure: StructureResolver = (S) =>
+/**
+ * Les projets s'affichent dans une liste réordonnable par glisser-déposer
+ * (@sanity/orderable-document-list) : l'ordre de la liste EST l'ordre de
+ * l'accueil, la requête du site trie sur le même champ orderRank.
+ */
+const structure: StructureResolver = (S, context) =>
   S.list()
     .title('LD Productions')
     .items([
-      S.listItem()
-        .title('Projets')
-        .schemaType('project')
-        .child(
-          S.documentTypeList('project')
-            .title('Projets')
-            .defaultOrdering([{ field: 'order', direction: 'asc' }])
-        ),
+      orderableDocumentListDeskItem({ type: 'project', title: 'Projets', S, context }),
       S.divider(),
       S.listItem()
         .title('Réglages du site')

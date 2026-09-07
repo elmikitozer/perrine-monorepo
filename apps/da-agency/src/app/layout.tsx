@@ -82,7 +82,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           le nom d'un autre projet et une navigation en français. Le pied de
           page du site vit dans src/components/SiteFooter.tsx.
         */}
-        <header className="flex items-center justify-between bg-neutral-900 px-3 py-2.5 text-neutral-100 md:px-4 md:py-3">
+        {/*
+          En-tête collant : il reste en haut de la fenêtre et le contenu passe
+          dessous au défilement, ce que son fond opaque permet. `sticky` et non
+          `fixed` : il garde sa place dans le flux, donc rien n'est masqué au
+          chargement et les pages n'ont pas à compenser sa hauteur. z-30 passe
+          au-dessus du voile des tuiles (z-10) et de la vidéo.
+        */}
+        <header className="sticky top-0 z-30 flex items-center justify-between bg-neutral-900 px-3 py-2.5 text-neutral-100 md:px-4 md:py-3">
           <Link href="/" className="flex items-center gap-4 transition-opacity hover:opacity-60 md:gap-5">
             {site.logo && (
               <span className="flex w-[72px] flex-col items-center gap-[5px]">

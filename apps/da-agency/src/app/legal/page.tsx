@@ -6,20 +6,23 @@
  * cliente. Rien n'est rédigé ici en attendant — des mentions légales inventées
  * engagent la société qui les publie.
  *
- * Le jour où le texte arrive, il se pose dans content/site.ts (legalNotice) et
- * remplace la ligne d'attente sans toucher à ce fichier.
+ * Le jour où le texte arrive, la cliente le saisit dans le studio (Réglages
+ * du site, Mentions légales) et il remplace la ligne d'attente sans toucher à
+ * ce fichier.
  */
 
 import type { Metadata } from 'next';
 
-import { site } from '@content/site';
+import { getSiteContent } from '@content/site';
 import { ui } from '@content/ui';
 
 export const metadata: Metadata = {
   title: ui.footer.legal,
 };
 
-export default function LegalPage() {
+export default async function LegalPage() {
+  const site = await getSiteContent();
+
   return (
     // Marge haute alignée sur les fiches projet et la page about.
     <div className="mx-auto w-full max-w-6xl px-4 pb-16 pt-8 md:px-6 md:pb-24 md:pt-12">

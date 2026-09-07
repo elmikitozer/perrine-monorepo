@@ -3,10 +3,8 @@
  *
  * Onze tuiles, onze projets, aucune répétition. Chacune mène à sa fiche.
  *
- * L'ordre n'est pas décidé ici : `projects` arrive trié par numéro de
- * publication décroissant (content/projects.ts), le plus récent en premier,
- * comme le veut le document cliente du 04/09. Ni l'alphabet ni le nom de
- * dossier ne donnent cet ordre.
+ * L'ordre n'est pas décidé ici : les projets arrivent dans l'ordre du studio
+ * Sanity (content/projects.ts), que la cliente règle par glisser-déposer.
  *
  * Même famille visuelle que les deux autres sites du package : grille en fond
  * perdu, gouttières fines, titre au survol en surimpression, aucune légende
@@ -18,13 +16,15 @@
  * et son garde-fou reduced-motion.
  */
 
-import { projects } from '@content/projects';
+import { getProjects } from '@content/projects';
 import { ProjectTile } from '@/components/ProjectTile';
 
 /** Tuiles chargées sans différé : la première rangée desktop. */
 const EAGER_TILES = 3;
 
-export default function HomePage() {
+export default async function HomePage() {
+  const projects = await getProjects();
+
   return (
     // Fond perdu : ni conteneur centré, ni largeur maximale.
     <ul className="grid w-full grid-cols-1 gap-[3px] px-[3px] pb-[3px] md:grid-cols-2 xl:grid-cols-3">
