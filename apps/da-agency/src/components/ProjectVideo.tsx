@@ -7,8 +7,9 @@
  *
  * 1. Un seul point de bascule d'hébergeur (src/config/video.ts). Passer de
  *    local à Vimeo ou Cloudflare ne doit toucher aucun composant.
- * 2. Conteneur à ratio fixe, lu depuis public/videos/manifest.json. Trois
- *    ratios coexistent (16/9 et 569/270) : aucun n'est codé en dur ici.
+ * 2. Conteneur à ratio fixe, lu depuis les mesures que le script écrit dans
+ *    Sanity (videoProxyMeta). Deux ratios coexistent (16/9 et 569/270) :
+ *    aucun n'est codé en dur ici.
  * 3. Façade. Rien du lecteur n'est chargé avant le clic — un embed tiers coûte
  *    plusieurs centaines de kilo-octets de JavaScript, et le payer au
  *    chargement de la page annulerait le bénéfice du proxy local.

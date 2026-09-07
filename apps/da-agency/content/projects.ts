@@ -276,12 +276,25 @@ function toProject(doc: SanityProject, index: number, total: number): Project {
 // ---------------------------------------------------------------------------
 
 /**
+ * Jamais le cache de données de Next pour lire Sanity.
+ *
+ * Next met en cache les réponses de fetch dans .next/cache/fetch-cache, qui
+ * survit d'un build à l'autre — en local comme sur Vercel, où il devient le
+ * Data Cache partagé entre déploiements. Constaté le 07/09 : les proxys vidéo
+ * venaient d'être écrits dans Sanity, la requête directe les voyait, le build
+ * a resservi la réponse du build précédent. Un redéploiement déclenché par une
+ * publication (étape 5) aurait le même défaut. Le site est statique et ne fait
+ * que deux requêtes par build : elles partent à chaque fois.
+ */
+const SANITY_FETCH_OPTIONS = { cache: 'no-store' as const };
+
+/**
  * Tous les projets visibles, dans l'ordre du studio. Une seule requête par
  * build grâce à cache() : l'accueil, les pages projet et generateStaticParams
  * partagent le résultat.
  */
 export const getProjects = cache(async (): Promise<Project[]> => {
-  const docs = await client.fetch<SanityProject[]>(PROJECTS_QUERY);
+  const docs = await client.fetch<SanityProject[]>(PROJECTS_QUERY, {}, SANITY_FETCH_OPTIONS);
   const projects = docs.map((doc, index) => toProject(doc, index, docs.length));
   reportMissingContent(projects, await getSiteSettings());
   return projects;
@@ -292,7 +305,7 @@ export async function getProject(slug: string): Promise<Project | undefined> {
 }
 
 export const getSiteSettings = cache(async (): Promise<SanitySiteSettings> => {
-  return client.fetch<SanitySiteSettings>(SITE_SETTINGS_QUERY);
+  return client.fetch<SanitySiteSettings>(SITE_SETTINGS_QUERY, {}, SANITY_FETCH_OPTIONS);
 });
 
 /** Conversion d'une image Sanity vers le modèle du site, pour le portrait de la page à propos. */

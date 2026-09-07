@@ -16,6 +16,9 @@ import type { Metadata } from 'next';
 import { getSiteContent } from '@content/site';
 import { ui } from '@content/ui';
 
+// Statique malgré la lecture Sanity en `no-store` : voir content/projects.ts.
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: ui.footer.legal,
 };

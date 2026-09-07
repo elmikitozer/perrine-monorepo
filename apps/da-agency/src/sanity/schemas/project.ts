@@ -246,6 +246,10 @@ export const project = defineType({
           ...(name === 'videoLoopMeta'
             ? [defineField({ name: 'startSeconds', title: 'Départ dans le master (s)', type: 'number' })]
             : []),
+          // Empreinte SHA-1 du master dont ce dérivé est issu : c'est ce qui
+          // rend les scripts idempotents. Un master remplacé change d'empreinte
+          // et le dérivé est refait.
+          defineField({ name: 'sourceHash', title: 'Empreinte du master', type: 'string' }),
         ],
       })
     ),

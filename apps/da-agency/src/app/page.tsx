@@ -19,6 +19,11 @@
 import { getProjects } from '@content/projects';
 import { ProjectTile } from '@/components/ProjectTile';
 
+// Statique malgré la lecture Sanity en `no-store` (content/projects.ts) : la
+// requête part au build, la page est figée. Sans cette ligne, Next rendrait
+// la page à chaque visite.
+export const dynamic = 'force-static';
+
 /** Tuiles chargées sans différé : la première rangée desktop. */
 const EAGER_TILES = 3;
 

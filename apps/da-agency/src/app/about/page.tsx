@@ -35,6 +35,9 @@ import type { Image, ImageFormat } from '@content/projects';
 import { ui } from '@content/ui';
 import { PlaceholderFrame } from '@/components/PlaceholderFrame';
 
+// Statique malgré la lecture Sanity en `no-store` : voir content/projects.ts.
+export const dynamic = 'force-static';
+
 /** Le portrait occupe la colonne de texte : 8 colonnes sur 12, plafonnées. */
 const PORTRAIT_SIZES = '(min-width: 1200px) 736px, (min-width: 768px) 66vw, 100vw';
 

@@ -1,169 +1,66 @@
 /**
- * Boucles de survol — extraits courts et legers, pour les tuiles de l'accueil.
+ * Boucles d'accueil et posters — etape 4, la chaine video lit Sanity.
  *
  * Usage:
  *   node scripts/extract-loops.mjs
  *   node scripts/extract-loops.mjs --only=bosideng
  *   node scripts/extract-loops.mjs --force
- *   node scripts/extract-loops.mjs --start=12        (secondes, tous les films, ecrase la table)
+ *   node scripts/extract-loops.mjs --seed-from=raw-v2   masters deja sur le disque
  *
- * Sorties:
- *   public/videos/loops/<slug>.mp4        extrait muet de 8 s (gitignore)
- *   public/videos/loops/<slug>.jpg        premiere frame de la boucle (gitignore)
- *   public/images/posters/<slug>/*.avif   derives du poster (versionnes)
- *   public/videos/loops.json              manifeste versionne
+ * Pour chaque document project qui porte un master :
+ *   1. telecharge le master dans .cache/masters/ (partage avec le transcodage) ;
+ *   2. extrait 8 s muettes a 1280 px a partir de loopStart, le timecode
+ *      saisi par la cliente ; sans timecode, part d'un defaut technique
+ *      (15 % du film) que le site marque provisoire ;
+ *   3. prend la premiere image de la boucle comme poster ;
+ *   4. uploade boucle et poster, ecrit videoLoop, videoPoster et
+ *      videoLoopMeta (dimensions, duree, depart, empreinte du master).
  *
- * Le point de depart de chaque extrait vient de CLIENT_START_SECONDS quand la
- * cliente l'a donne : le poster, premiere frame de l'extrait, est alors son
- * choix. Sinon il vient d'un defaut technique, et le manifeste le marque
- * `posterIsProvisional` pour que reportMissingContent() le signale jusqu'a ce
- * qu'elle tranche.
- *
- * Pourquoi un manifeste separe de public/videos/manifest.json : deux scripts
- * qui ecrivent le meme fichier finissent par s'ecraser l'un l'autre. Chacun
- * possede le sien, content/projects.ts fusionne a la lecture.
- *
- * Les sources client (raw/, raw-v2/) sont traitees en LECTURE SEULE. La racine
- * se choisit avec --raw=<dossier>, defaut raw-v2.
- *
- * Aucun nettoyage ici non plus : boucles et posters d'une cle de projet qui
- * changerait resteraient sur le disque, et public/images/posters/ est exclu du
- * --prune du pipeline images. D'ou les cles figees dans SLUG_OVERRIDES.
+ * Idempotent sur l'empreinte du master ET le timecode : si les deux sont
+ * ceux de videoLoopMeta et que les assets existent, rien n'est refait.
+ * Changer loopStart dans le studio relance l'extraction de ce projet.
  */
 
-import { spawn } from 'node:child_process';
-import { createHash } from 'node:crypto';
-import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
-import { basename, join, resolve } from 'node:path';
+import { existsSync, statSync } from 'node:fs';
+import { join, resolve } from 'node:path';
 
-import { buildLqip, readDimensions, renderVariants } from './lib/images.mjs';
+import { APP_ROOT, ensureDir, formatBytes, formatDuration, getFlagValue, hasFlag } from './lib/corpus.mjs';
 import {
-  APP_ROOT,
-  ensureDir,
-  formatBytes,
-  formatDuration,
-  getFlagValue,
-  hasFlag,
-  listProjects,
-  relativeToRaw,
-  sourceFingerprint,
-} from './lib/corpus.mjs';
+  createWriteClient,
+  ensureMaster,
+  fetchFilmProjects,
+  fileRef,
+  imageRef,
+  seedMastersFrom,
+  uploadAsset,
+} from './lib/sanity.mjs';
+import { ffprobe, run } from './lib/video.mjs';
 
-const LOOP_DIR = resolve(APP_ROOT, 'public', 'videos', 'loops');
-const MANIFEST_PATH = resolve(APP_ROOT, 'public', 'videos', 'loops.json');
-const CACHE_PATH = resolve(APP_ROOT, '.cache', 'extract-loops.json');
-const POSTER_OUTPUT_ROOT = resolve(APP_ROOT, 'public', 'images', 'posters');
+const LOOP_DIR = resolve(APP_ROOT, '.cache', 'loops');
 
 const LOOP_SECONDS = 8;
 const LOOP_WIDTH = 1280;
 const LOOP_CRF = 26;
 
 /**
- * Ou commencer l'extrait, en fraction de la duree du film.
- *
- * Demarrer a zero attrape souvent un fondu au noir ou un carton de titre. 15 %
- * tombe apres l'ouverture sur les trois films livres, mais reste un choix
- * TECHNIQUE par defaut, pas un choix editorial : c'est au client de valider
- * l'extrait, comme il doit valider la frame de poster. `--start` force une
- * valeur en secondes.
+ * Ou commencer sans timecode cliente, en fraction de la duree du film.
+ * Demarrer a zero attrape souvent un fondu au noir ; 15 % tombe apres
+ * l'ouverture. Choix TECHNIQUE par defaut : le site le marque provisoire.
  */
 const DEFAULT_START_FRACTION = 0.15;
-
-/**
- * Timecodes de depart donnes par la cliente, en secondes, par cle de projet.
- *
- * Source : colonne « TIME VIDEO » du document `SITE INTERNET PHOTOS .docx`
- * (livraison v2, docs/reconciliation-v2.md §2) : `4:00`, `00:00`, `6:00`,
- * `10:00`. Lus en minutes:secondes, trois des quatre tomberaient APRES la fin
- * du film (76 s, 52 s, 73 s). Lus en secondes, les quatre tombent dans le film
- * et laissent la place des 8 s d'extrait : c'est la seule lecture coherente,
- * appliquee sur decision du 04/09 sans confirmation ecrite de la cliente. Si
- * elle voulait autre chose, c'est cette table qu'il faut corriger.
- *
- * Un film absent d'ici part du defaut technique ci-dessus et reste provisoire.
- */
-const CLIENT_START_SECONDS = {
-  'villa-dior': 4,
-  bosideng: 0,
-  'erl-season-13': 6,
-  'dior-trunk-show': 10,
-};
 
 /** ~2 Mo vise par extrait ; au-dela on previent plutot que d'echouer. */
 const SIZE_BUDGET_BYTES = 2.5 * 1024 * 1024;
 
 const FORCE = hasFlag('force');
 const ONLY = getFlagValue('only');
-const START_OVERRIDE = getFlagValue('start');
-
-function run(command, args) {
-  return new Promise((resolvePromise, rejectPromise) => {
-    const child = spawn(command, args, { stdio: ['ignore', 'pipe', 'pipe'] });
-    let stderr = '';
-    child.stdout.on('data', () => {});
-    child.stderr.on('data', (chunk) => {
-      stderr += chunk;
-      if (stderr.length > 40_000) stderr = stderr.slice(-40_000);
-    });
-    child.on('error', (error) =>
-      rejectPromise(
-        error.code === 'ENOENT'
-          ? new Error(`${command} est introuvable. Sur macOS : brew install ${command}`)
-          : error
-      )
-    );
-    child.on('close', (code) =>
-      code === 0
-        ? resolvePromise()
-        : rejectPromise(new Error(`${command} a echoue (code ${code})\n${stderr.trim()}`))
-    );
-  });
-}
-
-function ffprobe(file) {
-  return new Promise((resolvePromise, rejectPromise) => {
-    const child = spawn('ffprobe', [
-      '-v', 'error',
-      '-select_streams', 'v:0',
-      '-show_entries', 'stream=width,height',
-      '-show_entries', 'format=duration',
-      '-of', 'json',
-      file,
-    ]);
-    let stdout = '';
-    child.stdout.on('data', (chunk) => (stdout += chunk));
-    child.on('error', rejectPromise);
-    child.on('close', (code) => {
-      if (code !== 0) return rejectPromise(new Error(`ffprobe a echoue sur ${basename(file)}`));
-      const parsed = JSON.parse(stdout);
-      const stream = parsed.streams?.[0];
-      resolvePromise({
-        width: stream?.width,
-        height: stream?.height,
-        durationSeconds: Number(parsed.format?.duration ?? 0),
-      });
-    });
-  });
-}
-
-function loadCache() {
-  if (!existsSync(CACHE_PATH)) return {};
-  try {
-    return JSON.parse(readFileSync(CACHE_PATH, 'utf8'));
-  } catch {
-    console.warn('  Cache illisible, il sera reconstruit.');
-    return {};
-  }
-}
-
-function saveCache(cache) {
-  ensureDir(resolve(APP_ROOT, '.cache'));
-  writeFileSync(CACHE_PATH, `${JSON.stringify(cache, null, 2)}\n`);
-}
+const SEED_FROM = getFlagValue('seed-from');
 
 /**
- * Reglages d'encodage, hors chemins. Sans audio : la boucle est muette par
- * conception, et la piste PCM du master pese plus lourd que l'image extraite.
+ * Sans audio : la boucle est muette par conception. `setpts=PTS-STARTPTS`
+ * remet la premiere image a t=0 : sans lui, `-ss` peut tomber entre deux
+ * images cles et produire un flux qui demarre a 0.04 s, et le rembobinage de
+ * la tuile atterrit dans le vide.
  */
 function encodeArgs() {
   return [
@@ -174,214 +71,100 @@ function encodeArgs() {
     '-pix_fmt', 'yuv420p',
     '-crf', String(LOOP_CRF),
     '-preset', 'slow',
-    // `setpts=PTS-STARTPTS` remet la premiere image a t=0.
-    //
-    // Sans lui, `-ss` peut tomber entre deux images cles et produire un flux qui
-    // demarre a 0.04 s — c'est ce qui arrivait au master 4K de Dior Trunk Show,
-    // seul des trois. Consequences : `currentTime = 0` visait une position
-    // AVANT la premiere image, le rembobinage et le rebouclage atterrissaient
-    // dans le vide, et la lecture ne partait donc pas sur l'image de couverture.
     '-vf', `scale=${LOOP_WIDTH}:-2,setpts=PTS-STARTPTS`,
     '-movflags', '+faststart',
   ];
 }
 
-function profileFingerprint(startSeconds) {
-  // Le point de depart fait partie du profil : le changer doit reextraire.
-  return createHash('sha1')
-    .update([`ss=${startSeconds.toFixed(2)}`, ...encodeArgs()].join(' '))
-    .digest('hex')
-    .slice(0, 12);
-}
-
-/**
- * Point de depart de l'extrait, et d'ou il vient. `fromClient` decide du
- * marqueur provisoire : un `--start` de ligne de commande est un reglage
- * technique, il ne vaut pas un choix de la cliente.
- */
-function startFor(probe, slug) {
+function startFor(project, probe) {
   // On garde la fin de l'extrait dans le film, sinon ffmpeg sort plus court.
   const latest = Math.max(0, probe.durationSeconds - LOOP_SECONDS);
-
-  if (START_OVERRIDE !== undefined) {
-    return { startSeconds: Math.min(Math.max(0, Number(START_OVERRIDE)), latest), fromClient: false };
-  }
-  if (slug in CLIENT_START_SECONDS) {
-    const wanted = CLIENT_START_SECONDS[slug];
+  const wanted = project.loopStart;
+  if (wanted !== undefined && wanted !== null) {
     if (wanted > latest) {
       throw new Error(
-        `${slug} : timecode cliente ${wanted} s trop tard pour un extrait de ${LOOP_SECONDS} s ` +
-          `sur un film de ${probe.durationSeconds.toFixed(1)} s.`
+        `${project.key} : loopStart ${wanted} s trop tard pour ${LOOP_SECONDS} s d'extrait sur ${probe.durationSeconds.toFixed(1)} s de film.`
       );
     }
     return { startSeconds: wanted, fromClient: true };
   }
-  return {
-    startSeconds: Math.min(probe.durationSeconds * DEFAULT_START_FRACTION, latest),
-    fromClient: false,
-  };
-}
-
-async function extract(source, target, startSeconds) {
-  ensureDir(LOOP_DIR);
-  await run('ffmpeg', [
-    '-y',
-    '-loglevel', 'error',
-    // -ss avant -i : ffmpeg se positionne par recherche au lieu de decoder
-    // tout le film depuis le debut. Sur un master de 700 Mo, la difference
-    // se compte en minutes.
-    '-ss', String(startSeconds),
-    '-i', source,
-    ...encodeArgs(),
-    target,
-  ]);
-}
-
-/**
- * Premiere frame de la boucle, prise SUR LA BOUCLE et non sur le master.
- *
- * Le master donnerait une image plus definie (jusqu'a 3840 px), mais `-ss` se
- * cale sur une image cle : le poster risquerait d'etre decale d'une ou deux
- * frames et la tuile sauterait visiblement au demarrage. Extraire de la boucle
- * garantit que le poster EST son image de depart, donc une transition invisible.
- * 1280 px suffisent : la tuile fait ~480 px, le lecteur de la fiche ~1152 px.
- */
-async function extractPosterFrame(loopFile, target) {
-  await run('ffmpeg', ['-y', '-loglevel', 'error', '-i', loopFile, '-frames:v', '1', '-q:v', '2', target]);
-}
-
-/** Passe la frame par le pipeline d'images commun : memes variantes, meme LQIP. */
-async function buildPoster(frameFile, slug) {
-  const targetDir = ensureDir(join(POSTER_OUTPUT_ROOT, slug));
-  const { width, height } = await readDimensions(frameFile);
-
-  const variants = await renderVariants({
-    file: frameFile,
-    targetDir,
-    publicDir: `/images/posters/${slug}`,
-    id: slug,
-    sourceWidth: width,
-  });
-
-  return {
-    id: slug,
-    width,
-    height,
-    lqip: await buildLqip(frameFile),
-    variants,
-    // Aucun alt : ce n'est pas au script d'ecrire un texte alternatif.
-    alt: '',
-  };
+  return { startSeconds: Math.min(probe.durationSeconds * DEFAULT_START_FRACTION, latest), fromClient: false };
 }
 
 async function main() {
   const started = Date.now();
-  const cache = loadCache();
+  const client = await createWriteClient();
+  const projects = await fetchFilmProjects(client, ONLY);
+  console.log(`\n${projects.length} film(s)\n`);
 
-  const projects = listProjects().filter((project) => project.videos.length > 0);
-  const selected = ONLY ? projects.filter((project) => project.slug === ONLY) : projects;
+  if (SEED_FROM) await seedMastersFrom(resolve(APP_ROOT, SEED_FROM), projects.map((p) => p.master));
+  ensureDir(LOOP_DIR);
 
-  if (ONLY && selected.length === 0) {
-    throw new Error(
-      `Aucun projet video pour --only=${ONLY}. Disponibles : ${projects
-        .map((project) => project.slug)
-        .join(', ')}`
-    );
-  }
-
-  console.log(`\n${selected.length} film(s) a extraire\n`);
-
-  const manifest = { generatedAt: new Date().toISOString(), seconds: LOOP_SECONDS, projects: {} };
-
-  for (const project of selected) {
-    const source = project.videos[0];
+  for (const project of projects) {
+    console.log(`${project.title}  ->  ${project.key}`);
+    const { master } = project;
+    const source = await ensureMaster(master);
     const probe = await ffprobe(source);
-    const { startSeconds, fromClient } = startFor(probe, project.slug);
-    const fingerprint = sourceFingerprint(source);
-    const profile = profileFingerprint(startSeconds);
-    const target = join(LOOP_DIR, `${project.slug}.mp4`);
+    const { startSeconds, fromClient } = startFor(project, probe);
 
-    console.log(`${project.folder}  ->  ${project.slug}`);
-
-    const frameTarget = join(LOOP_DIR, `${project.slug}.jpg`);
-    const cached = cache[project.slug];
+    const meta = project.videoLoopMeta;
     const fresh =
       !FORCE &&
-      cached?.fingerprint === fingerprint &&
-      cached?.profile === profile &&
-      existsSync(target) &&
-      existsSync(frameTarget) &&
-      cached?.poster;
-
-    let poster;
+      project.loopAssetId &&
+      project.posterAssetId &&
+      meta?.sourceHash === master.sha1hash &&
+      Number(meta?.startSeconds) === Number(startSeconds.toFixed(2));
     if (fresh) {
-      poster = cached.poster;
-      console.log(`  inchange, on saute (${formatBytes(statSync(target).size)})`);
-    } else {
-      const startedAt = Date.now();
-      process.stdout.write(`  extraction a ${startSeconds.toFixed(1)} s...`);
-      await extract(source, target, startSeconds);
-      const size = statSync(target).size;
-      console.log(
-        `\r  ${LOOP_SECONDS} s a partir de ${startSeconds.toFixed(1)} s` +
-          ` (${fromClient ? 'timecode cliente' : 'defaut technique, provisoire'})` +
-          ` · ${LOOP_WIDTH} px · ${formatBytes(size)} · ${formatDuration((Date.now() - startedAt) / 1000)}   `
-      );
-      if (size > SIZE_BUDGET_BYTES) {
-        console.log(
-          `  Au-dessus du budget de ${formatBytes(SIZE_BUDGET_BYTES)} : ` +
-            `monter le CRF au-dela de ${LOOP_CRF} si c'est genant.`
-        );
-      }
-
-      await extractPosterFrame(target, frameTarget);
-      poster = await buildPoster(frameTarget, project.slug);
-      const posterBytes = Object.values(poster.variants)
-        .flat()
-        .reduce((sum, variant) => sum + variant.bytes, 0);
-      console.log(
-        `  poster ${poster.width}x${poster.height} · ` +
-          `${Object.values(poster.variants).flat().length} derives · ${formatBytes(posterBytes)}`
-      );
+      console.log(`  boucle   a jour (depart ${startSeconds} s, empreinte ${master.sha1hash.slice(0, 12)}), on saute\n`);
+      continue;
     }
 
-    cache[project.slug] = { fingerprint, profile, poster, source: relativeToRaw(source) };
+    const stem = `${project.key}-${master.sha1hash.slice(0, 12)}-${startSeconds.toFixed(2)}`;
+    const loopPath = join(LOOP_DIR, `${stem}.mp4`);
+    const posterPath = join(LOOP_DIR, `${stem}.jpg`);
 
-    const loopProbe = await ffprobe(target);
-    manifest.projects[project.slug] = {
-      src: `/videos/loops/${project.slug}.mp4`,
-      width: loopProbe.width,
-      height: loopProbe.height,
-      durationSeconds: Number(loopProbe.durationSeconds.toFixed(2)),
-      startSeconds: Number(startSeconds.toFixed(2)),
-      bytes: statSync(target).size,
-      poster,
-      // Provisoire des que le depart n'est pas celui de la cliente.
-      posterIsProvisional: !fromClient,
-    };
+    if (!existsSync(loopPath) || FORCE) {
+      const startedAt = Date.now();
+      process.stdout.write(`  boucle   extraction a ${startSeconds.toFixed(1)} s...`);
+      // -ss avant -i : positionnement par recherche, pas de decodage integral.
+      await run('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(startSeconds), '-i', source, ...encodeArgs(), loopPath]);
+      const size = statSync(loopPath).size;
+      console.log(
+        `\r  boucle   ${LOOP_SECONDS} s a partir de ${startSeconds.toFixed(1)} s` +
+          ` (${fromClient ? 'timecode cliente' : 'defaut technique, provisoire'})` +
+          ` · ${formatBytes(size)} · ${formatDuration((Date.now() - startedAt) / 1000)}   `
+      );
+      if (size > SIZE_BUDGET_BYTES) {
+        console.log(`  Au-dessus du budget de ${formatBytes(SIZE_BUDGET_BYTES)} : monter le CRF au-dela de ${LOOP_CRF} si c'est genant.`);
+      }
+      // Poster pris SUR LA BOUCLE : il est son image de depart, la transition
+      // vers la lecture est invisible. Sanity calcule dimensions et LQIP.
+      await run('ffmpeg', ['-y', '-loglevel', 'error', '-i', loopPath, '-frames:v', '1', '-q:v', '2', posterPath]);
+    } else {
+      console.log(`  boucle   deja extraite localement (${formatBytes(statSync(loopPath).size)})`);
+    }
 
-    console.log('');
+    const loopProbe = await ffprobe(loopPath);
+    const loopAssetId = await uploadAsset(client, 'file', loopPath, `${project.key}-loop.mp4`, 'video/mp4');
+    const posterAssetId = await uploadAsset(client, 'image', posterPath, `${project.key}-poster.jpg`, 'image/jpeg');
+    await client
+      .patch(project._id)
+      .set({
+        videoLoop: fileRef(loopAssetId),
+        videoPoster: imageRef(posterAssetId),
+        videoLoopMeta: {
+          width: loopProbe.width,
+          height: loopProbe.height,
+          durationSeconds: Number(loopProbe.durationSeconds.toFixed(2)),
+          startSeconds: Number(startSeconds.toFixed(2)),
+          sourceHash: master.sha1hash,
+        },
+      })
+      .commit();
+    console.log(`  document ${project._id} · videoLoop ${loopProbe.width}x${loopProbe.height} · videoPoster\n`);
   }
 
-  saveCache(cache);
-
-  let merged = manifest;
-  if (ONLY && existsSync(MANIFEST_PATH)) {
-    const previous = JSON.parse(readFileSync(MANIFEST_PATH, 'utf8'));
-    merged = {
-      generatedAt: manifest.generatedAt,
-      seconds: LOOP_SECONDS,
-      projects: { ...previous.projects, ...manifest.projects },
-    };
-  }
-
-  ensureDir(resolve(APP_ROOT, 'public', 'videos'));
-  writeFileSync(MANIFEST_PATH, `${JSON.stringify(merged, null, 2)}\n`);
-
-  const total = Object.values(merged.projects).reduce((sum, entry) => sum + entry.bytes, 0);
-  console.log(`Manifeste  public/videos/loops.json`);
-  console.log(`Total      ${formatBytes(total)} pour ${Object.keys(merged.projects).length} boucle(s)`);
-  console.log(`\nTermine en ${formatDuration((Date.now() - started) / 1000)}.\n`);
+  console.log(`Termine en ${formatDuration((Date.now() - started) / 1000)}.\n`);
 }
 
 main().catch((error) => {

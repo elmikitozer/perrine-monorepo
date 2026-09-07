@@ -40,6 +40,10 @@ const sans = Archivo({
   display: 'swap',
 });
 
+// Tout le site est statique, page 404 comprise : le pied de page lit Sanity en
+// `no-store` (content/projects.ts) et rendrait sinon chaque route dynamique.
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: {
     default: 'LD Productions',
