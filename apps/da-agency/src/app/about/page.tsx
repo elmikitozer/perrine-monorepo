@@ -76,7 +76,9 @@ export default function AboutPage() {
   const [standfirst, ...support] = lead.body;
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 pb-16 md:px-6 md:pb-24">
+    // Marge haute alignée sur les fiches projet : même distance entre la bande
+    // sombre de l'en-tête et le titre, sur toutes les pages (retour cliente, 07/09).
+    <div className="mx-auto w-full max-w-6xl px-4 pb-16 pt-8 md:px-6 md:pb-24 md:pt-12">
       <article>
         <section>
           <h1 className="max-w-[16ch] text-4xl font-medium leading-[1.06] tracking-tight md:text-6xl lg:text-7xl">

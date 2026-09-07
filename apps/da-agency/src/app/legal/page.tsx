@@ -21,7 +21,8 @@ export const metadata: Metadata = {
 
 export default function LegalPage() {
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 pb-16 md:px-6 md:pb-24">
+    // Marge haute alignée sur les fiches projet et la page about.
+    <div className="mx-auto w-full max-w-6xl px-4 pb-16 pt-8 md:px-6 md:pb-24 md:pt-12">
       <article className="max-w-[65ch]">
         <h1 className="text-3xl font-semibold tracking-tight md:text-5xl">{ui.footer.legal}</h1>
 
