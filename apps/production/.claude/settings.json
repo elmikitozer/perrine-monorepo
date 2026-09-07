@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /Users/mikayay/Documents/Pro/perrine log --oneline -15)",
+      "Bash(git -C /Users/mikayay/Documents/Pro/perrine status)",
+      "Bash(git -C /Users/mikayay/Documents/Pro/perrine branch -a)",
+      "Bash(ls /Users/mikayay/Documents/Pro/perrine /Users/mikayay/Documents/Pro/perrine/apps/production)",
+      "Read(//Users/mikayay/Documents/Pro/perrine/**)",
+      "Read(//Users/mikayay/Documents/Pro/anselmi/storyblok/**)"
+    ]
+  }
+}
