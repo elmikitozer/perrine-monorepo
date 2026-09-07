@@ -123,6 +123,16 @@ function ProjectGallery({ gallery }: { gallery: Image[] }) {
   );
 }
 
+/**
+ * Hiérarchie validée par la cliente (07/09), dans cet ordre :
+ *   1. titre — grand, capitales, gras ;
+ *   2. sous-titre — petit, capitales, gris : client, année, type ;
+ *   3. texte de présentation ;
+ *   4. crédits photographes.
+ * Les capitales du titre sont imposées par la classe et non laissées au
+ * contenu : le catalogue est en capitales aujourd'hui, un titre saisi en
+ * minuscules demain doit s'afficher pareil.
+ */
 function ProjectHeader({ project }: { project: Project }) {
   // Année et type sont toujours fournis ; le client manque sur six projets de
   // la v2, lieu et description partout. Un champ absent n'est pas rendu — pas
@@ -133,23 +143,23 @@ function ProjectHeader({ project }: { project: Project }) {
 
   return (
     <header className="mb-8 md:mb-12">
-      <h1 className="text-3xl font-semibold tracking-tight md:text-5xl">{project.title}</h1>
+      <h1 className="text-3xl font-bold uppercase tracking-tight md:text-5xl">{project.title}</h1>
       <p className="mt-3 text-sm uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
         {meta.join(' · ')}
       </p>
-      {/* Crédits photographes, en ligne discrète sous les métadonnées : un cran
-          plus petit et plus clair, pour ne pas concurrencer le client et l'année. */}
-      {project.credits && (
-        <p className="mt-2 text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500">
-          {ui.project.photoCredits} · {project.credits}
-        </p>
-      )}
       {project.location && (
         <p className="mt-2 text-neutral-600 dark:text-neutral-300">{project.location}</p>
       )}
       {project.description && (
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-700 dark:text-neutral-300">
           {project.description}
+        </p>
+      )}
+      {/* Crédits photographes en dernier, en ligne discrète : un cran plus
+          petit et plus clair que le sous-titre, pour ne pas le concurrencer. */}
+      {project.credits && (
+        <p className="mt-4 text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500">
+          {ui.project.photoCredits} · {project.credits}
         </p>
       )}
     </header>
@@ -161,11 +171,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   if (!project) notFound();
 
   return (
-    <article className="pb-12 md:pb-20">
+    <article className="pb-12 pt-8 md:pb-20 md:pt-12">
       {/*
         L'espacement vit sur le conteneur : un projet en film seul ne doit pas
         traîner la marge basse du lecteur, ni un projet en galerie seule celle
-        d'une section absente.
+        d'une section absente. La marge haute tient le titre à distance de la
+        bande sombre de l'en-tête (retour cliente, 07/09).
       */}
       <div className="mx-auto w-full max-w-6xl space-y-10 px-4 md:space-y-16 md:px-6">
         <ProjectHeader project={project} />

@@ -275,13 +275,14 @@ const CATALOGUE: CatalogueEntry[] = [
     credits: 'Pierre MOUTON and Adrien DIRAND',
   },
   {
-    // Tiret demi-cadratin (U+2013) dans le document, là où les nº 1 et 10 ont
-    // un trait d'union : les trois graphies sont distinctes dans la source.
+    // Le document écrit ce titre avec un tiret demi-cadratin (U+2013), là où
+    // les nº 1 et 10 ont un trait d'union. Uniformisé sur le trait d'union à la
+    // demande de la cliente (07/09) : seule entorse au verbatim, et validée.
     slug: 'dior-haute-joaillerie-diorexquis',
     assetKey: 'diorhj25',
     sourceFolder: '2-DIORHJ25',
     publicationNumber: 2,
-    title: 'DIOR HAUTE JOAILLERIE – DIOREXQUIS',
+    title: 'DIOR HAUTE JOAILLERIE - DIOREXQUIS',
     year: 2025,
     eventType: 'Gala dinner and show production',
     credits: 'Pierre MOUTON and Adrien DIRAND',
