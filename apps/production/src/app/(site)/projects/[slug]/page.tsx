@@ -24,7 +24,7 @@ async function waitForSkeletonPreview() {
 const getProject = cache(async (slug: string): Promise<Project | null> => {
   try {
     await waitForSkeletonPreview();
-    return await client.fetch(projectBySlugQuery, { slug });
+    return await client.fetch(projectBySlugQuery, { slug }, { cache: 'no-store' });
   } catch {
     return null;
   }

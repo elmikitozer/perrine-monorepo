@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic';
 
 async function getAboutData(): Promise<AboutPage | null> {
   try {
-    return await client.fetch(aboutQuery);
+    return await client.fetch(aboutQuery, {}, { cache: 'no-store' });
   } catch (error) {
     console.error('Error fetching about data:', error);
     return null;

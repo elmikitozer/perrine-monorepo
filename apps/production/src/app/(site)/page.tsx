@@ -20,7 +20,7 @@ async function waitForSkeletonPreview() {
 async function getProjects(): Promise<Project[]> {
   try {
     await waitForSkeletonPreview();
-    return await client.fetch(projectsQuery);
+    return await client.fetch(projectsQuery, {}, { cache: 'no-store' });
   } catch (error) {
     console.error('Error fetching projects:', error);
     return [];

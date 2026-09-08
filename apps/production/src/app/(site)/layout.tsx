@@ -9,7 +9,7 @@ import type { AboutPage } from '@/types/sanity';
 async function getPersonJsonLd() {
   let about: AboutPage | null = null;
   try {
-    about = await client.fetch(aboutQuery);
+    about = await client.fetch(aboutQuery, {}, { cache: 'no-store' });
   } catch (error) {
     console.error('Error fetching about data for structured data:', error);
   }
