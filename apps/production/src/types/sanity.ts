@@ -27,7 +27,6 @@ export interface Project {
   slug?: { current: string };
   image?: SanityImage;
   images?: SanityImage[];
-  order: number;
   client?: string;
   year?: number;
   role?: string;

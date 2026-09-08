@@ -1,5 +1,5 @@
 export const projectsQuery = `
-  *[_type == "project" && isVisible == true] | order(order asc) {
+  *[_type == "project" && isVisible == true] | order(orderRank asc) {
     _id,
     title,
     slug,
@@ -26,8 +26,7 @@ export const projectsQuery = `
       }
     },
     client,
-    year,
-    order
+    year
   }
 `;
 
@@ -55,6 +54,13 @@ export const projectBySlugQuery = `
         metadata { dimensions, lqip }
       }
     }
+  }
+`;
+
+export const sitemapProjectsQuery = `
+  *[_type == "project" && isVisible == true && defined(slug.current)] {
+    "slug": slug.current,
+    _updatedAt
   }
 `;
 
