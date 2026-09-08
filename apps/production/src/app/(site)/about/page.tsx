@@ -5,6 +5,8 @@ import { client } from '@/sanity/lib/client';
 import { aboutQuery } from '@/sanity/lib/queries';
 import type { AboutPage } from '@/types/sanity';
 
+export const dynamic = 'force-dynamic';
+
 async function getAboutData(): Promise<AboutPage | null> {
   try {
     return await client.fetch(aboutQuery);
