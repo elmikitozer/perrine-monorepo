@@ -34,18 +34,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = await getProject(params.slug);
 
   if (!project) {
-    return { title: 'Projet introuvable — PV Studio' };
+    return { title: 'Projet introuvable' };
   }
 
-  const title = `${project.title} — PV Studio`;
+  const title = project.title;
   const description =
     [project.role, project.client, project.year].filter(Boolean).join(' · ') ||
-    'Perrine Vaël-Roquere Studio — designer graphique événementiel';
+    'Coordination de défilé et direction artistique par Perrine Vaël-Roquère, PV Studio.';
 
   const cover = project.image ?? project.images?.[0];
   const ogImage = cover
     ? urlForImage(cover)?.width(1200).height(630).quality(80).fit('crop').auto('format').url()
     : null;
+
+  const socialTitle = `${title} — PV Studio`;
 
   return {
     title,
@@ -53,14 +55,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: `/projects/${project.slug?.current ?? params.slug}` },
     openGraph: {
       type: 'article',
-      title,
+      title: socialTitle,
       description,
       url: `/projects/${project.slug?.current ?? params.slug}`,
       images: ogImage ? [{ url: ogImage, width: 1200, height: 630, alt: project.title }] : undefined,
     },
     twitter: {
       card: 'summary_large_image',
-      title,
+      title: socialTitle,
       description,
       images: ogImage ? [ogImage] : undefined,
     },

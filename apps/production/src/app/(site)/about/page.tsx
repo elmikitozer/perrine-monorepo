@@ -1,4 +1,6 @@
+import type { Metadata } from 'next';
 import AboutContent from '@/components/about/AboutContent';
+import { siteDescription, siteName } from '@/lib/site';
 import { client } from '@/sanity/lib/client';
 import { aboutQuery } from '@/sanity/lib/queries';
 import type { AboutPage } from '@/types/sanity';
@@ -11,6 +13,13 @@ async function getAboutData(): Promise<AboutPage | null> {
     return null;
   }
 }
+
+export const metadata: Metadata = {
+  title: 'À propos',
+  description: siteDescription,
+  alternates: { canonical: '/about' },
+  openGraph: { title: `À propos — ${siteName}`, url: '/about' },
+};
 
 export default async function About() {
   const about = await getAboutData();
