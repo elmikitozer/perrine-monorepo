@@ -1,6 +1,6 @@
 # PV Studio (site de Perrine) — Récapitulatif avant call
 
-> État au 8 septembre 2026. Branche `direction-artistique`, app `apps/production`.
+> État au 8 septembre 2026. Branche `pv-studio`, app `apps/production`.
 
 ---
 
