@@ -177,7 +177,7 @@
 
   .group:hover .hover-veil__scrim,
   .group:focus-within .hover-veil__scrim {
-    opacity: 0.6;
+    opacity: 0.9;
     border-color: rgba(17, 24, 39, 0.16);
   }
 
