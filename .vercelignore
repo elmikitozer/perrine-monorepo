@@ -17,9 +17,13 @@ coverage
 apps/da-agency/raw
 apps/da-agency/media
 
-# Les autres apps du monorepo ne servent pas a construire da-agency.
+# Ce fichier est lu par TOUS les projets Vercel branches sur ce depot, pas
+# seulement da-agency : perrine-monorepo-production (Root Directory
+# apps/production) l'applique aussi. Exclure apps/production/public ici a
+# fait planter ses previews (opengraph-image.tsx lit
+# public/images/logo/og-logotype.png au build -> ENOENT). Ne jamais exclure
+# le public/ d'une app qui a son propre projet Vercel.
 apps/cocktails/public
-apps/production/public
 apps/production/brand-assets
 
 *.log
