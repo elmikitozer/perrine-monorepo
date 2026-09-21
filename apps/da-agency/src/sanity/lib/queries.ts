@@ -55,6 +55,8 @@ export const SITE_SETTINGS_QUERY = groq`
     portrait ${IMAGE_PROJECTION},
     linkedin,
     instagram,
+    email,
+    phone,
     legalNotice
   }
 `;
@@ -99,5 +101,7 @@ export type SanitySiteSettings = {
   portrait?: SanityImage;
   linkedin?: string;
   instagram?: string;
+  email?: string;
+  phone?: string;
   legalNotice?: string;
 } | null;

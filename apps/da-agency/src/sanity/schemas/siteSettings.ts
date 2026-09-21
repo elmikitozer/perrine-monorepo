@@ -21,7 +21,7 @@ export const siteSettings = defineType({
   type: 'document',
   groups: [
     { name: 'about', title: 'À propos', default: true },
-    { name: 'social', title: 'Réseaux' },
+    { name: 'social', title: 'Réseaux et contact' },
     { name: 'legal', title: 'Mentions légales' },
   ],
   fields: [
@@ -69,7 +69,7 @@ export const siteSettings = defineType({
       title: 'Portrait de l’agence',
       type: 'image',
       group: 'about',
-      description: 'Affiché en bas de la page À propos, en 3:2. Tant qu’il manque, la page réserve sa place.',
+      description: 'Affiché en bas de la page À propos. Tant qu’il manque, rien n’est affiché à sa place.',
       options: { hotspot: true, metadata: ['lqip', 'blurhash'] },
       fields: [
         defineField({
@@ -94,6 +94,24 @@ export const siteSettings = defineType({
       group: 'social',
       description: 'Adresse complète du compte. Ex : https://www.instagram.com/…',
       validation: (Rule) => Rule.uri({ scheme: ['https'] }),
+    }),
+    defineField({
+      name: 'email',
+      title: 'Adresse mail',
+      type: 'string',
+      group: 'social',
+      description: 'Affichée dans le pied de page et en bas de la page À propos, cliquable. Ex : info@ld.productions',
+      validation: (Rule) => Rule.email(),
+    }),
+    defineField({
+      name: 'phone',
+      title: 'Téléphone',
+      type: 'string',
+      group: 'social',
+      description:
+        'Au format international, affiché tel quel et cliquable sur téléphone. Ex : +33 6 12 34 56 78',
+      validation: (Rule) =>
+        Rule.regex(/^\+[\d\s().-]{6,}$/).error('Commencer par l’indicatif, ex : +33 6 12 34 56 78'),
     }),
     defineField({
       name: 'legalNotice',

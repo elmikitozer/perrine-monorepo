@@ -32,8 +32,8 @@ import { notFound } from 'next/navigation';
 
 import { getAbout, getAboutDescription } from '@content/about';
 import type { Image, ImageFormat } from '@content/projects';
-import { ui } from '@content/ui';
-import { PlaceholderFrame } from '@/components/PlaceholderFrame';
+import { getSiteContent } from '@content/site';
+import { ContactLinks } from '@/components/ContactLinks';
 
 // Statique malgré la lecture Sanity en `no-store` : voir content/projects.ts.
 export const dynamic = 'force-static';
@@ -79,6 +79,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function AboutPage() {
   const about = await getAbout();
+  const { contact } = await getSiteContent();
   // Sans texte saisi dans le studio, il n'y a pas de page à rendre : ni titre
   // inventé, ni page vide. reportMissingContent() signale le manque au build.
   if (about.sections.length === 0) notFound();
@@ -141,20 +142,31 @@ export default async function AboutPage() {
       </article>
 
       {/*
-        Portrait d'agence non fourni. On réserve la place plutôt que d'emprunter
-        une image de projet : ces photos appartiennent à des productions
-        clientes et ne représentent pas l'agence. Aligné sur la colonne de
-        texte, pour que son arrivée ne déplace pas l'axe de la page.
+        Contact, sous le texte et aligné sur sa colonne. Même règle que partout :
+        sans mail ni téléphone saisis dans le studio, le bloc n'existe pas.
       */}
-      <div className="mt-14 md:mt-20 lg:grid lg:grid-cols-12 lg:gap-x-12">
-        <div className="lg:col-span-8 lg:col-start-5">
-          {about.portrait ? (
-            <AgencyPortrait image={about.portrait} />
-          ) : (
-            <PlaceholderFrame label={ui.about.portraitPlaceholder} aspectRatio="3 / 2" />
-          )}
+      {(contact.email || contact.phone) && (
+        <div className="mt-14 border-t border-neutral-200 pt-8 dark:border-neutral-800 md:mt-20 md:pt-10 lg:grid lg:grid-cols-12 lg:gap-x-12">
+          <div className="flex flex-col items-start gap-2 text-lg leading-relaxed text-neutral-700 dark:text-neutral-300 lg:col-span-8 lg:col-start-5">
+            <ContactLinks
+              contact={contact}
+              className="transition-colors hover:text-neutral-900 dark:hover:text-white"
+            />
+          </div>
         </div>
-      </div>
+      )}
+
+      {/*
+        Portrait d'agence. Un champ absent n'est pas rendu : ni cadre, ni espace
+        réservé. Aligné sur la colonne de texte quand il existe.
+      */}
+      {about.portrait && (
+        <div className="mt-14 md:mt-20 lg:grid lg:grid-cols-12 lg:gap-x-12">
+          <div className="lg:col-span-8 lg:col-start-5">
+            <AgencyPortrait image={about.portrait} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

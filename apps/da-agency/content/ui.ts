@@ -27,10 +27,6 @@ export const ui = {
      */
     photoCredits: 'Photography',
   },
-  about: {
-    /** Emplacement réservé au portrait d'agence, non fourni à ce jour. */
-    portraitPlaceholder: 'Agency portrait',
-  },
   footer: {
     /** Emplacement réservé au logo, non fourni à ce jour. */
     logoPlaceholder: 'Logo',

@@ -361,6 +361,8 @@ export function collectMissingSiteContent(settings: SanitySiteSettings): string[
   if (!settings?.portrait?.asset) missing.push('about.portrait');
   if (!settings?.linkedin) missing.push('site.social.linkedin');
   if (!settings?.instagram) missing.push('site.social.instagram');
+  if (!settings?.email?.trim()) missing.push('site.contact.email');
+  if (!settings?.phone?.trim()) missing.push('site.contact.phone');
   if (!settings?.legalNotice?.trim()) missing.push('site.legalNotice');
   return missing;
 }

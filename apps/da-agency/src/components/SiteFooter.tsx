@@ -1,5 +1,5 @@
 /**
- * Pied de page — logo, comptes sociaux, mentions légales, année.
+ * Pied de page — logo, contact, comptes sociaux, mentions légales, année.
  *
  * Composant serveur : rien ici n'a besoin du navigateur, et le pied de page est
  * rendu sur toutes les pages. Y introduire du JavaScript coûterait un bundle
@@ -18,6 +18,10 @@
  * copyright sous le logo au lieu d'une troisième ligne, marges divisées par
  * deux. Le pied de page est une signature, pas une section.
  *
+ * Le contact (mail, téléphone) tient dans sa propre colonne à côté des réseaux,
+ * et passe au-dessus sur téléphone où deux colonnes ne tiennent pas. Le mail
+ * garde sa casse : une adresse en capitales se lit mal.
+ *
  * Un compte social sans URL n'est pas rendu du tout. Un libellé mort ou un lien
  * vers un compte deviné coûtent plus cher qu'une absence.
  */
@@ -26,6 +30,7 @@ import Link from 'next/link';
 
 import { copyrightYear, getSiteContent, site } from '@content/site';
 import { ui } from '@content/ui';
+import { ContactLinks } from './ContactLinks';
 import { PlaceholderFrame } from './PlaceholderFrame';
 
 /** Emplacement du logo : carré, 48 px. */
@@ -33,7 +38,9 @@ const LOGO_SLOT = 'h-12 w-12';
 
 export async function SiteFooter() {
   // Les comptes viennent du studio ; un compte sans URL n'est pas rendu.
-  const social = (await getSiteContent()).social.filter((account) => account.href);
+  const content = await getSiteContent();
+  const social = content.social.filter((account) => account.href);
+  const { contact } = content;
 
   return (
     <footer className="mt-16 border-t border-neutral-800 bg-neutral-900 px-3 py-6 text-neutral-400 md:mt-20 md:px-4 md:py-7">
@@ -60,25 +67,32 @@ export async function SiteFooter() {
           </p>
         </div>
 
-        <nav className="flex flex-col items-end gap-2 text-[11px] uppercase tracking-[0.24em]">
-          {social.map((account) => (
-            <a
-              key={account.label}
-              href={account.href}
-              target="_blank"
-              // noopener : la page ouverte ne doit pas garder la main sur
-              // celle-ci. noreferrer suit, ces comptes n'ont pas besoin de
-              // savoir d'où vient la visite.
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-white"
-            >
-              {account.label}
-            </a>
-          ))}
-          <Link href="/legal" className="transition-colors hover:text-white">
-            {ui.footer.legal}
-          </Link>
-        </nav>
+        <div className="flex flex-col items-end gap-4 text-[11px] tracking-[0.24em] md:flex-row md:gap-12">
+          {(contact.email || contact.phone) && (
+            <address className="flex flex-col items-end gap-2 not-italic tracking-[0.12em]">
+              <ContactLinks contact={contact} className="transition-colors hover:text-white" />
+            </address>
+          )}
+          <nav className="flex flex-col items-end gap-2 uppercase">
+            {social.map((account) => (
+              <a
+                key={account.label}
+                href={account.href}
+                target="_blank"
+                // noopener : la page ouverte ne doit pas garder la main sur
+                // celle-ci. noreferrer suit, ces comptes n'ont pas besoin de
+                // savoir d'où vient la visite.
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-white"
+              >
+                {account.label}
+              </a>
+            ))}
+            <Link href="/legal" className="transition-colors hover:text-white">
+              {ui.footer.legal}
+            </Link>
+          </nav>
+        </div>
       </div>
     </footer>
   );

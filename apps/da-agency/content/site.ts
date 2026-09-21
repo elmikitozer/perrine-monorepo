@@ -4,7 +4,7 @@
  *
  * Deux origines. Le logo et le nom légal vivent ici, dans le dépôt : le logo
  * est un fichier produit par scripts/build-logo.mjs, pas un contenu que la
- * cliente édite. Les comptes sociaux et les mentions légales viennent du
+ * cliente édite. Les comptes sociaux, le contact et les mentions légales viennent du
  * document `siteSettings` de Sanity, saisis dans le studio.
  *
  * Même règle qu'ailleurs — un champ que la cliente n'a pas fourni reste
@@ -74,9 +74,17 @@ export const site: Site = {
   legalName: 'LD Productions',
 };
 
+export type Contact = {
+  /** Adresse mail de l'agence. undefined = lien non rendu. */
+  email?: string;
+  /** Téléphone tel que la cliente l'a saisi, espaces compris : c'est la forme affichée. */
+  phone?: string;
+};
+
 export type SiteContent = {
   /** L'ordre du tableau est l'ordre d'affichage. */
   social: SocialAccount[];
+  contact: Contact;
   /** Corps des mentions légales, un élément par paragraphe. Vide tant que la cliente n'a rien saisi. */
   legalNotice: string[];
 };
@@ -89,6 +97,10 @@ export const getSiteContent = cache(async (): Promise<SiteContent> => {
       { label: 'LinkedIn', ...(settings?.linkedin ? { href: settings.linkedin } : {}) },
       { label: 'Instagram', ...(settings?.instagram ? { href: settings.instagram } : {}) },
     ],
+    contact: {
+      ...(settings?.email?.trim() ? { email: settings.email.trim() } : {}),
+      ...(settings?.phone?.trim() ? { phone: settings.phone.trim() } : {}),
+    },
     // Un paragraphe par ligne vide, comme le demande le champ du studio.
     legalNotice: (settings?.legalNotice ?? '')
       .split(/\n\s*\n/)
