@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Archivo, Bodoni_Moda } from 'next/font/google';
 import Link from 'next/link';
-import './globals.css';
+import '../globals.css';
 
 import { site } from '@content/site';
 import { SiteFooter } from '@/components/SiteFooter';

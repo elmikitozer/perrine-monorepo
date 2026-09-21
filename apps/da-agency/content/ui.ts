@@ -44,4 +44,8 @@ export const ui = {
      */
     pending: 'This page will carry the legal information of the company once published.',
   },
+  notFound: {
+    title: 'Page not found',
+    body: 'This page does not exist, or no longer does.',
+  },
 } as const;
