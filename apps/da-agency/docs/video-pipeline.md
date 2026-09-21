@@ -133,8 +133,9 @@ gh workflow run video-pipeline -f only=villa-dior   # un projet
 gh workflow run video-pipeline -f force=true        # tout refaire
 ```
 
-Un run à vide sort en moins d'une minute, installation comprise : les deux
-scripts décident sur le document Sanity seul, avant tout téléchargement.
+Un run à vide sort en moins d’une minute : un premier passage `--plan` des deux
+scripts décide sur les documents Sanity seuls ; sans travail, ni ffmpeg n’est installé
+ni master téléchargé.
 
 ## Dépannage
 

@@ -8,7 +8,7 @@
  */
 
 import { createHash } from 'node:crypto';
-import { createReadStream, createWriteStream, existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { appendFileSync, createReadStream, createWriteStream, existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { Readable } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
@@ -156,6 +156,15 @@ export async function setDerivatives(client, id, fields) {
   const transaction = client.transaction().patch(id, (patch) => patch.set(fields));
   if (await client.getDocument(draftId)) transaction.patch(draftId, (patch) => patch.set(fields));
   await transaction.commit();
+}
+
+/**
+ * `--plan` : dit ce qui serait refait, sans rien telecharger ni ecrire. Le
+ * workflow GitHub s'en sert pour n'installer ffmpeg que s'il y a du travail.
+ */
+export function reportPlan(pending) {
+  console.log(pending.length ? `A refaire : ${pending.join(', ')}\n` : 'Rien a refaire.\n');
+  if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `pending=${pending.length}\n`);
 }
 
 export function fileRef(assetId) {

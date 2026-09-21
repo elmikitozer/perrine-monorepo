@@ -5,6 +5,7 @@
  *   node scripts/transcode-video.mjs
  *   node scripts/transcode-video.mjs --only=bosideng
  *   node scripts/transcode-video.mjs --force
+ *   node scripts/transcode-video.mjs --plan              ce qui serait refait, sans rien faire
  *   node scripts/transcode-video.mjs --seed-from=raw-v2   masters deja sur le disque
  *
  * Pour chaque document project qui porte un master (videoMaster) :
@@ -32,6 +33,7 @@ import {
   ensureMaster,
   fetchFilmProjects,
   fileRef,
+  reportPlan,
   seedMastersFrom,
   setDerivatives,
   uploadAsset,
@@ -44,6 +46,7 @@ const PROXY_DIR = resolve(APP_ROOT, '.cache', 'proxies');
 const MAX_PROXY_HEIGHT = 1080;
 
 const FORCE = hasFlag('force');
+const PLAN = hasFlag('plan');
 const ONLY = getFlagValue('only');
 const SEED_FROM = getFlagValue('seed-from');
 
@@ -78,6 +81,7 @@ async function main() {
 
   if (SEED_FROM) await seedMastersFrom(resolve(APP_ROOT, SEED_FROM), projects.map((p) => p.master));
   ensureDir(PROXY_DIR);
+  const pending = [];
 
   for (const project of projects) {
     console.log(`${project.title}  ->  ${project.key}`);
@@ -87,6 +91,11 @@ async function main() {
       !FORCE && project.proxyAssetId && project.videoProxyMeta?.sourceHash === master.sha1hash;
     if (fresh) {
       console.log(`  proxy    a jour (empreinte ${master.sha1hash.slice(0, 12)}), on saute\n`);
+      continue;
+    }
+    if (PLAN) {
+      console.log('  proxy    a refaire\n');
+      pending.push(project.key);
       continue;
     }
 
@@ -123,6 +132,7 @@ async function main() {
     console.log(`  document ${project._id} · videoProxy ${proxyProbe.width}x${proxyProbe.height}\n`);
   }
 
+  if (PLAN) reportPlan(pending);
   console.log(`Termine en ${formatDuration((Date.now() - started) / 1000)}.\n`);
 }
 

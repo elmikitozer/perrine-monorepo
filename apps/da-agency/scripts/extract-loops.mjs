@@ -5,6 +5,7 @@
  *   node scripts/extract-loops.mjs
  *   node scripts/extract-loops.mjs --only=bosideng
  *   node scripts/extract-loops.mjs --force
+ *   node scripts/extract-loops.mjs --plan              ce qui serait refait, sans rien faire
  *   node scripts/extract-loops.mjs --seed-from=raw-v2   masters deja sur le disque
  *
  * Pour chaque document project qui porte un master :
@@ -35,6 +36,7 @@ import {
   fetchFilmProjects,
   fileRef,
   imageRef,
+  reportPlan,
   seedMastersFrom,
   setDerivatives,
   uploadAsset,
@@ -58,6 +60,7 @@ const DEFAULT_START_FRACTION = 0.15;
 const SIZE_BUDGET_BYTES = 2.5 * 1024 * 1024;
 
 const FORCE = hasFlag('force');
+const PLAN = hasFlag('plan');
 const ONLY = getFlagValue('only');
 const SEED_FROM = getFlagValue('seed-from');
 
@@ -124,6 +127,7 @@ async function main() {
 
   if (SEED_FROM) await seedMastersFrom(resolve(APP_ROOT, SEED_FROM), projects.map((p) => p.master));
   ensureDir(LOOP_DIR);
+  const pending = [];
 
   for (const project of projects) {
     console.log(`${project.title}  ->  ${project.key}`);
@@ -132,6 +136,11 @@ async function main() {
       console.log(
         `  boucle   a jour (depart ${project.videoLoopMeta.startSeconds} s, empreinte ${master.sha1hash.slice(0, 12)}), on saute\n`
       );
+      continue;
+    }
+    if (PLAN) {
+      console.log('  boucle   a refaire\n');
+      pending.push(project.key);
       continue;
     }
 
@@ -181,6 +190,7 @@ async function main() {
     console.log(`  document ${project._id} · videoLoop ${loopProbe.width}x${loopProbe.height} · videoPoster\n`);
   }
 
+  if (PLAN) reportPlan(pending);
   console.log(`Termine en ${formatDuration((Date.now() - started) / 1000)}.\n`);
 }
 
