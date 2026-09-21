@@ -1,17 +1,15 @@
 import type { MetadataRoute } from 'next';
 
+import { INDEXABLE, SITE_URL } from '@/config/site';
+
 /**
- * Le site n'est pas lancé : il ne doit pas être indexé.
- *
- * L'URL de preview est publique mais non devinable — c'est le choix retenu pour
- * l'envoi client. Le noindex évite qu'elle se retrouve dans un moteur de
- * recherche avant que Laetitia ait validé quoi que ce soit, y compris le fait
- * que les films soient publiables (question 16, toujours sans réponse).
- *
- * A RETIRER AU LANCEMENT, en même temps que `robots` dans layout.tsx.
+ * Le site est lancé : la production est ouverte aux moteurs et annonce son
+ * sitemap. Les previews restent fermées, voir src/config/site.ts.
  */
 export default function robots(): MetadataRoute.Robots {
+  if (!INDEXABLE) return { rules: { userAgent: '*', disallow: '/' } };
   return {
-    rules: { userAgent: '*', disallow: '/' },
+    rules: { userAgent: '*', allow: '/' },
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

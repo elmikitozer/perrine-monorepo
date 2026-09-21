@@ -5,6 +5,7 @@ import '../globals.css';
 
 import { site } from '@content/site';
 import { SiteFooter } from '@/components/SiteFooter';
+import { INDEXABLE, SITE_URL } from '@/config/site';
 import { HEADER_LOGO, SITE_THEME } from '@/config/theme';
 
 /**
@@ -45,6 +46,7 @@ const sans = Archivo({
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'LD Productions',
     template: '%s — LD Productions',
@@ -53,9 +55,9 @@ export const metadata: Metadata = {
   // n'est pas dans le dépôt. Une meta rédigée ici finirait dans les résultats
   // de recherche sans que personne ne l'ait validée.
   //
-  // Site non lancé : on interdit l'indexation. A RETIRER AU LANCEMENT,
-  // avec src/app/robots.ts.
-  robots: { index: false, follow: false },
+  // Site lancé : la production est indexable. Hors production (previews
+  // Vercel, build local) le noindex reste, voir src/config/site.ts.
+  ...(INDEXABLE ? {} : { robots: { index: false, follow: false } }),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
