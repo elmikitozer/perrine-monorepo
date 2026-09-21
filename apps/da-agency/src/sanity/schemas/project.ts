@@ -184,7 +184,7 @@ export const project = defineType({
       type: 'file',
       group: 'film',
       description:
-        'Le film en pleine qualité, tel que livré par le monteur. Il n’est jamais montré tel quel sur le site : il sert à fabriquer la boucle d’accueil et la version de lecture.',
+        'Le film en pleine qualité, tel que livré par le monteur. Il n’est jamais montré tel quel sur le site : il sert à fabriquer la boucle d’accueil et la version de lecture. Après l’envoi du fichier, la vidéo apparaît sur le site sous quelques minutes, le temps de la conversion.',
       options: { accept: 'video/*' },
     }),
     defineField({
