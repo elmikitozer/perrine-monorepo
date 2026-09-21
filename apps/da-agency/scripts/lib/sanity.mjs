@@ -143,6 +143,21 @@ export async function uploadAsset(client, kind, path, filename, contentType, log
   return asset._id;
 }
 
+/**
+ * Ecrit les derives dans le document publie ET dans son brouillon s'il existe.
+ *
+ * Depuis que la chaine tourne seule apres une publication, la cliente peut
+ * avoir rouvert la fiche entre-temps. Son brouillon est une copie complete du
+ * document : publie plus tard, il remettrait les anciens derives par-dessus
+ * les nouveaux, sans que rien ne relance la chaine.
+ */
+export async function setDerivatives(client, id, fields) {
+  const draftId = `drafts.${id}`;
+  const transaction = client.transaction().patch(id, (patch) => patch.set(fields));
+  if (await client.getDocument(draftId)) transaction.patch(draftId, (patch) => patch.set(fields));
+  await transaction.commit();
+}
+
 export function fileRef(assetId) {
   return { _type: 'file', asset: { _type: 'reference', _ref: assetId } };
 }

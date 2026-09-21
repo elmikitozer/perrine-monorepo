@@ -33,6 +33,7 @@ import {
   fetchFilmProjects,
   fileRef,
   seedMastersFrom,
+  setDerivatives,
   uploadAsset,
 } from './lib/sanity.mjs';
 import { ffprobe, run } from './lib/video.mjs';
@@ -110,18 +111,15 @@ async function main() {
 
     const proxyProbe = await ffprobe(proxyPath);
     const assetId = await uploadAsset(client, 'file', proxyPath, `${project.key}-proxy.mp4`, 'video/mp4');
-    await client
-      .patch(project._id)
-      .set({
-        videoProxy: fileRef(assetId),
-        videoProxyMeta: {
-          width: proxyProbe.width,
-          height: proxyProbe.height,
-          durationSeconds: Number(proxyProbe.durationSeconds.toFixed(2)),
-          sourceHash: master.sha1hash,
-        },
-      })
-      .commit();
+    await setDerivatives(client, project._id, {
+      videoProxy: fileRef(assetId),
+      videoProxyMeta: {
+        width: proxyProbe.width,
+        height: proxyProbe.height,
+        durationSeconds: Number(proxyProbe.durationSeconds.toFixed(2)),
+        sourceHash: master.sha1hash,
+      },
+    });
     console.log(`  document ${project._id} · videoProxy ${proxyProbe.width}x${proxyProbe.height}\n`);
   }
 

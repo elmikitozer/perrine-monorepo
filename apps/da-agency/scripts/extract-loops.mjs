@@ -19,6 +19,10 @@
  * Idempotent sur l'empreinte du master ET le timecode : si les deux sont
  * ceux de videoLoopMeta et que les assets existent, rien n'est refait.
  * Changer loopStart dans le studio relance l'extraction de ce projet.
+ *
+ * Le test se fait sur le document seul, AVANT tout telechargement : le
+ * script tourne aussi dans GitHub Actions (docs/video-pipeline.md), sur un
+ * runner sans cache, ou un run a vide ne doit pas rapatrier 1,7 Go de masters.
  */
 
 import { existsSync, statSync } from 'node:fs';
@@ -32,6 +36,7 @@ import {
   fileRef,
   imageRef,
   seedMastersFrom,
+  setDerivatives,
   uploadAsset,
 } from './lib/sanity.mjs';
 import { ffprobe, run } from './lib/video.mjs';
@@ -76,19 +81,39 @@ function encodeArgs() {
   ];
 }
 
-function startFor(project, probe) {
+function startFor(project, durationSeconds) {
   // On garde la fin de l'extrait dans le film, sinon ffmpeg sort plus court.
-  const latest = Math.max(0, probe.durationSeconds - LOOP_SECONDS);
+  const latest = Math.max(0, durationSeconds - LOOP_SECONDS);
   const wanted = project.loopStart;
   if (wanted !== undefined && wanted !== null) {
     if (wanted > latest) {
       throw new Error(
-        `${project.key} : loopStart ${wanted} s trop tard pour ${LOOP_SECONDS} s d'extrait sur ${probe.durationSeconds.toFixed(1)} s de film.`
+        `${project.key} : loopStart ${wanted} s trop tard pour ${LOOP_SECONDS} s d'extrait sur ${durationSeconds.toFixed(1)} s de film.`
       );
     }
     return { startSeconds: wanted, fromClient: true };
   }
-  return { startSeconds: Math.min(probe.durationSeconds * DEFAULT_START_FRACTION, latest), fromClient: false };
+  return { startSeconds: Math.min(durationSeconds * DEFAULT_START_FRACTION, latest), fromClient: false };
+}
+
+/**
+ * La boucle du document est-elle celle qu'on produirait ? Decide sans le
+ * master. Avec un timecode cliente, le depart attendu EST ce timecode. Sans,
+ * le defaut depend de la duree du film : on la lit sur le proxy, que le
+ * transcodage a mesuree juste avant. Proxy et master peuvent differer de
+ * quelques millisecondes, d'ou la tolerance.
+ */
+function isFresh(project) {
+  const meta = project.videoLoopMeta;
+  if (!project.loopAssetId || !project.posterAssetId) return false;
+  if (meta?.sourceHash !== project.master.sha1hash) return false;
+  const wanted = project.loopStart;
+  if (wanted !== undefined && wanted !== null) {
+    return Number(meta?.startSeconds) === Number(wanted.toFixed(2));
+  }
+  const duration = project.videoProxyMeta?.durationSeconds;
+  if (!duration) return false;
+  return Math.abs(Number(meta?.startSeconds) - startFor(project, duration).startSeconds) < 0.1;
 }
 
 async function main() {
@@ -103,21 +128,16 @@ async function main() {
   for (const project of projects) {
     console.log(`${project.title}  ->  ${project.key}`);
     const { master } = project;
-    const source = await ensureMaster(master);
-    const probe = await ffprobe(source);
-    const { startSeconds, fromClient } = startFor(project, probe);
-
-    const meta = project.videoLoopMeta;
-    const fresh =
-      !FORCE &&
-      project.loopAssetId &&
-      project.posterAssetId &&
-      meta?.sourceHash === master.sha1hash &&
-      Number(meta?.startSeconds) === Number(startSeconds.toFixed(2));
-    if (fresh) {
-      console.log(`  boucle   a jour (depart ${startSeconds} s, empreinte ${master.sha1hash.slice(0, 12)}), on saute\n`);
+    if (!FORCE && isFresh(project)) {
+      console.log(
+        `  boucle   a jour (depart ${project.videoLoopMeta.startSeconds} s, empreinte ${master.sha1hash.slice(0, 12)}), on saute\n`
+      );
       continue;
     }
+
+    const source = await ensureMaster(master);
+    const probe = await ffprobe(source);
+    const { startSeconds, fromClient } = startFor(project, probe.durationSeconds);
 
     const stem = `${project.key}-${master.sha1hash.slice(0, 12)}-${startSeconds.toFixed(2)}`;
     const loopPath = join(LOOP_DIR, `${stem}.mp4`);
@@ -147,20 +167,17 @@ async function main() {
     const loopProbe = await ffprobe(loopPath);
     const loopAssetId = await uploadAsset(client, 'file', loopPath, `${project.key}-loop.mp4`, 'video/mp4');
     const posterAssetId = await uploadAsset(client, 'image', posterPath, `${project.key}-poster.jpg`, 'image/jpeg');
-    await client
-      .patch(project._id)
-      .set({
-        videoLoop: fileRef(loopAssetId),
-        videoPoster: imageRef(posterAssetId),
-        videoLoopMeta: {
-          width: loopProbe.width,
-          height: loopProbe.height,
-          durationSeconds: Number(loopProbe.durationSeconds.toFixed(2)),
-          startSeconds: Number(startSeconds.toFixed(2)),
-          sourceHash: master.sha1hash,
-        },
-      })
-      .commit();
+    await setDerivatives(client, project._id, {
+      videoLoop: fileRef(loopAssetId),
+      videoPoster: imageRef(posterAssetId),
+      videoLoopMeta: {
+        width: loopProbe.width,
+        height: loopProbe.height,
+        durationSeconds: Number(loopProbe.durationSeconds.toFixed(2)),
+        startSeconds: Number(startSeconds.toFixed(2)),
+        sourceHash: master.sha1hash,
+      },
+    });
     console.log(`  document ${project._id} · videoLoop ${loopProbe.width}x${loopProbe.height} · videoPoster\n`);
   }
 
