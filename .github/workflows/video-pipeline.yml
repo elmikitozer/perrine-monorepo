@@ -1,0 +1,88 @@
+# Chaine video de LD Productions (apps/da-agency), sans operateur.
+#
+# La cliente envoie un film ou change « Debut de la boucle » dans le studio et
+# publie. Un webhook Sanity appelle repository_dispatch, ce workflow fabrique
+# la version de lecture, la boucle d'accueil et le poster, et les ecrit dans
+# Sanity. Cette ecriture declenche le webhook publish -> Vercel deja en place,
+# qui reconstruit le site. Mise en place : apps/da-agency/docs/video-pipeline.md
+#
+# Ce fichier doit vivre sur la branche par defaut : GitHub n'execute
+# repository_dispatch que depuis elle. Le code, lui, est extrait de la branche
+# du site (CODE_REF).
+
+name: video-pipeline
+
+on:
+  repository_dispatch:
+    types: [video-pipeline]
+  workflow_dispatch:
+    inputs:
+      only:
+        description: 'Un seul projet (cle du document sans « project- », ex. villa-dior). Vide = tous.'
+        required: false
+        default: ''
+      force:
+        description: 'Tout refaire meme si les derives sont a jour.'
+        type: boolean
+        default: false
+
+# Un seul run a la fois, sans annuler celui en cours : il est peut-etre au
+# milieu d'un upload. Les scripts traitent tous les projets a chaque passage,
+# donc le run en attente rattrape ce que les declenchements ecartes ont manque.
+concurrency:
+  group: video-pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  CODE_REF: direction-artistique
+
+jobs:
+  derivatives:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: apps/da-agency
+    env:
+      SANITY_API_WRITE_TOKEN: ${{ secrets.SANITY_API_WRITE_TOKEN }}
+      NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+      NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
+      NEXT_PUBLIC_SANITY_API_VERSION: ${{ secrets.NEXT_PUBLIC_SANITY_API_VERSION }}
+      # Les entrees passent par l'environnement, jamais interpolees dans le shell.
+      ONLY: ${{ inputs.only }}
+      FORCE: ${{ inputs.force }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.CODE_REF }}
+
+      # Version lue dans packageManager (package.json racine).
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      # Seulement l'app et ses dependances : le reste du monorepo ne sert pas ici.
+      - name: Dependances
+        run: pnpm install --frozen-lockfile --filter da-agency...
+
+      - name: ffmpeg
+        run: command -v ffmpeg >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+
+      - name: Arguments
+        run: |
+          args=()
+          if [ -n "$ONLY" ]; then args+=("--only=$ONLY"); fi
+          if [ "$FORCE" = "true" ]; then args+=("--force"); fi
+          echo "SCRIPT_ARGS=${args[*]}" >> "$GITHUB_ENV"
+
+      - name: Version de lecture (transcode-video.mjs)
+        run: node scripts/transcode-video.mjs $SCRIPT_ARGS
+
+      - name: Boucle et poster (extract-loops.mjs)
+        run: node scripts/extract-loops.mjs $SCRIPT_ARGS
