@@ -71,9 +71,6 @@ jobs:
       - name: Dependances
         run: pnpm install --frozen-lockfile --filter da-agency...
 
-      - name: ffmpeg
-        run: command -v ffmpeg >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
-
       - name: Arguments
         run: |
           args=()
@@ -81,8 +78,26 @@ jobs:
           if [ "$FORCE" = "true" ]; then args+=("--force"); fi
           echo "SCRIPT_ARGS=${args[*]}" >> "$GITHUB_ENV"
 
+      # Les scripts decident sur les documents Sanity seuls. Un run a vide
+      # s'arrete ici : ni ffmpeg a installer, ni master a telecharger.
+      - name: Plan
+        id: plan
+        run: |
+          node scripts/transcode-video.mjs --plan $SCRIPT_ARGS
+          node scripts/extract-loops.mjs --plan $SCRIPT_ARGS
+          # Deux lignes pending= dans GITHUB_OUTPUT, la derniere gagne : on les additionne.
+          total=$(awk -F= '$1 == "pending" { sum += $2 } END { print sum + 0 }' "$GITHUB_OUTPUT")
+          echo "work=$total" >> "$GITHUB_OUTPUT"
+
+      # Absent de l'image ubuntu-latest, contrairement a ce qu'on lit souvent.
+      - name: ffmpeg
+        if: steps.plan.outputs.work != '0'
+        run: command -v ffmpeg >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+
       - name: Version de lecture (transcode-video.mjs)
+        if: steps.plan.outputs.work != '0'
         run: node scripts/transcode-video.mjs $SCRIPT_ARGS
 
       - name: Boucle et poster (extract-loops.mjs)
+        if: steps.plan.outputs.work != '0'
         run: node scripts/extract-loops.mjs $SCRIPT_ARGS
