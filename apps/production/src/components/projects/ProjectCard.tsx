@@ -41,13 +41,14 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   };
 
   const caption = [project.client, project.year].filter(Boolean).join(' · ');
+  const alt = project.client ? `${project.client} — ${project.title}` : project.title;
 
   const inner = (
     <>
       {imageUrl ? (
         <Image
           src={imageUrl}
-          alt={project.title}
+          alt={alt}
           fill
           sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
           className="object-cover"

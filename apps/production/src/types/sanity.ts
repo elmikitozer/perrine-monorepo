@@ -46,4 +46,5 @@ export interface AboutPage {
   email?: string;
   instagram?: string;
   linkedin?: string;
+  clients?: string[];
 }

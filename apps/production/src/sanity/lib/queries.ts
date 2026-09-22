@@ -69,6 +69,10 @@ export const aboutQuery = `
     bio,
     email,
     instagram,
-    linkedin
+    linkedin,
+    "clients": select(
+      defined(clients) && count(clients) > 0 => clients,
+      array::unique(*[_type == "project" && isVisible == true && defined(client)] | order(client asc).client)
+    )
   }
 `;
