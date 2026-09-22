@@ -40,6 +40,16 @@ export default function AboutContent({ about }: AboutContentProps) {
         )}
       </section>
 
+      {/* Clients section */}
+      {about?.clients && about.clients.length > 0 && (
+        <section className="rise-in mb-20" style={{ animationDelay: '80ms' }}>
+          <p className="text-xs tracking-wider-custom uppercase text-gray-500 mb-2">
+            Selected clients
+          </p>
+          <p className="text-gray-700 leading-relaxed font-light">{about.clients.join(', ')}</p>
+        </section>
+      )}
+
       {/* Contact section */}
       <section className="rise-in" style={{ animationDelay: '140ms' }}>
         <h2 className="text-lg font-light tracking-wider-custom uppercase mb-10 text-gray-900">

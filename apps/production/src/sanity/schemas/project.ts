@@ -1,3 +1,4 @@
+import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-list';
 import { defineField, defineType } from 'sanity';
 
 export default defineType({
@@ -31,13 +32,9 @@ export default defineType({
       },
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      name: 'order',
-      title: "Ordre d'affichage",
-      type: 'number',
-      description: 'Plus petit nombre = affiché en premier',
-      validation: (Rule) => Rule.required().integer().min(0),
-    }),
+    // Ordre d'affichage : un rang géré par @sanity/orderable-document-list,
+    // que Perrine change en glissant les projets dans la liste du studio.
+    orderRankField({ type: 'project', newItemPosition: 'before' }),
     defineField({
       name: 'client',
       title: 'Client',
@@ -77,24 +74,11 @@ export default defineType({
       initialValue: true,
     }),
   ],
-  orderings: [
-    {
-      title: "Ordre d'affichage",
-      name: 'orderAsc',
-      by: [{ field: 'order', direction: 'asc' }],
-    },
-  ],
+  orderings: [orderRankOrdering],
   preview: {
     select: {
       title: 'title',
       media: 'image',
-      order: 'order',
-    },
-    prepare({ title, media, order }) {
-      return {
-        title: `${order}. ${title}`,
-        media,
-      };
     },
   },
 });

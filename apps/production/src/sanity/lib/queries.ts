@@ -1,5 +1,5 @@
 export const projectsQuery = `
-  *[_type == "project" && isVisible == true] | order(order asc) {
+  *[_type == "project" && isVisible == true] | order(orderRank asc) {
     _id,
     title,
     slug,
@@ -26,8 +26,7 @@ export const projectsQuery = `
       }
     },
     client,
-    year,
-    order
+    year
   }
 `;
 
@@ -58,11 +57,22 @@ export const projectBySlugQuery = `
   }
 `;
 
+export const sitemapProjectsQuery = `
+  *[_type == "project" && isVisible == true && defined(slug.current)] {
+    "slug": slug.current,
+    _updatedAt
+  }
+`;
+
 export const aboutQuery = `
   *[_type == "aboutPage"][0] {
     bio,
     email,
     instagram,
-    linkedin
+    linkedin,
+    "clients": select(
+      defined(clients) && count(clients) > 0 => clients,
+      array::unique(*[_type == "project" && isVisible == true && defined(client)] | order(client asc).client)
+    )
   }
 `;

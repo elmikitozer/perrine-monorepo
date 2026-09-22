@@ -3,6 +3,11 @@ import { client } from '@/sanity/lib/client';
 import { projectsQuery } from '@/sanity/lib/queries';
 import type { Project } from '@/types/sanity';
 
+// Sans ça, Next prérend cette page une seule fois au build : un Publish dans
+// Sanity (réordonner, changer un titre, une image...) n'apparaîtrait jamais
+// sur le site sans redéploiement manuel.
+export const dynamic = 'force-dynamic';
+
 const ENABLE_ARTIFICIAL_LOADING_DELAY = false;
 const ARTIFICIAL_LOADING_DELAY_MS = 1500;
 
@@ -15,7 +20,7 @@ async function waitForSkeletonPreview() {
 async function getProjects(): Promise<Project[]> {
   try {
     await waitForSkeletonPreview();
-    return await client.fetch(projectsQuery);
+    return await client.fetch(projectsQuery, {}, { cache: 'no-store' });
   } catch (error) {
     console.error('Error fetching projects:', error);
     return [];

@@ -27,7 +27,6 @@ export interface Project {
   slug?: { current: string };
   image?: SanityImage;
   images?: SanityImage[];
-  order: number;
   client?: string;
   year?: number;
   role?: string;
@@ -47,4 +46,5 @@ export interface AboutPage {
   email?: string;
   instagram?: string;
   linkedin?: string;
+  clients?: string[];
 }

@@ -13,6 +13,14 @@ export default defineType({
       description: 'Texte riche avec paragraphes',
     }),
     defineField({
+      name: 'clients',
+      title: "Clients (ordre d'affichage)",
+      type: 'array',
+      of: [{ type: 'string' }],
+      description:
+        "Affichés en une phrase sur la page À propos. Si vide, la liste est déduite automatiquement des clients des projets visibles, par ordre alphabétique.",
+    }),
+    defineField({
       name: 'email',
       title: 'Email de contact',
       type: 'string',
