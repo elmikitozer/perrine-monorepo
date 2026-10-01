@@ -32,6 +32,9 @@ export const ui = {
     logoPlaceholder: 'Logo',
     /** Intitulé de la page de mentions légales, et son lien au pied de page. */
     legal: 'Legal notice',
+    /** Idem pour /privacy et /terms. Le texte des pages vient de la cliente. */
+    privacy: 'Privacy policy',
+    terms: 'Terms of use',
   },
   legal: {
     /**

@@ -15,6 +15,7 @@ import type { Metadata } from 'next';
 
 import { getSiteContent } from '@content/site';
 import { ui } from '@content/ui';
+import { LEGAL_PARAGRAPH, LegalArticle } from '@/components/LegalArticle';
 
 // Statique malgré la lecture Sanity en `no-store` : voir content/projects.ts.
 export const dynamic = 'force-static';
@@ -27,25 +28,20 @@ export default async function LegalPage() {
   const site = await getSiteContent();
 
   return (
-    // Marge haute alignée sur les fiches projet et la page about.
-    <div className="mx-auto w-full max-w-6xl px-4 pb-16 pt-8 md:px-6 md:pb-24 md:pt-12">
-      <article className="max-w-[65ch]">
-        <h1 className="text-3xl font-semibold tracking-tight md:text-5xl">{ui.footer.legal}</h1>
-
-        <div className="mt-8 space-y-4 md:mt-10">
-          {site.legalNotice.length > 0 ? (
-            site.legalNotice.map((paragraph) => (
-              <p key={paragraph} className="text-lg leading-relaxed text-neutral-700 dark:text-neutral-300">
-                {paragraph}
-              </p>
-            ))
-          ) : (
-            <p className="text-lg leading-relaxed text-neutral-500 dark:text-neutral-400">
-              {ui.legal.pending}
+    <LegalArticle title={ui.footer.legal}>
+      <div className="space-y-4">
+        {site.legalNotice.length > 0 ? (
+          site.legalNotice.map((paragraph) => (
+            <p key={paragraph} className={LEGAL_PARAGRAPH}>
+              {paragraph}
             </p>
-          )}
-        </div>
-      </article>
-    </div>
+          ))
+        ) : (
+          <p className="text-lg leading-relaxed text-neutral-500 dark:text-neutral-400">
+            {ui.legal.pending}
+          </p>
+        )}
+      </div>
+    </LegalArticle>
   );
 }

@@ -11,6 +11,7 @@
  * reportMissingContent() le signale au build.
  */
 
+import { toPlainText, type PortableTextBlock } from 'next-sanity';
 import { cache } from 'react';
 
 import { client } from '../src/sanity/lib/client';
@@ -308,6 +309,14 @@ export const getSiteSettings = cache(async (): Promise<SanitySiteSettings> => {
   return client.fetch<SanitySiteSettings>(SITE_SETTINGS_QUERY, {}, SANITY_FETCH_OPTIONS);
 });
 
+/**
+ * Un champ Portable Text vidé dans le studio peut garder un bloc sans texte.
+ * Il compte comme vide : la page ne doit pas exister pour un paragraphe blanc.
+ */
+export function hasText(blocks: PortableTextBlock[] | undefined): blocks is PortableTextBlock[] {
+  return !!blocks && toPlainText(blocks).trim() !== '';
+}
+
 /** Conversion d'une image Sanity vers le modèle du site, pour le portrait de la page à propos. */
 export { toImage as sanityImageToImage };
 
@@ -353,7 +362,7 @@ export function collectMissingContent(projects: Project[]): MissingContent[] {
     .filter((entry) => entry.fields.length > 0 || entry.imagesWithoutAlt > 0);
 }
 
-/** Contenu manquant hors projets : portrait d'agence, comptes sociaux, mentions légales. */
+/** Contenu manquant hors projets : portrait d'agence, comptes sociaux, documents légaux. */
 export function collectMissingSiteContent(settings: SanitySiteSettings): string[] {
   const missing: string[] = [];
   if (!settings) missing.push('siteSettings (document absent)');
@@ -364,6 +373,8 @@ export function collectMissingSiteContent(settings: SanitySiteSettings): string[
   if (!settings?.email?.trim()) missing.push('site.contact.email');
   if (!settings?.phone?.trim()) missing.push('site.contact.phone');
   if (!settings?.legalNotice?.trim()) missing.push('site.legalNotice');
+  if (!hasText(settings?.privacyPolicy)) missing.push('site.privacyPolicy');
+  if (!hasText(settings?.termsOfUse)) missing.push('site.termsOfUse');
   return missing;
 }
 

@@ -11,7 +11,7 @@
  * modèle du site (Project, Image), inchangé par la migration.
  */
 
-import { groq } from 'next-sanity';
+import { groq, type PortableTextBlock } from 'next-sanity';
 
 /** Une image avec son asset résolu : dimensions et LQIP viennent des métadonnées Sanity. */
 const IMAGE_PROJECTION = groq`{
@@ -57,7 +57,9 @@ export const SITE_SETTINGS_QUERY = groq`
     instagram,
     email,
     phone,
-    legalNotice
+    legalNotice,
+    privacyPolicy,
+    termsOfUse
   }
 `;
 
@@ -104,4 +106,6 @@ export type SanitySiteSettings = {
   email?: string;
   phone?: string;
   legalNotice?: string;
+  privacyPolicy?: PortableTextBlock[];
+  termsOfUse?: PortableTextBlock[];
 } | null;

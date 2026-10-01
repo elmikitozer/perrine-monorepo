@@ -1,5 +1,5 @@
 /**
- * Pied de page — logo, contact, comptes sociaux, mentions légales, année.
+ * Pied de page — logo, contact, comptes sociaux, pages légales, année.
  *
  * Composant serveur : rien ici n'a besoin du navigateur, et le pied de page est
  * rendu sur toutes les pages. Y introduire du JavaScript coûterait un bundle
@@ -23,7 +23,10 @@
  * garde sa casse : une adresse en capitales se lit mal.
  *
  * Un compte social sans URL n'est pas rendu du tout. Un libellé mort ou un lien
- * vers un compte deviné coûtent plus cher qu'une absence.
+ * vers un compte deviné coûtent plus cher qu'une absence. Même règle pour la
+ * politique de confidentialité et les conditions d'utilisation : tant que la
+ * cliente ne les a pas collées dans le studio, leur page est en 404 et leur
+ * lien n'existe pas. Les mentions légales, elles, sont toujours liées.
  */
 
 import Link from 'next/link';
@@ -41,6 +44,11 @@ export async function SiteFooter() {
   const content = await getSiteContent();
   const social = content.social.filter((account) => account.href);
   const { contact } = content;
+  const legalLinks = [
+    { href: '/legal', label: ui.footer.legal, shown: true },
+    { href: '/privacy', label: ui.footer.privacy, shown: !!content.privacyPolicy },
+    { href: '/terms', label: ui.footer.terms, shown: !!content.termsOfUse },
+  ].filter((link) => link.shown);
 
   return (
     <footer className="mt-16 border-t border-neutral-800 bg-neutral-900 px-3 py-6 text-neutral-400 md:mt-20 md:px-4 md:py-7">
@@ -88,9 +96,11 @@ export async function SiteFooter() {
                 {account.label}
               </a>
             ))}
-            <Link href="/legal" className="transition-colors hover:text-white">
-              {ui.footer.legal}
-            </Link>
+            {legalLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="transition-colors hover:text-white">
+                {link.label}
+              </Link>
+            ))}
           </nav>
         </div>
       </div>

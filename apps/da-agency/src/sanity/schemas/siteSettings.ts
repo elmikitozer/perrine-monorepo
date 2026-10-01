@@ -11,9 +11,60 @@
  * avec un intertitre et des paragraphes. Le premier intertitre est le titre de
  * la page (h1), les suivants sont des h2. Trois sections aujourd'hui ; la page
  * en accepte moins, pas plus.
+ *
+ * Politique de confidentialité et conditions d'utilisation sont en Portable
+ * Text : ce sont des documents que la cliente colle depuis un traitement de
+ * texte, avec leurs titres, leurs listes et leurs liens. L'éditeur n'offre que
+ * ce que les pages savent rendre — deux niveaux de titre (le h1 est le titre
+ * de la page), le gras, les listes, les liens.
  */
 
 import { defineArrayMember, defineField, defineType } from 'sanity';
+
+/** Champ d'un document légal collé par la cliente, rendu sur sa propre page. */
+function legalDocumentField(name: string, title: string, path: string) {
+  return defineField({
+    name,
+    title,
+    type: 'array',
+    group: 'legal',
+    description: `Rendu tel quel sur la page ${path}, liée depuis le pied de page. Tant que ce champ est vide, la page n'existe pas et son lien n'est pas affiché.`,
+    of: [
+      defineArrayMember({
+        type: 'block',
+        styles: [
+          { title: 'Paragraphe', value: 'normal' },
+          { title: 'Titre', value: 'h2' },
+          { title: 'Sous-titre', value: 'h3' },
+        ],
+        lists: [
+          { title: 'Puces', value: 'bullet' },
+          { title: 'Numéros', value: 'number' },
+        ],
+        marks: {
+          decorators: [{ title: 'Gras', value: 'strong' }],
+          annotations: [
+            defineArrayMember({
+              name: 'link',
+              title: 'Lien',
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'href',
+                  title: 'Adresse',
+                  type: 'url',
+                  description: 'Ex : https://www.cnil.fr, mailto:info@ld.productions',
+                  validation: (Rule) =>
+                    Rule.required().uri({ scheme: ['https', 'http', 'mailto', 'tel'] }),
+                }),
+              ],
+            }),
+          ],
+        },
+      }),
+    ],
+  });
+}
 
 export const siteSettings = defineType({
   name: 'siteSettings',
@@ -122,6 +173,8 @@ export const siteSettings = defineType({
       description:
         'Nom de la structure, numéro d’entreprise, adresse, hébergeur. Un paragraphe par ligne vide. Tant que ce champ est vide, la page /legal affiche une ligne d’attente.',
     }),
+    legalDocumentField('privacyPolicy', 'Politique de confidentialité', '/privacy'),
+    legalDocumentField('termsOfUse', 'Conditions d’utilisation', '/terms'),
   ],
   preview: {
     prepare() {

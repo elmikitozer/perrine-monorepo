@@ -1,6 +1,6 @@
 /**
  * Identité du site hors projets : pied de page, comptes sociaux, mentions
- * légales.
+ * légales, politique de confidentialité, conditions d'utilisation.
  *
  * Deux origines. Le logo et le nom légal vivent ici, dans le dépôt : le logo
  * est un fichier produit par scripts/build-logo.mjs, pas un contenu que la
@@ -13,9 +13,10 @@
  * inventée engage la structure. reportMissingContent() les signale au build.
  */
 
+import type { PortableTextBlock } from 'next-sanity';
 import { cache } from 'react';
 
-import { getSiteSettings } from './projects';
+import { getSiteSettings, hasText } from './projects';
 
 /**
  * Logo fourni par la cliente, servi depuis public/brand/ par
@@ -87,6 +88,10 @@ export type SiteContent = {
   contact: Contact;
   /** Corps des mentions légales, un élément par paragraphe. Vide tant que la cliente n'a rien saisi. */
   legalNotice: string[];
+  /** Politique de confidentialité, verbatim. undefined = page /privacy en 404, lien non rendu. */
+  privacyPolicy?: PortableTextBlock[];
+  /** Conditions d'utilisation, verbatim. undefined = page /terms en 404, lien non rendu. */
+  termsOfUse?: PortableTextBlock[];
 };
 
 /** Ce qui vient du studio. */
@@ -106,6 +111,8 @@ export const getSiteContent = cache(async (): Promise<SiteContent> => {
       .split(/\n\s*\n/)
       .map((paragraph) => paragraph.trim())
       .filter((paragraph) => paragraph !== ''),
+    ...(hasText(settings?.privacyPolicy) ? { privacyPolicy: settings.privacyPolicy } : {}),
+    ...(hasText(settings?.termsOfUse) ? { termsOfUse: settings.termsOfUse } : {}),
   };
 });
 
