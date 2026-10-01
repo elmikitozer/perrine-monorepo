@@ -16,6 +16,9 @@
  * et son garde-fou reduced-motion.
  */
 
+import type { Metadata } from 'next';
+
+import { getAboutDescription } from '@content/about';
 import { getProjects } from '@content/projects';
 import { ProjectTile } from '@/components/ProjectTile';
 
@@ -23,6 +26,16 @@ import { ProjectTile } from '@/components/ProjectTile';
 // requête part au build, la page est figée. Sans cette ligne, Next rendrait
 // la page à chaque visite.
 export const dynamic = 'force-static';
+
+/**
+ * Description de l'accueil, et donc du lien partagé vers le site : la même
+ * première phrase de la cliente que la page about. Absente tant qu'elle n'est
+ * pas saisie. Les messageries la lisent faute d'og:description.
+ */
+export async function generateMetadata(): Promise<Metadata> {
+  const description = await getAboutDescription();
+  return description ? { description } : {};
+}
 
 /** Tuiles chargées sans différé : la première rangée desktop. */
 const EAGER_TILES = 3;

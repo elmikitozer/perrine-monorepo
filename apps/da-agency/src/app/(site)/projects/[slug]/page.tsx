@@ -24,6 +24,8 @@ import type { CSSProperties } from 'react';
 import { getProject, getProjects, type Image, type ImageFormat, type Project } from '@content/projects';
 import { ui } from '@content/ui';
 import { ProjectVideo } from '@/components/ProjectVideo';
+import { OPEN_GRAPH_BASE } from '@/config/site';
+import { SHARE_IMAGE_SIZE, shareImageUrl } from '@/sanity/lib/image';
 
 // Tous les projets visibles du studio sont générés au build. Un slug inconnu
 // renvoie 404 plutôt que d'être rendu à la demande.
@@ -40,7 +42,20 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   // Le nom du site est ajouté par le template défini dans layout.tsx.
   // Pas de description : le client ne l'a pas fournie et une meta inventée se
   // retrouverait dans les résultats de recherche.
-  return { title: project.title };
+  //
+  // Aperçu de lien : le visuel du projet, celui de sa tuile à l'accueil, à la
+  // place de la carte au logo. Sans visuel, la carte au logo reste.
+  if (!project.cover) return { title: project.title };
+  const image = {
+    url: shareImageUrl(project.cover.id),
+    ...SHARE_IMAGE_SIZE,
+    alt: project.cover.alt,
+  };
+  return {
+    title: project.title,
+    openGraph: { ...OPEN_GRAPH_BASE, images: [image] },
+    twitter: { card: 'summary_large_image', images: [image] },
+  };
 }
 
 /**

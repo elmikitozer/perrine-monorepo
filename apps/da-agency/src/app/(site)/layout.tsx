@@ -5,7 +5,7 @@ import '../globals.css';
 
 import { site } from '@content/site';
 import { SiteFooter } from '@/components/SiteFooter';
-import { INDEXABLE, SITE_URL } from '@/config/site';
+import { INDEXABLE, OPEN_GRAPH_BASE, SITE_NAME, SITE_URL } from '@/config/site';
 import { HEADER_LOGO, SITE_THEME } from '@/config/theme';
 
 /**
@@ -48,12 +48,18 @@ export const dynamic = 'force-static';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'LD Productions',
-    template: '%s — LD Productions',
+    default: SITE_NAME,
+    template: `%s — ${SITE_NAME}`,
   },
-  // Pas de `description` : le texte de présentation existe côté client mais
-  // n'est pas dans le dépôt. Une meta rédigée ici finirait dans les résultats
-  // de recherche sans que personne ne l'ait validée.
+  // Pas de `description` commune : une meta rédigée ici finirait dans les
+  // résultats de recherche sans que personne ne l'ait validée. L'accueil et la
+  // page about reprennent la première phrase du texte de la cliente.
+  //
+  // Aperçu de lien (WhatsApp, iMessage, Facebook, LinkedIn…) : l'image est
+  // opengraph-image.png, à côté de ce fichier, et le favicon icon.png à la
+  // racine de app/ — tous deux produits par scripts/build-icons.mjs.
+  openGraph: OPEN_GRAPH_BASE,
+  twitter: { card: 'summary_large_image' },
   //
   // Site lancé : la production est indexable. Hors production (previews
   // Vercel, build local) le noindex reste, voir src/config/site.ts.
